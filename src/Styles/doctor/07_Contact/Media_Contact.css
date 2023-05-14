@@ -1,0 +1,15 @@
+@media(max-width:991px){
+    .contact{
+        padding: 50px;
+    }
+    .containercon{
+        flex-direction: column;
+    }
+    .containercon.contactInfo{
+        margin-bottom: 40px;
+    }
+    .containercon.contactInfo
+    {
+        width: 100%;
+    }
+}
