@@ -3,6 +3,7 @@ import './App.css'
 import Navbar from './components/doctor/01_Navbar/Navbar'
 import Home from './components/doctor/02_Home/Home'
 import Research from './components/doctor/03_Research/Research'
+import Publication from './components/doctor/04_Publication/Publication'
 
 function App() {
   const navbarList = [
@@ -19,6 +20,7 @@ function App() {
         <Route exact path='/form' element={<Form />}/>
         <Route exact path="/" element={<Home />}/>
         <Route exact path="/Research" element={<Research />} />
+        <Route exact path='/Publication' element={<Publication />}/>
       </Routes>
     </BrowserRouter>
       

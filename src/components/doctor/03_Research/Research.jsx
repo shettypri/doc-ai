@@ -37,10 +37,8 @@ const Research = () => {
                                                             <img src={image1} height="350px" className="d-block w-100 rounded-4" alt="..." />
                                                         </div>
                                                         <div className="carousel-item ">
-
                                                             <img src={image2} height="350px" className="d-block w-100 rounded-4" alt="..." />
                                                         </div>
-
                                                     </div>
                                                     <div className="card-img-overlay bg-transparent container-text">
                                                         {

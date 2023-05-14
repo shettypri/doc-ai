@@ -15,7 +15,7 @@ body {
     color: white;
 }
 .row-cols-md-2 {
-    border: 3px solid gold;
+    /* border: 3px solid gold; */
 }
 
 .col-sm-6{
@@ -46,13 +46,13 @@ button {
 .container-button{
     /* background-color: transparent; */
     border: none;
-    padding: 20px;
+    /* padding: 20px; */
 }
 
 .container-button i{
     color: rgb(227, 7, 7);
-    width: 25px;
-    height: 45px;
+    padding: 13px;
+    margin: 10px;
 }
 
 .carousel-item {
