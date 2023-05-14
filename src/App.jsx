@@ -1,8 +1,7 @@
 import { BrowserRouter, Form, Route, Routes,  } from 'react-router-dom'
 import './App.css'
-// import 'bootstrap/dist/css/bootstrap.css'
-// import Dashboard from './components/admin/Dashboard'
-import Navbar from './components/doctor/Navbar/Navbar'
+import Navbar from './components/doctor/01_Navbar/Navbar'
+import Home from './components/doctor/02_Home/Home'
 
 function App() {
   return (
@@ -14,6 +13,7 @@ function App() {
       </div>
       <Routes>
         <Route exact path='/form' element={<Form />}/>
+        <Route exact path="/" element={<Home />}/>
       </Routes>
     </BrowserRouter>
       

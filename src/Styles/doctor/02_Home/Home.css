@@ -1,0 +1,35 @@
+@import url("./Media_Home.css");
+@import url("./Home_Buttons.css");
+
+.contenthm {
+    padding-top: 150px;
+    position: relative;
+}
+
+.card {
+    padding-top: 50px;
+}
+
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+    float: right;
+}
+
+.video-background video {
+    min-width: 100%;
+    min-height: 100%;
+    float: right;
+    width: 52%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}

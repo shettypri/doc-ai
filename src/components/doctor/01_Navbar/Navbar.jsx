@@ -2,15 +2,11 @@
 import "../../../Styles/doctor/Navbar.css"
 import navbarImage from "../../../assets/Doctor/Images/pexels-drew-rae-580679.jpg"
 import { Link } from 'react-router-dom'
-import 'bootstrap/dist/css/bootstrap.css';
+// import 'bootstrap/dist/css/bootstrap.css';
 
 const Navbar = () => {
-    const navbarList=[
-        "Research",
-        "Publication",
-        "Projects",
-        "About-Us",
-        "Contact-Us"
+    const navbarList = [
+        "Research", "Publication", "Projects", "About-Us", "Contact-Us"
     ]
     return (
         <>
@@ -24,10 +20,10 @@ const Navbar = () => {
                     <ul className="nav-links">
                         <div className="d-flex flex-row">
                             {
-                                navbarList.map((listValue,index)=>{
-                                    return(
+                                navbarList.map((listValue, index) => {
+                                    return (
                                         <li className="p-2" key={index}>
-                                            <Link to="/research">{listValue}</Link>
+                                            <Link to={listValue}>{listValue}</Link>
                                         </li>
                                     )
                                 })
