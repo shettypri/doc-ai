@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 const Navbar = () => {
     const navbarList = [
-        "Research", "Publication", "Projects", "About-Us", "Contact-Us"
+        "Research", "Publication", "Projects", "About-Us", "Contact-Us","login"
     ]
     return (
         <>
