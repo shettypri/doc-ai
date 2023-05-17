@@ -7,10 +7,11 @@ import Publication from './components/doctor/04_Publication/Publication'
 import Contact from './components/doctor/07_Contact/Contact'
 import Login from './components/Login/Login'
 import Dashboard from './Styles/admin/Dashboard/Dashboard'
+import Account from './components/admin/Account/Account'
 
 function App() {
   const navbarList = [
-    "Research", "Publication", "Projects", "About-Us", "Contact-Us"
+    "Research", "Publication", "Projects", "About-Us", "Contact-Us",
 ]
   return (
     <>
@@ -27,7 +28,8 @@ function App() {
         <Route exact path='/Contact-Us' element={<Contact />} />
         <Route exact path='/login' element={<Login />} />
         <Route exact path='/Dashboard' element={<Dashboard />} />
-        
+        <Route exact path='/Account'element={<Account/>}/>
+       
         {/* <Route exact path='/' */}
       </Routes>
     </BrowserRouter>
