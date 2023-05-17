@@ -27,6 +27,7 @@ function App() {
         <Route exact path='/Contact-Us' element={<Contact />} />
         <Route exact path='/login' element={<Login />} />
         <Route exact path='/Dashboard' element={<Dashboard />} />
+        
         {/* <Route exact path='/' */}
       </Routes>
     </BrowserRouter>
