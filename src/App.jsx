@@ -11,7 +11,7 @@ import Account from './components/admin/Account/Account'
 
 function App() {
   const navbarList = [
-    "Research", "Publication", "Projects", "About-Us", "Contact-Us",
+    "Research", "Publication", "Projects", "About-Us", "Contact-Us"
 ]
   return (
     <>
