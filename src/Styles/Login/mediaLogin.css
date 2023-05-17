@@ -1,3 +1,6 @@
 @media screen and (max-width: 500px){
-    
+    .center{
+        border: 2px solid red;
+        width: 70% !important;
+    }
 }

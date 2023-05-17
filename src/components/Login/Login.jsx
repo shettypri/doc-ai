@@ -14,8 +14,6 @@ const Login = () => {
         console.log(credentials);
     }
   return (
-        
-
     <>
     <div className="center">
         <p>Login</p>

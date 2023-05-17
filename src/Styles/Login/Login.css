@@ -71,6 +71,7 @@ form .txt_field{
 .txt_field input:valid ~ span::before{
     width: 100%;
 }
+
 .pass{
     margin: -5px 0 20px 5px;
     color: #a6a6a6;
@@ -79,7 +80,6 @@ form .txt_field{
 .pass:hover{
     text-decoration: underline;  
 }
-/* input[type="submit"] */
 
 button{
     width: 100%;
@@ -93,6 +93,7 @@ button{
     cursor: pointer;
     outline: none;
 }
+
 button:hover{
     border-color: #2691d9;
     transition: .5s;
