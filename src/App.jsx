@@ -1,4 +1,4 @@
-import { BrowserRouter, Form, Route, Routes,  } from 'react-router-dom'
+import { BrowserRouter, Form, Route, Routes, } from 'react-router-dom'
 import './App.css'
 import Navbar from './components/doctor/01_Navbar/Navbar'
 import Home from './components/doctor/02_Home/Home'
@@ -12,7 +12,7 @@ import Dashboard from './components/admin/Dashboard'
 function App() {
   const navbarList = [
     "Research", "Publication", "Projects", "About-Us", "Contact-Us"
-]
+  ]
   return (
     <>
 
