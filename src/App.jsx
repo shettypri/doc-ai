@@ -1,4 +1,4 @@
-import { BrowserRouter, Form, Route, Routes,  } from 'react-router-dom'
+import { BrowserRouter, Form, Route, Routes, } from 'react-router-dom'
 import './App.css'
 import Navbar from './components/doctor/01_Navbar/Navbar'
 import Home from './components/doctor/02_Home/Home'
@@ -12,29 +12,29 @@ import Account from './components/admin/Account/Account'
 function App() {
   const navbarList = [
     "Research", "Publication", "Projects", "About-Us", "Contact-Us"
-]
+  ]
   return (
     <>
 
-    <BrowserRouter>
-      <div>
-      <Navbar/>
-      </div>
-      <Routes>
-        <Route exact path='/form' element={<Form />}/>
-        <Route exact path="/" element={<Home />}/>
-        <Route exact path="/Research" element={<Research />} />
-        <Route exact path='/Publication' element={<Publication />}/>
-        <Route exact path='/Contact-Us' element={<Contact />} />
-        <Route exact path='/login' element={<Login />} />
-        <Route exact path='/Dashboard' element={<Dashboard />} />
-        <Route exact path='/Account'element={<Account/>}/>
-       
-        {/* <Route exact path='/' */}
-      </Routes>
-    </BrowserRouter>
-      
-      
+      <BrowserRouter>
+        <div>
+          <Navbar />
+        </div>
+        <Routes>
+          <Route exact path='/form' element={<Form />} />
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/Research" element={<Research />} />
+          <Route exact path='/Publication' element={<Publication />} />
+          <Route exact path='/Contact-Us' element={<Contact />} />
+          <Route exact path='/login' element={<Login />} />
+          <Route exact path='/Dashboard' element={<Dashboard />} />
+          <Route exact path='/Account' element={<Account />} />
+
+          {/* <Route exact path='/' */}
+        </Routes>
+      </BrowserRouter>
+
+
     </>
   )
 }
