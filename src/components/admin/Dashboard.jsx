@@ -1,13 +1,24 @@
-// import React from 'react'
-import publication from '../../assets/Admin/Dash-board/publication.jpg'
-
-
+import React from 'react'
+import "../../Styles/admin/Dashboard/Dashboard.css"
+import { Link } from 'react-router-dom'
 
 const Dashboard = () => {
+
   return (
-    <p>
-    <img src={publication} height={75} width={75}/>
-    </p>
+    <>
+      <div className="dash-board">
+        <div className="card">
+          
+        </div>
+        <div className="card">
+
+        </div>
+        <div className="card">
+
+        </div>
+      </div>
+
+    </>
   )
 }
 

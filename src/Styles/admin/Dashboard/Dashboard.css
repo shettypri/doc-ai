@@ -1,0 +1,17 @@
+.dash-board{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    border: 3px solid red;
+    width: 100% ;
+    height: auto;
+    margin-top: 80px;
+}
+.card{
+  width: 250px;
+  height: 250px;
+  border: 3px solid greenyellow;
+  background-color: transparent;
+  border-radius: 25px;
+}

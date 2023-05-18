@@ -1,21 +1,52 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import "../Account/Account.css"
 
 const Account = () => {
+    const Accountslist = [
+        {"name":"name","designation":"designation"},
+        {"name":"role","designation":"salary"},
+        {"name":"job","designation":"shift"},
+        {"name":"time","designation":"shift"}
+    ]
+
+
   return (
     <>
-    <div className="main-dashboard">
-        <div className="card1">
-            <Link className='publications' to={"/src/components/admin/Form/Form.jsx"}></Link>
+ 
+            <table>
+                <tr>
+                    <td>
+                        name
+                    </td>
+                    <td>
+                        designation
+                    </td>
+                </tr>
+                <div className="tablelist">{
+                     Accountslist.map((val,index) => {
+                        return(
+                        <tr>
+                            <td>
 
-        </div>
-        <div className="card2">
-        <Link className='research' to={"/src/components/admin/Form/Form.jsx"}></Link>
-        </div>
-        <div className="card3">
+                            </td>
+                            <td>
 
-        </div>
-    </div>
+                            </td>
+                        </tr>
+                          
+    
+                        )
+    
+                    })
+                }
+               
+                </div>
+                
+            </table>
+        
+    
+    
     </>
   )
 }

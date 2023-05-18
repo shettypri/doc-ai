@@ -6,8 +6,8 @@ import Research from './components/doctor/03_Research/Research'
 import Publication from './components/doctor/04_Publication/Publication'
 import Contact from './components/doctor/07_Contact/Contact'
 import Login from './components/Login/Login'
-import Dashboard from './Styles/admin/Dashboard/Dashboard'
 import Account from './components/admin/Account/Account'
+import Dashboard from './components/admin/Dashboard'
 
 function App() {
   const navbarList = [
@@ -28,7 +28,13 @@ function App() {
         <Route exact path='/Contact-Us' element={<Contact />} />
         <Route exact path='/login' element={<Login />} />
         <Route exact path='/Dashboard' element={<Dashboard />} />
-        <Route exact path='/Account'element={<Account/>}/>
+        <Route exact path='/Account'  element={<Account/>}/>
+
+        
+        {/* <Route exact path='/publisher'  element={<publisher/>}/>
+        <Route exact path='/researcher'  element={<researcher/>}/> */}
+
+
        
         {/* <Route exact path='/' */}
       </Routes>
