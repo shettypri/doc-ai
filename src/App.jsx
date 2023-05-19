@@ -37,7 +37,7 @@ function App() {
         <Route exact path='/researcher'  element={<researcher/>}/> */}
 
 
-       
+    
         {/* <Route exact path='/' */}
       </Routes>
     </BrowserRouter>

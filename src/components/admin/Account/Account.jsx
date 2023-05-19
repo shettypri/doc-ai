@@ -1,20 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import "../Account/Account.css"
+import "../../../Styles/admin/Account/Account.css"
 
 const Account = () => {
     const Accountslist = [
-        {"name":"name","designation":"designation"},
-        {"name":"role","designation":"salary"},
-        {"name":"job","designation":"shift"},
-        {"name":"time","designation":"shift"}
+        {"name":"name1","designation":"designation1"},
+        {"name":"name2","designation":"designation2"},
+        {"name":"name3","designation":"designation3"},
+        {"name":"name4","designation":"designation4"}
     ]
 
 
   return (
     <>
- 
-            <table>
+     { <table>
                 <tr>
                     <td>
                         name
@@ -26,14 +25,12 @@ const Account = () => {
                 <div className="tablelist">{
                      Accountslist.map((val,index) => {
                         return(
-                        <tr>
-                            <td>
-
-                            </td>
-                            <td>
-
-                            </td>
-                        </tr>
+                        
+                         <tr key={index}>
+                            <td>{val.name}</td>
+                            <td>{val.designation}</td>
+                            </tr>
+                            
                           
     
                         )
@@ -43,7 +40,7 @@ const Account = () => {
                
                 </div>
                 
-            </table>
+            </table> }
         
     
     
