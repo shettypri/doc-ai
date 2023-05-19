@@ -9,6 +9,8 @@ import Login from './components/Login/Login'
 import Account from './components/admin/Account/Account'
 import Dashboard from './components/admin/Dashboard'
 import FormPage from './components/admin/Form/Form'
+import ResearchForm from './components/admin/Form/ResearchForm'
+
 
 function App() {
   const navbarList = [
@@ -31,6 +33,7 @@ function App() {
         <Route exact path='/Dashboard/*' element={<Dashboard />} />
         <Route exact path='/Account'  element={<Account/>}/>
         <Route exact path='/Dashboard/Form'  element={<FormPage />}/>
+        <Route exact path='/Dashboard/researchForm' element={<ResearchForm />} />
 
         
         {/* <Route exact path='/publisher'  element={<publisher/>}/>

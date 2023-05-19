@@ -24,7 +24,7 @@ const Dashboard = () => {
           <div className="heading">
             Research
           </div>
-          <Link to='/Dashboard/Form'>
+          <Link to='/Dashboard/researchForm'>
             <img src={research} alt="" height={"200px"} width={"295"} />
           </Link>
 
