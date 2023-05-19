@@ -1,51 +1,62 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import "../../../Styles/admin/Account/Account.css"
+import img from "../../../assets/Admin/Dash-board/doc.jpg"
+import cancel from "../../../assets/Admin/Dash-board/close.png"
+// import "../../../Styles/admin/Account/Account.css"
+
 
 const Account = () => {
     const Accountslist = [
-        {"name":"name1","designation":"designation1"},
-        {"name":"name2","designation":"designation2"},
-        {"name":"name3","designation":"designation3"},
-        {"name":"name4","designation":"designation4"}
+        {
+            "name": "name1",
+            "specialist": "specialist1",
+            "image": img
+
+        },
+        {
+            "name": "name2",
+            "specialist": "specialist2",
+            "image": img
+        },
+
     ]
 
 
-  return (
-    <>
-     { <table>
-                <tr>
-                    <td>
-                        name
-                    </td>
-                    <td>
-                        designation
-                    </td>
-                </tr>
-                <div className="tablelist">{
-                     Accountslist.map((val,index) => {
-                        return(
-                        
-                         <tr key={index}>
-                            <td>{val.name}</td>
-                            <td>{val.designation}</td>
-                            </tr>
-                            
-                          
-    
-                        )
-    
-                    })
-                }
-               
-                </div>
-                
-            </table> }
-        
-    
-    
-    </>
-  )
+    return (
+        <>
+            {
+                Accountslist.map( (doctor, index) => {
+                    return (
+                        <>
+                            <div className="doctor-list" key={index}>
+                                <div className="delete-list">
+
+                                    <img src={cancel} width={"25px"} height={"25px"} />
+                                </div>
+                                <div className="image-list">
+                                    <img src={doctor.image} width={"200px"} height={"200px"} />
+                                </div>
+                                <div className="doctor-details">
+                                    <p>
+                                        
+                                         {index +1 } Dr. {doctor.name}
+                                    </p>
+                                    <p>
+                                        {doctor.specialist}
+                                    </p>
+
+                                </div>
+
+                            </div>
+                        </>
+                    )
+                })
+            }
+
+
+        </>
+    )
 }
 
 export default Account
