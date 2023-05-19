@@ -1,92 +1,171 @@
-body {
-	background-color: black;
-	color: white;
-	font-family: Arial, sans-serif;
-  }
-.center {
-	color: rgba(255, 255, 255, 0.289);
-	text-align: center;
-	
-}
-.form-container {
-	max-width: 600px;
-	margin: 0 auto;
-	padding: 20px;
-	border-radius: 5px;
-    background-color: black;
-	
-}
-.main-form{
+.main-form {
 	display: flex;
+	margin-top: 15vh;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	width: 100%;
 }
 
-.form-group {
-	margin-bottom: 20px;
-	max-width: 600px;
-	margin: 0 auto;
-	padding: 20px;
+.main-form p{
+	color: whitesmoke;
+	text-transform: capitalize;
+	font-size: 2rem;
+	font-weight: 600;
+}
+
+.form-heading {
+	display: flex;
+	justify-content: center;
+	/* align-items: center; */
+}
+
+.font-content {
+	display: flex;
+	flex-direction: row;
+}
+
+.form-left{
+	/* border: 2px solid royalblue; */
+	padding: 5px;
+	margin: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.form-fields{
+	/* border: 2px solid yellow; */
+	margin: 10px;
+	padding: 15px;
+	display: flex;
+	flex-direction: column;
+}
+.form-fields label{
+	text-transform: capitalize;
+	font-size: 20px;
+	font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	text-shadow: #675959;
+	word-spacing: 10%;
+	color: whitesmoke;
+}
+.form-fields input{
+	height: 50px;
+	
+}
+.form-fields input[type="text"],textarea{
+	width: 420px;
 	border-radius: 5px;
+	color: black;
+	border: none;
+	margin: 2px;
+	opacity: 95%;
 }
 
-label {
-	display: block;
-	margin-bottom: 10px;
-	font-weight: bold;
-    fill: white;
+.form-fields input[type="file"]{
+	display: flex;
+
 }
+
+
+
 .input-container {
-    position: relative;
-    display: inline-block;
-  }
+	position: relative;
+	display: flex;
+	flex-direction: column;
+}
 
 
-input[type="text"] {
-    width: 70%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
+
+.input-container button{
+	border-radius: 0px;
+	right: 0px !important;
+}
+
+.form-group input[type="text"]{
+
+	width: 300px;
+	color: black;
+}
+
+.list-arrays{
+	display: inline-flex;
+	max-width: 600px;
+	padding: 20px;
+
+}
+
+.array-box{
+	display: flex;
+	flex-direction: row;
+	flex-wrap:wrap ;
+	justify-content: space-between;
+}
+
+.added-array {
+	background-color: rgb(247, 243, 243);
+	margin-bottom: 25px;
+	border: 1px solid gray;
+	border-radius: 25px;
+	padding: 5px 5px 5px 5px;
+}
+
+.added-array p{
+	display: inline;
+	margin: 5px 15px 5px 12px;
+	color: black;
+	padding: 5px 20px 5px 20px;
+	font-size: 18px;
+	
+}
+
+.added-array img{
+	cursor: pointer;
+	margin-right: 10px;
+}
 
 button {
-    position: absolute;
-    top: 50%;
-    right: 5px;
-    transform: translateY(-50%);
-    background-color: #808080;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px 10px;
-    cursor: pointer;
-  }
-
-input[type="textarea"]{
-    width: 100%;
-    padding: 10px;
-    align-items: end;
+	position: absolute;
+	top: 50%;
+	right: 0px;
+	transform: translateY(-50%);
+	background-color: #808080;
 	border: 1px solid #ccc;
-	border-radius: 5px;
-	
+	border-radius: 20px;
+	cursor: pointer;
+	margin-left: 5px;
+	width: 72px;
 }
-
 
 input[type="file"] {
 	margin-top: 10px;
 }
-
-input[type="submit"] {
+.form-button{
+	display: block;
+	width: 150px;
+	height: 50px;
+	margin-left: 250px;
+	margin-top: 50px;
+}
+.formSubmit{
+	position: relative;
 	background-color: #808080;
 	border: 2px solid white;
-	padding: 10px 20px;
 	color: white;
-	padding: 10px 20px;
-	border: none;
 	border-radius: 5px;
 	cursor: pointer;
 	font-size: 16px;
 	font-weight: bold;
+	width: 150px;
 }
 
-input[type="submit"]:hover {
-	background-color: #808080;
+/* input[type="submit"]:hover  */
+.formSubmit:hover{
+	background-color: #675959;
+}
+
+/* .author-list */
+.input-container p{
+	color: whitesmoke;
+	font-size: 12px;
 }
