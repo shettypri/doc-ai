@@ -28,11 +28,11 @@
     font-size: 2rem;
 
 }
-.center form{
+/* .center form{
     padding: 0 40px;
     box-sizing: border-box;
-}
-form .txt_field{
+} */
+.txt_field{
     position: relative;
     border-bottom: 2px solid #b35252;
     margin: 30px;
