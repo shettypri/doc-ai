@@ -5,6 +5,10 @@ const Login = () => {
     const [username, setsUername] = useState("")
     const [password, setPassword] = useState("")
 
+    const [loginCredentials, setloginCredentials] = useState({
+      "username":"",
+      "password":""
+    })
 
     const handleLogin = () => {
         const credentials = {
@@ -15,6 +19,7 @@ const Login = () => {
     }
   return (
     <>
+    <div className="login-main">
     <div className="center">
         <p>Login</p>
         <form method="post">
@@ -42,14 +47,19 @@ const Login = () => {
             <span />
             <label>password</label>
           </div>
-          <div className="pass">Forgot Password?</div>
+          {/* <div className="pass">Forgot Password?</div> */}
+          <div className="login-btn">
           <button type="submit" defaultValue="Login" 
           onClick={handleLogin}
           >
             Login
           </button>
+          </div>
+          
         </form>
       </div>
+    </div>
+    
     </>
   )
 }
