@@ -1,7 +1,5 @@
-// import React from 'react'
 import { useRef, useState } from "react";
 import "../../../Styles/admin/Form/Form.css";
-import { Link } from "react-router-dom";
 import cancel from "../../../assets/Admin/Dash-board/close.png"
 
 const FormPage = () => {
