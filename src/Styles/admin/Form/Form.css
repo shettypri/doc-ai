@@ -1,14 +1,13 @@
 .main-form {
 	display: flex;
-	border: 1px solid snow;
 	margin-top: 15vh;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	width: 80%;
+	width: 100%;
 }
 
-.main-form p {
+.main-form p{
 	color: whitesmoke;
 	text-transform: capitalize;
 	font-size: 2rem;
@@ -55,9 +54,10 @@
 	
 }
 .form-fields input[type="text"],textarea{
-	width: 400px;
+	width: 420px;
 	border-radius: 5px;
 	color: black;
+	border: none;
 	margin: 2px;
 	opacity: 95%;
 }
@@ -103,12 +103,11 @@
 }
 
 .added-array {
-	background-color: white;
+	background-color: rgb(247, 243, 243);
 	margin-bottom: 25px;
 	border: 1px solid gray;
 	border-radius: 25px;
-	padding-right: 10px;
-	padding-bottom: 8px;
+	padding: 5px 5px 5px 5px;
 }
 
 .added-array p{
@@ -122,6 +121,7 @@
 
 .added-array img{
 	cursor: pointer;
+	margin-right: 10px;
 }
 
 button {

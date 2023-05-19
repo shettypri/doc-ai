@@ -25,7 +25,8 @@ const FormPage = () => {
         //     "key_benefits": keyBenefitsList
         // }
         // console.log("publicationFinal");
-        console.log(ImageInfo);
+        console.log(ImageInfo.current.files);
+        console.log(uploadImage);
 
     }
     const addAuthor = () => {
