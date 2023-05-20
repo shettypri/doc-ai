@@ -1,20 +1,29 @@
-// import React from 'react'
 import { useState } from "react"
 import "../../Styles/Login/Login.css"
+// import { useDispatch } from "react-redux"
+// import { singInUsers } from "../../app/Reducers/LoginReducer"
+// import {signInWithEmailAndPassword } from "firebase/auth";
+// import { auth } from "../../config/firebase-config";
+import { signIn } from "./signIn";
+
 const Login = () => {
   const [loginCredentials, setloginCredentials] = useState({
     "username": "",
     "password": ""
   })
 
-  const handleChange = (e) =>{
-    setloginCredentials({
-      ...loginCredentials,[e.target.name]:e.target.value
-    })
+  const handleChange = (e) => {
+  
+      setloginCredentials({
+        ...loginCredentials, [e.target.name]: e.target.value
+      })
   }
+  // const dispatch = useDispatch()
 
-  const handleLogin = () => {
-    console.log(loginCredentials);
+  const handleLogin = (loginCredentials) => {
+    
+    signIn(loginCredentials)
+    // dispatch(singInUsers(loginCredentials.em))
   }
   return (
     <>
@@ -43,7 +52,8 @@ const Login = () => {
             {/* <div className="pass">Forgot Password?</div> */}
             <div className="login-btn">
               <button type="submit" defaultValue="Login"
-                onClick={handleLogin}
+                onClick={() =>
+                  handleLogin(loginCredentials)}
               >
                 Login
               </button>
