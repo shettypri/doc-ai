@@ -1,10 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
-
-
 
 header {
 	position: fixed;
@@ -39,7 +38,8 @@ nav ul {
 }
 
 nav ul li a {
-    font-family: "Bruno Ace SC", cursive;
+    /* font-family: "Bruno Ace SC", cursive; */
+	font-family: 'Roboto', sans-serif;
 	display: block;
 	color: #fff;
 	font-size: 16px;

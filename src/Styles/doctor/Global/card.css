@@ -1,0 +1,22 @@
+.card-main{
+    display: flex;
+    flex-direction: column;
+}
+
+.card-image img{
+    border-radius: 23px;
+}
+
+.card-title{
+    margin-top: 10px;
+    /* width: 100%; */
+    /* display: flex;
+    justify-content: center;
+    align-items: center;    */
+}
+.card-title p{
+    font-size: 1.4rem;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+

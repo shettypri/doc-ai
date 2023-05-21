@@ -1,7 +1,8 @@
-// import React from 'react'
+
 import image1 from "../../../assets/Doctor/Images/rch1.png"
 import image2 from "../../../assets/Doctor/Images/pexels-drew-rae-580679.jpg"
 import "../../../Styles/doctor/03_Research/Research.css"
+import getCardData from "../Global/getCardData"
 const Research = () => {
     const screenArray = [
         [
@@ -16,6 +17,7 @@ const Research = () => {
             "By detecting early-stage cancers, AI enables management that can increase chance of survival"
         ]
     ]
+    getCardData("Research")
     return (
         <>
             <center>
@@ -74,6 +76,8 @@ const Research = () => {
                     </div>
                 </div>
             </center>
+
+
         </>
     )
 }
