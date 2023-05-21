@@ -75,11 +75,15 @@
 	flex-direction: column;
 }
 
-
+.input-container input{
+	width: 450px !important;
+}
 
 .input-container button{
 	border-radius: 0px;
 	right: 0px !important;
+	height: 50px;
+	width: 90px;
 }
 
 .form-group input[type="text"]{
@@ -100,6 +104,8 @@
 	flex-direction: row;
 	flex-wrap:wrap ;
 	justify-content: space-between;
+	/* border: 2px solid red; */
+	width: 400px;
 }
 
 .added-array {
@@ -129,12 +135,13 @@ button {
 	top: 50%;
 	right: 0px;
 	transform: translateY(-50%);
-	background-color: #808080;
+	background-color: #564f4f;
 	border: 1px solid #ccc;
 	border-radius: 20px;
 	cursor: pointer;
 	margin-left: 5px;
 	width: 72px;
+	color: white;
 }
 
 input[type="file"] {
@@ -149,19 +156,23 @@ input[type="file"] {
 }
 .formSubmit{
 	position: relative;
-	background-color: #808080;
+	background-color: whitesmoke;
 	border: 2px solid white;
-	color: white;
-	border-radius: 5px;
+	color: black;
+	border-radius: 25px;
 	cursor: pointer;
-	font-size: 16px;
-	font-weight: bold;
-	width: 150px;
+	font-size: 22px;
+	font-weight: 800;
+	width: 220px;
+	height: 50px;
 }
 
 /* input[type="submit"]:hover  */
 .formSubmit:hover{
-	background-color: #675959;
+	background-color: white;
+	text-transform: capitalize;
+	color: black;
+	
 }
 
 /* .author-list */

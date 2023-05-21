@@ -1,5 +1,7 @@
 import  { useRef, useState } from 'react'
 import cancel from "../../../assets/Admin/Dash-board/close.png"
+import ImageUpload from './ImageUpload'
+import storeInDataBase from './storeInDataBase'
 
 const ResearchForm = () => {
     const [title, setTitle] = useState("")
@@ -8,22 +10,24 @@ const ResearchForm = () => {
     const [authorName, setAuthorName] = useState('')
     const [key_benefits, setkey_benefits] = useState("")
 
-    const ImageInfo = useRef()
     const [authorsList, setAuthorsList] = useState([])
     const [keyBenefitsList, setKeyBenefitsList] = useState([])
 
-    const handleSubmit = () => {
-        // const publicationFinal = {
-        //     "Title": title,
-        //     "Description": description,
-        //     "Upload_Image": uploadImage,
-        //     "authorName": authorsList,
-        //     "key_benefits": keyBenefitsList
-        // }
-        // console.log("publicationFinal");
-        console.log(ImageInfo.current.files);
-        console.log(uploadImage);
-
+    const folderName = 'Research'
+    const handleSubmit = async() => {
+        const fileName = imageRef.current.files[0].name
+        const isImageUploaded = await ImageUpload(uploadImage, fileName,folderName)
+        if(isImageUploaded){
+            console.log("DOne");
+        }
+        const finalData = {
+            "title":title,
+            "description":description,
+            "imageUrl" :isImageUploaded,
+            "authors" :authorsList,
+            "keyBenefits":keyBenefitsList
+        }
+        storeInDataBase(finalData,folderName)
     }
     const addAuthor = () => {
         if (authorName != "") {
@@ -52,6 +56,7 @@ const ResearchForm = () => {
             ...keyBenefitsList.slice(index + 1, keyBenefitsList.length)
         ])
     }
+    const imageRef = useRef()
     return (
         <>
             <div className="main-form">
@@ -96,18 +101,18 @@ const ResearchForm = () => {
                                 Upload Image:
                             </label>
                             <input
-                                type="file"
-                                id="project-image"
-                                name="project-image"
-                                accept=".jpg,.png"
-                                ref={ImageInfo}
-                                value={uploadImage}
-                                onChange={(e) => {
-                                    setUploadImage(e.target.value)
-                                }
-                                }
-                                required
-                            />
+                                    type="file"
+                                    accept="image/*"
+                                    ref={imageRef}
+                                    // value={uploadImage}
+                                    onChange={
+                                        (e) => {
+                                            setUploadImage(e.target.files[0])
+
+                                        }
+                                    }
+                                    required
+                                />
                         </div>
 
                     </div>
