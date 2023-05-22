@@ -21,7 +21,7 @@ const FormPage = () => {
         const isImageUploaded = await ImageUpload(uploadImage, fileName,folderName)
         if(isImageUploaded){
             console.log("DOne");
-        }
+        
         const finalData = {
             "title":title,
             "description":description,
@@ -29,8 +29,11 @@ const FormPage = () => {
             "authors" :authorsList,
             "keyBenefits":keyBenefitsList
         }
-        storeInDataBase(finalData,folderName)
-
+        const isDataStored = await storeInDataBase(finalData,folderName)
+        if(isDataStored){
+            window.location.reload(true)
+        }
+    }   
 
     }
     const addAuthor = () => {

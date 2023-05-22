@@ -9,14 +9,9 @@
 
 .card-title{
     margin-top: 10px;
-    /* width: 100%; */
-    /* display: flex;
-    justify-content: center;
-    align-items: center;    */
 }
 .card-title p{
     font-size: 1.4rem;
     text-transform: capitalize;
     font-weight: 600;
 }
-

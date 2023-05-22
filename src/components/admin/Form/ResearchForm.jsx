@@ -1,4 +1,4 @@
-import  { useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import cancel from "../../../assets/Admin/Dash-board/close.png"
 import ImageUpload from './ImageUpload'
 import storeInDataBase from './storeInDataBase'
@@ -14,20 +14,24 @@ const ResearchForm = () => {
     const [keyBenefitsList, setKeyBenefitsList] = useState([])
 
     const folderName = 'Research'
-    const handleSubmit = async() => {
+    const handleSubmit = async () => {
         const fileName = imageRef.current.files[0].name
-        const isImageUploaded = await ImageUpload(uploadImage, fileName,folderName)
-        if(isImageUploaded){
+        const isImageUploaded = await ImageUpload(uploadImage, fileName, folderName)
+        if (isImageUploaded) {
             console.log("DOne");
+
+            const finalData = {
+                "title": title,
+                "description": description,
+                "imageUrl": isImageUploaded,
+                "authors": authorsList,
+                "keyBenefits": keyBenefitsList
+            }
+            const isDataStored = await storeInDataBase(finalData, folderName)
+            if(isDataStored){
+                window.location.reload(true)
+            } 
         }
-        const finalData = {
-            "title":title,
-            "description":description,
-            "imageUrl" :isImageUploaded,
-            "authors" :authorsList,
-            "keyBenefits":keyBenefitsList
-        }
-        storeInDataBase(finalData,folderName)
     }
     const addAuthor = () => {
         if (authorName != "") {
@@ -69,7 +73,7 @@ const ResearchForm = () => {
                     <div className="form-left">
                         <div className="form-fields">
                             <label >
-                            Research Title:
+                                Research Title:
                             </label>
                             <input type="text"
                                 value={title}
@@ -81,7 +85,7 @@ const ResearchForm = () => {
 
                         <div className="form-fields">
                             <label >
-                            Research Description:
+                                Research Description:
                             </label>
 
                             <textarea
@@ -101,18 +105,18 @@ const ResearchForm = () => {
                                 Upload Image:
                             </label>
                             <input
-                                    type="file"
-                                    accept="image/*"
-                                    ref={imageRef}
-                                    // value={uploadImage}
-                                    onChange={
-                                        (e) => {
-                                            setUploadImage(e.target.files[0])
+                                type="file"
+                                accept="image/*"
+                                ref={imageRef}
+                                // value={uploadImage}
+                                onChange={
+                                    (e) => {
+                                        setUploadImage(e.target.files[0])
 
-                                        }
                                     }
-                                    required
-                                />
+                                }
+                                required
+                            />
                         </div>
 
                     </div>
