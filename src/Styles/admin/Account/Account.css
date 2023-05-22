@@ -1,22 +1,71 @@
-.doctor-list{
-    margin: 120px 10px 5px 15px;
-    /* background-color:rgba(245, 245, 245, 0.96); */
-     /* background: rgb(229,229,237);
-background: linear-gradient(90deg, rgba(229,229,237,1) 1%, rgba(190,188,207,1) 46%, rgba(217,226,228,1) 100%);  */
+.list-main {
+   display: flex;
+   flex-direction: column;
+    /* border: 3px solid yellow; */
+    margin-top: 90px;
+    width: 100%;
+}
+.doctor-add-btn {
+   /* border: 2px solid green; */
+   width: 100%;
+    margin: 5px;
+    text-align: center;
+    align-items: end;
+    border-radius: 12px;
+    height: 50px;
     display: flex;
-    flex-direction: column;
-    width: 25vw;
-    border-radius: 25px;
-    border: 2px solid rgb(73, 70, 70);
-    background-color: white;
+    justify-content: end;
+    align-items: end;
     
+    
+    
+
+}
+.doctor-add-btn a {
+    margin-right: 7%;
+    text-decoration: none;
+    color: white;
+    background-color: rgb(2, 74, 2);
+    font-size: 20px;
+    font-weight: 700;
+    border-radius:25px;
+    padding: 10px 20px 10px 20px;
+    text-transform: capitalize;
+    width: 15%;
+  
 }
 
-.doctor-list div{
+.doctor-add-btn a:hover{
+    background-color: rgb(3, 116, 3);
+    border: 1px solid white;
+}
+
+.account-card {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    border: 2px solid white;
+}
+
+
+.doctor-list {
+    margin: 120px 10px 5px 15px;
+
+    flex-direction: row;
+    align-items: center;
+    width: 25vw;
+    border-radius: 25px;
+    /* border: 2px solid rgb(73, 70, 70); */
+    border: 2px solid red;
+    background-color: white;
+}
+
+
+.doctor-list div {
     /* border: 1px solid red; */
 }
 
-.delete-list{
+.delete-list {
     display: flex;
     justify-content: right;
     align-items: end;
@@ -24,22 +73,25 @@ background: linear-gradient(90deg, rgba(229,229,237,1) 1%, rgba(190,188,207,1) 4
     border-bottom: 2px solid rgb(73, 70, 70);
 }
 
-.delete-list img{
+.delete-list img {
     height: 33px;
     width: 33px;
 }
+
 .image-list {
     display: flex;
     align-items: center;
     justify-content: center;
+
 }
 
-.image-list img{
+.image-list img {
     /* border: 2px solid red; */
     margin: 20px 3px 10px 3px;
     border-radius: 50%;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
+
 .doctor-details {
     border-top: 2px solid rgb(73, 70, 70);
     display: flex;
@@ -47,18 +99,23 @@ background: linear-gradient(90deg, rgba(229,229,237,1) 1%, rgba(190,188,207,1) 4
     justify-content: center;
     align-items: center;
     margin-bottom: 25px;
-   
+
 }
-.doctor-details p{
+
+.doctor-details p {
     text-transform: capitalize;
     margin: 2px;
     color: black;
 }
-.doctor-details p:nth-child(1){
+
+.doctor-details p:nth-child(1) {
     font-weight: 600;
     font-size: 23px;
 }
-.doctor-details p:nth-child(2){
+
+.doctor-details p:nth-child(2) {
     font-weight: 600;
     font-size: 14px;
 }
+
+
