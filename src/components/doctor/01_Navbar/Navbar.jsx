@@ -2,6 +2,8 @@
 import "../../../Styles/doctor/Navbar.css"
 import navbarImage from "../../../assets/Doctor/Images/pexels-drew-rae-580679.jpg"
 import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars,faXmark } from '@fortawesome/free-solid-svg-icons'
 // import 'bootstrap/dist/css/bootstrap.css';
 
 const Navbar = () => {
@@ -19,7 +21,8 @@ const Navbar = () => {
                         </Link>
                     </div>
                     <ul className="nav-links">
-                        <div className="d-flex flex-row">
+                    <input type="checkbox" id="check" />
+                        <div className="nav-box">
                             {
                                 navbarList.map((listValue, index) => {
                                     return (
@@ -29,8 +32,11 @@ const Navbar = () => {
                                     )
                                 })
                             }
+                            
                         </div>
-                    </ul>
+                        
+                        <label htmlFor="check" className="open-menu"><FontAwesomeIcon icon={faBars} style={{color: "#ffffff",}} /></label>
+                    </ul>   
                 </nav>
             </header>
         </>
