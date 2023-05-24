@@ -5,6 +5,7 @@
     margin-top: 90px;
     width: 100%;
 }
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Poppins:wght@500&display=swap');
 .doctor-add-btn {
    /* border: 2px solid green; */
    width: 100%;
@@ -16,6 +17,7 @@
     display: flex;
     justify-content: end;
     align-items: end;
+    font-family: 'Poppins', sans-serif;
     
     
     
@@ -25,7 +27,8 @@
     margin-right: 7%;
     text-decoration: none;
     color: white;
-    background-color: rgb(2, 74, 2);
+    border: 1px groove rgb(255, 255, 255);
+    background-color: transparent;
     font-size: 20px;
     font-weight: 700;
     border-radius:25px;
@@ -36,28 +39,31 @@
 }
 
 .doctor-add-btn a:hover{
-    background-color: rgb(3, 116, 3);
-    border: 1px solid white;
+    background-color: rgb(0, 0, 0);
+    border: 2px solid rgb(159, 0, 0);
 }
 
 .account-card {
     display: flex;
     flex-direction: row;
     width: 100%;
-    border: 2px solid white;
+    /* border: 2px solid white; */
+    justify-content: center;
 }
-
+p{
+    color: white;
+}
 
 .doctor-list {
     margin: 120px 10px 5px 15px;
-
     flex-direction: row;
     align-items: center;
-    width: 25vw;
+    width: 15vw;
+    height: 350px;
     border-radius: 25px;
     /* border: 2px solid rgb(73, 70, 70); */
-    border: 2px solid red;
-    background-color: white;
+    border: 2px solid rgb(255, 255, 255);
+    background: transparent ;
 }
 
 
@@ -70,7 +76,7 @@
     justify-content: right;
     align-items: end;
     padding: 10px;
-    border-bottom: 2px solid rgb(73, 70, 70);
+    /* border-bottom: 2px solid rgb(73, 70, 70); */
 }
 
 .delete-list img {
@@ -93,7 +99,7 @@
 }
 
 .doctor-details {
-    border-top: 2px solid rgb(73, 70, 70);
+    /* border-top: 2px solid rgb(73, 70, 70); */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -102,7 +108,7 @@
 
 }
 
-.doctor-details p {
+.doctor-details {
     text-transform: capitalize;
     margin: 2px;
     color: black;

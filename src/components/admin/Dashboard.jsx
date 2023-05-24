@@ -11,36 +11,36 @@ const Dashboard = () => {
     <>
       <div className="dash-board">
         <div className="card-dash">
-          <div className="heading">
-            Publication
-          </div>
-          <Link to='/Dashboard/Form'> 
-          <img src={publication} alt="" height={'200px'} width="295px" /> 
+          <Link to='/Dashboard/Form'>
+            <div className="heading">
+              Publication
+            </div>
+            <img src={publication} alt="" height={'200px'} width="295px" />
           </Link>
         </div>
 
 
         <div className="card-dash">
-          <div className="heading">
-            Research
-          </div>
           <Link to='/Dashboard/researchForm'>
+            <div className="heading">
+              Research
+            </div>
             <img src={research} alt="" height={"200px"} width={"295"} />
           </Link>
 
         </div>
 
         <div className="card-dash">
-          <div className="heading">
-            Account
-          </div>
           <Link to='/Account'>
-          <img src={account} alt=""  height={"200px"} width={"295"}/>
+            <div className="heading">
+              Account
+            </div>
+            <img src={account} alt="" height={"200px"} width={"295"} />
           </Link>
 
 
-        </div>
-      </div>
+        </div >
+      </div >
 
     </>
   )
