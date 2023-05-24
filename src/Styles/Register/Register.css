@@ -9,10 +9,7 @@
 
 }
 
-.register-card{
-    /* background-color: #2d3436;
-    background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);
-    color: white; */
+.register-card{ 
     background-color: #f9fcff;
     background-image: linear-gradient(147deg, #f9fcff 0%, #dee4ea 74%);
     color: black;
@@ -22,4 +19,42 @@
     border-radius: 20px;
 
     
+}
+.register-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+/* #recaptcha-container{
+    border: 2px solid red;
+    height: 200px;
+    width: 100%;
+} */
+
+.phone-input{
+    margin: 10px 10px 20px 5px;
+}
+
+.opt-section input{
+    color: black;
+}
+.otp-btn{
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: static;
+    /* width: 100%; */
+}
+.otp-btn button{
+    border: 2px solid red;
+    display: flex;
+    position: absolute;
+    margin: 5px 5px 8px 10px;
+
+}
+
+.verify-btn{
+    position: relative;
 }
