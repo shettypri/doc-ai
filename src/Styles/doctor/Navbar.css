@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
-* {
+*{
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
@@ -52,8 +52,8 @@ nav {
 	padding: 0 100px;
 }
 
-nav .logo a img{
-    border-radius: 30px;
+nav .logo a img {
+	border-radius: 30px;
 }
 
 nav .logo img {
@@ -63,7 +63,7 @@ nav .logo img {
 nav ul {
 	display: flex;
 	list-style: none;
-    
+
 }
 
 nav ul li a {

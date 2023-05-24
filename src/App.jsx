@@ -10,6 +10,7 @@ import Account from './components/admin/Account/Account'
 import Dashboard from './components/admin/Dashboard'
 import FormPage from './components/admin/Form/Form'
 import ResearchForm from './components/admin/Form/ResearchForm'
+import Register from './components/Register/Register'
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <Route exact path='/Publication' element={<Publication />}/>
         <Route exact path='/Contact-Us' element={<Contact />} />
         <Route exact path='/login' element={<Login />} />
+        <Route exact path='/register' element={<Register />} />
         <Route exact path='/Dashboard/*' element={<Dashboard />} />
         <Route exact path='/Account'  element={<Account/>}/>
         <Route exact path='/Dashboard/Form'  element={<FormPage />}/>

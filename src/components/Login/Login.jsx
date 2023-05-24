@@ -5,6 +5,7 @@ import "../../Styles/Login/Login.css"
 // import {signInWithEmailAndPassword } from "firebase/auth";
 // import { auth } from "../../config/firebase-config";
 import { signIn } from "./signIn";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [loginCredentials, setloginCredentials] = useState({
@@ -58,6 +59,11 @@ const Login = () => {
                 Login
               </button>
             </div>
+            <div className="register-btn">
+                <Link to="/register">
+                  New User?
+                </Link>
+              </div>
 
           </div>
         </div>

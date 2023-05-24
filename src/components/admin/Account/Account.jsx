@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import "../../../Styles/admin/Account/Account.css"
 import img from "../../../assets/Admin/Dash-board/doc.jpg"
 import cancel from "../../../assets/Admin/Dash-board/close.png"
-// import "../../../Styles/admin/Account/Account.css"
 
 
 const Account = () => {
@@ -22,20 +21,34 @@ const Account = () => {
 
     ]
 
+    const handleclick = Event=>{
+        console.log(Event.img);
+        console.log("hello");
+    }
+
 
     return (
         <>
+        <div className="list-main">
+
+            <div className="doctor-add-btn">
+                <Link to=''>
+                add doctor +
+                </Link>  
+            </div>
+            
+       
+            <div className="account-card">
             {
                 Accountslist.map( (doctor, index) => {
                     return (
                         <>
                             <div className="doctor-list" key={index}>
                                 <div className="delete-list">
-
                                     <img src={cancel} width={"25px"} height={"25px"} />
                                 </div>
                                 <div className="image-list">
-                                    <img src={doctor.image} width={"200px"} height={"200px"} />
+                                    <img src={doctor.image} width={"200px"} height={"200px"}  onClick={handleclick}  />
                                 </div>
                                 <div className="doctor-details">
                                     <p>
@@ -52,7 +65,9 @@ const Account = () => {
                         </>
                     )
                 })
-            }
+            } 
+            </div>
+        </div>
 
 
         </>

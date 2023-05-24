@@ -5,7 +5,6 @@
     align-items: center;
     justify-content: center;
     margin-top: 250px;
-    /* width: 50% !important; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,10 +27,7 @@
     font-size: 2rem;
 
 }
-/* .center form{
-    padding: 0 40px;
-    box-sizing: border-box;
-} */
+
 .txt_field{
     position: relative;
     border-bottom: 2px solid #b35252;
@@ -92,7 +88,6 @@
 }
 
 .login-btn{
-    /* border: 2px solid red; */
     display: flex;
     flex-wrap: wrap;
     height: 25px;
@@ -116,10 +111,33 @@
     outline: none;
 }
 
-
-
 .login-btn button:hover{
     border-color: #00080c;
     transition: .5s;
 }
 
+.register-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    /* background-color: wheat; */
+}
+
+.register-btn a{
+    text-decoration: none;
+    color: #00080c;
+    font-size: 1rem;
+    text-transform: capitalize;
+    cursor: pointer;
+    border: 2px solid black;
+    padding: 7px 75px 7px 75px;
+    border-radius: 25px;
+    font-weight: 600;
+}
+
+.register-btn a:hover{
+    background-color: black;
+    color: white;
+    border: 2px solid yellow;
+}
