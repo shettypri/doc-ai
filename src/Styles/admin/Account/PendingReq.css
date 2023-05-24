@@ -1,0 +1,58 @@
+/* .pendreq{
+    padding-top: 200px;
+    width: 400px;
+    height: 200px;
+    position: relative;
+}
+
+.card{
+    height: 50px;
+    width: 350px;
+}
+
+.cardbody{
+
+} */
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
+
+.card {
+    width: 700px;
+    margin: 100px auto;
+    border-radius: 5px;
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+h2 {
+    color: white;
+    margin-top: 150px;
+    font-family: "Bruno Ace SC", cursive;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 20px;
+
+}
+
+th,
+td {
+    text-align: center;
+}
+
+td {
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+th {
+    background-color: #ccc;
+}
+
+
+i {
+    cursor: pointer;
+}

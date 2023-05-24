@@ -2,7 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import "../../../Styles/admin/Account/Account.css"
 import img from "../../../assets/Admin/Dash-board/doc.jpg"
-import cancel from "../../../assets/Admin/Dash-board/close.png"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 
 
 const Account = () => {
@@ -32,28 +33,29 @@ const Account = () => {
         <div className="list-main">
 
             <div className="doctor-add-btn">
-                <Link to=''>
-                add doctor +
+                <Link to='/PendingReq'>
+                Requests
                 </Link>  
             </div>
             
-       
+            
             <div className="account-card">
             {
                 Accountslist.map( (doctor, index) => {
                     return (
                         <>
+                            <center>
                             <div className="doctor-list" key={index}>
                                 <div className="delete-list">
-                                    <img src={cancel} width={"25px"} height={"25px"} />
+                                <Link><FontAwesomeIcon icon={faCircleXmark} size="xl" style={{color: "#ff0000",}} /></Link>
                                 </div>
                                 <div className="image-list">
-                                    <img src={doctor.image} width={"200px"} height={"200px"}  onClick={handleclick}  />
+                                    <img src={doctor.image} width={"150px"} height={"150px"}  onClick={handleclick}  />
                                 </div>
                                 <div className="doctor-details">
                                     <p>
                                         
-                                         {index +1 } Dr. {doctor.name}
+                                         {index +1 }) Dr. {doctor.name}
                                     </p>
                                     <p>
                                         {doctor.specialist}
@@ -62,6 +64,7 @@ const Account = () => {
                                 </div>
 
                             </div>
+                            </center>
                         </>
                     )
                 })

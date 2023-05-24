@@ -11,6 +11,7 @@ import Dashboard from './components/admin/Dashboard'
 import FormPage from './components/admin/Form/Form'
 import ResearchForm from './components/admin/Form/ResearchForm'
 import Register from './components/Register/Register'
+import PendingReq from './components/admin/Account/PendingReq'
 
 
 function App() {
@@ -25,6 +26,10 @@ function App() {
       <Navbar/>
       </div>
       <Routes>
+
+        {/* Testing path */}
+        <Route exact path='/PendingReq' element={<PendingReq />} />
+        {/* Testing path ends */}
         {/* <Route exact path='/form' element={<Form />}/> */}
         <Route exact path="/" element={<Home />}/>
         <Route exact path="/Research" element={<Research />} />
