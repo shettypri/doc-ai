@@ -17,7 +17,7 @@ const UserDetails = () => {
                         </div>
                         <div className="input-boxus">
                             <span className="detailsus">DOB</span>
-                            <input type="text" placeholder="Enter Date of Birth" required />
+                            <input type="date" placeholder="Enter Date of Birth" required />
                         </div>
                         <div className="input-boxus">
                             <span className="detailsus">Email</span>
@@ -25,7 +25,7 @@ const UserDetails = () => {
                         </div>
                         <div className="input-boxus">
                             <span className="detailsus">Phone No</span>
-                            <input type="text" placeholder="Enter Phone number" required />
+                            <input type="text" placeholder="Enter Phone number" maxLength={10} required />
                         </div>
                         <div className="input-boxus">
                             <span className="detailsus">Address</span>

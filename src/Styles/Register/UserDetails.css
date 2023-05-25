@@ -87,6 +87,7 @@ textarea{
 .user-detailsus .input-boxus input,textarea:focus,
 .user-detailsus .input-boxus input,textarea:valid{
     border-color: #000000;
+    color: rgb(0, 0, 0);
 
 }
 .image-uploadus {
