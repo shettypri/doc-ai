@@ -20,8 +20,11 @@
 }
 
 .publication-card{
-    padding: 25px;
+    /* border: 2px solid rebeccapurple; */
+    padding: 90px;
     margin: 5px 10px 5px 10px;
+    border: 2px solid snow;
+    width: 600px;
     border: 1px solid white;
     width: 440px;
     cursor: pointer;
