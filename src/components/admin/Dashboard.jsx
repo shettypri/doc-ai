@@ -3,7 +3,7 @@ import "../../Styles/admin/Dashboard/Dashboard.css"
 import { Link } from 'react-router-dom'
 import publication from "../../assets/Admin/Dash-board/publication.jpg"
 import research from "../../assets/Admin/Dash-board/research.jpg"
-import account from "../../assets/Admin/Dash-board/account.png"
+import account from "../../assets/Admin/Dash-board/account1.png"
 
 const Dashboard = () => {
 

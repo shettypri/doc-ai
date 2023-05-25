@@ -11,61 +11,68 @@ const FormPage = () => {
     const [uploadImage, setUploadImage] = useState("")
     const [authorName, setAuthorName] = useState('')
     const [key_benefits, setkey_benefits] = useState("")
+    const [uploadPdf, setuploadPdf] = useState("")
 
     const [authorsList, setAuthorsList] = useState([])
     const [keyBenefitsList, setKeyBenefitsList] = useState([])
 
-    const folderName = 'Publications'
+    const folderImage = 'Publications/image'
+    const folderPdf = 'Publications/pdf'
+
+
     const handleSubmit = async () => {
         const fileName = imageRef.current.files[0].name
-        const isImageUploaded = await ImageUpload(uploadImage, fileName,folderName)
-        if(isImageUploaded){
+        const isImageUploaded = await ImageUpload(uploadImage, fileName, folderImage)
+
+        const pdfname = imageRef.current.files[0].name
+        const isPdfUploaded = await ImageUpload(uploadPdf, pdfname, folderPdf)
+
+
+        if (isImageUploaded && isPdfUploaded) {
             console.log("DOne");
-        
-        const finalData = {
-            "title":title,
-            "description":description,
-            "imageUrl" :isImageUploaded,
-            "authors" :authorsList,
-            "keyBenefits":keyBenefitsList
-        }
-        const isDataStored = await storeInDataBase(finalData,folderName)
-        if(isDataStored){
-            window.location.reload(true)
-        }
-    }   
 
-    }
-    const addAuthor = () => {
-        if (authorName != "") {
-            setAuthorsList(oldArray => [...oldArray, authorName])
-            setAuthorName("")
+            const finalData = {
+                "title": title,
+                "description": description,
+                "imageUrl": isImageUploaded,
+                "authors": authorsList,
+                "keyBenefits": keyBenefitsList
+            }
+            storeInDataBase(finalData, folderName)
+
+
         }
-    }
-
-    const addKeyBenefits = () => {
-        if (key_benefits !== "") {
-            setKeyBenefitsList(oldArray => [...oldArray, key_benefits])
-            setkey_benefits("")
+        const addAuthor = () => {
+            if (authorName != "") {
+                setAuthorsList(oldArray => [...oldArray, authorName])
+                setAuthorName("")
+            }
         }
-    }
 
-    const removeAuthor = (index) => {
-        setAuthorsList([
-            ...authorsList.slice(0, index),
-            ...authorsList.slice(index + 1, authorsList.length)
-        ])
+        const addKeyBenefits = () => {
+            if (key_benefits !== "") {
+                setKeyBenefitsList(oldArray => [...oldArray, key_benefits])
+                setkey_benefits("")
+            }
+        }
 
-    }
-    const removeKeyBenefits = (index) => {
-        setKeyBenefitsList([
-            ...keyBenefitsList.slice(0, index),
-            ...keyBenefitsList.slice(index + 1, keyBenefitsList.length)
-        ])
-    }
-    const imageRef = useRef()
-    return (
-        <>
+        const removeAuthor = (index) => {
+            setAuthorsList([
+                ...authorsList.slice(0, index),
+                ...authorsList.slice(index + 1, authorsList.length)
+            ])
+
+        }
+        const removeKeyBenefits = (index) => {
+            setKeyBenefitsList([
+                ...keyBenefitsList.slice(0, index),
+                ...keyBenefitsList.slice(index + 1, keyBenefitsList.length)
+            ])
+        }
+        const imageRef = useRef()
+        const pdfRef = useRef()
+        return (
+            <>
                 <div className="main-form">
                     <div className="form-heading">
                         <p>Publication</p>
@@ -120,6 +127,25 @@ const FormPage = () => {
                                     required
                                 />
                             </div>
+                            <div className="form-fields">
+                                <label>
+                                    upload pdf
+                                </label>
+                                <input
+                                    type="file"
+                                    accept="pdf/*"
+                                    ref={pdfRef}
+                                    onChange={
+                                        (e) => {
+                                            setuploadPdf(e.target.files[0])
+
+                                        }
+                                    }
+
+                                />
+                            </div>
+
+
 
                         </div>
 
@@ -214,8 +240,8 @@ const FormPage = () => {
                     </div>
                 </div>
 
-        </>
-    );
-};
-
+            </>
+        );
+    }
+}
 export default FormPage;
