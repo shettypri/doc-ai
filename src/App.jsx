@@ -44,7 +44,7 @@ function App() {
         <Route exact path='/Dashboard/researchForm' element={<ResearchForm />} />
 
 
-                    {/* <Route exact path='/publisher'  element={<publisher/>}/>
+         {/* <Route exact path='/publisher'  element={<publisher/>}/>
         <Route exact path='/researcher'  element={<researcher/>}/> */}
 
 
