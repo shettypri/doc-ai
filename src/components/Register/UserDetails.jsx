@@ -1,10 +1,10 @@
-// import React from 'react'
+import React from 'react'
 import "../../Styles/Register/UserDetails.css"
 const UserDetails = () => {
     return (
         <>
             <div className="containerus">
-                <div className="titleus">Registartion</div><br />
+                <div className="titleus">Register</div><br />
                 <form action="#">
                     <div className="user-detailsus">
                         <div className="input-boxus">
