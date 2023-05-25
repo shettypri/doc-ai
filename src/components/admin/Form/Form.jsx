@@ -22,57 +22,57 @@ const FormPage = () => {
 
     const handleSubmit = async () => {
         const fileName = imageRef.current.files[0].name
-        const isImageUploaded = await ImageUpload(uploadImage, fileName,folderImage)
+        const isImageUploaded = await ImageUpload(uploadImage, fileName, folderImage)
 
-        const pdfname=imageRef.current.files[0].name
-        const isPdfUploaded =await ImageUpload(uploadPdf,pdfname,folderPdf) 
+        const pdfname = imageRef.current.files[0].name
+        const isPdfUploaded = await ImageUpload(uploadPdf, pdfname, folderPdf)
 
 
-        if(isImageUploaded && isPdfUploaded){
+        if (isImageUploaded && isPdfUploaded) {
             console.log("DOne");
-        
-        const finalData = {
-            "title":title,
-            "description":description,
-            "imageUrl" :isImageUploaded,
-            "authors" :authorsList,
-            "keyBenefits":keyBenefitsList
+
+            const finalData = {
+                "title": title,
+                "description": description,
+                "imageUrl": isImageUploaded,
+                "authors": authorsList,
+                "keyBenefits": keyBenefitsList
+            }
+            storeInDataBase(finalData, folderName)
+
+
         }
-        storeInDataBase(finalData,folderName)
-
-
-    }
-    const addAuthor = () => {
-        if (authorName != "") {
-            setAuthorsList(oldArray => [...oldArray, authorName])
-            setAuthorName("")
+        const addAuthor = () => {
+            if (authorName != "") {
+                setAuthorsList(oldArray => [...oldArray, authorName])
+                setAuthorName("")
+            }
         }
-    }
 
-    const addKeyBenefits = () => {
-        if (key_benefits !== "") {
-            setKeyBenefitsList(oldArray => [...oldArray, key_benefits])
-            setkey_benefits("")
+        const addKeyBenefits = () => {
+            if (key_benefits !== "") {
+                setKeyBenefitsList(oldArray => [...oldArray, key_benefits])
+                setkey_benefits("")
+            }
         }
-    }
 
-    const removeAuthor = (index) => {
-        setAuthorsList([
-            ...authorsList.slice(0, index),
-            ...authorsList.slice(index + 1, authorsList.length)
-        ])
+        const removeAuthor = (index) => {
+            setAuthorsList([
+                ...authorsList.slice(0, index),
+                ...authorsList.slice(index + 1, authorsList.length)
+            ])
 
-    }
-    const removeKeyBenefits = (index) => {
-        setKeyBenefitsList([
-            ...keyBenefitsList.slice(0, index),
-            ...keyBenefitsList.slice(index + 1, keyBenefitsList.length)
-        ])
-    }
-    const imageRef = useRef()
-    const pdfRef=useRef()
-    return (
-        <>
+        }
+        const removeKeyBenefits = (index) => {
+            setKeyBenefitsList([
+                ...keyBenefitsList.slice(0, index),
+                ...keyBenefitsList.slice(index + 1, keyBenefitsList.length)
+            ])
+        }
+        const imageRef = useRef()
+        const pdfRef = useRef()
+        return (
+            <>
                 <div className="main-form">
                     <div className="form-heading">
                         <p>Publication</p>
@@ -132,19 +132,19 @@ const FormPage = () => {
                                     upload pdf
                                 </label>
                                 <input
-                                type="file"
-                                accept="pdf/*"
-                                ref={pdfRef}
-                                onChange={
-                                    (e)=>{
-                                        setuploadPdf(e.target.files[0])
+                                    type="file"
+                                    accept="pdf/*"
+                                    ref={pdfRef}
+                                    onChange={
+                                        (e) => {
+                                            setuploadPdf(e.target.files[0])
 
+                                        }
                                     }
-                                }
-                                 
+
                                 />
                             </div>
-                         
+
 
 
                         </div>
@@ -240,8 +240,8 @@ const FormPage = () => {
                     </div>
                 </div>
 
-        </>
-    );
-};
-
+            </>
+        );
+    }
+}
 export default FormPage;

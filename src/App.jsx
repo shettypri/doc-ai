@@ -1,4 +1,4 @@
-import { BrowserRouter, Form, Route, Routes, } from 'react-router-dom'
+import { BrowserRouter, Route, Routes, } from 'react-router-dom'
 import './App.css'
 import Navbar from './components/doctor/01_Navbar/Navbar'
 import Home from './components/doctor/02_Home/Home'
@@ -8,10 +8,11 @@ import Contact from './components/doctor/07_Contact/Contact'
 import Login from './components/Login/Login'
 import Account from './components/admin/Account/Account'
 import Dashboard from './components/admin/Dashboard'
-import FormPage from './components/admin/Form/Form'
+
 import ResearchForm from './components/admin/Form/ResearchForm'
 import Register from './components/Register/Register'
 import PendingReq from './components/admin/Account/PendingReq'
+import FormPage from './components/admin/Form/Form'
 
 
 function App() {
@@ -39,7 +40,7 @@ function App() {
         <Route exact path='/register' element={<Register />} />
         <Route exact path='/Dashboard/*' element={<Dashboard />} />
         <Route exact path='/Account'  element={<Account/>}/>
-        <Route exact path='/Dashboard/Form'  element={<FormPage />}/>
+        <Route exact path='/Dashboard/Form'  element={<FormPage/>}/>
         <Route exact path='/Dashboard/researchForm' element={<ResearchForm />} />
 
         
