@@ -1,4 +1,4 @@
-import  { useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import cancel from "../../../assets/Admin/Dash-board/close.png"
 import ImageUpload from './ImageUpload'
 import storeInDataBase from './storeInDataBase'
@@ -82,7 +82,7 @@ const ResearchForm = () => {
                     <div className="form-left">
                         <div className="form-fields">
                             <label >
-                            Research Title:
+                                Research Title:
                             </label>
                             <input type="text"
                                 value={title}
@@ -94,7 +94,7 @@ const ResearchForm = () => {
 
                         <div className="form-fields">
                             <label >
-                            Research Description:
+                                Research Description:
                             </label>
 
                             <textarea
@@ -114,18 +114,18 @@ const ResearchForm = () => {
                                 Upload Image:
                             </label>
                             <input
-                                    type="file"
-                                    accept="image/*"
-                                    ref={imageRef}
-                                    // value={uploadImage}
-                                    onChange={
-                                        (e) => {
-                                            setUploadImage(e.target.files[0])
+                                type="file"
+                                accept="image/*"
+                                ref={imageRef}
+                                // value={uploadImage}
+                                onChange={
+                                    (e) => {
+                                        setUploadImage(e.target.files[0])
 
-                                        }
                                     }
-                                    required
-                                />
+                                }
+                                required
+                            />
                         </div>
                         <div className="form-fields">
                             <label>

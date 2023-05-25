@@ -228,3 +228,19 @@
     align-items : center ;
     float: var(50);
 }
+@media screen and (max-width: 1150px) {
+    .containerhm{
+        width: 350px;
+        height: 50px;
+        bottom: 50px;
+        position: sticky;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    .button{
+        width:50%;
+        height: 100%;
+        transition: all 1s ease-in;
+    }
+}

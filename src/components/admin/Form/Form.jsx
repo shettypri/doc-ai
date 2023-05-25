@@ -30,7 +30,7 @@ const FormPage = () => {
 
         if(isImageUploaded && isPdfUploaded){
             console.log("DOne");
-        }
+        
         const finalData = {
             "title":title,
             "description":description,
@@ -38,7 +38,7 @@ const FormPage = () => {
             "authors" :authorsList,
             "keyBenefits":keyBenefitsList
         }
-        storeInDataBase(finalData,folderImage)
+        storeInDataBase(finalData,folderName)
 
 
     }

@@ -3,6 +3,9 @@ import image1 from "../../../assets/Doctor/Images/rch1.png"
 import image2 from "../../../assets/Doctor/Images/pexels-drew-rae-580679.jpg"
 import "../../../Styles/doctor/03_Research/Research.css"
 import getCardData from "../Global/getCardData"
+import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleArrowRight } from '@fortawesome/free-solid-svg-icons'
 const Research = () => {
     const screenArray = [
         [
@@ -54,16 +57,16 @@ const Research = () => {
                                                                 )
                                                             })
                                                         }
-                                                        <div className="d-flex flex-row bg-transparent">
+                                                        <div className="btncont bg-transparent">
                                                             <div className="p-2 bg-transparent">
-                                                                <button className="container-button">
-                                                                    <i className="fa-solid fa-circle-arrow-right fa-2xl" />
-                                                                </button>
+                                                                <Link className="container-button">
+                                                                    <FontAwesomeIcon icon={faCircleArrowRight} size="2xl" style={{ color: "#ffffff", }} />
+                                                                </Link>
                                                             </div>
                                                         </div>
 
-                                                        
-                                                        
+
+
                                                     </div>
                                                 </div>
                                             </div>
