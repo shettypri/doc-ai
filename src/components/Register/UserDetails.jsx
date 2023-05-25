@@ -1,6 +1,46 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import "../../Styles/Register/UserDetails.css"
+import { uploadImgToStore } from './docCRUD'
+
 const UserDetails = () => {
+    const [doctorDetails, setDoctorDetails] = useState({
+        "firstName": "",
+        "lastName": "",
+        "dateOfBirth": "",
+        "email": "",
+        "phoneNumber": "",
+        "address": "",
+        "city": "",
+        "pincode": "",
+        "Specialization": "",
+        "doctorId": "",
+        "imageUrl": "",
+        "isFormFilled": true,
+        "isAdmin": false,
+    })
+    const [docImage, setDocImage] = useState("")
+
+    const handleDetails = async (e) => {
+        e.preventDefault();
+        // console.log(doctorDetails);
+        try {
+            // const imageUrl = await uploadImgToStore(docImage, docImage.name)
+            setDoctorDetails({
+                ...doctorDetails,["imageUrl"]:await uploadImgToStore(docImage, docImage.name)
+            })
+            console.log("After updating the values");
+            console.log(doctorDetails);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    // const docImageName = docImageRef.current.files[0].name
+    const doctorValue = (e) => {
+        setDoctorDetails({
+            ...doctorDetails, [e.target.name]: e.target.value
+        })
+    }
+
     return (
         <>
             <div className="containerus">
@@ -9,23 +49,46 @@ const UserDetails = () => {
                     <div className="user-detailsus">
                         <div className="input-boxus">
                             <span className="detailsus">First Name</span>
-                            <input type="text" placeholder="Enter First Name" required />
+                            <input type="text"
+                                name='firstName'
+                                onChange={doctorValue}
+                                placeholder="Enter First Name" required />
                         </div>
+
                         <div className="input-boxus">
                             <span className="detailsus">Last Name</span>
-                            <input type="text" placeholder="Enter Last Name" required />
+                            <input type="text"
+                                placeholder="Enter Last Name"
+                                name='lastName'
+                                onChange={doctorValue}
+                                required />
                         </div>
+
                         <div className="input-boxus">
                             <span className="detailsus">DOB</span>
-                            <input type="date" placeholder="Enter Date of Birth" required />
+                            <input type="date"
+                                name='dateOfBirth'
+                                onChange={doctorValue}
+                                placeholder="Enter Date of Birth" required />
                         </div>
+
                         <div className="input-boxus">
                             <span className="detailsus">Email</span>
-                            <input type="text" placeholder="Enter Email" required />
+                            <input type="text"
+                                name='email'
+                                onChange={doctorValue}
+                                placeholder="Enter Email"
+                                required />
                         </div>
+
                         <div className="input-boxus">
                             <span className="detailsus">Phone No</span>
-                            <input type="text" placeholder="Enter Phone number" maxLength={10} required />
+                            <input type="text"
+                                name='phoneNumber'
+                                onChange={doctorValue}
+                                placeholder="Enter Phone number"
+                                maxLength={10}
+                                required />
                         </div>
                         <div className="input-boxus">
                             <span className="detailsus">Address</span>
@@ -33,28 +96,55 @@ const UserDetails = () => {
                         </div>
                         <div className="input-boxus">
                             <span className="detailsus">City</span>
-                            <input type="text" placeholder="Enter City" required />
+                            <input type="text"
+                                name='city'
+                                onChange={doctorValue}
+                                placeholder="Enter City" required />
                         </div>
+
                         <div className="input-boxus">
                             <span className="detailsus">Pincode</span>
-                            <input type="text" placeholder="Enter Pincode" required />
+                            <input type="text"
+                                name='pincode'
+                                onChange={doctorValue}
+                                placeholder="Enter Pincode" required />
                         </div>
+
                         <div className="input-boxus">
                             <span className="detailsus">Specialization</span>
-                            <input type="text" placeholder="Enter  Specialization" required />
+                            <input type="text"
+                                name='Specialization'
+                                onChange={handleDetails}
+                                placeholder="Enter  Specialization" required />
                         </div>
+
                         <div className="input-boxus">
                             <span className="detailsus">Doctor ID</span>
-                            <input type="text" placeholder="Enter Doctor ID" required />
+                            <input type="text"
+                                onChange={handleDetails}
+                                name='doctorId'
+                                placeholder="Enter Doctor ID" required />
                         </div>
                         <div className="imagepreviewus">
-                            <input type="file" name="image" id="actual-btn" accept=".png,.jpeg,.jpg" hidden />
+                            <input
+                                type="file"
+                                accept="image/*"
+                                // ref={docImageRef}
+                                onChange={(e) => {
+                                    setDocImage(e.target.files[0])
+                                }
+                                }
+                                name="image"
+                                id="actual-btn" hidden />
                             <label className='lbl' htmlFor="actual-btn">Choose File</label>
-                            <span id="file-chosen">No file chosen</span>
-                            {/* <input type="submit" value="Upload"> */}
+                            <span id="file-chosen">
+                                No file chosen
+                            </span>
                         </div>
                         <div className="buttonus">
-                            <input type="submit" defaultValue="Register" />
+                            <input type="submit"
+                                value={"submit"}
+                                onClick={handleDetails} />
                         </div>
                     </div>
                 </form>
