@@ -4,30 +4,42 @@ import ImageUpload from './ImageUpload'
 import storeInDataBase from './storeInDataBase'
 
 const ResearchForm = () => {
+
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
     const [uploadImage, setUploadImage] = useState("")
     const [authorName, setAuthorName] = useState('')
     const [key_benefits, setkey_benefits] = useState("")
+    const [uploadPdf, setuploadPdf] = useState("")
 
     const [authorsList, setAuthorsList] = useState([])
     const [keyBenefitsList, setKeyBenefitsList] = useState([])
+   
 
-    const folderName = 'Research'
+    const folderImage = 'Research/image'
+    const folderPdf ='Research/pdf'
+
     const handleSubmit = async() => {
         const fileName = imageRef.current.files[0].name
-        const isImageUploaded = await ImageUpload(uploadImage, fileName,folderName)
-        if(isImageUploaded){
+        const isImageUploaded = await ImageUpload(uploadImage, fileName,folderImage)
+       
+        const pdfName = pdfRef.current.files[0].name
+        const isPdfUploaded = await ImageUpload(uploadPdf,pdfName,folderPdf) 
+
+
+        if(isImageUploaded && isImageUploaded){
             console.log("DOne");
+            const finalData = {
+                "title":title,
+                "description":description,
+                "imageUrl" :isImageUploaded,
+                "pdfUrl":isPdfUploaded,
+                "authors" :authorsList,
+                "keyBenefits":keyBenefitsList
+            }
+            storeInDataBase(finalData,'Research')
         }
-        const finalData = {
-            "title":title,
-            "description":description,
-            "imageUrl" :isImageUploaded,
-            "authors" :authorsList,
-            "keyBenefits":keyBenefitsList
-        }
-        storeInDataBase(finalData,folderName)
+        
     }
     const addAuthor = () => {
         if (authorName != "") {
@@ -57,6 +69,7 @@ const ResearchForm = () => {
         ])
     }
     const imageRef = useRef()
+    const pdfRef = useRef()
     return (
         <>
             <div className="main-form">
@@ -114,6 +127,25 @@ const ResearchForm = () => {
                                     required
                                 />
                         </div>
+                        <div className="form-fields">
+                            <label>
+                                Upload pdf:
+                            </label>
+                            <input
+                            ref={pdfRef}
+                                type="file"
+                                accept='pdf/*'
+                                onChange={
+                                    (e) => {
+                                        setuploadPdf(e.target.files[0])
+                                        // setuploadPdf(true);
+                                    }
+
+                                } />
+                                
+                            
+                            </div>
+                        
 
                     </div>
 

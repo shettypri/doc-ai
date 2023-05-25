@@ -11,15 +11,24 @@ const FormPage = () => {
     const [uploadImage, setUploadImage] = useState("")
     const [authorName, setAuthorName] = useState('')
     const [key_benefits, setkey_benefits] = useState("")
+    const [uploadPdf, setuploadPdf] = useState("")
 
     const [authorsList, setAuthorsList] = useState([])
     const [keyBenefitsList, setKeyBenefitsList] = useState([])
 
-    const folderName = 'Publications'
+    const folderImage = 'Publications/image'
+    const folderPdf = 'Publications/pdf'
+
+
     const handleSubmit = async () => {
         const fileName = imageRef.current.files[0].name
-        const isImageUploaded = await ImageUpload(uploadImage, fileName,folderName)
-        if(isImageUploaded){
+        const isImageUploaded = await ImageUpload(uploadImage, fileName,folderImage)
+
+        const pdfname=imageRef.current.files[0].name
+        const isPdfUploaded =await ImageUpload(uploadPdf,pdfname,folderPdf) 
+
+
+        if(isImageUploaded && isPdfUploaded){
             console.log("DOne");
         }
         const finalData = {
@@ -29,7 +38,7 @@ const FormPage = () => {
             "authors" :authorsList,
             "keyBenefits":keyBenefitsList
         }
-        storeInDataBase(finalData,folderName)
+        storeInDataBase(finalData,folderImage)
 
 
     }
@@ -61,6 +70,7 @@ const FormPage = () => {
         ])
     }
     const imageRef = useRef()
+    const pdfRef=useRef()
     return (
         <>
                 <div className="main-form">
@@ -117,6 +127,25 @@ const FormPage = () => {
                                     required
                                 />
                             </div>
+                            <div className="form-fields">
+                                <label>
+                                    upload pdf
+                                </label>
+                                <input
+                                type="file"
+                                accept="pdf/*"
+                                ref={pdfRef}
+                                onChange={
+                                    (e)=>{
+                                        setuploadPdf(e.target.files[0])
+
+                                    }
+                                }
+                                 
+                                />
+                            </div>
+                         
+
 
                         </div>
 

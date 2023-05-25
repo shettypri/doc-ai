@@ -33,7 +33,7 @@ const Account = () => {
 
             <div className="doctor-add-btn">
                 <Link to=''>
-                add doctor +
+                   Requests     
                 </Link>  
             </div>
             
