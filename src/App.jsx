@@ -32,6 +32,8 @@ function App() {
 
         {/* Testing path */}
         <Route exact path='/PendingReq' element={<PendingReq />} />
+        <Route exact path='/UserLogin' element={<UserLogin />} />
+        <Route exact path='/UserDetails' element={<UserDetails />} />
         {/* Testing path ends */}
         {/* <Route exact path='/form' element={<Form />}/> */}
         <Route exact path="/" element={<Home />}/>
