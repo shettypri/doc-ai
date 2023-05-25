@@ -13,6 +13,8 @@ import Register from './components/Register/Register'
 import PendingReq from './components/admin/Account/PendingReq'
 import FormPage from './components/admin/Form/Form'
 import ResearchForm from './components/admin/Form/ResearchForm'
+import UserLogin from './components/Login/UserLogin'
+import UserDetails from './components/Register/UserDetails'
 
 
 function App() {

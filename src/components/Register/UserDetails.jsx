@@ -49,7 +49,7 @@ const UserDetails = () => {
                         </div>
                         <div className="imagepreviewus">
                             <input type="file" name="image" id="actual-btn" accept=".png,.jpeg,.jpg" hidden />
-                            <label htmlFor="actual-btn">Choose File</label>
+                            <label className='lbl' htmlFor="actual-btn">Choose File</label>
                             <span id="file-chosen">No file chosen</span>
                             {/* <input type="submit" value="Upload"> */}
                         </div>
