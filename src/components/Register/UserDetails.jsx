@@ -1,8 +1,10 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import "../../Styles/Register/UserDetails.css"
 import { uploadImgToStore } from './docCRUD'
+import { auth } from '../../config/firebase-config';
 
 const UserDetails = () => {
+    console.log(auth.uid);
     const [doctorDetails, setDoctorDetails] = useState({
         "firstName": "",
         "lastName": "",
@@ -15,11 +17,17 @@ const UserDetails = () => {
         "Specialization": "",
         "doctorId": "",
         "imageUrl": "",
-        "isFormFilled": true,
-        "isAdmin": false,
+        isFormFilled:true,
+        isAdmin: false,
+        isDocAuthorized:false
     })
     const [docImage, setDocImage] = useState("")
-
+    
+    const doctorValue = (e) => {
+        setDoctorDetails({
+            ...doctorDetails, [e.target.name]: e.target.value
+        })
+    }
     const handleDetails = async (e) => {
         e.preventDefault();
         // console.log(doctorDetails);
@@ -34,12 +42,7 @@ const UserDetails = () => {
             console.log(error);
         }
     }
-    // const docImageName = docImageRef.current.files[0].name
-    const doctorValue = (e) => {
-        setDoctorDetails({
-            ...doctorDetails, [e.target.name]: e.target.value
-        })
-    }
+   
 
     return (
         <>
@@ -129,7 +132,6 @@ const UserDetails = () => {
                             <input
                                 type="file"
                                 accept="image/*"
-                                // ref={docImageRef}
                                 onChange={(e) => {
                                     setDocImage(e.target.files[0])
                                 }

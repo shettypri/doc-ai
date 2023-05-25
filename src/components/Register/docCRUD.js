@@ -1,6 +1,7 @@
 import { getDownloadURL, ref, uploadBytes } from "@firebase/storage"
-import { storage } from "../../config/firebase-config"
+import { db, storage } from "../../config/firebase-config"
 import { v4 } from "uuid"
+import { doc } from "firebase/firestore"
 
 
 export const uploadImgToStore =  async(docImage,docImageName) =>{
@@ -16,5 +17,9 @@ export const uploadImgToStore =  async(docImage,docImageName) =>{
     } catch (error) {
         console.log(error);
     }
+}
 
+export const storeDocIntoDb = async() =>{
+    // const docRef = doc(db,"USERS",)
+    // const newDoc = await
 }
