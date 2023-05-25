@@ -18,22 +18,20 @@ import UserDetails from './components/Register/UserDetails'
 
 
 function App() {
-  const navbarList = [
-    "Research", "Publication", "Projects", "About-Us", "Contact-Us"
-  ]
-  return (
-    <>
+    const navbarList = [
+        "Research", "Publication", "Projects", "About-Us", "Contact-Us"
+    ]
+    return (
+        <>
 
-    <BrowserRouter>
-      <div>
-      <Navbar/>
-      </div>
-      <Routes>
+            <BrowserRouter>
+                <div>
+                    <Navbar/>
+                </div>
+                <Routes>
 
         {/* Testing path */}
         <Route exact path='/PendingReq' element={<PendingReq />} />
-        <Route exact path='/UserLogin' element={<UserLogin />} />
-        <Route exact path='/UserDetails' element={<UserDetails />} />
         {/* Testing path ends */}
         {/* <Route exact path='/form' element={<Form />}/> */}
         <Route exact path="/" element={<Home />}/>
@@ -44,22 +42,21 @@ function App() {
         <Route exact path='/register' element={<Register />} />
         <Route exact path='/Dashboard/*' element={<Dashboard />} />
         <Route exact path='/Account'  element={<Account/>}/>
-        <Route exact path='/Dashboard/Form'  element={<FormPage/>}/>
+        <Route exact path='/Dashboard/Form'  element={<FormPage />}/>
         <Route exact path='/Dashboard/researchForm' element={<ResearchForm />} />
 
-        
-        {/* <Route exact path='/publisher'  element={<publisher/>}/>
+
+                    {/* <Route exact path='/publisher'  element={<publisher/>}/>
         <Route exact path='/researcher'  element={<researcher/>}/> */}
 
 
-    
-        {/* <Route exact path='/' */}
-      </Routes>
-    </BrowserRouter>
-      
-      
-    </>
-  )
+                    {/* <Route exact path='/' */}
+                </Routes>
+            </BrowserRouter>
+
+
+        </>
+    )
 }
 
 export default App
