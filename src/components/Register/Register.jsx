@@ -22,7 +22,6 @@ const Register = () => {
             const captchaResult = await new RecaptchaVerifier('recaptcha-container', {}, auth);
             resultSingUp = await signInWithPhoneNumber(auth, numberMobile, captchaResult)
             setCaptchaResult(resultSingUp)
-            
         } catch (error) {
             console.log("error", error);
         }
@@ -34,6 +33,7 @@ const Register = () => {
             console.log(captchaResult);
             const finalResult = await captchaResult.confirm(otpNumber)
             console.log(finalResult);
+            
             if(finalResult){
                 registerData(finalResult.user)
             }

@@ -15,9 +15,20 @@
 } */
 @import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
 
+.penreq{
+    margin-top: 100px;
+    width: 50vw;
+}
+.back{
+    /* float:'left'; */
+    display: flex;
+    /* margin-top: 100px; */
+    /* padding-top:'100px'; */
+    /* margin-bottom:"50px" */
+}
 .card {
     width: 700px;
-    margin: 100px auto;
+    /* margin: 100px auto; */
     border-radius: 5px;
     background-color: transparent;
     padding: 10px;
