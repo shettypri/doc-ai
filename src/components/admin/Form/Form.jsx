@@ -1,8 +1,14 @@
+// import React from "react";
 import { useRef, useState } from "react";
 import "../../../Styles/admin/Form/Form.css";
 import cancel from "../../../assets/Admin/Dash-board/close.png"
 import ImageUpload from "./ImageUpload";
 import storeInDataBase from "./storeInDataBase";
+
+// import { useForm } from "react-hook-form";
+
+
+    
 
 const FormPage = () => {
 
@@ -19,8 +25,17 @@ const FormPage = () => {
     const folderImage = 'Publications/image'
     const folderPdf = 'Publications/pdf'
 
+    //  function FormValidation() {
+    //     const { register, formState: {errors} } = useForm();
 
     const handleSubmit = async () => {
+       
+            if (title.length == 0 || description.length==0 || key_benefits==0 || authorsList==0  ) {
+                console.log('Invalid Form')
+            }
+
+        else
+        {      
         const fileName = imageRef.current.files[0].name
         const isImageUploaded = await ImageUpload(uploadImage, fileName, folderImage)
 
@@ -38,10 +53,16 @@ const FormPage = () => {
                 "authors": authorsList,
                 "keyBenefits": keyBenefitsList
             }
-            storeInDataBase(finalData, folderName)
+            storeInDataBase(finalData, 'publication')
 
+            }
 
         }
+
+        
+
+
+    }
         const addAuthor = () => {
             if (authorName != "") {
                 setAuthorsList(oldArray => [...oldArray, authorName])
@@ -69,6 +90,7 @@ const FormPage = () => {
                 ...keyBenefitsList.slice(index + 1, keyBenefitsList.length)
             ])
         }
+    
         const imageRef = useRef()
         const pdfRef = useRef()
         return (
@@ -85,6 +107,9 @@ const FormPage = () => {
                                     Publication Title:
                                 </label>
                                 <input type="text"
+                                    // {...register("PublicationTitle", { required: true, maxLength: 10 })}
+                                    // {... errors.PublicationTitle && <p>Please check the First Name</p>}
+
                                     value={title}
                                     onChange={
                                         (e) => { setTitle(e.target.value) }
@@ -93,6 +118,7 @@ const FormPage = () => {
                             </div>
 
                             <div className="form-fields">
+                            {/* {FormValidation} */}
                                 <label >
                                     Publication Description:
                                 </label>
@@ -232,6 +258,8 @@ const FormPage = () => {
                                 <button className="formSubmit"
                                     onClick={handleSubmit}
                                     type="submit"
+
+                                    
                                 >
                                     Submit
                                 </button>
@@ -239,9 +267,13 @@ const FormPage = () => {
                         </div>
                     </div>
                 </div>
+            
 
             </>
+
         );
     }
-}
+// }
+
+
 export default FormPage;

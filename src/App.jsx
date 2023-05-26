@@ -30,8 +30,6 @@ function App() {
 
         {/* Testing path */}
         <Route exact path='/PendingReq' element={<PendingReq />} />
-        {/* Testing path ends */}
-        {/* <Route exact path='/form' element={<Form />}/> */}
         <Route exact path="/" element={<Home />}/>
         <Route exact path="/Research" element={<Research />} />
         <Route exact path='/Publication' element={<Publication />}/>
@@ -39,9 +37,9 @@ function App() {
         <Route exact path='/login' element={<Login />} />
         <Route exact path='/register' element={<Register />} />
         <Route exact path='/Dashboard/*' element={<Dashboard />} />
-        <Route exact path='/Account'  element={<Account/>}/>
-        <Route exact path='/Dashboard/Form'  element={<FormPage/>}/>
+        <Route exact path='/Dashboard/Form'  element={<FormPage />}/>
         <Route exact path='/Dashboard/researchForm' element={<ResearchForm />} />
+        <Route exact path='/Account'  element={<Account/>}/>
 
         
         {/* <Route exact path='/publisher'  element={<publisher/>}/>
