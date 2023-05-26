@@ -19,7 +19,8 @@ const PendingReq = () => {
                             <thead>
                                 <tr>
                                     <th>Sl.no</th>
-                                    <th>Requests</th>
+                                    <th>Name</th>
+                                    <th>Phone No</th>
                                     <th>Accept</th>
                                     <th>Reject</th>
                                 </tr>
@@ -27,7 +28,8 @@ const PendingReq = () => {
                             <tbody>
                                 <tr>
                                     <td>1</td>
-                                    <td>Dr</td>
+                                    <td>Dr Mahesh</td>
+                                    <td>123456789</td>
                                     <td><Link><FontAwesomeIcon icon={faCheck} size="xl" style={{ color: "greenyellow", }} /></Link></td>
                                     <td><Link><FontAwesomeIcon icon={faXmark} size="xl" style={{ color: "red", }} /></Link></td>
                                 </tr>
