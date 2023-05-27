@@ -16,47 +16,84 @@ import ResearchForm from './components/admin/Form/ResearchForm'
 import UserLogin from './components/Login/UserLogin'
 import UserDetails from './components/Register/UserDetails'
 import Otp_Login from './components/Login/Otp_Login'
+// Import for Spinners
+import { useState, useEffect } from 'react'
+import RingLoader from "react-spinners/RingLoader";
+import PropagateLoader from "react-spinners/PropagateLoader";
+import { css } from '@emotion/react'
 
-
+const override = css`
+    display: block;
+    flex: 1;
+    margin-top: 100px;
+    justify-content: center;
+    align-items: center;
+  `;
 function App() {
+    const style = { position: "fixed", top: "50%", left: "63%", transform: "translate(-50%, -50%)",width:"500px" };
+    const [loading, setLoading] = useState(false)
+    useEffect(() => {
+        setLoading(true)
+        setTimeout(() => {
+            setLoading(false)
+        }, 3000)
+    }, [])
     const navbarList = [
         "Research", "Publication", "Projects", "About-Us", "Contact-Us"
     ]
     return (
         <>
 
+
             <BrowserRouter>
                 <div>
-                    <Navbar/>
+                    <Navbar />
                 </div>
-                <Routes>
+                {
+                    loading ?
+                        <div style={style}>
+                            <PropagateLoader
+                                color={'#FF335B'}
+                                loading={loading}
+                                size={20}
+                                cssOverride={override}
+                                aria-label="Loading Spinner"
+                                data-testid="loader"
+                                speedMultiplier={'1'}
+                            />
+                        </div>
+                        :
+                        <Routes>
 
-        {/* Testing path */}
-        <Route exact path='/PendingReq' element={<PendingReq />} />
-        <Route exact path='/UserLogin' element={<UserLogin />} />
-        <Route exact path='/UserDetails' element={<UserDetails />} />
-        <Route exact path='/otplogin' element={<Otp_Login />} />
-        {/* Testing path ends */}
-        {/* <Route exact path='/form' element={<Form />}/> */}
-        <Route exact path="/" element={<Home />}/>
-        <Route exact path="/Research" element={<Research />} />
-        <Route exact path='/Publication' element={<Publication />}/>
-        <Route exact path='/Contact-Us' element={<Contact />} />
-        <Route exact path='/login' element={<Login />} />
-        <Route exact path='/register' element={<Register />} />
-        <Route exact path='/Dashboard/*' element={<Dashboard />} />
-        <Route exact path='/Account'  element={<Account/>}/>
-        <Route exact path='/Dashboard/Form'  element={<FormPage />}/>
-        <Route exact path='/Dashboard/researchForm' element={<ResearchForm />} />
+                            {/* Testing path */}
+                            <Route exact path='/PendingReq' element={<PendingReq />} />
+                            <Route exact path='/UserLogin' element={<UserLogin />} />
+                            <Route exact path='/UserDetails' element={<UserDetails />} />
+                            <Route exact path='/otplogin' element={<Otp_Login />} />
+                            {/* Testing path ends */}
+                            {/* <Route exact path='/form' element={<Form />}/> */}
+                            <Route exact path="/" element={<Home />} />
+                            <Route exact path="/Research" element={<Research />} />
+                            <Route exact path='/Publication' element={<Publication />} />
+                            <Route exact path='/Contact-Us' element={<Contact />} />
+                            <Route exact path='/login' element={<Login />} />
+                            <Route exact path='/register' element={<Register />} />
+                            <Route exact path='/Dashboard/*' element={<Dashboard />} />
+                            <Route exact path='/Account' element={<Account />} />
+                            <Route exact path='/Dashboard/Form' element={<FormPage />} />
+                            <Route exact path='/Dashboard/researchForm' element={<ResearchForm />} />
 
 
-        {/* <Route exact path='/publisher'  element={<publisher/>}/>
+                            {/* <Route exact path='/publisher'  element={<publisher/>}/>
         <Route exact path='/researcher'  element={<researcher/>}/> */}
 
 
-                    {/* <Route exact path='/' */}
-                </Routes>
+                            {/* <Route exact path='/' */}
+                        </Routes>
+                }
             </BrowserRouter>
+
+
 
 
         </>
