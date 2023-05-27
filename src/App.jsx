@@ -18,9 +18,9 @@ import UserDetails from './components/Register/UserDetails'
 import Otp_Login from './components/Login/Otp_Login'
 // Import for Spinners
 import { useState, useEffect } from 'react'
-import RingLoader from "react-spinners/RingLoader";
-import PropagateLoader from "react-spinners/PropagateLoader";
+import {RingLoader, PropagateLoader, ScaleLoader, RiseLoader, SyncLoader, PuffLoader, HashLoader} from "react-spinners/";
 import { css } from '@emotion/react'
+import NotFound from './components/Global/NotFound'
 
 const override = css`
     display: block;
@@ -30,13 +30,13 @@ const override = css`
     align-items: center;
   `;
 function App() {
-    const style = { position: "fixed", top: "50%", left: "63%", transform: "translate(-50%, -50%)",width:"500px" };
+    const style = { position: "fixed", top: "50%", left: "57%", transform: "translate(-50%, -50%)",width:"500px" };
     const [loading, setLoading] = useState(false)
     useEffect(() => {
         setLoading(true)
         setTimeout(() => {
             setLoading(false)
-        }, 3000)
+        }, 5000)
     }, [])
     const navbarList = [
         "Research", "Publication", "Projects", "About-Us", "Contact-Us"
@@ -52,10 +52,10 @@ function App() {
                 {
                     loading ?
                         <div style={style}>
-                            <PropagateLoader
+                            <PuffLoader
                                 color={'#FF335B'}
                                 loading={loading}
-                                size={20}
+                                size={200}
                                 cssOverride={override}
                                 aria-label="Loading Spinner"
                                 data-testid="loader"
@@ -70,6 +70,7 @@ function App() {
                             <Route exact path='/UserLogin' element={<UserLogin />} />
                             <Route exact path='/UserDetails' element={<UserDetails />} />
                             <Route exact path='/otplogin' element={<Otp_Login />} />
+                            <Route exact path='/404' element={<NotFound/>} />
                             {/* Testing path ends */}
                             {/* <Route exact path='/form' element={<Form />}/> */}
                             <Route exact path="/" element={<Home />} />
