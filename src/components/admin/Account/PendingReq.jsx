@@ -8,31 +8,36 @@ import { faCheck, faXmark, faArrowLeft } from '@fortawesome/free-solid-svg-icons
 const PendingReq = () => {
     return (
         <>
-            <center>
-            <Link to="/Account" style={{float:'left',paddingLeft:"100px",marginBottom:"50px"}}><FontAwesomeIcon icon={faArrowLeft} size="xl" style={{color: "#ffffff",}} /></Link>
-                <h2><u>Requests</u></h2>
-                <Card className='card'>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Sl.no</th>
-                                <th>Requests</th>
-                                <th>Accept</th>
-                                <th>Reject</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Dr</td>
-                                <td><Link><FontAwesomeIcon icon={faCheck} size="xl" style={{ color: "#ffffff", }} /></Link></td>
-                                <td><Link><FontAwesomeIcon icon={faXmark} size="xl" style={{ color: "#ffffff", }} /></Link></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </Card>
+            <div className='penreq'>
+                <center>
+                    <div className='back'>
+                        <Link to="/Account"><FontAwesomeIcon icon={faArrowLeft} size="xl" style={{ color: "#ffffff", }} /></Link>
+                    </div>
+                    <h2><u>Requests</u></h2>
+                    <Card className='card'>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Sl.no</th>
+                                    <th>Name</th>
+                                    <th>Phone No</th>
+                                    <th>Accept</th>
+                                    <th>Reject</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Dr Mahesh</td>
+                                    <td>123456789</td>
+                                    <td><Link><FontAwesomeIcon icon={faCheck} size="xl" style={{ color: "greenyellow", }} /></Link></td>
+                                    <td><Link><FontAwesomeIcon icon={faXmark} size="xl" style={{ color: "red", }} /></Link></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </Card>
 
-                {/* <div className="pendreq">
+                    {/* <div className="pendreq">
                     <table cols={3}>
                         <thead>
                             <tr style={{justifyContent:'center'}}>
@@ -58,7 +63,8 @@ const PendingReq = () => {
                         </tbody>
                     </table>
                 </div> */}
-            </center>
+                </center>
+            </div>
         </>
     )
 }

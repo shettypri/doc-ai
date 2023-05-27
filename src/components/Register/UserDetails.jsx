@@ -116,10 +116,48 @@ const UserDetails = () => {
 
                         <div className="input-boxus">
                             <span className="detailsus">Specialization</span>
-                            <input type="text"
-                                name='Specialization'
-                                onChange={handleDetails}
-                                placeholder="Enter  Specialization" required />
+                            {/* <input type="text" placeholder="Enter  Specialization" required /> */}
+                            <select name="specialization" onChange={handleDetails} id="specialization">
+                                <option value="" defaultChecked>Select Specialization</option>
+                                <option value="Other">Other</option>
+                                <option value="Allergists/Immunologists">Allergists/Immunologists</option>
+                                <option value="Anesthesiologists">Anesthesiologists</option>
+                                <option value="Cardiologists">Cardiologists</option>
+                                <option value="Colon and Rectal Surgeons">Colon and Rectal Surgeons</option>
+                                <option value="Critical Care Medicine Specialists">Critical Care Medicine Specialists</option>
+                                <option value="Dermatologists">Dermatologists</option>
+                                <option value="Endocrinologists">Endocrinologists</option>
+                                <option value="Emergency Medicine Specialists">Emergency Medicine Specialists</option>
+                                <option value="Family Physicians">Family Physicians</option>
+                                <option value="Gastroenterologists">Gastroenterologists</option>
+                                <option value="Geriatric Medicine Specialists">Geriatric Medicine Specialists</option>
+                                <option value="Hematologists">Hematologists</option>
+                                <option value="Hospice and Palliative Medicine Specialists">Hospice and Palliative Medicine Specialists</option>
+                                <option value="Infectious Disease Specialists">Infectious Disease Specialists</option>
+                                <option value="Internists">Internists</option>
+                                <option value="Medical Geneticists">Medical Geneticists</option>
+                                <option value="Nephrologists">Nephrologists</option>
+                                <option value="Neurologists">Neurologists</option>
+                                <option value="Obstetricians and Gynecologists">Obstetricians and Gynecologists</option>
+                                <option value="Oncologists">Oncologists</option>
+                                <option value="Ophthalmologists">Ophthalmologists</option>
+                                <option value="Osteopaths">Osteopaths</option>
+                                <option value="Otolaryngologists">Otolaryngologists</option>
+                                <option value="Pathologists">Pathologists</option>
+                                <option value="Pediatricians">Pediatricians</option>
+                                <option value="Physiatrists">Physiatrists</option>
+                                <option value="Plastic Surgeons">Plastic Surgeons</option>
+                                <option value="Podiatrists">Podiatrists</option>
+                                <option value="Preventive Medicine Specialists">Preventive Medicine Specialists</option>
+                                <option value="Psychiatrists">Psychiatrists</option>
+                                <option value="Pulmonologists">Pulmonologists</option>
+                                <option value="Radiologists">Radiologists</option>
+                                <option value="Rheumatologists">Rheumatologists</option>
+                                <option value="Sleep Medicine Specialists">Sleep Medicine Specialists</option>
+                                <option value="Sports Medicine Specialists">Sports Medicine Specialists</option>
+                                <option value="General Surgeons">General Surgeons</option>
+                                <option value="Urologists">Urologists</option>
+                            </select>
                         </div>
 
                         <div className="input-boxus">
