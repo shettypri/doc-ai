@@ -1,7 +1,7 @@
 import PhoneInput from "react-phone-input-2"
 import "../../Styles/Login/Otp_Login.css"
 import OTPInput from "otp-input-react";
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import { auth } from "../../config/firebase-config";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 
@@ -39,7 +39,9 @@ const Otp_Login = () => {
         console.log(otp);
         try {
             const finalResult = await captchaResult.confirm(otp)
-            console.log(finalResult.user.uid);
+            if(finalResult){
+                console.log(finalResult);
+            }
         } catch (error) {
             console.log("Entered otp =>", error);
         }
