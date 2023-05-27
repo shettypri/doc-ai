@@ -15,6 +15,7 @@ import FormPage from './components/admin/Form/Form'
 import ResearchForm from './components/admin/Form/ResearchForm'
 import UserLogin from './components/Login/UserLogin'
 import UserDetails from './components/Register/UserDetails'
+import Otp_Login from './components/Login/Otp_Login'
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
         <Route exact path='/PendingReq' element={<PendingReq />} />
         <Route exact path='/UserLogin' element={<UserLogin />} />
         <Route exact path='/UserDetails' element={<UserDetails />} />
+        <Route exact path='/otplogin' element={<Otp_Login />} />
         {/* Testing path ends */}
         {/* <Route exact path='/form' element={<Form />}/> */}
         <Route exact path="/" element={<Home />}/>

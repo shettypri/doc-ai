@@ -67,7 +67,8 @@ button {
     float: left;
 }
 button{
-    float: left;
+    /* Changes to class <tag> target this way */
+    /* float: left; */
 }
 
 .containerrch {

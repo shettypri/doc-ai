@@ -4,14 +4,13 @@ import { db } from "../../config/firebase-config"
 
 const rigisterData = async(user) => {
     const newUser = {
+        id:user.uid,
         isFormFilled : false,
         isAdmin: false,
         isDocAuthorized:false
     }
     try {
-        const newData = await setDoc(doc(db,"USERS",`${user.uid}`),newUser)
-        console.log("ADDED TO DATABASE");
-        console.log(newData);
+        const newData = await setDoc(doc(db,"users",`${user.uid}`),newUser)
         return newData
     } catch (error) {
         console.log(error);

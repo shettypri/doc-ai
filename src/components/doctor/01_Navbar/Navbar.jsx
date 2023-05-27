@@ -4,6 +4,8 @@ import navbarImage from "../../../assets/Doctor/Images/pexels-drew-rae-580679.jp
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars,faXmark } from '@fortawesome/free-solid-svg-icons'
+import { signOut } from "firebase/auth"
+import { auth } from "../../../config/firebase-config"
 // import 'bootstrap/dist/css/bootstrap.css';
 
 const Navbar = () => {
@@ -11,6 +13,14 @@ const Navbar = () => {
         "Research", "Publication", "Projects", "About-Us", "Contact-Us","Dashboard"
         // "login"
     ]
+    const handleLogout = async()=>{
+        try {
+            const isSignOut = await signOut(auth)
+            console.log("signOut done",isSignOut);
+        } catch (error) {
+            console.log(error);
+        }
+    }
     return (
         <>
             <header>
@@ -37,6 +47,15 @@ const Navbar = () => {
                         
                         <label htmlFor="check" className="open-menu"><FontAwesomeIcon icon={faBars} style={{color: "#ffffff",}} /></label>
                     </ul>   
+                    <ul>
+                        <li className="logout">
+                            <button onClick={
+                                handleLogout
+                            }>
+                                Logout
+                            </button>
+                        </li>
+                    </ul>
                 </nav>
             </header>
         </>

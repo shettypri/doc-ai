@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import "../../Styles/Register/UserDetails.css"
 import { uploadImgToStore } from './docCRUD'
-import { auth } from '../../config/firebase-config';
+import { useSelector } from 'react-redux'
+import { auth } from '../../config/firebase-config'
 
 const UserDetails = () => {
-    console.log(auth.uid);
     const [doctorDetails, setDoctorDetails] = useState({
         "firstName": "",
         "lastName": "",
@@ -21,8 +21,11 @@ const UserDetails = () => {
         isAdmin: false,
         isDocAuthorized:false
     })
+    // console.log(auth.currentUser.uid);
     const [docImage, setDocImage] = useState("")
-    
+    const registerUser = useSelector(state =>
+        state.userReducer)
+    console.log(registerUser);
     const doctorValue = (e) => {
         setDoctorDetails({
             ...doctorDetails, [e.target.name]: e.target.value
@@ -30,9 +33,8 @@ const UserDetails = () => {
     }
     const handleDetails = async (e) => {
         e.preventDefault();
-        // console.log(doctorDetails);
+
         try {
-            // const imageUrl = await uploadImgToStore(docImage, docImage.name)
             setDoctorDetails({
                 ...doctorDetails,["imageUrl"]:await uploadImgToStore(docImage, docImage.name)
             })
@@ -42,7 +44,6 @@ const UserDetails = () => {
             console.log(error);
         }
     }
-   
 
     return (
         <>
