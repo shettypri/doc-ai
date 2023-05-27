@@ -62,6 +62,25 @@ form .user-detailsus .input-boxus{
     font-weight: 500;
     margin-bottom: 5px;
 }
+.dropdwn{
+    width:300px;
+    border-radius:5px;
+    height:45px;
+    outline: none;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width:2px;
+}
+option{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+}
+.dropdwn:focus,.dropdwn:valid{
+    border-color: #000000;
+    color: rgb(0, 0, 0);
+}
 
 .user-detailsus .input-boxus input{
     height: 45px;

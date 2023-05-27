@@ -116,7 +116,7 @@ const UserDetails = () => {
                         <div className="input-boxus">
                             <span className="detailsus">Specialization</span>
                             {/* <input type="text" placeholder="Enter  Specialization" required /> */}
-                            <select name="specialization" onChange={handleDetails} id="specialization">
+                            <select className='dropdwn' name="specialization" onChange={handleDetails} id="specialization">
                                 <option value="" defaultChecked>Select Specialization</option>
                                 <option value="Other">Other</option>
                                 <option value="Allergists/Immunologists">Allergists/Immunologists</option>
@@ -178,12 +178,12 @@ const UserDetails = () => {
                                 id="actual-btn" hidden />
                             <label className='lbl' htmlFor="actual-btn">Choose File</label>
                             <span id="file-chosen">
-                                No file chosen
+                                &nbsp;&nbsp;No file chosen
                             </span>
                         </div>
                         <div className="buttonus">
                             <input type="submit"
-                                value={"submit"}
+                                value={"Submit"}
                                 onClick={handleDetails} />
                         </div>
                     </div>
