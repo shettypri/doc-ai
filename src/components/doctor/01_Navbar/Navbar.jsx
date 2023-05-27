@@ -4,12 +4,23 @@ import navbarImage from "../../../assets/Doctor/Images/pexels-drew-rae-580679.jp
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faCaretDown } from '@fortawesome/free-solid-svg-icons'
+import { signOut } from "firebase/auth"
+import { auth } from "../../../config/firebase-config"
+// import 'bootstrap/dist/css/bootstrap.css';
 
 const Navbar = () => {
     const navbarList = [
         "Research", "Publication", "About-Us", "Contact-Us", "Dashboard"
         // "login"
     ]
+    const handleLogout = async()=>{
+        try {
+            const isSignOut = await signOut(auth)
+            console.log("signOut done",isSignOut);
+        } catch (error) {
+            console.log(error);
+        }
+    }
     return (
         <>
             <header>
@@ -52,7 +63,7 @@ const Navbar = () => {
                                 </li>
                                 <div className="dropdown-options2">
                                     <Link to="{Projects}" >Projects</Link>
-                                    <Link >Logout </Link>
+                                    <Link onClick={handleLogout}>Logout </Link>
                                 </div>
                             </div>
                             {/* Drop Down List Ends */}
