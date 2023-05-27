@@ -13,7 +13,7 @@ import {isLogoutReducers} from "../../../App/Slice/userSlice.js";
 const Navbar = () => {
 
     const navbarList = [
-        "Research", "Publication", "About-Us", "Contact-Us", "Dashboard"
+        "Research", "Publication", "About-Us", "Contact-Us"
         // "login"
     ]
     const dispatch = useDispatch()
@@ -65,7 +65,7 @@ const Navbar = () => {
                                                     <Link>Admin <FontAwesomeIcon icon={faCaretDown}/></Link>
                                                 </li>
                                                 <div className="dropdown-options1">
-                                                    <Link>Dashboard </Link>
+                                                    <Link to="/Dashboard">Dashboard </Link>
                                                     <Link onClick={handleLogout}>Logout </Link>
                                                 </div>
                                             </div>
