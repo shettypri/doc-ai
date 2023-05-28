@@ -70,7 +70,7 @@ const UserDetails = () => {
                         <div className="input-boxus">
                             <span className="detailsus">DOB</span>
                             <input type="date"
-                                name='dateOfBirth'
+                                name='dateOfBirth' 
                                 onChange={doctorValue}
                                 placeholder="Enter Date of Birth" required />
                         </div>
@@ -78,7 +78,7 @@ const UserDetails = () => {
                         <div className="input-boxus">
                             <span className="detailsus">Email</span>
                             <input type="text"
-                                name='email'
+                                name='email' 
                                 onChange={doctorValue}
                                 placeholder="Enter Email"
                                 required />
