@@ -1,0 +1,135 @@
+.otp-login-main {
+    margin-top: 150px;
+    color: black;
+    background-color: white;
+    padding: 25px 10px 25px 10px;
+    width: 35%;
+    border-radius: 5%;
+}
+
+.otp-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.otp-lable {
+    margin: 5px;
+    padding: 10px;
+
+}
+
+.otp-lable lable {
+    text-transform: capitalize;
+}
+
+.otp-input-number {
+    border: 0.5px solid black;
+    width: 250px;
+
+}
+
+.otp-input-number input {
+    padding: 10px;
+    color: black;
+}
+
+.special-label {
+    display: none;
+}
+
+.otp-get-button {
+    display: inline-flex;
+    position: relative;
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* width: 50px;*/
+}
+
+.otp-get-button button {
+    width: 60%;
+    height: 50px;
+    position: inherit;
+    margin: 30px 10px 20px 5px;
+    background: linear-gradient(135deg, #151415, #dd1111);
+}
+
+.otp-code-main {
+    margin-top: 5px;
+    /* border: 2px solid red; */
+}
+
+.otp-code {
+    color: black;
+}
+
+.otp-code input {
+    color: black !important;
+    width: 5px;
+    /* background-color: rgb(218, 214, 207); */
+}
+
+.extra-otp-option {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-around; */
+}
+
+.otp-number-back {
+    display: flex;
+    flex-direction: row;
+}
+
+.otp-number-back button {
+    position: inherit;
+    width: 125%;
+    font-size: 0.72rem;
+    background-color: transparent;
+    color: blue;
+    border: none;
+    align-items: start;
+    margin-left: 0;
+    text-decoration: underline;
+}
+
+.otpBtn {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-end;
+}
+
+.otp-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 2px solid red; */
+    height: 85px;
+    width: 400px;
+    background-color: transparent;
+
+}
+
+.otp-input input {
+    border: 0.5px solid black;
+    /* width: 80px; */
+    width: 45px !important;
+    height: 45px !important;
+    border-radius: 20%;
+    /* border: 2px solid red; */
+    color: black;
+}
+
+.otpBtn button {
+    
+    width: 50px;
+}
+
+.resend-otp-btn button {
+    position: inherit;
+    width: 130%;
+
+}

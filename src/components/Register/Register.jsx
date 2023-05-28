@@ -1,10 +1,13 @@
 import PhoneInput from "react-phone-input-2"
 import "../../Styles/Register/Register.css"
-import { useState } from "react"
-import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth"
-import { auth } from "../../config/firebase-config"
-import { useNavigate } from "react-router-dom"
+import {useState} from "react"
+import {RecaptchaVerifier, signInWithPhoneNumber} from "firebase/auth"
+import {auth} from "../../config/firebase-config"
 import registerData from "./rigisterData"
+import {useDispatch} from "react-redux";
+import { getPendingRequest } from "./docCRUD"
+import { registerUser } from "../../app/Slice/userSlice"
+import { useNavigate } from "react-router-dom"
 
 const Register = () => {
     const [mobileNumber, setMobileNumber] = useState("")
@@ -13,6 +16,9 @@ const Register = () => {
     const navigate = useNavigate()
 
     let resultSingUp
+    const dispatch = useDispatch()
+
+    
     const handlePhone = (e) => {
         setMobileNumber(e)
     }
@@ -32,15 +38,17 @@ const Register = () => {
         try {
             console.log(captchaResult);
             const finalResult = await captchaResult.confirm(otpNumber)
-            console.log(finalResult);
-            
-            if(finalResult){
-                registerData(finalResult.user)
+            if (finalResult) {
+                await registerData(finalResult.user)
+                const getDoctorById = await getPendingRequest(finalResult.user.uid)
+                dispatch(registerUser(getDoctorById))
+                navigate("/UserDetails")
             }
         } catch (error) {
             console.log(error);
         }
     }
+
 
     return (
         <>
@@ -58,13 +66,13 @@ const Register = () => {
                             />
                         </div>
 
-                        <div id="recaptcha-container" />
+                        <div id="recaptcha-container"/>
 
 
                         <div>
                             <button className="otp-btn"
-                                onClick={getOtpButton}
-                                id="sign-in-button"
+                                    onClick={getOtpButton}
+                                    id="sign-in-button"
                             >
                                 get Otp
                             </button>
@@ -79,11 +87,11 @@ const Register = () => {
 
                         <div className="opt-section">
                             <input type="text"
-                                onChange={
-                                    (e) => {
-                                        setOtpNumber(e.target.value)
-                                    }
-                                }
+                                   onChange={
+                                       (e) => {
+                                           setOtpNumber(e.target.value)
+                                       }
+                                   }
                             />
                         </div>
                         <div className="verify-btn">
