@@ -14,9 +14,8 @@ import UserLogin from './components/Login/UserLogin'
 import UserDetails from './components/Register/UserDetails'
 import Otp_Login from './components/Login/Otp_Login'
 // Import for Spinners
+
 import {useState, useEffect} from 'react'
-import RingLoader from "react-spinners/RingLoader";
-import PropagateLoader from "react-spinners/PropagateLoader";
 import {css} from '@emotion/react'
 import About from './components/doctor/06_About_Us/About'
 import Main from './components/doctor/00_Main/Main'
@@ -24,6 +23,10 @@ import Research from './components/doctor/03_Research/Research'
 import Home from './components/doctor/02_Home/Home'
 import Publication from './components/doctor/04_Publication/Publication'
 import Contact from './components/doctor/07_Contact/Contact'
+
+import {RingLoader, PropagateLoader, ScaleLoader, RiseLoader, SyncLoader, PuffLoader, HashLoader} from "react-spinners/";
+import NotFound from './components/Global/NotFound'
+
 
 const override = css`
   display: block;
@@ -34,36 +37,44 @@ const override = css`
 `;
 
 function App() {
-    const style = {position: "fixed", top: "50%", left: "63%", transform: "translate(-50%, -50%)", width: "500px"};
+    const style = { position: "fixed", top: "50%", left: "57%", transform: "translate(-50%, -50%)",width:"500px" };
     const [loading, setLoading] = useState(false)
     useEffect(() => {
         setLoading(true)
         setTimeout(() => {
             setLoading(false)
-        }, 3000)
+        }, 5000)
     }, [])
     const navbarList = ["Research", "Publication", "Projects", "About-Us", "Contact-Us"]
     return (<>
-
-
         <BrowserRouter>
             <div>
                 <Navbar/>
             </div>
-            {loading ? <div style={style}>
-                <PropagateLoader
+            {loading ?
+            <div style={style}>
+                <PuffLoader
                     color={'#FF335B'}
                     loading={loading}
-                    size={20}
+                    size={200}
                     cssOverride={override}
                     aria-label="Loading Spinner"
                     data-testid="loader"
                     speedMultiplier={'1'}
                 />
-            </div> : <Routes>
+            </div>
+                        :
+                        <Routes>
 
-
-
+                            {/* Testing path */}
+                            <Route exact path='/PendingReq' element={<PendingReq />} />
+                            <Route exact path='/UserLogin' element={<UserLogin />} />
+                            <Route exact path='/UserDetails' element={<UserDetails />} />
+                            <Route exact path='/otplogin' element={<Otp_Login />} />
+                            <Route exact path='/404' element={<NotFound/>} />
+                            {/* Testing path ends */}
+                            {/* <Route exact path='/form' element={<Form />}/> */}
+                          
                 {/*Home Page Sibngle routes*/}
                 {/* <Route exact path="/" element={<Main/>}/> */}
                 <Route exact path="/" element={<Home/>}/>
@@ -99,9 +110,8 @@ function App() {
             </Routes>}
             
         </BrowserRouter>
-
-
-    </>)
+    </>
+                )
 }
 
 export default App
