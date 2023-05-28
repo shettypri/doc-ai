@@ -11,7 +11,8 @@ const PendingReq = () => {
             <div className='penreq'>
                 <center>
                     <div className='back'>
-                        <Link to="/Account"><FontAwesomeIcon icon={faArrowLeft} size="xl" style={{ color: "#ffffff", }} /></Link>
+                        <Link to="/Account">
+                            <FontAwesomeIcon icon={faArrowLeft} size="xl" style={{ color: "#ffffff", }} /></Link>
                     </div>
                     <h2><u>Requests</u></h2>
                     <Card className='card'>
