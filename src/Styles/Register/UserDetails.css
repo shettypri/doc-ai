@@ -99,11 +99,11 @@ option{
 
 }
 
-textarea {
+.input-boxus textarea {
     border-radius: 5px;
     outline: none;
     border-bottom-width: 2px;
-    border-color: #000000;
+    border: 1px solid black;
     padding-left: 15px;
     padding-top: 20px;
     font-size: 16px;
@@ -140,8 +140,7 @@ form .buttonus {
     height: 45px;
     /* margin: 45px 0; */
     left: 500px;
-    position: relative;
-
+    position: absolute;
 }
 
 form .buttonus input {
@@ -152,6 +151,7 @@ form .buttonus input {
     border: none;
     font-size: 18px;
     border-radius: 5px;
+    border-bottom-width: 20px;
     font-weight: 500;
     letter-spacing: 1px;
     background: linear-gradient(135deg, #595555, #efe2f4);
@@ -160,7 +160,8 @@ form .buttonus input {
 }
 
 form .buttonus input:hover {
-    background: linear-gradient(135deg, #efe2f4, #595555);
+    background: linear-gradient(150deg, #efe2f4, #595555);
+    border-bottom-width: 20px;
 
 }
 
