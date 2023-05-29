@@ -100,6 +100,11 @@ function App() {
                         {/* Testing path ends */}
                         {/* <Route exact path='/form' element={<Form />}/> */}
 
+                        {/*Admin Route*/}
+                        <Route exact path='/Dashboard/*' element={<Dashboard/>}/>
+                        <Route exact path='/Account' element={<Account/>}/>
+                        <Route exact path='/Dashboard/Form' element={<FormPage/>}/>
+                        <Route exact path='/Dashboard/researchForm' element={<ResearchForm/>}/>
 
                         <Route exact path='/login' element={<Login/>}/>
                         <Route exact path='/register' element={<Register/>}/>

@@ -1,5 +1,5 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {collection, getDocs} from "firebase/firestore";
+import {collection, getDocs,doc,deleteDoc} from "firebase/firestore";
 import {db} from "../../config/firebase-config.js";
 
 export const getPendingRequestReducers = createAsyncThunk(
@@ -19,6 +19,21 @@ export const getPendingRequestReducers = createAsyncThunk(
         }
     }
 )
+
+// export const rejectDoctorReducers = createAsyncThunk(
+//     "rejectDoctorReducers",
+//     async(id)=>{
+//         const deleteDoctorById = doc(db,"users",id)
+//
+//         try {
+//             const isDeleted = await deleteDoc(deleteDoctorById)
+//             return isDeleted
+//         } catch (e) {
+//             return e
+//         }
+//     }
+// )
+
 const adminSlice = createSlice({
     name: "adminSlice",
     initialState: {
@@ -27,8 +42,6 @@ const adminSlice = createSlice({
         pendingDoctorRequest: "",
         isPendingFetched: false,
         doctorUpdate: [],
-        isDocUpdated: false,
-
     },
     extraReducers: (builder) => {
         builder.addCase(
@@ -54,6 +67,20 @@ const adminSlice = createSlice({
                     state.error = action.payload
                 }
             )
+            // .addCase(
+            //     rejectDoctorReducers.pending,(state) =>{
+            //     state.loading= true
+            // })
+            // .addCase(rejectDoctorReducers.fulfilled,(state,action) =>{
+            //     state.isDoctorRejected = true;
+            //     state.loading=false;
+            // })
+            // .addCase(
+            //     rejectDoctorReducers.rejected,(state,action)=>{
+            //         state.loading=false;
+            //         state.docRejectError=action.payload;
+            //     }
+            // )
     }
 })
 
