@@ -12,8 +12,8 @@ import FormPage from './components/admin/Form/Form'
 import ResearchForm from './components/admin/Form/ResearchForm'
 import UserLogin from './components/Login/UserLogin'
 import UserDetails from './components/Register/UserDetails'
+import UpdateForm from './components/admin/Account/Form/UpdateForm'
 import Otp_Login from './components/Login/Otp_Login'
-// Import for Spinners
 
 import {useState, useEffect} from 'react'
 import {css} from '@emotion/react'
@@ -34,6 +34,7 @@ import {
     HashLoader
 } from "react-spinners/";
 import NotFound from './components/Global/NotFound'
+import BadRequest from './components/Global/BadRequest'
 
 
 const override = css`
@@ -103,10 +104,7 @@ function App() {
                         <Route exact path='/login' element={<Login/>}/>
                         <Route exact path='/register' element={<Register/>}/>
 
-                        {/*Admin Routes*/}
-                        <Route exact path='/Dashboard/*' element={<Dashboard/>}/>
-                        <Route exact path='/Dashboard/Form' element={<FormPage/>}/>
-                        <Route exact path='/Dashboard/researchForm' element={<ResearchForm/>}/>
+                    
                         <Route exact path='/Account/*' element={<Account/>}/>
                         <Route exact path='/Account/PendingReq' element={<PendingReq/>}/>
 
