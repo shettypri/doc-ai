@@ -82,7 +82,7 @@ function App() {
                         <Route exact path='/otplogin' element={<Otp_Login/>}/>
                         <Route exact path='/404' element={<NotFound/>}/>
                         {/* Testing path ends */}
-                        {/* <Route exact path='/form' element={<Form />}/> */}
+                        {/* <Route exact path='/form' element={<FormPage />}/> */}
 
                         {/*Home Page Sibngle routes*/}
                          <Route exact path="/" element={<Main/>}/>
@@ -98,7 +98,7 @@ function App() {
                         <Route exact path='/UserDetails' element={<UserDetails/>}/>
                         <Route exact path='/otplogin' element={<Otp_Login/>}/>
                         {/* Testing path ends */}
-                        {/* <Route exact path='/form' element={<Form />}/> */}
+                        <Route exact path='/form' element={<FormPage />}/>
 
 
                         <Route exact path='/login' element={<Login/>}/>
