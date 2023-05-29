@@ -1,12 +1,26 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import "../../../Styles/admin/Account/Account.css"
 import img from "../../../assets/Admin/Dash-board/doc.jpg"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons'
+import {useDispatch, useSelector} from "react-redux";
+import {getPendingRequestReducers} from "../../../App/Slice/adminSlice.js";
 
 
 const Account = () => {
+
+    const dispatch = useDispatch()
+    dispatch( getPendingRequestReducers("users"))
+
+    const { pendingDoctorRequest} = useSelector(
+        state => state.adminReducer
+    )
+    
+
+    console.log("hello ")
+
+
     const Accountslist = [
         {
             "name": "name1",
@@ -33,8 +47,8 @@ const Account = () => {
         <div className="list-main">
 
             <div className="doctor-add-btn">
-                <Link to='/PendingReq'>
-                Requests
+                <Link to='/Account/PendingReq'>
+                Requests {pendingDoctorRequest.length}
                 </Link>  
             </div>
             
@@ -54,7 +68,7 @@ const Account = () => {
                                 </div>
                                 <div className="doctor-details">
                                     <p>
-                                        
+
                                          {index +1 }) Dr. {doctor.name}
                                     </p>
                                     <p>
@@ -68,7 +82,7 @@ const Account = () => {
                         </>
                     )
                 })
-            } 
+            }
             </div>
         </div>
 

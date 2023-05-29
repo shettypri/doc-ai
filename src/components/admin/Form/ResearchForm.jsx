@@ -20,6 +20,7 @@ const ResearchForm = () => {
     const folderPdf ='Research/pdf'
 
     const handleSubmit = async() => {
+        
         const fileName = imageRef.current.files[0].name
         const isImageUploaded = await ImageUpload(uploadImage, fileName,folderImage)
        

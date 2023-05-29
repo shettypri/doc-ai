@@ -1,7 +1,7 @@
 // import React from 'react'
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import { Link } from 'react-router-dom'
+import { Link, useRouteError } from 'react-router-dom'
 import Card from 'react-bootstrap/Card';
 import { Button } from 'bootstrap';
 
@@ -11,7 +11,7 @@ import React, { useState } from "react";
 const UserLogin = () => {
         const [phone, setPhone] = useState("");
         const [otp, setOtp] = useState("");
-        const router = useRouter();
+        const router = useRouteError();
 
         const handleSubmit = () => {
             if (phone === "" || otp === "") {

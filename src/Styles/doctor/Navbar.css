@@ -1,38 +1,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
-*{
+
+/* * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-}
+} */
 
 
-.nav-links .nav-box{
+.nav-links .nav-box {
 	display: flex;
 }
 
-.nav-box{
+.nav-box {
 	transition: 0.15s ease-in-out;
-    position: relative;
+	position: relative;
 	text-align: center;
 	display: inline-block;
 }
 
-.open-menu , .close-menu {
-    position: absolute;
-    color: white;
-    cursor: pointer;
-    font-size: 1.5rem;
-    display: none;
+.open-menu,
+.close-menu {
+	position: absolute;
+	color: white;
+	cursor: pointer;
+	font-size: 1.5rem;
+	display: none;
 }
+
 .open-menu {
-    right: -10px;
-    transform: translateY(-50%);
+	right: -10px;
+	transform: translateY(-50%);
 }
+
 /* .close-menu {
     top: 5px;
     right: -10px;
 } */
-#check {display: none;}
+#check {
+	display: none;
+}
 
 header {
 	position: fixed;
@@ -40,7 +46,7 @@ header {
 	left: 0;
 	width: 100%;
 	z-index: 999;
-	background-color: transparent;
+	background-color: black;
 }
 
 nav {
@@ -67,7 +73,7 @@ nav ul {
 }
 
 nav ul li a {
-    font-family: "Bruno Ace SC", cursive;
+	font-family: "Bruno Ace SC", cursive;
 	display: block;
 	color: #fff;
 	font-size: 16px;
@@ -97,29 +103,141 @@ nav ul li a.active::before {
 }
 
 @media screen and (max-width: 1150px) {
-	.header{
-		padding:0 50px ;
+	.header {
+		padding: 0 50px;
 	}
-	.nav-box{	
+
+	.nav-box {
 		display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 60%;
-        height: 100vh;
-        position: fixed;
-        top: 0;
-        right: -100%;
-        z-index: 100;
-        background-color: black;
-        transition: all 0.4s ease-in-out 0.1s;
-    }
-	.logo{
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		width: 60%;
+		height: 100vh;
+		position: fixed;
+		top: 0;
+		right: -100%;
+		z-index: 100;
+		background-color: black;
+		transition: all 0.4s ease-in-out 0.1s;
+	}
+
+	.logo {
 		padding-right: 60px;
 	}
-	.nav-links li {margin-top: 40px;}
-    .nav-links li a {padding: 10px;}
-    .open-menu , .close-menu {display: block;
-	right: 20px; z-index: 999;}
-    #check:checked ~ .nav-box {right: 0;}
-}		
+
+	.nav-links li {
+		margin-top: 40px;
+	}
+
+	.nav-links li a {
+		padding: 10px;
+	}
+
+	.open-menu,
+	.close-menu {
+		display: block;
+		right: 20px;
+		z-index: 999;
+	}
+
+	#check:checked~.nav-box {
+		right: 0;
+	}
+}
+
+/* Drop Down CSS for Admin and User*/
+.dropdown1 {
+	display: inline-block;
+	position: relative;
+}
+
+.dropdown2 {
+	display: inline-block;
+	position: relative;
+}
+
+.dropdown-options1 {
+	display: none;
+	position: absolute;
+	overflow: hidden;
+	background-color: transparent;
+	border-radius: 5px;
+	box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.4);
+}
+
+.dropdown-options2 {
+	display: none;
+	position: absolute;
+	overflow: hidden;
+	background-color: transparent;
+	border-radius: 5px;
+	box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.4);
+}
+
+.dropdown1:hover .dropdown-options1 {
+	display: block;
+}
+
+.dropdown2:hover .dropdown-options2 {
+	display: block;
+}
+
+.dropdown-options1 a {
+	font-family: "Bruno Ace SC", cursive;
+	display: block;
+	color: #fff;
+	font-size: 16px;
+	font-weight: 600;
+	text-decoration: none;
+	padding: 15px 20px;
+	position: relative;
+	text-transform: capitalize;
+}
+
+.dropdown-options1 a::before {
+	content: "";
+	position: absolute;
+	bottom: -5px;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background-color: #fff;
+	transform: scaleX(0);
+	transform-origin: center;
+	transition: transform 0.3s ease-in-out;
+}
+/* .dropdown-options1 a:hover::before,
+.dropdown-options1 a.active::before {
+	transform: scaleX(1);
+} */
+
+.dropdown-options2 a {
+	font-family: "Bruno Ace SC", cursive;
+	display: block;
+	color: #fff;
+	font-size: 16px;
+	font-weight: 600;
+	text-decoration: none;
+	padding: 15px 20px;
+	position: relative;
+	text-transform: capitalize;
+}
+
+.dropdown-options2 a::before {
+	content: "";
+	position: absolute;
+	bottom: -5px;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background-color: #fff;
+	transform: scaleX(0);
+	transform-origin: center;
+	transition: transform 0.3s ease-in-out;
+}
+
+/* .dropdown-options2 a:hover::before,
+.dropdown-options2 a.active::before {
+	transform: scaleX(1);
+} */
