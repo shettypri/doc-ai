@@ -48,7 +48,7 @@ export const allAcceptedDoctorReducers = createAsyncThunk(
                 })
             )
             const filterData = requestData.filter(doctor =>
-                (doctor.isDocAuthorized == true && doctor.isDocShow == true)
+                (doctor.isDocAuthorized === true && doctor.isDocShow === true)
             )
             return filterData
         } catch (e) {
@@ -91,6 +91,12 @@ const adminSlice = createSlice({
     initialState: {
         loading: false,
         error: false,
+        pendingRequestState:{
+            loading:false,
+            error:false,
+            data:"",
+            isDataFetched:false,
+        },
         pendingDoctorRequest: "",
         isPendingFetched: false,
         doctorUpdate: [],
@@ -111,12 +117,12 @@ const adminSlice = createSlice({
         builder.addCase(
             getPendingRequestReducers.pending, (state) => {
                 state.loading = true;
-
             }
         )
             .addCase(
                 getPendingRequestReducers.fulfilled, (state, action) => {
                     state.loading = false;
+
                     if (state.pendingDoctorRequest.length == 0) {
                         state.pendingDoctorRequest = ""
                     }
@@ -127,7 +133,6 @@ const adminSlice = createSlice({
             .addCase(
                 getPendingRequestReducers.rejected, (state, action) => {
                     state.loading = false;
-                    state.isPendingFetched = false;
                     state.error = action.payload
                 }
             )
