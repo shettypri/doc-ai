@@ -21,6 +21,7 @@ import { useState, useEffect } from 'react'
 import {RingLoader, PropagateLoader, ScaleLoader, RiseLoader, SyncLoader, PuffLoader, HashLoader} from "react-spinners/";
 import { css } from '@emotion/react'
 import NotFound from './components/Global/NotFound'
+import BadRequest from './components/Global/BadRequest'
 
 const override = css`
     display: block;
@@ -71,6 +72,7 @@ function App() {
                             <Route exact path='/UserDetails' element={<UserDetails />} />
                             <Route exact path='/otplogin' element={<Otp_Login />} />
                             <Route exact path='/404' element={<NotFound/>} />
+                            <Route exact path='/BadRequest' element={<BadRequest/>} />
                             {/* Testing path ends */}
                             {/* <Route exact path='/form' element={<Form />}/> */}
                             <Route exact path="/" element={<Home />} />
