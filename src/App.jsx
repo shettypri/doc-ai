@@ -46,13 +46,13 @@ const override = css`
 `;
 
 function App() {
-    const style = {position: "fixed", top: "50%", left: "57%", transform: "translate(-50%, -50%)", width: "500px"};
+    const style = {position: "fixed", top: "50%", left: "60%", transform: "translate(-50%, -50%)", width: "500px"};
     const [loading, setLoading] = useState(false)
     useEffect(() => {
         setLoading(true)
         setTimeout(() => {
             setLoading(false)
-        }, 5000)
+        }, 3000)
     }, [])
     const navbarList = ["Research", "Publication", "Projects", "About-Us", "Contact-Us"]
     return (<>
@@ -62,14 +62,14 @@ function App() {
                 </div>
                 {loading ?
                     <div style={style}>
-                        <PuffLoader
-                            color={'#FF335B'}
+                        <HashLoader
+                            color={'#FFFFDB'}
                             loading={loading}
-                            size={200}
+                            size={150}
                             cssOverride={override}
                             aria-label="Loading Spinner"
                             data-testid="loader"
-                            speedMultiplier={'1'}
+                            speedMultiplier={'0.69'}
                         />
                     </div>
                     :
