@@ -86,11 +86,11 @@ function App() {
 
                         {/*Home Page Sibngle routes*/}
                          <Route exact path="/" element={<Main/>}/>
-                        {/*<Route exact path="/" element={<Home/>}/>*/}
-                        {/*<Route exact path="/Research" element={<Research/>}/>*/}
-                        {/*<Route exact path='/Publication' element={<Publication/>}/>*/}
-                        {/*<Route exact path='/Contact-Us' element={<Contact/>}/>*/}
-                        {/*<Route exact path='/About-Us' element={<About/>}/>*/}
+                        {/* <Route exact path="/" element={<Home/>}/>
+                        <Route exact path="/Research" element={<Research/>}/>
+                        <Route exact path='/Publication' element={<Publication/>}/>
+                        <Route exact path='/Contact-Us' element={<Contact/>}/>
+                        <Route exact path='/About-Us' element={<About/>}/> */}
 
                         {/* Testing path */}
                         <Route exact path='/PendingReq' element={<PendingReq/>}/>
