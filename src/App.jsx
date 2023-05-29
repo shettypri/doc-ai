@@ -84,12 +84,12 @@ function App() {
                         {/* <Route exact path='/form' element={<Form />}/> */}
 
                         {/*Home Page Sibngle routes*/}
-                        {/* <Route exact path="/" element={<Main/>}/> */}
-                        <Route exact path="/" element={<Home/>}/>
-                        <Route exact path="/Research" element={<Research/>}/>
-                        <Route exact path='/Publication' element={<Publication/>}/>
-                        <Route exact path='/Contact-Us' element={<Contact/>}/>
-                        <Route exact path='/About-Us' element={<About/>}/>
+                         <Route exact path="/" element={<Main/>}/>
+                        {/*<Route exact path="/" element={<Home/>}/>*/}
+                        {/*<Route exact path="/Research" element={<Research/>}/>*/}
+                        {/*<Route exact path='/Publication' element={<Publication/>}/>*/}
+                        {/*<Route exact path='/Contact-Us' element={<Contact/>}/>*/}
+                        {/*<Route exact path='/About-Us' element={<About/>}/>*/}
 
                         {/* Testing path */}
                         <Route exact path='/PendingReq' element={<PendingReq/>}/>
@@ -108,7 +108,7 @@ function App() {
                         <Route exact path='/Dashboard/Form' element={<FormPage/>}/>
                         <Route exact path='/Dashboard/researchForm' element={<ResearchForm/>}/>
                         <Route exact path='/Account/*' element={<Account/>}/>
-                        <Route exact path='/Account/PendingReq/PendingReq' element={<PendingReq/>}/>
+                        <Route exact path='/Account/PendingReq' element={<PendingReq/>}/>
 
 
                         {/* <Route exact path='/publisher'  element={<publisher/>}/>

@@ -9,7 +9,11 @@ export const getPendingRequestReducers = createAsyncThunk(
 
         try {
             const getPendingRequest = await getDocs(firebaseCollectionName)
-            return await getPendingRequest.docs.data
+            const filterData = getPendingRequest.docs.map((dataArray) => ({
+                ...dataArray.data()
+            })
+        )
+            return filterData
         } catch (e) {
             return e
         }
@@ -20,7 +24,7 @@ const adminSlice = createSlice({
     initialState: {
         loading: false,
         error: false,
-        pendingDoctorRequest: [],
+        pendingDoctorRequest: "",
         isPendingFetched: false,
         doctorUpdate: [],
         isDocUpdated: false,
@@ -30,19 +34,24 @@ const adminSlice = createSlice({
         builder.addCase(
             getPendingRequestReducers.pending, (state) => {
                 state.loading = true;
+
             }
         )
             .addCase(
                 getPendingRequestReducers.fulfilled, (state, action) => {
                     state.loading = false;
-                    state.pendingDoctorRequest.push(action.payload);
+                    if(state.pendingDoctorRequest.length == 0){
+                        state.pendingDoctorRequest =""
+                    }
+                    state.pendingDoctorRequest =(action.payload);
                     state.isPendingFetched = true;
                 }
             )
             .addCase(
-                getPendingRequestReducers.rejected,(state,action)=>{
+                getPendingRequestReducers.rejected, (state, action) => {
                     state.loading = false;
                     state.isPendingFetched = false;
+                    state.error = action.payload
                 }
             )
     }

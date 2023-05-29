@@ -4,17 +4,19 @@ import "../../../Styles/admin/Account/Account.css"
 import img from "../../../assets/Admin/Dash-board/doc.jpg"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons'
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {getPendingRequestReducers} from "../../../App/Slice/adminSlice.js";
 
 
 const Account = () => {
 
     const dispatch = useDispatch()
-    dispatch(getPendingRequestReducers("users"))
-    // useEffect(() => {
-    //    dispatch(getPendingRequestReducers("users"))
-    // }, []);
+    dispatch( getPendingRequestReducers("users"))
+
+    const { pendingDoctorRequest} = useSelector(
+        state => state.adminReducer
+    )
+    
 
     console.log("hello ")
 
@@ -45,8 +47,8 @@ const Account = () => {
         <div className="list-main">
 
             <div className="doctor-add-btn">
-                <Link to='/Account/'>
-                Requests
+                <Link to='/Account/PendingReq'>
+                Requests {pendingDoctorRequest.length}
                 </Link>  
             </div>
             

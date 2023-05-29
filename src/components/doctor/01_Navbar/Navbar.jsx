@@ -15,7 +15,7 @@ const Navbar = () => {
         "Research", "Publication", "About-Us", "Contact-Us"
         // "login"
     ]
-    // console.log(auth.currentUser)
+    console.log(auth)
 
     const dispatch = useDispatch()
     const navigate = useNavigate()

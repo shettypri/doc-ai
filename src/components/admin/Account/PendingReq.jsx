@@ -1,39 +1,48 @@
 import React from 'react'
 import "../../../Styles/admin/Account/PendingReq.css"
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import Card from 'react-bootstrap/Card';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheck, faXmark, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faCheck, faXmark, faArrowLeft} from '@fortawesome/free-solid-svg-icons'
+import {useSelector} from "react-redux";
 
 const PendingReq = () => {
+    const {pendingDoctorRequest} = useSelector(
+        state => state.adminReducer
+    )
+    console.log(pendingDoctorRequest.length)
     return (
         <>
             <div className='penreq'>
                 <center>
                     <div className='back'>
                         <Link to="/Account">
-                            <FontAwesomeIcon icon={faArrowLeft} size="xl" style={{ color: "#ffffff", }} /></Link>
+                            <FontAwesomeIcon icon={faArrowLeft} size="xl" style={{color: "#ffffff",}}/></Link>
                     </div>
                     <h2><u>Requests</u></h2>
                     <Card className='card'>
                         <table>
                             <thead>
-                                <tr>
-                                    <th>Sl.no</th>
-                                    <th>Name</th>
-                                    <th>Phone No</th>
-                                    <th>Accept</th>
-                                    <th>Reject</th>
-                                </tr>
+                            <tr>
+                                <th>Sl.no</th>
+                                <th>Name</th>
+                                <th>Phone No</th>
+                                <th>Accept</th>
+                                <th>Reject</th>
+                            </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Dr Mahesh</td>
-                                    <td>123456789</td>
-                                    <td><Link><FontAwesomeIcon icon={faCheck} size="xl" style={{ color: "greenyellow", }} /></Link></td>
-                                    <td><Link><FontAwesomeIcon icon={faXmark} size="xl" style={{ color: "red", }} /></Link></td>
-                                </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>Dr Mahesh</td>
+                                <td>123456789</td>
+                                <td>
+                                    <FontAwesomeIcon icon={faCheck} size="xl" style={{color: "greenyellow",}}/>
+                                </td>
+                                <td>
+                                    <FontAwesomeIcon icon={faXmark} size="xl" style={{color: "red",}}/>
+                                </td>
+                            </tr>
                             </tbody>
                         </table>
                     </Card>
