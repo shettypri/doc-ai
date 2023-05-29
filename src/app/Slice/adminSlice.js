@@ -1,5 +1,5 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {collection, getDocs,doc,deleteDoc} from "firebase/firestore";
+import {collection, getDocs,doc,deleteDoc,updateDoc} from "firebase/firestore";
 import {db} from "../../config/firebase-config.js";
 
 export const getPendingRequestReducers = createAsyncThunk(
@@ -9,10 +9,11 @@ export const getPendingRequestReducers = createAsyncThunk(
 
         try {
             const getPendingRequest = await getDocs(firebaseCollectionName)
-            const filterData = getPendingRequest.docs.map((dataArray) => ({
+            const requestData = getPendingRequest.docs.map((dataArray) => ({
                 ...dataArray.data()
             })
         )
+            const filterData = requestData.filter(doctor =>doctor.isDocAuthorized == false)
             return filterData
         } catch (e) {
             return e
@@ -20,19 +21,52 @@ export const getPendingRequestReducers = createAsyncThunk(
     }
 )
 
-// export const rejectDoctorReducers = createAsyncThunk(
-//     "rejectDoctorReducers",
-//     async(id)=>{
-//         const deleteDoctorById = doc(db,"users",id)
-//
-//         try {
-//             const isDeleted = await deleteDoc(deleteDoctorById)
-//             return isDeleted
-//         } catch (e) {
-//             return e
-//         }
-//     }
-// )
+export const acceptDoctorReducers =createAsyncThunk(
+    "acceptDoctorReducers",
+    async(id)=>{
+        const doctorCollection = doc(db,"users",id)
+
+        try {
+            const doctorAccepted = await updateDoc(doctorCollection, {
+                isDocAuthorized: true
+            })
+            return `Accepted Sucessfully of ${id}`
+        } catch (e) {
+            return e
+        }
+    }
+)
+export const allAcceptedDoctorReducers = createAsyncThunk(
+    "allAcceptedDoctorReducers",
+    async () =>{
+        const firebaseCollectionName = collection(db, "users")
+
+        try {
+            const getPendingRequest = await getDocs(firebaseCollectionName)
+            const requestData = getPendingRequest.docs.map((dataArray) => ({
+                    ...dataArray.data()
+                })
+            )
+            const filterData = requestData.filter(doctor =>doctor.isDocAuthorized == true)
+            return filterData
+        } catch (e) {
+            return e
+        }
+}
+)
+
+export const rejectDoctorReducers = createAsyncThunk(
+    "rejectDoctorReducers",
+    async(id)=>{
+        const deleteDoctorById = doc(db,"users",id)
+        try {
+            const isDeleted = await deleteDoc(deleteDoctorById)
+            return `Deleted Sucessfully of ${id}`
+        } catch (e) {
+            return e
+        }
+    }
+)
 
 const adminSlice = createSlice({
     name: "adminSlice",
@@ -42,6 +76,15 @@ const adminSlice = createSlice({
         pendingDoctorRequest: "",
         isPendingFetched: false,
         doctorUpdate: [],
+        isDocUpdated: false,
+        isDoctorRejected:false,
+        docRejectError:"",
+        isDoctorAccepted:false,
+        docUpdate:"",
+        docAcceptError:"",
+        acceptAlldocList:"",
+        acceptAllDocLoading:false,
+        acceptAllDocError:""
     },
     extraReducers: (builder) => {
         builder.addCase(
@@ -67,20 +110,61 @@ const adminSlice = createSlice({
                     state.error = action.payload
                 }
             )
-            // .addCase(
-            //     rejectDoctorReducers.pending,(state) =>{
-            //     state.loading= true
-            // })
-            // .addCase(rejectDoctorReducers.fulfilled,(state,action) =>{
-            //     state.isDoctorRejected = true;
-            //     state.loading=false;
-            // })
-            // .addCase(
-            //     rejectDoctorReducers.rejected,(state,action)=>{
-            //         state.loading=false;
-            //         state.docRejectError=action.payload;
-            //     }
-            // )
+            .addCase(
+                rejectDoctorReducers.pending,(state) =>{
+                state.loading= true
+            })
+            .addCase(rejectDoctorReducers.fulfilled,(state,action) =>{
+                state.isDoctorRejected = true;
+                state.loading=false;
+            })
+            .addCase(
+                rejectDoctorReducers.rejected,(state,action)=>{
+                    state.loading=false;
+                    state.docRejectError=action.payload;
+                }
+            )
+            .addCase(
+                acceptDoctorReducers.pending,(state)=>{
+                    state.loading=true;
+
+                }
+            )
+            .addCase(
+                acceptDoctorReducers.fulfilled,(state,action)=>{
+                    state.docUpdate = action.payload;
+                    state.loading = false;
+                    state.isDoctorAccepted = true;
+                }
+            )
+            .addCase(
+                acceptDoctorReducers.rejected,(state,action)=>{
+                    state.loading=false;
+                    state.docAcceptError=action.payload
+                }
+            )
+            .addCase(
+                allAcceptedDoctorReducers.pending,(state)=>{
+                    // acceptAlldocList:"",
+                        state.acceptAllDocLoading=true;
+                        // acceptAllDocError:""
+                }
+            )
+            .addCase(
+                allAcceptedDoctorReducers.fulfilled,(state,action)=>{
+                    state.acceptAllDocLoading=false;
+                    if(state.acceptAlldocList.length != 0){
+                        state.acceptAlldocList="";
+                    }
+                    state.acceptAlldocList=action.payload
+                }
+            )
+            .addCase(
+                allAcceptedDoctorReducers.rejected,(state,action)=>{
+                    state.acceptAllDocLoading=false;
+                    state.acceptAllDocError=action.payload
+                }
+            )
     }
 })
 
