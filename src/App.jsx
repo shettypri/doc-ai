@@ -12,8 +12,7 @@ import FormPage from './components/admin/Form/Form'
 import ResearchForm from './components/admin/Form/ResearchForm'
 import UserLogin from './components/Login/UserLogin'
 import UserDetails from './components/Register/UserDetails'
-import Otp_Login from './components/Login/Otp_Login'
-// Import for Spinners
+import UpdateForm from './components/admin/Account/Form/UpdateForm'
 
 import {useState, useEffect} from 'react'
 import {css} from '@emotion/react'
@@ -81,20 +80,24 @@ function App() {
                             <Route exact path='/UserDetails' element={<UserDetails />} />
                             <Route exact path='/otplogin' element={<Otp_Login />} />
                             <Route exact path='/404' element={<NotFound/>} />
-                            <Route exact path='/BadRequest' element={<BadRequest/>} />
                             {/* Testing path ends */}
                             {/* <Route exact path='/form' element={<Form />}/> */}
-                            <Route exact path="/" element={<Home />} />
-                            <Route exact path="/Research" element={<Research />} />
-                            <Route exact path='/Publication' element={<Publication />} />
-                            <Route exact path='/Contact-Us' element={<Contact />} />
-                            <Route exact path='/login' element={<Login />} />
-                            <Route exact path='/register' element={<Register />} />
-                            <Route exact path='/Dashboard/*' element={<Dashboard />} />
-                            <Route exact path='/Account' element={<Account />} />
-                            <Route exact path='/Dashboard/Form' element={<FormPage />} />
-                            <Route exact path='/Dashboard/researchForm' element={<ResearchForm />} />
-                        
+                          
+                {/*Home Page Sibngle routes*/}
+                {/* <Route exact path="/" element={<Main/>}/> */}
+                <Route exact path="/" element={<Home/>}/>
+                <Route exact path="/Research" element={<Research/>}/>
+                <Route exact path='/Publication' element={<Publication/>}/>
+                <Route exact path='/Contact-Us' element={<Contact/>}/>
+                <Route exact path='/About-Us' element={<About/>}/>
+
+                        {/* Testing path */}
+                        <Route exact path='/PendingReq' element={<PendingReq/>}/>
+                        <Route exact path='/UserLogin' element={<UserLogin/>}/>
+                        <Route exact path='/UserDetails' element={<UserDetails/>}/>
+                        <Route exact path='/otplogin' element={<Otp_Login/>}/>
+                        {/* Testing path ends */}
+                        {/* <Route exact path='/form' element={<Form />}/> */}
 
 
                         <Route exact path='/login' element={<Login/>}/>
