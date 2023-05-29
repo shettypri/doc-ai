@@ -1,11 +1,20 @@
-import React, { useState } from 'react'
+import React, {useState} from 'react'
 import "../../Styles/Register/UserDetails.css"
-import { uploadImgToStore } from './docCRUD'
-import { useSelector } from 'react-redux'
-import { auth } from '../../config/firebase-config'
+import {uploadImgToStore} from './docCRUD'
+import {useDispatch, useSelector} from 'react-redux'
+import {dataUploadFireBaseReducers, imageUploadReducers} from "../../App/Slice/registerSlice.js";
+import {auth} from "../../config/firebase-config.js";
+import {useNavigate} from "react-router-dom";
 
 const UserDetails = () => {
+    const dispatch = useDispatch()
+
+    const {id} = useSelector(
+        state => state.userReducer
+    )
+    const [docImage, setDocImage] = useState("")
     const [doctorDetails, setDoctorDetails] = useState({
+        "id": `${id}`,
         "firstName": "",
         "lastName": "",
         "dateOfBirth": "",
@@ -16,115 +25,135 @@ const UserDetails = () => {
         "pincode": "",
         "Specialization": "",
         "doctorId": "",
-        "imageUrl": "",
-        isFormFilled:true,
+        // "imageUrl": "",
+        isFormFilled: true,
         isAdmin: false,
-        isDocAuthorized:false
+        isDocAuthorized: false
     })
-    // console.log(auth.currentUser.uid);
-    const [docImage, setDocImage] = useState("")
-    const registerUser = useSelector(state =>
-        state.userReducer)
-    console.log(registerUser);
+
+
     const doctorValue = (e) => {
         setDoctorDetails({
             ...doctorDetails, [e.target.name]: e.target.value
         })
     }
+    const {isImageUploaded, imageError, imageUrl, isDataUploaded, resultInsert} = useSelector(
+        state => state.registerReducer
+    )
+
     const handleDetails = async (e) => {
         e.preventDefault();
+        dispatch(imageUploadReducers(docImage))
 
-        try {
-            setDoctorDetails({
-                ...doctorDetails,["imageUrl"]:await uploadImgToStore(docImage, docImage.name)
-            })
-            console.log("After updating the values");
-            console.log(doctorDetails);
-        } catch (error) {
-            console.log(error);
-        }
+
     }
+
+    const storeDataIntoFireStore = ()=>{
+        doctorDetails['imageUrl'] =imageUrl
+        console.log(doctorDetails)
+        dispatch(dataUploadFireBaseReducers(doctorDetails))
+    }
+    const navigate =  useNavigate()
+    if(isDataUploaded){
+       navigate("/")
+    }
+    if (isImageUploaded) {
+        storeDataIntoFireStore()
+    }
+
+
 
     return (
         <>
             <div className="containerus">
-                <div className="titleus">Register</div><br />
+                <div className="titleus">Register</div>
+                <br/>
                 <form action="#">
                     <div className="user-detailsus">
                         <div className="input-boxus">
                             <span className="detailsus">First Name</span>
                             <input type="text"
-                                name='firstName'
-                                onChange={doctorValue}
-                                placeholder="Enter First Name" required />
+                                   name='firstName'
+                                   onChange={doctorValue}
+                                   placeholder="Enter First Name" required/>
                         </div>
 
                         <div className="input-boxus">
                             <span className="detailsus">Last Name</span>
                             <input type="text"
-                                placeholder="Enter Last Name"
-                                name='lastName'
-                                onChange={doctorValue}
-                                required />
+                                   placeholder="Enter Last Name"
+                                   name='lastName'
+                                   onChange={doctorValue}
+                                   required/>
                         </div>
 
                         <div className="input-boxus">
                             <span className="detailsus">DOB</span>
                             <input type="date"
-                                name='dateOfBirth'
-                                onChange={doctorValue}
-                                placeholder="Enter Date of Birth" required />
+                                   name='dateOfBirth'
+                                   onChange={doctorValue}
+                                   placeholder="Enter Date of Birth" required/>
                         </div>
 
                         <div className="input-boxus">
                             <span className="detailsus">Email</span>
                             <input type="text"
-                                name='email'
-                                onChange={doctorValue}
-                                placeholder="Enter Email"
-                                required />
+                                   name='email'
+                                   onChange={doctorValue}
+                                   placeholder="Enter Email"
+                                   required/>
                         </div>
 
                         <div className="input-boxus">
                             <span className="detailsus">Phone No</span>
                             <input type="text"
-                                name='phoneNumber'
-                                onChange={doctorValue}
-                                placeholder="Enter Phone number"
-                                maxLength={10}
-                                required />
+                                   name='phoneNumber'
+                                   onChange={doctorValue}
+                                   placeholder="Enter Phone number"
+                                   maxLength={10}
+                                   required/>
                         </div>
                         <div className="input-boxus">
                             <span className="detailsus">Address</span>
-                            <textarea type="text" placeholder="Enter Address" required style={{ width: '300px', height: '70px' }} defaultValue={""} />
+                            <textarea type="text"
+                                      placeholder="Enter Address"
+                                      required style={{width: '300px', height: '70px'}}
+                                      name={"address"}
+                                      onChange={doctorValue}
+                            />
                         </div>
                         <div className="input-boxus">
                             <span className="detailsus">City</span>
                             <input type="text"
-                                name='city'
-                                onChange={doctorValue}
-                                placeholder="Enter City" required />
+                                   name='city'
+                                   onChange={doctorValue}
+                                   placeholder="Enter City" required/>
                         </div>
 
                         <div className="input-boxus">
                             <span className="detailsus">Pincode</span>
                             <input type="text"
-                                name='pincode'
-                                onChange={doctorValue}
-                                placeholder="Enter Pincode" required />
+                                   name='pincode'
+                                   onChange={doctorValue}
+                                   placeholder="Enter Pincode" required/>
                         </div>
 
                         <div className="input-boxus">
                             <span className="detailsus">Specialization</span>
                             {/* <input type="text" placeholder="Enter  Specialization" required /> */}
-                            <select className='dropdwn' name="specialization" onChange={handleDetails} id="specialization">
+                            <select className='dropdwn'
+                                    name="Specialization"
+                                    onChange={doctorValue}
+                                    id="specialization"
+                            >
                                 <option value="" defaultChecked>Select Specialization</option>
                                 <option value="Other">Other</option>
                                 <option value="Allergists/Immunologists">Allergists/Immunologists</option>
                                 <option value="Anesthesiologists">Anesthesiologists</option>
                                 <option value="Cardiologists">Cardiologists</option>
                                 <option value="Colon and Rectal Surgeons">Colon and Rectal Surgeons</option>
-                                <option value="Critical Care Medicine Specialists">Critical Care Medicine Specialists</option>
+                                <option value="Critical Care Medicine Specialists">Critical Care Medicine Specialists
+                                </option>
                                 <option value="Dermatologists">Dermatologists</option>
                                 <option value="Endocrinologists">Endocrinologists</option>
                                 <option value="Emergency Medicine Specialists">Emergency Medicine Specialists</option>
@@ -132,7 +161,9 @@ const UserDetails = () => {
                                 <option value="Gastroenterologists">Gastroenterologists</option>
                                 <option value="Geriatric Medicine Specialists">Geriatric Medicine Specialists</option>
                                 <option value="Hematologists">Hematologists</option>
-                                <option value="Hospice and Palliative Medicine Specialists">Hospice and Palliative Medicine Specialists</option>
+                                <option value="Hospice and Palliative Medicine Specialists">Hospice and Palliative
+                                    Medicine Specialists
+                                </option>
                                 <option value="Infectious Disease Specialists">Infectious Disease Specialists</option>
                                 <option value="Internists">Internists</option>
                                 <option value="Medical Geneticists">Medical Geneticists</option>
@@ -163,9 +194,9 @@ const UserDetails = () => {
                         <div className="input-boxus">
                             <span className="detailsus">Doctor ID</span>
                             <input type="text"
-                                onChange={handleDetails}
-                                name='doctorId'
-                                placeholder="Enter Doctor ID" required />
+                                   onChange={doctorValue}
+                                   name='doctorId'
+                                   placeholder="Enter Doctor ID" required/>
                         </div>
                         <div className="imagepreviewus">
                             <input
@@ -175,8 +206,7 @@ const UserDetails = () => {
                                     setDocImage(e.target.files[0])
                                 }
                                 }
-                                name="image"
-                                id="actual-btn" hidden />
+                                id="actual-btn" hidden/>
                             <label className='lbl' htmlFor="actual-btn">Choose File</label>
                             <span id="file-chosen">
                                 &nbsp;&nbsp;No file chosen
@@ -184,8 +214,8 @@ const UserDetails = () => {
                         </div>
                         <div className="buttonus">
                             <input type="submit"
-                                value={"Submit"}
-                                onClick={handleDetails} />
+                                   value={"Submit"}
+                                   onClick={handleDetails}/>
                         </div>
                     </div>
                 </form>

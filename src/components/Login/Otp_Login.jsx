@@ -5,7 +5,7 @@ import {useState} from 'react'
 import {auth} from "../../config/firebase-config";
 import {RecaptchaVerifier, signInWithPhoneNumber} from "firebase/auth";
 import {useDispatch, useSelector} from "react-redux";
-import {isUserLogInReducers} from "../../App/Slice/userSlice.js";
+import {isUserLogInReducers, uniqueUserReducer} from "../../App/Slice/userSlice.js";
 import {useNavigate} from "react-router-dom";
 
 const Otp_Login = () => {
@@ -38,21 +38,25 @@ const Otp_Login = () => {
                 setCaptchaResult(captchVeryfied)
             }
         } catch (error) {
-            console.log("Login otp Error =>", error);
+            console.log("Login otp Error => ", error);
         }
 
     }
     const verifyOtp = async () => {
         try {
             const finalResult = await captchaResult.confirm(otp)
+            console.log("result iis",finalResult)
             if (finalResult) {
-                await dispatch(isUserLogInReducers(finalResult.user.uid))
+                console.log("hello again bro",finalResult.user.uid)
+                dispatch(
+                    isUserLogInReducers(finalResult.user.uid)
+                )
+                dispatch(uniqueUserReducer(finalResult.user.uid))
                 // changedState()
                 console.log(error, isLoggedIn, loading, newUser)
-
             }
         } catch (error) {
-            console.log("Entered otp =>", error);
+            console.log("Entered otp => \n\n\n\n", error);
         }
     }
 

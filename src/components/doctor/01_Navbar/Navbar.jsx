@@ -1,10 +1,9 @@
 // import React from 'react'
 import "../../../Styles/doctor/Navbar.css"
 import navbarImage from "../../../assets/Doctor/Images/pexels-drew-rae-580679.jpg"
-import {Link, useNavigate, useNavigation} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faBars, faCaretDown} from '@fortawesome/free-solid-svg-icons'
-import {signOut} from "firebase/auth"
 import {auth} from "../../../config/firebase-config"
 import {useDispatch, useSelector} from "react-redux";
 import {isLogoutReducers} from "../../../App/Slice/userSlice.js";
@@ -16,6 +15,8 @@ const Navbar = () => {
         "Research", "Publication", "About-Us", "Contact-Us"
         // "login"
     ]
+    // console.log(auth.currentUser)
+
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const handleLogout = async () => {
@@ -23,6 +24,9 @@ const Navbar = () => {
         await dispatch(isLogoutReducers())
         navigate('/')
 
+    }
+    if(auth.currentUser != null){
+        dispatch(isLogoutReducers(auth.currentUser.uid))
     }
     const {data, error, isLoggedIn, loading, newUser} = useSelector(
         state => state.userReducer

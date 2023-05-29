@@ -6,15 +6,15 @@ import { doc, getDoc } from "firebase/firestore"
 
 export const uploadImgToStore = async (docImage, docImageName) => {
     if (!docImage)
-        return
-
+        return false
     const textV4 = v4()
     const folderRef = ref(storage, `Doctors/${docImageName + textV4}`)
     try {
         // eslint-disable-next-line no-unused-vars
         const imageUpload = await uploadBytes(folderRef, docImage)
         const getImageUrl = await getDownloadURL(ref(storage, `Doctors/${docImageName + textV4}`))
-        return getImageUrl
+        return await getImageUrl
+        // return await getDownloadURL(ref(storage, `Doctors/${docImageName + textV4}`))
     } catch (error) {
         console.log(error);
     }
