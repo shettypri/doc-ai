@@ -5,7 +5,7 @@ import Card from 'react-bootstrap/Card';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faCheck, faXmark, faArrowLeft} from '@fortawesome/free-solid-svg-icons'
 import {useDispatch, useSelector} from "react-redux";
-import {getPendingRequestReducers} from "../../../App/Slice/adminSlice.js";
+import {acceptDoctorReducers, getPendingRequestReducers, rejectDoctorReducers} from "../../../App/Slice/adminSlice.js";
 
 const PendingReq = () => {
 
@@ -14,17 +14,20 @@ const PendingReq = () => {
         dispatch( getPendingRequestReducers("users"))
     }, []);
 
-
     let i=1;
     const {pendingDoctorRequest,isPendingFetched} = useSelector(
         state => state.adminReducer
     )
     const acceptDoctor = (doctorId)=>{
         console.log("Clicked accept",doctorId)
+        dispatch(acceptDoctorReducers(doctorId))
+        dispatch(getPendingRequestReducers("users"))
     }
 
     const deleteDoctor = (doctorId)=>{
         console.log("Clicked Deleted",doctorId)
+        dispatch(rejectDoctorReducers(doctorId))
+        dispatch(getPendingRequestReducers("users"))
     }
     return (
         <>
