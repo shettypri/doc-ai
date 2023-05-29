@@ -10,6 +10,7 @@
 }
 .containerrch h2{
     color: white;
+    top: -10px;
 }
 .row-cols-md-2 {
     /* border: 3px solid gold; */
@@ -72,15 +73,16 @@ button{
 }
 
 .containerrch {
-    padding-top: 1000px;
-    position: relative;
-    height: 100%;
-    display: block;
+    top: -2px;
+    padding-top: 850px;
+    position: absolute;
+    min-height: 190vh;
     /* padding-top: 100px; */
     justify-content: center;
     align-items: center;
     width: 100%;
     z-index: 0;
+    overflow: hidden;
 }
 
 .card {
