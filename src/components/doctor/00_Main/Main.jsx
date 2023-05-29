@@ -9,8 +9,6 @@ const Main = () => {
     return (
     <>
         <Home/>
-        <div className='fillerdiv' style={{height:"50%"}}>
-        </div>
         <Research/>
         {/* <Publication/>
         <Contact/>
