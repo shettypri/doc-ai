@@ -67,17 +67,7 @@ const Otp_Login = () => {
             navigate("/")
         }
     }
-    // const changedState = ()=>{
-    //     console.log(error, isLoggedIn, loading, newUser)
-    //             if (isLoggedIn) {
-    //                 if (newUser ) {
-    //                     navigate("/UserDetails")
-    //                 } else {
-    //                     navigate("/")
-    //                 }
-    //             // }
-    //         }
-    // }
+
 
     return (<>
             <div className="otp-login-main">

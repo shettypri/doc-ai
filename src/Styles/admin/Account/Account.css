@@ -73,6 +73,11 @@
     border-bottom: 2px solid rgb(73, 70, 70);
 }
 
+.delete-list section{
+    cursor: pointer;
+    color: red;
+}
+
 .delete-list img {
     height: 33px;
     width: 33px;
