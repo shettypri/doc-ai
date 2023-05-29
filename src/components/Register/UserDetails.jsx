@@ -92,10 +92,8 @@ const UserDetails = () => {
                             <input type="date"
                                 name='dateOfBirth' 
                                 onChange={doctorValue}
-                                placeholder="Enter Date of Birth" required />
-                                   name='dateOfBirth'
-                                   onChange={doctorValue}
-                                   placeholder="Enter Date of Birth" required/>
+                                placeholder="Enter Date of Birth" 
+                                required />
                         </div>
 
                         <div className="input-boxus">

@@ -1,0 +1,11 @@
+.projcont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    padding-top: 200px;
+}
+
+.gridcard{
+    width: 200px;
+}

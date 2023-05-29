@@ -1,16 +1,34 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import "../../../Styles/admin/Account/PendingReq.css"
 import {Link} from 'react-router-dom'
 import Card from 'react-bootstrap/Card';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faCheck, faXmark, faArrowLeft} from '@fortawesome/free-solid-svg-icons'
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {acceptDoctorReducers, getPendingRequestReducers, rejectDoctorReducers} from "../../../App/Slice/adminSlice.js";
 
 const PendingReq = () => {
-    const {pendingDoctorRequest} = useSelector(
+
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch( getPendingRequestReducers("users"))
+    }, []);
+
+    let i=1;
+    const {pendingDoctorRequest,isPendingFetched} = useSelector(
         state => state.adminReducer
     )
-    console.log(pendingDoctorRequest.length)
+    const acceptDoctor = (doctorId)=>{
+        console.log("Clicked accept",doctorId)
+        dispatch(acceptDoctorReducers(doctorId))
+        dispatch(getPendingRequestReducers("users"))
+    }
+
+    const deleteDoctor = (doctorId)=>{
+        console.log("Clicked Deleted",doctorId)
+        dispatch(rejectDoctorReducers(doctorId))
+        dispatch(getPendingRequestReducers("users"))
+    }
     return (
         <>
             <div className='penreq'>
@@ -31,19 +49,40 @@ const PendingReq = () => {
                                 <th>Reject</th>
                             </tr>
                             </thead>
+                            {isPendingFetched &&
                             <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Dr Mahesh</td>
-                                <td>123456789</td>
-                                <td>
-                                    <FontAwesomeIcon icon={faCheck} size="xl" style={{color: "greenyellow",}}/>
-                                </td>
-                                <td>
-                                    <FontAwesomeIcon icon={faXmark} size="xl" style={{color: "red",}}/>
-                                </td>
-                            </tr>
+
+                                {pendingDoctorRequest.map((doctor,index) =>{
+                                    return(
+                                        <tr key={index}>
+                                            <td>{i++}</td>
+                                            <td>
+                                                Dr {`${doctor.firstName} ${doctor.lastName}`}
+                                            </td>
+                                            <td>
+                                                {doctor.phoneNumber}
+                                            </td>
+                                            <td
+                                            onClick={
+                                                () => acceptDoctor(doctor.id)
+                                            }
+                                            className={"doc-result-btn"}
+                                            >
+                                                <FontAwesomeIcon icon={faCheck} size="xl" style={{color: "greenyellow",}}/>
+                                            </td>
+                                            <td
+                                                className={"doc-result-btn"}
+                                            onClick={
+                                                ()=>deleteDoctor(doctor.id)
+                                            }
+                                            >
+                                                <FontAwesomeIcon icon={faXmark} size="xl" style={{color: "red",}}/>
+                                            </td>
+                                        </tr>
+                                    )
+                                })}
                             </tbody>
+                            }
                         </table>
                     </Card>
 

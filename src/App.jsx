@@ -46,13 +46,13 @@ const override = css`
 `;
 
 function App() {
-    const style = {position: "fixed", top: "50%", left: "57%", transform: "translate(-50%, -50%)", width: "500px"};
+    const style = {position: "fixed", top: "50%", left: "60%", transform: "translate(-50%, -50%)", width: "500px"};
     const [loading, setLoading] = useState(false)
     useEffect(() => {
         setLoading(true)
         setTimeout(() => {
             setLoading(false)
-        }, 5000)
+        }, 3000)
     }, [])
     const navbarList = ["Research", "Publication", "Projects", "About-Us", "Contact-Us"]
     return (<>
@@ -62,14 +62,14 @@ function App() {
                 </div>
                 {loading ?
                     <div style={style}>
-                        <PuffLoader
-                            color={'#FF335B'}
+                        <HashLoader
+                            color={'#FFFFDB'}
                             loading={loading}
-                            size={200}
+                            size={150}
                             cssOverride={override}
                             aria-label="Loading Spinner"
                             data-testid="loader"
-                            speedMultiplier={'1'}
+                            speedMultiplier={'0.69'}
                         />
                     </div>
                     :
@@ -86,11 +86,11 @@ function App() {
 
                         {/*Home Page Sibngle routes*/}
                          <Route exact path="/" element={<Main/>}/>
-                        {/*<Route exact path="/" element={<Home/>}/>*/}
-                        {/*<Route exact path="/Research" element={<Research/>}/>*/}
-                        {/*<Route exact path='/Publication' element={<Publication/>}/>*/}
-                        {/*<Route exact path='/Contact-Us' element={<Contact/>}/>*/}
-                        {/*<Route exact path='/About-Us' element={<About/>}/>*/}
+                        {/* <Route exact path="/" element={<Home/>}/>
+                        <Route exact path="/Research" element={<Research/>}/>
+                        <Route exact path='/Publication' element={<Publication/>}/>
+                        <Route exact path='/Contact-Us' element={<Contact/>}/>
+                        <Route exact path='/About-Us' element={<About/>}/> */}
 
                         {/* Testing path */}
                         <Route exact path='/PendingReq' element={<PendingReq/>}/>
@@ -100,6 +100,11 @@ function App() {
                         {/* Testing path ends */}
                         <Route exact path='/form' element={<FormPage />}/>
 
+                        {/*Admin Route*/}
+                        <Route exact path='/Dashboard/*' element={<Dashboard/>}/>
+                        <Route exact path='/Account' element={<Account/>}/>
+                        <Route exact path='/Dashboard/Form' element={<FormPage/>}/>
+                        <Route exact path='/Dashboard/researchForm' element={<ResearchForm/>}/>
 
                         <Route exact path='/login' element={<Login/>}/>
                         <Route exact path='/register' element={<Register/>}/>
