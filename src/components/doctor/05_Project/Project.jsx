@@ -12,23 +12,23 @@ const Project = () => {
             <center>
                 <Container className='projcont'>
                     <Row className="projrow g-3">
-                        {cards.slice(0, 3).map((card, i) => (
-                        <Col sm>
-                            <Card className='gridcard'>
-                                <Card.Body>This is some text within a card body.</Card.Body>
-                            </Card>
-                        </Col>
-                        <Col sm>
-                            <Card className='gridcard'>
-                                <Card.Body>This is some text within a card body.</Card.Body>
-                            </Card>
-                        </Col>
-                        <Col sm>
-                            <Card className='gridcard'>
-                                <Card.Body>This is some text within a card body.</Card.Body>
-                            </Card>
-                        </Col>
-                        ))}
+                        {/* {cards.slice(0, 3).map((card, i) => ( */}
+                        {/* // <Col sm>
+                        //     <Card className='gridcard'>
+                        //         <Card.Body>This is some text within a card body.</Card.Body>
+                        //     </Card>
+                        // </Col>
+                        // <Col sm>
+                        //     <Card className='gridcard'>
+                        //         <Card.Body>This is some text within a card body.</Card.Body>
+                        //     </Card>
+                        // </Col>
+                        // <Col sm>
+                        //     <Card className='gridcard'>
+                        //         <Card.Body>This is some text within a card body.</Card.Body>
+                        //     </Card>
+                        // </Col> */}
+                        {/* ))} */}
                     </Row>
                     <Row className="projrow g-3">
                         <Col sm>

@@ -1,0 +1,43 @@
+.Hero{
+    height: 100vh;
+    width: 100vw;
+    margin-top: 80px;
+    background: transparent;
+    position: static;
+}
+
+.Section1{
+    padding-top: 100px;
+    height: 100vh;
+    width: 100vw;
+    margin-top: 480px;
+    background: transparent;
+    position: relative;
+}
+
+.Section2{
+    /* padding-top: 100px; */
+    height: 100vh;
+    width: 100vw;
+    /* margin-top: 480px; */
+    background: transparent;
+    position: relative;
+}
+
+.Section3{
+    /* padding-top: 100px; */
+    height: 100vh;
+    width: 100vw;
+    margin-top: 700px;
+    background: transparent;
+    position: relative;
+}
+
+.Section4{
+    /* padding-top: 100px; */
+    height: 100vh;
+    width: 100vw;
+    margin-top: 300px;
+    background: transparent;
+    position: relative;
+}

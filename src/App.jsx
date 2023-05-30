@@ -1,4 +1,4 @@
-import {BrowserRouter, HashRouter, Route, Routes,} from 'react-router-dom'
+import { BrowserRouter, HashRouter, Route, Routes, } from 'react-router-dom'
 import './App.css'
 import Login from './components/Login/Login'
 import Account from './components/admin/Account/Account'
@@ -15,8 +15,8 @@ import UserDetails from './components/Register/UserDetails'
 import UpdateForm from './components/admin/Account/Form/UpdateForm'
 import Otp_Login from './components/Login/Otp_Login'
 
-import {useState, useEffect} from 'react'
-import {css} from '@emotion/react'
+import { useState, useEffect } from 'react'
+import { css } from '@emotion/react'
 import About from './components/doctor/06_About_Us/About'
 import Main from './components/doctor/00_Main/Main'
 import Research from './components/doctor/03_Research/Research'
@@ -38,7 +38,6 @@ import BadRequest from './components/Global/BadRequest'
 import {useDispatch} from "react-redux";
 import {isUserLogInReducers} from "./App/Slice/userSlice.js";
 
-
 const override = css`
   display: block;
   flex: 1;
@@ -48,7 +47,7 @@ const override = css`
 `;
 
 function App() {
-    const style = {position: "fixed", top: "50%", left: "60%", transform: "translate(-50%, -50%)", width: "500px"};
+    const style = { position: "fixed", top: "50%", left: "60%", transform: "translate(-50%, -50%)", width: "500px" };
     const [loading, setLoading] = useState(false)
     useEffect(() => {
         setLoading(true)
@@ -68,7 +67,7 @@ function App() {
     return (<>
             <BrowserRouter>
                 <div>
-                    <Navbar/>
+                    <Navbar />
                 </div>
                 {loading ?
                     <div style={style}>
@@ -87,41 +86,41 @@ function App() {
 
                         {/* Testing path */}
 
-                        <Route exact path='/UserLogin' element={<UserLogin/>}/>
-                        <Route exact path='/UserDetails' element={<UserDetails/>}/>
-                        <Route exact path='/otplogin' element={<Otp_Login/>}/>
-                        <Route exact path='/404' element={<NotFound/>}/>
+                        <Route exact path='/UserLogin' element={<UserLogin />} />
+                        <Route exact path='/UserDetails' element={<UserDetails />} />
+                        <Route exact path='/otplogin' element={<Otp_Login />} />
+                        <Route exact path='/404' element={<NotFound />} />
                         {/* Testing path ends */}
                         {/* <Route exact path='/form' element={<FormPage />}/> */}
 
                         {/*Home Page Sibngle routes*/}
-                         <Route exact path="/" element={<Main/>}/>
+                        <Route exact path="/" element={<Main />} />
                         {/* <Route exact path="/" element={<Home/>}/>
                         <Route exact path="/Research" element={<Research/>}/>
                         <Route exact path='/Publication' element={<Publication/>}/>
-                        <Route exact path='/Contact-Us' element={<Contact/>}/>
-                        <Route exact path='/About-Us' element={<About/>}/> */}
+                        <Route exact path='/Contact-Us' element={<Contact/>}/> */}
+                        <Route exact path='/About-Us' element={<About/>}/>
 
                         {/* Testing path */}
-                        <Route exact path='/PendingReq' element={<PendingReq/>}/>
-                        <Route exact path='/UserLogin' element={<UserLogin/>}/>
-                        <Route exact path='/UserDetails' element={<UserDetails/>}/>
-                        <Route exact path='/otplogin' element={<Otp_Login/>}/>
+                        <Route exact path='/PendingReq' element={<PendingReq />} />
+                        <Route exact path='/UserLogin' element={<UserLogin />} />
+                        <Route exact path='/UserDetails' element={<UserDetails />} />
+                        <Route exact path='/otplogin' element={<Otp_Login />} />
                         {/* Testing path ends */}
-                        <Route exact path='/form' element={<FormPage />}/>
+                        <Route exact path='/form' element={<FormPage />} />
 
                         {/*Admin Route*/}
-                        <Route exact path='/Dashboard/*' element={<Dashboard/>}/>
-                        <Route exact path='/Account' element={<Account/>}/>
-                        <Route exact path='/Dashboard/Form' element={<FormPage/>}/>
-                        <Route exact path='/Dashboard/researchForm' element={<ResearchForm/>}/>
+                        <Route exact path='/Dashboard/*' element={<Dashboard />} />
+                        <Route exact path='/Account' element={<Account />} />
+                        <Route exact path='/Dashboard/Form' element={<FormPage />} />
+                        <Route exact path='/Dashboard/researchForm' element={<ResearchForm />} />
 
-                        <Route exact path='/login' element={<Login/>}/>
-                        <Route exact path='/register' element={<Register/>}/>
+                        <Route exact path='/login' element={<Login />} />
+                        <Route exact path='/register' element={<Register />} />
 
-                    
-                        <Route exact path='/Account/*' element={<Account/>}/>
-                        <Route exact path='/Account/PendingReq' element={<PendingReq/>}/>
+
+                        <Route exact path='/Account/*' element={<Account />} />
+                        <Route exact path='/Account/PendingReq' element={<PendingReq />} />
 
 
                         {/* <Route exact path='/publisher'  element={<publisher/>}/>
@@ -132,7 +131,7 @@ function App() {
                     </Routes>}
 
             </BrowserRouter>
-        </>
+    </>
     )
 }
 

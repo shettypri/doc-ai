@@ -23,7 +23,6 @@ const Research = () => {
     getCardData("Research")
     return (
         <>
-            <div className="containerrch">
                 <center>
                     <h2>Saving Lives Through Technology</h2>
                     <br />
@@ -63,9 +62,6 @@ const Research = () => {
                                                             </Link>
                                                         </div>
                                                     </div>
-
-
-
                                                 </div>
                                             </div>
                                         </div>
@@ -76,9 +72,6 @@ const Research = () => {
                         })
                     }
                 </div>
-            </div>
-
-
         </>
     )
 }
