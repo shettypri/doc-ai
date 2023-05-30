@@ -5,7 +5,16 @@
 	align-items: center;
 	flex-direction: column;
 	width: 100%;
+	
 }
+.lable-message{
+	color: red;
+}
+
+/* .lable-message label{
+	color: red !important;
+} */
+
 
 .main-form p{
 	color: whitesmoke;
@@ -181,6 +190,3 @@ input[type="file"] {
 	font-size: 12px;
 }
 
-.alert-messages{
-	
-}

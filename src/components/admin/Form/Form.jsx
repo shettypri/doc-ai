@@ -19,17 +19,20 @@ const FormPage = () => {
   const [authorsList, setAuthorsList] = useState([]);
   const [keyBenefitsList, setKeyBenefitsList] = useState([]);
 
+  const [error, setError] = useState(false);
+
   const folderImage = "Publications/image";
   const folderPdf = "Publications/pdf";
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     if (
-      title == "" ||
-      description == "" ||
-      authorName == "" ||
-      key_benefits == ""
+      title.length == 0 ||
+      description.length == 0 ||
+      authorsList.length == 0 ||
+      key_benefits.length == 0
     ) {
-      alert("Please fill all the details");
+      setError(true);
     } else {
       const fileName = imageRef.current.files[0].name;
       const isImageUploaded = await ImageUpload(
@@ -86,15 +89,14 @@ const FormPage = () => {
   const pdfRef = useRef();
   return (
     <>
-      <div className="alert-messages">
-        {/* {Error && <Error error={"error occured form not subbmitted try again"}/>} */}
-        {/* {Loading && <Loading/>} */}
-        {Success && <Success success={"Details uploaded successfully"} />}
-      </div>
-
       <div className="main-form">
         <div className="form-heading">
           <p>Publication</p>
+        </div>
+        <div className="alert-messages">
+          {/* {Error && <Error error={"form not subbmitted try again!!!"}/>} */}
+          {Loading && <Loading />}
+          {/* {Success && <Success success={"Details uploaded successfully"} />} */}
         </div>
 
         <div className="font-content">
@@ -110,11 +112,15 @@ const FormPage = () => {
                 required
               />
             </div>
+            <div className="lable-message">
+            {error&&
+            title.length<=0 ?
+             <label>Title can not be empty</label> : ""}
+            </div>
+           
 
             <div className="form-fields">
-              {/* {FormValidation} */}
               <label>Publication Description:</label>
-
               <textarea
                 rows={6}
                 required
@@ -124,6 +130,12 @@ const FormPage = () => {
                 }}
               />
             </div>
+            <div className="lable-message">
+            {error&&description<=0?
+             <label>Description can not be empty</label> : ""}
+
+            </div>
+           
 
             <div className="form-fields">
               <label>Upload Image:</label>
@@ -138,6 +150,8 @@ const FormPage = () => {
                 required
               />
             </div>
+            <lable>Please upload Image</lable>
+
             <div className="form-fields">
               <label>upload pdf</label>
               <input
@@ -149,6 +163,7 @@ const FormPage = () => {
                 }}
               />
             </div>
+            <lable> Please upload Pdf</lable>
           </div>
 
           <div className="form-right">
@@ -179,6 +194,7 @@ const FormPage = () => {
                 <input
                   type="text"
                   value={authorName}
+                  // onClick={inputLength}
                   onChange={(e) => {
                     setAuthorName(e.target.value);
                   }}
@@ -187,6 +203,15 @@ const FormPage = () => {
                 <button onClick={addAuthor}>Add</button>
               </div>
             </div>
+            <div className="lable-message">
+            {error&& authorsList.length<=0?
+             <lable>
+              Author name can not be empty
+             </lable> : ""}
+
+            </div>
+            
+
             <div className="form-fields">
               <div className="list-arrays">
                 <div className="array-box">
@@ -224,7 +249,13 @@ const FormPage = () => {
                 </div>
               </div>
             </div>
+            <div className="lable-message">
+            {error&&keyBenefitsList<=0?
+             <lable>Key benifits can not be empty</lable> : ""}
 
+
+            </div>
+            
             <div className="form-button">
               <button
                 className="formSubmit"

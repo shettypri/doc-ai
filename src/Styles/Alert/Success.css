@@ -1,5 +1,8 @@
 .alert-success{
-    padding: 20px;
+    padding: 2px;
     background-color: green;
     color: white;
+    text-transform: capitalize;
+    
+
 }
