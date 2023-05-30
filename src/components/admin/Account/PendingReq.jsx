@@ -6,6 +6,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faCheck, faXmark, faArrowLeft} from '@fortawesome/free-solid-svg-icons'
 import {useDispatch, useSelector} from "react-redux";
 import {acceptDoctorReducers, getPendingRequestReducers, rejectDoctorReducers} from "../../../App/Slice/adminSlice.js";
+import Loading from '../../Alert/Loading';
 
 const PendingReq = () => {
 
@@ -38,6 +39,8 @@ const PendingReq = () => {
                             <FontAwesomeIcon icon={faArrowLeft} size="xl" style={{color: "#ffffff",}}/></Link>
                     </div>
                     <h2><u>Requests</u></h2>
+                        <Loading/>
+
                     <Card className='card'>
                         <table>
                             <thead>
