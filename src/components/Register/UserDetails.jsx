@@ -28,7 +28,8 @@ const UserDetails = () => {
         // "imageUrl": "",
         isFormFilled: true,
         isAdmin: false,
-        isDocAuthorized: false
+        isDocAuthorized: false,
+        isDocShow:true,
     })
 
 
