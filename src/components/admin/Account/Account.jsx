@@ -9,6 +9,7 @@ import {
     deleteDoctorByIdReducer,
     getPendingRequestReducers
 } from "../../../App/Slice/adminSlice.js";
+import Loading from "../../Alert/Loading"
 
 
 const Account = () => {
@@ -38,8 +39,9 @@ const Account = () => {
 
     return (
         <>
-
+       
             <div className="list-main">
+            
                 {acceptAllDocLoading &&
                     <h1>
                         Loading
@@ -50,6 +52,9 @@ const Account = () => {
                         Requests {pendingDoctorRequest.length}
                     </Link>
                 </div>
+                <div className="loading">
+            {Loading && <Loading/>}
+            </div>
 
 
                 <div className="account-card">
