@@ -20,7 +20,7 @@ const Account = () => {
         dispatch(allAcceptedDoctorReducers())
     }, []);
 
-    const {pendingDoctorRequest, acceptAlldocList,acceptAllDocLoading} = useSelector(
+    const {pendingDoctorRequest,acceptedAllDoctorList} = useSelector(
         state => state.adminReducer
     )
 
@@ -40,9 +40,15 @@ const Account = () => {
         <>
 
             <div className="list-main">
-                {acceptAllDocLoading &&
+                {acceptedAllDoctorList.loading &&
                     <h1>
                         Loading
+                    </h1>
+                }
+                {
+                    acceptedAllDoctorList.error &&
+                    <h1>
+                        Error
                     </h1>
                 }
                 <div className="doctor-add-btn">
@@ -54,8 +60,8 @@ const Account = () => {
 
                 <div className="account-card">
                     {
-                        acceptAlldocList.length != 0 &&
-                        acceptAlldocList.map((doctor, index) => {
+                        acceptedAllDoctorList.data.length != 0 &&
+                        acceptedAllDoctorList.data.map((doctor, index) => {
                             return (
                                 <>
                                     <center>
