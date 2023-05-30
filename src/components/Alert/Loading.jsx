@@ -1,18 +1,19 @@
-import React from 'react';
+// import React from 'react'
+import {ClipLoader} from "react-spinners/"
 
-function loading(props){
-    return(
-        <>
-        <div>
-        <div className="text-center p-3 mt-2">
-                    <div className="spinner-border" role="status">
-                        <span className="sr-only">Loading...</span>
-                    </div>
-                </div>
-        </div>
-        
+const Loading = () => {
+  return (
+    <>
+            <div>
+                <ClipLoader
+                    color="#f9fefd"
+                    size={40}
+                />
+            </div>
+
+
         </>
-    );
+  )
 }
 
-export default loading;
+export default Loading

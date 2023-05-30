@@ -9,6 +9,7 @@ import {
     deleteDoctorByIdReducer,
     getPendingRequestReducers
 } from "../../../App/Slice/adminSlice.js";
+import Loading from "../../Alert/Loading"
 
 
 const Account = () => {
@@ -20,7 +21,7 @@ const Account = () => {
         dispatch(allAcceptedDoctorReducers())
     }, []);
 
-    const {pendingDoctorRequest, acceptAlldocList,acceptAllDocLoading} = useSelector(
+    const {pendingDoctorRequest,acceptedAllDoctorList,deleteListDoctorById} = useSelector(
         state => state.adminReducer
     )
 
@@ -38,24 +39,31 @@ const Account = () => {
 
     return (
         <>
-
-            <div className="list-main">
-                {acceptAllDocLoading &&
-                    <h1>
-                        Loading
-                    </h1>
-                }
+            <div className="list-main">   
+                
                 <div className="doctor-add-btn">
                     <Link to='/Account/PendingReq'>
                         Requests {pendingDoctorRequest.length}
                     </Link>
                 </div>
-
-
+                
+                <div className="loading">
+                {(acceptedAllDoctorList.loading || deleteListDoctorById.loading)&&
+                     <Loading/>
+                }
+                </div>
+                ,
+                {
+                    (acceptedAllDoctorList.error || deleteListDoctorById.error) &&
+                    <h1>
+                        Error
+                    </h1>
+                }
+                
                 <div className="account-card">
                     {
-                        acceptAlldocList.length != 0 &&
-                        acceptAlldocList.map((doctor, index) => {
+                        acceptedAllDoctorList.data.length != 0 &&
+                        acceptedAllDoctorList.data.map((doctor, index) => {
                             return (
                                 <>
                                     <center>

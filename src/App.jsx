@@ -36,6 +36,8 @@ import {
 import NotFound from './components/Global/NotFound'
 import BadRequest from './components/Global/BadRequest'
 import Pubview from './components/doctor/04_Publication/Pubview'
+import {useDispatch} from "react-redux";
+import {isUserLogInReducers} from "./App/Slice/userSlice.js";
 
 const override = css`
   display: block;
@@ -55,6 +57,14 @@ function App() {
         }, 3000)
     }, [])
     const navbarList = ["Research", "Publication", "Projects", "About-Us", "Contact-Us"]
+    const dispatch = useDispatch()
+    const userId = sessionStorage.getItem("key")
+    if(userId == null){
+        console.log("not loged In")
+    }else{
+        console.log("loged in")
+        dispatch(isUserLogInReducers())
+    }
     return (<>
             <BrowserRouter>
                 <div>

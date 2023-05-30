@@ -59,7 +59,7 @@ export const allAcceptedDoctorReducers = createAsyncThunk(
 
 export const deleteDoctorByIdReducer = createAsyncThunk(
     "deleteDoctorByIdReducer",
-    async (id) =>{
+    async (id) => {
         const doctorCollection = doc(db, "users", id)
 
         try {
@@ -91,11 +91,11 @@ const adminSlice = createSlice({
     initialState: {
         loading: false,
         error: false,
-        pendingRequestState:{
-            loading:false,
-            error:false,
-            data:"",
-            isDataFetched:false,
+        pendingRequestState: {
+            loading: false,
+            error: false,
+            data: "",
+            isDataFetched: false,
         },
         pendingDoctorRequest: "",
         isPendingFetched: false,
@@ -107,11 +107,17 @@ const adminSlice = createSlice({
         docUpdate: "",
         docAcceptError: "",
         acceptAlldocList: "",
-        acceptAllDocLoading: false,
-        acceptAllDocError: "",
-        deleteDocOneList:false,
-        deleteDocOneError:"",
-        deleteDocOneLoading:false,
+        acceptedAllDoctorList: {
+            loading: false,
+            error: false,
+            data: "",
+            isDataFetched: false,
+        },
+        deleteListDoctorById:{
+            loading:false,
+            error:false,
+            isDataDeleted:false,
+        },
     },
     extraReducers: (builder) => {
         builder.addCase(
@@ -171,40 +177,39 @@ const adminSlice = createSlice({
             )
             .addCase(
                 allAcceptedDoctorReducers.pending, (state) => {
-                    // acceptAlldocList:"",
-                    state.acceptAllDocLoading = true;
-                    // acceptAllDocError:""
+                    state.acceptedAllDoctorList.loading=true;
                 }
             )
             .addCase(
                 allAcceptedDoctorReducers.fulfilled, (state, action) => {
-                    state.acceptAllDocLoading = false;
-                    if (state.acceptAlldocList.length != 0) {
-                        state.acceptAlldocList = "";
+                    state.acceptedAllDoctorList.loading=false;
+                    state.acceptedAllDoctorList.isDataFetched =true;
+                    if( state.acceptedAllDoctorList.data.length !== 0){
+                        state.acceptedAllDoctorList.data =""
                     }
-                    state.acceptAlldocList = action.payload
+                    state.acceptedAllDoctorList.data = action.payload
                 }
             )
             .addCase(
                 allAcceptedDoctorReducers.rejected, (state, action) => {
-                    state.acceptAllDocLoading = false;
-                    state.acceptAllDocError = action.payload
+                    state.acceptedAllDoctorList.loading=false;
+                    state.acceptedAllDoctorList.error=action.payload;
                 }
             )
             .addCase(
-                deleteDoctorByIdReducer.pending,(state) =>{
-                    state.deleteDocOneLoading=true;
+                deleteDoctorByIdReducer.pending, (state) => {
+                    state.deleteListDoctorById.loading=true;
                 }
             )
-            .addCase(deleteDoctorByIdReducer.fulfilled,(state)=>{
-                state.deleteDocOneLoading =false
-                state.deleteDocOneList = true;
-            }
+            .addCase(deleteDoctorByIdReducer.fulfilled, (state) => {
+                    state.deleteListDoctorById.loading=false;
+                    state.deleteListDoctorById.isDataDeleted=true;
+                }
             )
             .addCase(
-                deleteDoctorByIdReducer.rejected,(state,action) =>{
-                    state.deleteDocOneLoading =false;
-                    state.deleteDocOneError = action.payload
+                deleteDoctorByIdReducer.rejected, (state, action) => {
+                    state.deleteListDoctorById.loading=false;
+                    state.deleteListDoctorById.error=action.payload
                 }
             )
     }

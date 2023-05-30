@@ -5,8 +5,10 @@ import cancel from "../../../assets/Admin/Dash-board/close.png";
 import ImageUpload from "./ImageUpload";
 import storeInDataBase from "./storeInDataBase";
 import Error from "../../Alert/Error";
+import Alert from 'react-bootstrap/Alert';
 import Loading from "../../Alert/Loading";
 import Success from "../../Alert/Success";
+import { Form } from "react-router-dom";
 
 const FormPage = () => {
   const [title, setTitle] = useState("");
@@ -20,9 +22,17 @@ const FormPage = () => {
   const [keyBenefitsList, setKeyBenefitsList] = useState([]);
 
   const [error, setError] = useState(false);
+  
+  
 
   const folderImage = "Publications/image";
   const folderPdf = "Publications/pdf";
+
+  const handleClose =()=>{
+    
+    
+
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -94,8 +104,9 @@ const FormPage = () => {
           <p>Publication</p>
         </div>
         <div className="alert-messages">
-          {/* {Error && <Error error={"form not subbmitted try again!!!"}/>} */}
-          {Loading && <Loading />}
+          <div className="closebtn" onClick={handleClose}>X</div>
+          {Error && <Error error={"form not subbmitted try again!!!"}/>}
+          {/* {Loading && <Loading/>} */}
           {/* {Success && <Success success={"Details uploaded successfully"} />} */}
         </div>
 
