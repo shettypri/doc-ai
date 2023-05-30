@@ -21,7 +21,7 @@ const Account = () => {
         dispatch(allAcceptedDoctorReducers())
     }, []);
 
-    const {pendingDoctorRequest,acceptedAllDoctorList,deleteListDoctorById} = useSelector(
+    const {pendingRequestState,acceptedAllDoctorList,deleteListDoctorById} = useSelector(
         state => state.adminReducer
     )
 
@@ -43,7 +43,7 @@ const Account = () => {
                 
                 <div className="doctor-add-btn">
                     <Link to='/Account/PendingReq'>
-                        Requests {pendingDoctorRequest.length}
+                        Requests {pendingRequestState.data.length}
                     </Link>
                 </div>
                 

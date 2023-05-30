@@ -16,7 +16,7 @@ const PendingReq = () => {
     }, []);
 
     let i=1;
-    const {pendingDoctorRequest,isPendingFetched} = useSelector(
+    const {pendingRequestState} = useSelector(
         state => state.adminReducer
     )
     const acceptDoctor = (doctorId)=>{
@@ -39,7 +39,11 @@ const PendingReq = () => {
                             <FontAwesomeIcon icon={faArrowLeft} size="xl" style={{color: "#ffffff",}}/></Link>
                     </div>
                     <h2><u>Requests</u></h2>
+
+                    {
+                        pendingRequestState.loading &&
                         <Loading/>
+                    }
 
                     <Card className='card'>
                         <table>
@@ -52,10 +56,9 @@ const PendingReq = () => {
                                 <th>Reject</th>
                             </tr>
                             </thead>
-                            {isPendingFetched &&
+                            {pendingRequestState.isDataFetched &&
                             <tbody>
-
-                                {pendingDoctorRequest.map((doctor,index) =>{
+                                {pendingRequestState.data.map((doctor,index) =>{
                                     return(
                                         <tr key={index}>
                                             <td>{i++}</td>

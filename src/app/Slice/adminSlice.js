@@ -89,24 +89,24 @@ export const rejectDoctorReducers = createAsyncThunk(
 const adminSlice = createSlice({
     name: "adminSlice",
     initialState: {
-        loading: false,
-        error: false,
         pendingRequestState: {
             loading: false,
             error: false,
             data: "",
             isDataFetched: false,
         },
-        pendingDoctorRequest: "",
-        isPendingFetched: false,
-        doctorUpdate: [],
-        isDocUpdated: false,
-        isDoctorRejected: false,
-        docRejectError: "",
-        isDoctorAccepted: false,
-        docUpdate: "",
-        docAcceptError: "",
-        acceptAlldocList: "",
+        acceptNewDoctorState:{
+            loading:false,
+            error:false,
+            docUpdate:"",
+            isDoctorAccepted:false,
+        },
+        newDoctorRejectedState:{
+            loading:false,
+            error:false,
+            isDoctorRejected: false,
+            docRejectError: "",
+        },
         acceptedAllDoctorList: {
             loading: false,
             error: false,
@@ -122,57 +122,56 @@ const adminSlice = createSlice({
     extraReducers: (builder) => {
         builder.addCase(
             getPendingRequestReducers.pending, (state) => {
-                state.loading = true;
+                state.pendingRequestState.loading = true;
             }
         )
             .addCase(
                 getPendingRequestReducers.fulfilled, (state, action) => {
-                    state.loading = false;
+                    state.pendingRequestState.loading = false;
 
-                    if (state.pendingDoctorRequest.length == 0) {
-                        state.pendingDoctorRequest = ""
+                    if (state.pendingRequestState.data.length == 0) {
+                        state.pendingRequestState.data = ""
                     }
-                    state.pendingDoctorRequest = (action.payload);
-                    state.isPendingFetched = true;
+                    state.pendingRequestState.data = (action.payload);
+                    state.pendingRequestState.isDataFetched = true;
                 }
             )
             .addCase(
                 getPendingRequestReducers.rejected, (state, action) => {
-                    state.loading = false;
-                    state.error = action.payload
+                    state.pendingRequestState.loading = false;
+                    state.pendingRequestState.error = action.payload
                 }
             )
             .addCase(
                 rejectDoctorReducers.pending, (state) => {
-                    state.loading = true
+                    state.newDoctorRejectedState.loading = true
                 })
             .addCase(rejectDoctorReducers.fulfilled, (state, action) => {
-                state.isDoctorRejected = true;
-                state.loading = false;
+                state.newDoctorRejectedState.isDoctorRejected = true;
+                state.newDoctorRejectedState.loading = false;
             })
             .addCase(
                 rejectDoctorReducers.rejected, (state, action) => {
-                    state.loading = false;
-                    state.docRejectError = action.payload;
+                    state.newDoctorRejectedState.loading = false;
+                    state.newDoctorRejectedState.docRejectError = action.payload;
                 }
             )
             .addCase(
                 acceptDoctorReducers.pending, (state) => {
-                    state.loading = true;
-
+                    state.acceptNewDoctorState.loading = true;
                 }
             )
             .addCase(
                 acceptDoctorReducers.fulfilled, (state, action) => {
-                    state.docUpdate = action.payload;
-                    state.loading = false;
-                    state.isDoctorAccepted = true;
+                    state.acceptNewDoctorState.loading = false;
+                    state.acceptNewDoctorState.docUpdate = action.payload;
+                    state.acceptNewDoctorState.isDoctorAccepted = true;
                 }
             )
             .addCase(
                 acceptDoctorReducers.rejected, (state, action) => {
-                    state.loading = false;
-                    state.docAcceptError = action.payload
+                    state.acceptNewDoctorState.loading = false;
+                    state.acceptNewDoctorState.docAcceptError = action.payload
                 }
             )
             .addCase(
