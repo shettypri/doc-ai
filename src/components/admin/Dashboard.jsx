@@ -8,7 +8,7 @@ import {useDispatch} from "react-redux";
 import {getPendingRequestReducers} from "../../App/Slice/adminSlice.js";
 
 const Dashboard = () => {
-    console.log("render")
+
 
     return (
         <>
