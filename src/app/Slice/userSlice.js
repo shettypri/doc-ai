@@ -17,6 +17,7 @@ export const isUserLogInReducers = createAsyncThunk("isUserLogInReducers", async
 export const isLogoutReducers = createAsyncThunk("isLogoutReducers", async () => {
     try {
         return await signOut(auth)
+
     } catch (error) {
         return error
     }
