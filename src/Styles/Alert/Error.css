@@ -1,5 +1,6 @@
-.alert{
-    padding: 10px;
-  background-color: red;
+.alert-error{
+  padding:2px;
+  background-color:red;
   color: white;
+  text-transform: capitalize;
 }

@@ -1,11 +1,11 @@
 import React from 'react';
-import "../../Styles/Alert/error.css";
+import "../../Styles/Alert/Error.css";
 
  function Error(props) {
     return (
         <>
             <div>
-                <div className="alert " role="alert">
+                <div className="alert-error " role="alert">
                    <h2>
                        {props.error}
                    </h2>
