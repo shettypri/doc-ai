@@ -59,7 +59,7 @@ const Account = () => {
                         Error
                     </h1>
                 }
-                
+
                 <div className="account-card">
                     {
                         acceptedAllDoctorList.data.length != 0 &&
