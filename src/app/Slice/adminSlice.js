@@ -113,10 +113,11 @@ const adminSlice = createSlice({
             data: "",
             isDataFetched: false,
         },
-
-        deleteDocOneList: false,
-        deleteDocOneError: "",
-        deleteDocOneLoading: false,
+        deleteListDoctorById:{
+            loading:false,
+            error:false,
+            isDataDeleted:false,
+        },
     },
     extraReducers: (builder) => {
         builder.addCase(
@@ -197,18 +198,18 @@ const adminSlice = createSlice({
             )
             .addCase(
                 deleteDoctorByIdReducer.pending, (state) => {
-                    state.deleteDocOneLoading = true;
+                    state.deleteListDoctorById.loading=true;
                 }
             )
             .addCase(deleteDoctorByIdReducer.fulfilled, (state) => {
-                    state.deleteDocOneLoading = false
-                    state.deleteDocOneList = true;
+                    state.deleteListDoctorById.loading=false;
+                    state.deleteListDoctorById.isDataDeleted=true;
                 }
             )
             .addCase(
                 deleteDoctorByIdReducer.rejected, (state, action) => {
-                    state.deleteDocOneLoading = false;
-                    state.deleteDocOneError = action.payload
+                    state.deleteListDoctorById.loading=false;
+                    state.deleteListDoctorById.error=action.payload
                 }
             )
     }

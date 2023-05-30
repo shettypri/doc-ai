@@ -21,7 +21,7 @@ const Account = () => {
         dispatch(allAcceptedDoctorReducers())
     }, []);
 
-    const {pendingDoctorRequest,acceptedAllDoctorList} = useSelector(
+    const {pendingDoctorRequest,acceptedAllDoctorList,deleteListDoctorById} = useSelector(
         state => state.adminReducer
     )
 
@@ -48,21 +48,18 @@ const Account = () => {
                 </div>
                 
                 <div className="loading">
-                {acceptedAllDoctorList.loading &&
+                {(acceptedAllDoctorList.loading || deleteListDoctorById.loading)&&
                      <Loading/>
                 }
                 </div>
                 ,
                 {
-                    acceptedAllDoctorList.error &&
+                    (acceptedAllDoctorList.error || deleteListDoctorById.error) &&
                     <h1>
                         Error
                     </h1>
                 }
-
-
-               
-
+                
                 <div className="account-card">
                     {
                         acceptedAllDoctorList.data.length != 0 &&
