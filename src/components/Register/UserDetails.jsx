@@ -25,7 +25,6 @@ const UserDetails = () => {
         "pincode": "",
         "Specialization": "",
         "doctorId": "",
-        // "imageUrl": "",
         isFormFilled: true,
         isAdmin: false,
         isDocAuthorized: false,
