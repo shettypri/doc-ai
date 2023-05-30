@@ -35,6 +35,7 @@ import {
 } from "react-spinners/";
 import NotFound from './components/Global/NotFound'
 import BadRequest from './components/Global/BadRequest'
+import Pubview from './components/doctor/04_Publication/Pubview'
 
 const override = css`
   display: block;
@@ -80,6 +81,7 @@ function App() {
                         <Route exact path='/UserDetails' element={<UserDetails />} />
                         <Route exact path='/otplogin' element={<Otp_Login />} />
                         <Route exact path='/404' element={<NotFound />} />
+                        <Route exact path='/Pubview' element={<Pubview />} />
                         {/* Testing path ends */}
                         {/* <Route exact path='/form' element={<FormPage />}/> */}
 
