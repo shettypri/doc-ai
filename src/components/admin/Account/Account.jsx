@@ -67,7 +67,7 @@ const Account = () => {
                         acceptedAllDoctorList.data.map((doctor, index) => {
                             return (
                                 <>
-                                    <center>
+                                    {/*<center>*/}
                                         <div className="doctor-list" key={index}>
                                             <div className="delete-list">
                                                 <section onClick={
@@ -78,7 +78,7 @@ const Account = () => {
                                                 </section>
                                             </div>
                                             <div className="image-list">
-                                                <img src={doctor.imageUrl} width={"150px"} height={"150px"}
+                                                <img src={doctor.imageUrl} width={"100px"} height={"100px"}
                                                      onClick={handleclick}/>
                                             </div>
                                             <div className="doctor-details">
@@ -95,7 +95,7 @@ const Account = () => {
                                             </div>
 
                                         </div>
-                                    </center>
+                                    {/*</center>*/}
                                 </>
                             )
                         })

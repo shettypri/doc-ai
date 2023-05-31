@@ -8,8 +8,6 @@ import {useDispatch} from "react-redux";
 import {getPendingRequestReducers} from "../../App/Slice/adminSlice.js";
 
 const Dashboard = () => {
-
-
     return (
         <>
             <div className="dash-board">
@@ -22,7 +20,6 @@ const Dashboard = () => {
                     </Link>
                 </div>
 
-
                 <div className="card-dash">
                     <Link to='/Dashboard/researchForm'>
                         <div className="heading">
@@ -30,16 +27,15 @@ const Dashboard = () => {
                         </div>
                         <img src={research} alt="" height={"200px"} width={"295"}/>
                     </Link>
-
                 </div>
 
                 <div className="card-dash">
-                    <div className="heading">
-                        <Link to='/Account'>
+                    <Link to='/Account'>
+                        <div className="heading">
                             Account
+                        </div>
                             <img src={account} alt="" height={"200px"} width={"295"}/>
-                        </Link>
-                    </div>
+                    </Link>
 
 
                 </div>
