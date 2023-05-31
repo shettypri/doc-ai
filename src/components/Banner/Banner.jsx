@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import "../../Styles/Banner/Banner.css"
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {fXmark} from '@fortawesome/free-solid-svg-icons'
+// import {fXmark} from '@fortawesome/free-solid-svg-icons'
 
 
 

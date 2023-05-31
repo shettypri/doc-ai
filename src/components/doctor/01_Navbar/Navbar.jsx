@@ -10,6 +10,7 @@ import {useEffect} from "react";
 
 // import Banner from "../../Banner/Banner"
 import AdminConfimBanner from "../../Banner/AdminConfimBanner"
+import Banner from "../../Banner/Banner.jsx";
 
 const Navbar = () => {
 
@@ -41,10 +42,23 @@ const Navbar = () => {
     return (
         <>
             <header>
-                {data.length == 0
+                {data.length !== 0
                 &&
-                // <Banner/>
-                <AdminConfimBanner/>
+              (  <>
+                      {
+                          ! data.isAdmin &&
+                          ( <>
+                                  {data.length == 0 &&
+                              (<Banner/>)}
+                              {!data.isDocAuthorized &&
+                                  <AdminConfimBanner/>
+                              }
+
+                                  </>)
+                      }
+
+              </>
+              )
 
                 }
                 <nav>
