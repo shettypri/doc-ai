@@ -14,7 +14,7 @@ body {
   background-color: black !important;
 }
 
-/* .loading svg polyline {
+.loading svg polyline {
   fill: none;
   stroke-width: 3;
   stroke-linecap: round;
@@ -32,7 +32,7 @@ body {
   stroke-dasharray: 48, 144;
   stroke-dashoffset: 192;
   animation: dash_682 1.4s linear infinite;
-}
+} 
 
 @keyframes dash_682 {
   72.5% {
@@ -42,4 +42,4 @@ body {
   to {
     stroke-dashoffset: 0;
   }
-} */
+} 

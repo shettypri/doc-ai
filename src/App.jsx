@@ -57,7 +57,7 @@ function App() {
         console.log("not loged In")
     } else {
         console.log("loged in")
-        dispatch(isUserLogInReducers())
+        dispatch(isUserLogInReducers(userId))
     }
     return (<>
         <BrowserRouter>
@@ -66,73 +66,15 @@ function App() {
             </div>
             {loading ?
                 <div style={style}>
-                    <iframe src="https://embed.lottiefiles.com/animation/138605" style={{mixBlendMode:'color-burn'}}></iframe>
-                    {/* <HashLoader
-                            color={'#FFFFDB'}
-                            loading={loading}
-                            size={150}
-                            cssOverride={override}
-                            aria-label="Loading Spinner"
-                            data-testid="loader"
-                            speedMultiplier={'0.69'}
-                        /> */}
-                    {/* <div class="loading">
-                        <svg width="200px" height="200px">
-                            <polyline points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24" id="back"></polyline>
-                            <polyline points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24" id="front"></polyline>
-                        </svg>
-                    </div> */}
-                    {/* <div class="loadingcontainer">
-                        <div class="top">
-                            <div class="square">
-                                <div class="square">
-                                    <div class="square">
-                                        <div class="square">
-                                            <div class="square"><div class="square">
-                                            </div></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bottom">
-                            <div class="square">
-                                <div class="square">
-                                    <div class="square">
-                                        <div class="square">
-                                            <div class="square"><div class="square">
-                                            </div></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="left">
-                            <div class="square">
-                                <div class="square">
-                                    <div class="square">
-                                        <div class="square">
-                                            <div class="square"><div class="square">
-                                            </div></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="right">
-                            <div class="square">
-                                <div class="square">
-                                    <div class="square">
-                                        <div class="square">
-                                            <div class="square"><div class="square">
-                                            </div></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> */}
-                    {/* <div class="spinner"></div> */}
+                    <RiseLoader
+                        color={'#FFFFDB'}
+                        loading={loading}
+                        size={50}
+                        // cssOverride={override}
+                        aria-label="Loading Spinner"
+                        data-testid="loader"
+                        speedMultiplier={'0.69'}
+                    />
                 </div>
                 :
                 <Routes>
