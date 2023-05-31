@@ -9,6 +9,7 @@ import Alert from 'react-bootstrap/Alert';
 import Loading from "../../Alert/Loading";
 import Success from "../../Alert/Success";
 import { Form } from "react-router-dom";
+import success from "../../Alert/Success";
 
 const FormPage = () => {
   const [title, setTitle] = useState("");
@@ -28,11 +29,16 @@ const FormPage = () => {
   const folderImage = "Publications/image";
   const folderPdf = "Publications/pdf";
 
-  const handleClose =()=>{
+  setTimeout(() => {
+
+    
+  },3000);
+
+  // const handleClose =()=>{
     
     
 
-  }
+  // }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -104,10 +110,10 @@ const FormPage = () => {
           <p>Publication</p>
         </div>
         <div className="alert-messages">
-          <div className="closebtn" onClick={handleClose}>X</div>
-          {Error && <Error error={"form not subbmitted try again!!!"}/>}
-          {/* {Loading && <Loading/>} */}
-          {/* {Success && <Success success={"Details uploaded successfully"} />} */}
+          {/* <div className="closebtn" onClick={handleClose}>X</div> */}
+          {/* {Error && <Error error={"form not subbmitted try again!!!"}/>} */}
+          {/* {<Loading/>} */}
+          {Success && <Success success={"Details uploaded successfully"} />}
         </div>
 
         <div className="font-content">
