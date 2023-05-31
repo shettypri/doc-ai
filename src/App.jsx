@@ -118,12 +118,6 @@ function App() {
                     <Route exact path='/Account/*' element={<Account />} />
                     <Route exact path='/Account/PendingReq' element={<PendingReq />} />
 
-
-                    {/* <Route exact path='/publisher'  element={<publisher/>}/>
-        <Route exact path='/researcher'  element={<researcher/>}/> */}
-
-
-                    {/* <Route exact path='/' */}
                 </Routes>}
 
         </BrowserRouter>

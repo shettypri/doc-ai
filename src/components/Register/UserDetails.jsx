@@ -44,8 +44,6 @@ const UserDetails = () => {
     const handleDetails = async (e) => {
         e.preventDefault();
         dispatch(imageUploadReducers(docImage))
-
-
     }
 
     const storeDataIntoFireStore = ()=>{
@@ -90,16 +88,16 @@ const UserDetails = () => {
                         <div className="input-boxus">
                             <span className="detailsus">DOB</span>
                             <input type="date"
-                                name='dateOfBirth' 
+                                name='dateOfBirth'
                                 onChange={doctorValue}
-                                placeholder="Enter Date of Birth" 
+                                placeholder="Enter Date of Birth"
                                 required />
                         </div>
 
                         <div className="input-boxus">
                             <span className="detailsus">Email</span>
                             <input type="text"
-                                name='email' 
+                                name='email'
                                 onChange={doctorValue}
                                 placeholder="Enter Email"
                                 required />
@@ -210,9 +208,14 @@ const UserDetails = () => {
                                 }
                                 }
                                 id="actual-btn" hidden/>
-                            <label className='lbl' htmlFor="actual-btn">Choose File</label>
+                            <label className='lbl' htmlFor="actual-btn">
+
+                                Choose File
+                            </label>
+
                             <span id="file-chosen">
-                                &nbsp;&nbsp;No file chosen
+                                &nbsp;&nbsp;
+                                    No file chosen
                             </span>
                         </div>
                         <div className="buttonus">
