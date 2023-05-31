@@ -3,7 +3,9 @@ import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {auth, db} from "../../config/firebase-config";
 import {signOut} from "firebase/auth";
 
-export const isUserLogInReducers = createAsyncThunk("isUserLogInReducers", async (userId) => {
+export const isUserLogInReducers = createAsyncThunk(
+    "isUserLogInReducers",
+    async (userId) => {
     try {
         const docRef = await doc(db, "users", userId)
         const pendingUsers = await getDoc(docRef)

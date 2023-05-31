@@ -23,7 +23,7 @@ import Research from './components/doctor/03_Research/Research'
 import Home from './components/doctor/02_Home/Home'
 import Publication from './components/doctor/04_Publication/Publication'
 import Contact from './components/doctor/07_Contact/Contact'
-
+import Project from './components/doctor/05_Project/Project'
 import {
     RingLoader,
     PropagateLoader,
@@ -57,7 +57,7 @@ function App() {
         console.log("not loged In")
     } else {
         console.log("loged in")
-        dispatch(isUserLogInReducers())
+        dispatch(isUserLogInReducers(userId))
     }
     return (<>
         <BrowserRouter>
@@ -66,73 +66,15 @@ function App() {
             </div>
             {loading ?
                 <div style={style}>
-                    <iframe src="https://embed.lottiefiles.com/animation/138605" style={{mixBlendMode:'color-burn'}}></iframe>
-                    {/* <HashLoader
-                            color={'#FFFFDB'}
-                            loading={loading}
-                            size={150}
-                            cssOverride={override}
-                            aria-label="Loading Spinner"
-                            data-testid="loader"
-                            speedMultiplier={'0.69'}
-                        /> */}
-                    {/* <div class="loading">
-                        <svg width="200px" height="200px">
-                            <polyline points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24" id="back"></polyline>
-                            <polyline points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24" id="front"></polyline>
-                        </svg>
-                    </div> */}
-                    {/* <div class="loadingcontainer">
-                        <div class="top">
-                            <div class="square">
-                                <div class="square">
-                                    <div class="square">
-                                        <div class="square">
-                                            <div class="square"><div class="square">
-                                            </div></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bottom">
-                            <div class="square">
-                                <div class="square">
-                                    <div class="square">
-                                        <div class="square">
-                                            <div class="square"><div class="square">
-                                            </div></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="left">
-                            <div class="square">
-                                <div class="square">
-                                    <div class="square">
-                                        <div class="square">
-                                            <div class="square"><div class="square">
-                                            </div></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="right">
-                            <div class="square">
-                                <div class="square">
-                                    <div class="square">
-                                        <div class="square">
-                                            <div class="square"><div class="square">
-                                            </div></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> */}
-                    {/* <div class="spinner"></div> */}
+                    <RiseLoader
+                        color={'#FFFFDB'}
+                        loading={loading}
+                        size={50}
+                        // cssOverride={override}
+                        aria-label="Loading Spinner"
+                        data-testid="loader"
+                        speedMultiplier={'0.69'}
+                    />
                 </div>
                 :
                 <Routes>
@@ -144,6 +86,7 @@ function App() {
                     <Route exact path='/otplogin' element={<Otp_Login />} />
                     <Route exact path='/404' element={<NotFound />} />
                     <Route exact path='/Pubview' element={<Pubview />} />
+                    <Route exact path='/Project' element={<Project />} />
                     {/* Testing path ends */}
                     {/* <Route exact path='/form' element={<FormPage />}/> */}
 
@@ -176,12 +119,6 @@ function App() {
                     <Route exact path='/Account/*' element={<Account />} />
                     <Route exact path='/Account/PendingReq' element={<PendingReq />} />
 
-
-                    {/* <Route exact path='/publisher'  element={<publisher/>}/>
-        <Route exact path='/researcher'  element={<researcher/>}/> */}
-
-
-                    {/* <Route exact path='/' */}
                 </Routes>}
 
         </BrowserRouter>

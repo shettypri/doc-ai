@@ -47,7 +47,7 @@ const Navbar = () => {
                       {
                           ! data.isAdmin &&
                           ( <>
-                                  {data.length == 0 &&
+                                  {data.length === 0 &&
                               (<Banner/>)}
                               {!data.isDocAuthorized &&
                                   <AdminConfimBanner/>
@@ -60,7 +60,7 @@ const Navbar = () => {
               )
 
                 }
-                <nav>
+                <nav className={"navbar-tag"}>
                     <div className="logo">
                         <Link to="/">
                             <img src={navbarImage} alt="Logo"/>
@@ -73,7 +73,8 @@ const Navbar = () => {
                                 navbarList.map((listValue, index) => {
                                     return (
                                         <li className="p-2" key={index}>
-                                            <Link to={listValue}>{listValue}</Link>
+                                            {/*<Link to={listValue}>{listValue}</Link>*/}
+                                            <Link to={"/"}>{listValue}</Link>
                                         </li>
                                     )
                                 })
@@ -112,7 +113,7 @@ const Navbar = () => {
                                                                 data.isDocAuthorized &&
                                                                 (
                                                                     <>
-                                                                        <Link to="{Projects}">Projects</Link>
+                                                                        <Link to="/Project">Projects</Link>
                                                                     </>
                                                                 )
                                                             }

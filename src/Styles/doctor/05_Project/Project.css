@@ -9,3 +9,14 @@
 .gridcard{
     width: 200px;
 }
+
+.project-main{
+    margin-top: 150px;
+    /*border: 2px solid red;*/
+}
+
+.project-main h1{
+    color:  #FFFFFF !important;
+    font-weight: bolder;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}

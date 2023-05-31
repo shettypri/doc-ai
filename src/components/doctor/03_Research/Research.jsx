@@ -1,4 +1,3 @@
-
 import image1 from "../../../assets/Doctor/Images/rch1.png"
 import image2 from "../../../assets/Doctor/Images/pexels-drew-rae-580679.jpg"
 import "../../../Styles/doctor/03_Research/Research.css"
