@@ -6,8 +6,9 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faBars, faCaretDown} from '@fortawesome/free-solid-svg-icons'
 import {useDispatch, useSelector} from "react-redux";
 import {isLogoutReducers, isUserLogInReducers} from "../../../App/Slice/userSlice.js";
-// import Banner from "../../Banner/Banner"
+import Banner from "../../Banner/Banner"
 import AdminConfimBanner from "../../Banner/AdminConfimBanner"
+
 
 const Navbar = () => {
 
@@ -35,8 +36,8 @@ const Navbar = () => {
             <header>
                 {data.length == 0
                 &&
-                // <Banner/>
-                <AdminConfimBanner/>
+                <Banner/>
+                // <AdminConfimBanner/>
 
                 }
                 <nav>

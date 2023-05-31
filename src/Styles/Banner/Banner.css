@@ -3,6 +3,11 @@
     align-items: center;
     justify-content: center;
     color: white;
-    background-color: blue;
+    background-color: rgb(42, 42, 135);
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.xmark{
+    cursor: pointer;
+    
 }

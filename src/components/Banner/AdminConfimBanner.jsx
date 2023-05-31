@@ -9,7 +9,7 @@ const AdminConfimBanner = () => {
     <>
     {
         banerShow &&
-        <div className="banner-details">
+        <div className="Adminbanner-details">
             <h4>
                 Please wait for admin to accept request
             
