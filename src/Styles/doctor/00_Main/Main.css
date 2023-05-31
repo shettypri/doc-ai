@@ -1,3 +1,4 @@
+
 .Hero{
     height: 100vh;
     width: 100vw;
@@ -7,16 +8,16 @@
 }
 
 .Section1{
-    padding-top: 400px;
+    padding-top: 800px;
     height: 100vh;
     width: 100vw;
-    margin-top: 500px;
+    /* margin-top: 500px; */
     background: transparent;
     position: relative;
 }
 
 .Section2{
-    /* padding-top: 100px; */
+    padding-top: 500px;
     height: 100vh;
     width: 100vw;
     /* margin-top: 480px; */
@@ -25,19 +26,19 @@
 }
 
 .Section3{
-    /* padding-top: 100px; */
+    padding-top: 500px;
     height: 100vh;
     width: 100vw;
-    margin-top: 700px;
+    /* margin-top: 700px; */
     background: transparent;
     position: relative;
 }
 
 .Section4{
-    /* padding-top: 100px; */
+    padding-top: 500px;
     height: 100vh;
     width: 100vw;
-    margin-top: 400px;
+    /* margin-top: 400px; */
     background: transparent;
     position: relative;
 }
