@@ -7,7 +7,9 @@ import {faBars, faCaretDown} from '@fortawesome/free-solid-svg-icons'
 import {useDispatch, useSelector} from "react-redux";
 import {isLogoutReducers, isUserLogInReducers} from "../../../App/Slice/userSlice.js";
 import {useEffect} from "react";
-import login from "../../Login/Login.jsx";
+
+// import Banner from "../../Banner/Banner"
+import AdminConfimBanner from "../../Banner/AdminConfimBanner"
 
 const Navbar = () => {
 
@@ -41,15 +43,9 @@ const Navbar = () => {
             <header>
                 {data.length == 0
                 &&
-                    <h3>
-                        Please fill registraion form to accless all the response
-                        <span  onClick={
-                            ()=>
-                                navigate("/userDetails")
-                        }>
-                             Click here
-                        </span>
-                    </h3>
+                // <Banner/>
+                <AdminConfimBanner/>
+
                 }
                 <nav>
                     <div className="logo">
