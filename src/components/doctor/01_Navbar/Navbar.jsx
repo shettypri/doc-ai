@@ -113,7 +113,7 @@ const Navbar = () => {
                                                                 data.isDocAuthorized &&
                                                                 (
                                                                     <>
-                                                                        <Link to="{Projects}">Projects</Link>
+                                                                        <Link to="/Project">Projects</Link>
                                                                     </>
                                                                 )
                                                             }
