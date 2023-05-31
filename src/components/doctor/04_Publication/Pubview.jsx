@@ -3,30 +3,29 @@ import { Link } from 'react-router-dom'
 import { Container, Row, Col, Card } from 'react-bootstrap'
 import "../../../Styles/doctor/04_Publication/Pubview.css"
 import image1 from "../../../assets/Doctor/Images/rch1.png"
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faArrowLeft} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { Button } from "react-bootstrap";
 
 const Pubview = () => {
     return (
         <>
             <Container className='contpubview'>
                 <Row>
-                    <Col sm={1} style={{float:"left"}}>
-                    <Link to={"/"}><FontAwesomeIcon icon={faArrowLeft} size="xl" style={{color: "blanchedalmond",}}/></Link>
+                    <Col sm={1} style={{ float: "left" }}>
+                        <Link to={"/"}><FontAwesomeIcon icon={faArrowLeft} size="xl" style={{ color: "blanchedalmond", }} /></Link>
                     </Col>
                     <Col sm={4}>
-                        <Card className='imgcontainer bg-transparent'>
-                            <img src={image1} alt="..." />
-                        </Card>
+                        {/* <Card className='imgcontainer bg-transparent' style={{justifyContent:"center"}}> */}
+                        <img src={image1} alt="..." />
+                        {/* </Card> */}
 
                     </Col>
                     <Col sm={7}>
                         <Card className='pubtitle bg-transparent'>
-                            <div className="pubv-content">
-                                <h2 style={{ color: '#fff' }}><b>Immune phenotypes classified by deep learning-based H&amp;E tissue analyzer
-                                    demonstrate distinct immune landscape and transcriptomic features in ovarian cancer</b></h2>
-                                <p style={{ color: '#fff' }}>Horyun Choi et al. - AACR (2023)</p>
-                            </div>
+                            <h2 style={{ color: '#fff' }}><b>Immune phenotypes classified by deep learning-based H&amp;E tissue analyzer
+                                demonstrate distinct immune landscape and transcriptomic features in ovarian cancer</b></h2>
+                            <p style={{ color: '#fff' }}>Horyun Choi et al. - AACR (2023)</p>
                         </Card>
                     </Col>
                 </Row>
@@ -59,7 +58,21 @@ const Pubview = () => {
                             </div>
                         </Card>  </Col>
                 </Row>
+                <Row>
+                    {/* <Col sm={1}> */}
+                        <div className="downpdf">
+                            <button>
+                                Download PDF
+                            </button>
+                        </div>
+                    {/* </Col> */}
+                </Row>
             </Container>
+
+
+
+
+
             {/* <section className="pubv">
                 <div className="pubhead">
                     <h1 style={{ background: 'black' }}>Publication</h1>
