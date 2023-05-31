@@ -3,6 +3,10 @@
   background-color:red;
   color: white;
   text-transform: capitalize;
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
-  
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  height: 13vh;  
+  width: 50vw;
+}
+.alert-error section{
+ 
 }

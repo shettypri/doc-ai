@@ -43,6 +43,7 @@ const FormPage = () => {
       description.length == 0 ||
       authorsList.length == 0 ||
       keyBenefitsList.length == 0
+      
     ) {
       setError(true);
       console.log("clicked eror");
@@ -108,10 +109,9 @@ const FormPage = () => {
           <p>Publication</p>
         </div>
         <div className="alert-messages">
-          {/* <div className="closebtn" onClick={handleClose}>X</div> */}
           {/* {Error && <Error error={"form not subbmitted try again!!!"}/>} */}
           {/* {<Loading/>} */}
-          {Success && <Success success={"Details uploaded successfully"} />}
+          {/* {Success && <Success success={"Details uploaded successfully"} />} */}
         </div>
 
         <div className="font-content">
@@ -165,7 +165,10 @@ const FormPage = () => {
                 required
               />
             </div>
-            <lable>Please upload Image</lable>
+            
+             <label>Please upload Image</label> 
+            
+           
 
             <div className="form-fields">
               <label>upload pdf</label>
