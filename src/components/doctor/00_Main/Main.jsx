@@ -5,7 +5,7 @@ import Publication from '../04_Publication/Publication'
 import Contact from '../07_Contact/Contact'
 import About from '../06_About_Us/About'
 import "../../../Styles/doctor/00_Main/Main.css"
-import { Container, Row, Col } from 'react-bootstrap/'
+import {Container, Row, Col} from 'react-bootstrap/'
 
 const Main = () => {
     return (
@@ -29,7 +29,7 @@ const Main = () => {
                     </Row>
                 </center>
             </Container>
-            
+
 
             {/* <Publication/> */}
             {/* <Contact/> */}

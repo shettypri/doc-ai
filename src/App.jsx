@@ -36,43 +36,38 @@ import {
 import NotFound from './components/Global/NotFound'
 import BadRequest from './components/Global/BadRequest'
 import Pubview from './components/doctor/04_Publication/Pubview'
-import {useDispatch} from "react-redux";
-import {isUserLogInReducers} from "./App/Slice/userSlice.js";
+import { useDispatch } from "react-redux";
+import { isUserLogInReducers } from "./App/Slice/userSlice.js";
 
-const override = css`
-  display: block;
-  flex: 1;
-  margin-top: 100px;
-  justify-content: center;
-  align-items: center;
-`;
+
 
 function App() {
-    const style = { position: "fixed", top: "50%", left: "60%", transform: "translate(-50%, -50%)", width: "500px" };
+    const style = { position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)" };
     const [loading, setLoading] = useState(false)
     useEffect(() => {
         setLoading(true)
         setTimeout(() => {
             setLoading(false)
-        }, 3000)
+        }, 5000)
     }, [])
     const navbarList = ["Research", "Publication", "Projects", "About-Us", "Contact-Us"]
     const dispatch = useDispatch()
     const userId = sessionStorage.getItem("key")
-    if(userId == null){
+    if (userId == null) {
         console.log("not loged In")
-    }else{
+    } else {
         console.log("loged in")
         dispatch(isUserLogInReducers())
     }
     return (<>
-            <BrowserRouter>
-                <div>
-                    <Navbar />
-                </div>
-                {loading ?
-                    <div style={style}>
-                        <HashLoader
+        <BrowserRouter>
+            <div>
+                <Navbar />
+            </div>
+            {loading ?
+                <div style={style}>
+                    <iframe src="https://embed.lottiefiles.com/animation/138605" style={{mixBlendMode:'color-burn'}}></iframe>
+                    {/* <HashLoader
                             color={'#FFFFDB'}
                             loading={loading}
                             size={150}
@@ -80,59 +75,116 @@ function App() {
                             aria-label="Loading Spinner"
                             data-testid="loader"
                             speedMultiplier={'0.69'}
-                        />
-                    </div>
-                    :
-                    <Routes>
+                        /> */}
+                    {/* <div class="loading">
+                        <svg width="200px" height="200px">
+                            <polyline points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24" id="back"></polyline>
+                            <polyline points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24" id="front"></polyline>
+                        </svg>
+                    </div> */}
+                    {/* <div class="loadingcontainer">
+                        <div class="top">
+                            <div class="square">
+                                <div class="square">
+                                    <div class="square">
+                                        <div class="square">
+                                            <div class="square"><div class="square">
+                                            </div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bottom">
+                            <div class="square">
+                                <div class="square">
+                                    <div class="square">
+                                        <div class="square">
+                                            <div class="square"><div class="square">
+                                            </div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="left">
+                            <div class="square">
+                                <div class="square">
+                                    <div class="square">
+                                        <div class="square">
+                                            <div class="square"><div class="square">
+                                            </div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="square">
+                                <div class="square">
+                                    <div class="square">
+                                        <div class="square">
+                                            <div class="square"><div class="square">
+                                            </div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> */}
+                    {/* <div class="spinner"></div> */}
+                </div>
+                :
+                <Routes>
 
-                        {/* Testing path */}
+                    {/* Testing path */}
 
-                        <Route exact path='/UserLogin' element={<UserLogin />} />
-                        <Route exact path='/UserDetails' element={<UserDetails />} />
-                        <Route exact path='/otplogin' element={<Otp_Login />} />
-                        <Route exact path='/404' element={<NotFound />} />
-                        <Route exact path='/Pubview' element={<Pubview />} />
-                        {/* Testing path ends */}
-                        {/* <Route exact path='/form' element={<FormPage />}/> */}
+                    <Route exact path='/UserLogin' element={<UserLogin />} />
+                    <Route exact path='/UserDetails' element={<UserDetails />} />
+                    <Route exact path='/otplogin' element={<Otp_Login />} />
+                    <Route exact path='/404' element={<NotFound />} />
+                    <Route exact path='/Pubview' element={<Pubview />} />
+                    {/* Testing path ends */}
+                    {/* <Route exact path='/form' element={<FormPage />}/> */}
 
-                        {/*Home Page Sibngle routes*/}
-                        <Route exact path="/" element={<Main />} />
-                        {/* <Route exact path="/" element={<Home/>}/>
+                    {/*Home Page Sibngle routes*/}
+                    <Route exact path="/" element={<Main />} />
+                    {/* <Route exact path="/" element={<Home/>}/>
                         <Route exact path="/Research" element={<Research/>}/>
                         <Route exact path='/Publication' element={<Publication/>}/>
                         <Route exact path='/Contact-Us' element={<Contact/>}/> */}
-                        <Route exact path='/About-Us' element={<About/>}/>
+                    <Route exact path='/About-Us' element={<About />} />
 
-                        {/* Testing path */}
-                        <Route exact path='/PendingReq' element={<PendingReq />} />
-                        <Route exact path='/UserLogin' element={<UserLogin />} />
-                        <Route exact path='/UserDetails' element={<UserDetails />} />
-                        <Route exact path='/otplogin' element={<Otp_Login />} />
-                        {/* Testing path ends */}
-                        <Route exact path='/form' element={<FormPage />} />
+                    {/* Testing path */}
+                    <Route exact path='/PendingReq' element={<PendingReq />} />
+                    <Route exact path='/UserLogin' element={<UserLogin />} />
+                    <Route exact path='/UserDetails' element={<UserDetails />} />
+                    <Route exact path='/otplogin' element={<Otp_Login />} />
+                    {/* Testing path ends */}
+                    <Route exact path='/form' element={<FormPage />} />
 
-                        {/*Admin Route*/}
-                        <Route exact path='/Dashboard/*' element={<Dashboard />} />
-                        <Route exact path='/Account' element={<Account />} />
-                        <Route exact path='/Dashboard/Form' element={<FormPage />} />
-                        <Route exact path='/Dashboard/researchForm' element={<ResearchForm />} />
+                    {/*Admin Route*/}
+                    <Route exact path='/Dashboard/*' element={<Dashboard />} />
+                    <Route exact path='/Account' element={<Account />} />
+                    <Route exact path='/Dashboard/Form' element={<FormPage />} />
+                    <Route exact path='/Dashboard/researchForm' element={<ResearchForm />} />
 
-                        <Route exact path='/login' element={<Login />} />
-                        <Route exact path='/register' element={<Register />} />
-
-
-                        <Route exact path='/Account/*' element={<Account />} />
-                        <Route exact path='/Account/PendingReq' element={<PendingReq />} />
+                    <Route exact path='/login' element={<Login />} />
+                    <Route exact path='/register' element={<Register />} />
 
 
-                        {/* <Route exact path='/publisher'  element={<publisher/>}/>
+                    <Route exact path='/Account/*' element={<Account />} />
+                    <Route exact path='/Account/PendingReq' element={<PendingReq />} />
+
+
+                    {/* <Route exact path='/publisher'  element={<publisher/>}/>
         <Route exact path='/researcher'  element={<researcher/>}/> */}
 
 
-                        {/* <Route exact path='/' */}
-                    </Routes>}
+                    {/* <Route exact path='/' */}
+                </Routes>}
 
-            </BrowserRouter>
+        </BrowserRouter>
     </>
     )
 }

@@ -6,6 +6,10 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faBars, faCaretDown} from '@fortawesome/free-solid-svg-icons'
 import {useDispatch, useSelector} from "react-redux";
 import {isLogoutReducers, isUserLogInReducers} from "../../../App/Slice/userSlice.js";
+import Banner from "../../Banner/Banner"
+import AdminConfimBanner from "../../Banner/AdminConfimBanner"
+import { useEffect } from "react"
+
 
 const Navbar = () => {
 
@@ -13,6 +17,12 @@ const Navbar = () => {
         "Research", "Publication", "About-Us", "Contact-Us"
         // "login"
     ]
+
+    useEffect(() => {
+        if(sessionStorage.getItem("mobileNumber") != null){
+            sessionStorage.removeItem("mobileNumber")
+        }
+    }, []);
 
     const dispatch = useDispatch()
 
@@ -23,25 +33,32 @@ const Navbar = () => {
         navigate('/')
     }
 
-
     const navigate = useNavigate()
     const {data, error, isLoggedIn, loading, newUser} = useSelector(
         state => state.userReducer
     )
+    console.log(data)
     return (
         <>
             <header>
-                {data.length == 0
+                {data.length !== 0
                 &&
-                    <h3>
-                        Please fill registraion form to accless all the response
-                        <span  onClick={
-                            ()=>
-                                navigate("/userDetails")
-                        }>
-                             Click here
-                        </span>
-                    </h3>
+              (  <>
+                      {
+                          ! data.isAdmin &&
+                          ( <>
+                                  {data.length == 0 &&
+                              (<Banner/>)}
+                              {!data.isDocAuthorized &&
+                                  <AdminConfimBanner/>
+                              }
+
+                                  </>)
+                      }
+
+              </>
+              )
+
                 }
                 <nav>
                     <div className="logo">
@@ -66,12 +83,13 @@ const Navbar = () => {
                             {/* Drop Down List for Admin and User*/}
                             {
                                 !(isLoggedIn) ?
-                                    (<li className="p-2">
+                                    (
+                                    <li className="p-2">
                                         <Link to={"/otplogin"}>Login</Link>
                                     </li>)
                                     : (
                                         <>
-                                            {data.isAdmin &&
+                                            {data.isAdmin ?
                                                 (
                                                     <div className="dropdown1">
                                                         <li className="p-2">
@@ -82,14 +100,13 @@ const Navbar = () => {
                                                             <Link onClick={handleLogout}>Logout </Link>
                                                         </div>
                                                     </div>
-                                                )
-                                            }
-                                            <div className="dropdown2">
-                                                <li className="p-2">
-                                                    <Link>
-                                                        Doctor
-                                                        <FontAwesomeIcon icon={faCaretDown}/></Link>
-                                                </li>
+                                                ):(
+                                                    <div className="dropdown2">
+                                                        <li className="p-2">
+                                                            <Link>
+                                                                Doctor
+                                                                <FontAwesomeIcon icon={faCaretDown}/></Link>
+                                                        </li>
                                                         <div className="dropdown-options2">
                                                             {
                                                                 data.isDocAuthorized &&
@@ -104,7 +121,10 @@ const Navbar = () => {
 
 
 
-                                            </div>
+                                                    </div>
+                                                )
+                                            }
+
                                         </>
                                     )
                             }
