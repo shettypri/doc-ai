@@ -59,7 +59,7 @@ export const allAcceptedDoctorReducers = createAsyncThunk(
 
 export const deleteDoctorByIdReducer = createAsyncThunk(
     "deleteDoctorByIdReducer",
-    async (id) =>{
+    async (id) => {
         const doctorCollection = doc(db, "users", id)
 
         try {
@@ -89,122 +89,126 @@ export const rejectDoctorReducers = createAsyncThunk(
 const adminSlice = createSlice({
     name: "adminSlice",
     initialState: {
-        loading: false,
-        error: false,
-        pendingRequestState:{
+        pendingRequestState: {
+            loading: false,
+            error: false,
+            data: "",
+            isDataFetched: false,
+        },
+        acceptNewDoctorState:{
             loading:false,
             error:false,
-            data:"",
-            isDataFetched:false,
+            docUpdate:"",
+            isDoctorAccepted:false,
         },
-        pendingDoctorRequest: "",
-        isPendingFetched: false,
-        doctorUpdate: [],
-        isDocUpdated: false,
-        isDoctorRejected: false,
-        docRejectError: "",
-        isDoctorAccepted: false,
-        docUpdate: "",
-        docAcceptError: "",
-        acceptAlldocList: "",
-        acceptAllDocLoading: false,
-        acceptAllDocError: "",
-        deleteDocOneList:false,
-        deleteDocOneError:"",
-        deleteDocOneLoading:false,
+        newDoctorRejectedState:{
+            loading:false,
+            error:false,
+            isDoctorRejected: false,
+            docRejectError: "",
+        },
+        acceptedAllDoctorList: {
+            loading: false,
+            error: false,
+            data: "",
+            isDataFetched: false,
+        },
+        deleteListDoctorById:{
+            loading:false,
+            error:false,
+            isDataDeleted:false,
+        },
     },
     extraReducers: (builder) => {
         builder.addCase(
             getPendingRequestReducers.pending, (state) => {
-                state.loading = true;
+                state.pendingRequestState.loading = true;
             }
         )
             .addCase(
                 getPendingRequestReducers.fulfilled, (state, action) => {
-                    state.loading = false;
+                    state.pendingRequestState.loading = false;
 
-                    if (state.pendingDoctorRequest.length == 0) {
-                        state.pendingDoctorRequest = ""
+                    if (state.pendingRequestState.data.length == 0) {
+                        state.pendingRequestState.data = ""
                     }
-                    state.pendingDoctorRequest = (action.payload);
-                    state.isPendingFetched = true;
+                    state.pendingRequestState.data = (action.payload);
+                    state.pendingRequestState.isDataFetched = true;
                 }
             )
             .addCase(
                 getPendingRequestReducers.rejected, (state, action) => {
-                    state.loading = false;
-                    state.error = action.payload
+                    state.pendingRequestState.loading = false;
+                    state.pendingRequestState.error = action.payload
                 }
             )
             .addCase(
                 rejectDoctorReducers.pending, (state) => {
-                    state.loading = true
+                    state.newDoctorRejectedState.loading = true
                 })
             .addCase(rejectDoctorReducers.fulfilled, (state, action) => {
-                state.isDoctorRejected = true;
-                state.loading = false;
+                state.newDoctorRejectedState.isDoctorRejected = true;
+                state.newDoctorRejectedState.loading = false;
             })
             .addCase(
                 rejectDoctorReducers.rejected, (state, action) => {
-                    state.loading = false;
-                    state.docRejectError = action.payload;
+                    state.newDoctorRejectedState.loading = false;
+                    state.newDoctorRejectedState.docRejectError = action.payload;
                 }
             )
             .addCase(
                 acceptDoctorReducers.pending, (state) => {
-                    state.loading = true;
-
+                    state.acceptNewDoctorState.loading = true;
                 }
             )
             .addCase(
                 acceptDoctorReducers.fulfilled, (state, action) => {
-                    state.docUpdate = action.payload;
-                    state.loading = false;
-                    state.isDoctorAccepted = true;
+                    state.acceptNewDoctorState.loading = false;
+                    state.acceptNewDoctorState.docUpdate = action.payload;
+                    state.acceptNewDoctorState.isDoctorAccepted = true;
                 }
             )
             .addCase(
                 acceptDoctorReducers.rejected, (state, action) => {
-                    state.loading = false;
-                    state.docAcceptError = action.payload
+                    state.acceptNewDoctorState.loading = false;
+                    state.acceptNewDoctorState.docAcceptError = action.payload
                 }
             )
             .addCase(
                 allAcceptedDoctorReducers.pending, (state) => {
-                    // acceptAlldocList:"",
-                    state.acceptAllDocLoading = true;
-                    // acceptAllDocError:""
+                    state.acceptedAllDoctorList.loading=true;
                 }
             )
             .addCase(
                 allAcceptedDoctorReducers.fulfilled, (state, action) => {
-                    state.acceptAllDocLoading = false;
-                    if (state.acceptAlldocList.length != 0) {
-                        state.acceptAlldocList = "";
+                    state.acceptedAllDoctorList.loading=false;
+                    state.acceptedAllDoctorList.isDataFetched =true;
+                    if( state.acceptedAllDoctorList.data.length !== 0){
+                        state.acceptedAllDoctorList.data =""
                     }
-                    state.acceptAlldocList = action.payload
+                    state.acceptedAllDoctorList.data = action.payload
                 }
             )
             .addCase(
                 allAcceptedDoctorReducers.rejected, (state, action) => {
-                    state.acceptAllDocLoading = false;
-                    state.acceptAllDocError = action.payload
+                    state.acceptedAllDoctorList.loading=false;
+                    state.acceptedAllDoctorList.error=action.payload;
                 }
             )
             .addCase(
-                deleteDoctorByIdReducer.pending,(state) =>{
-                    state.deleteDocOneLoading=true;
+                deleteDoctorByIdReducer.pending, (state) => {
+                    state.deleteListDoctorById.loading=true;
                 }
             )
-            .addCase(deleteDoctorByIdReducer.fulfilled,(state)=>{
-                state.deleteDocOneLoading =false
-                state.deleteDocOneList = true;
-            }
+            .addCase(deleteDoctorByIdReducer.fulfilled, (state) => {
+                    state.deleteListDoctorById.loading=false;
+                    state.deleteListDoctorById.isDataDeleted=true;
+                }
             )
             .addCase(
-                deleteDoctorByIdReducer.rejected,(state,action) =>{
-                    state.deleteDocOneLoading =false;
-                    state.deleteDocOneError = action.payload
+                deleteDoctorByIdReducer.rejected, (state, action) => {
+                    state.deleteListDoctorById.loading=false;
+                    state.deleteListDoctorById.error=action.payload
                 }
             )
     }

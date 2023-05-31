@@ -1,6 +1,8 @@
 .alert-error{
-  padding:2px;
+  padding:10px;
   background-color:red;
   color: white;
   text-transform: capitalize;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  
 }

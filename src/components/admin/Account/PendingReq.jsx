@@ -6,6 +6,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faCheck, faXmark, faArrowLeft} from '@fortawesome/free-solid-svg-icons'
 import {useDispatch, useSelector} from "react-redux";
 import {acceptDoctorReducers, getPendingRequestReducers, rejectDoctorReducers} from "../../../App/Slice/adminSlice.js";
+import Loading from '../../Alert/Loading';
 
 const PendingReq = () => {
 
@@ -15,7 +16,7 @@ const PendingReq = () => {
     }, []);
 
     let i=1;
-    const {pendingDoctorRequest,isPendingFetched} = useSelector(
+    const {pendingRequestState} = useSelector(
         state => state.adminReducer
     )
     const acceptDoctor = (doctorId)=>{
@@ -38,6 +39,12 @@ const PendingReq = () => {
                             <FontAwesomeIcon icon={faArrowLeft} size="xl" style={{color: "#ffffff",}}/></Link>
                     </div>
                     <h2><u>Requests</u></h2>
+
+                    {
+                        pendingRequestState.loading &&
+                        <Loading/>
+                    }
+
                     <Card className='card'>
                         <table>
                             <thead>
@@ -49,10 +56,9 @@ const PendingReq = () => {
                                 <th>Reject</th>
                             </tr>
                             </thead>
-                            {isPendingFetched &&
+                            {pendingRequestState.isDataFetched &&
                             <tbody>
-
-                                {pendingDoctorRequest.map((doctor,index) =>{
+                                {pendingRequestState.data.map((doctor,index) =>{
                                     return(
                                         <tr key={index}>
                                             <td>{i++}</td>

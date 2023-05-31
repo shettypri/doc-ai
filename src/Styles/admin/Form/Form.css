@@ -189,4 +189,13 @@ input[type="file"] {
 	color: whitesmoke;
 	font-size: 12px;
 }
-
+.closebtn {
+	margin-left: 15px;
+	color: blue;
+	font-weight: bold;
+	float: right;
+	font-size: 22px;
+	line-height: 20px;
+	cursor: pointer;
+	transition: 0.3s;
+  }

@@ -4,10 +4,8 @@ import navbarImage from "../../../assets/Doctor/Images/pexels-drew-rae-580679.jp
 import {Link, useNavigate} from 'react-router-dom'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faBars, faCaretDown} from '@fortawesome/free-solid-svg-icons'
-import {auth} from "../../../config/firebase-config"
 import {useDispatch, useSelector} from "react-redux";
-import {isLogoutReducers} from "../../../App/Slice/userSlice.js";
-// import 'bootstrap/dist/css/bootstrap.css';
+import {isLogoutReducers, isUserLogInReducers} from "../../../App/Slice/userSlice.js";
 
 const Navbar = () => {
 
@@ -15,27 +13,36 @@ const Navbar = () => {
         "Research", "Publication", "About-Us", "Contact-Us"
         // "login"
     ]
-    console.log(auth)
 
     const dispatch = useDispatch()
-    const navigate = useNavigate()
+
     const handleLogout = async () => {
+        sessionStorage.removeItem("key")
         console.log("logout clicked");
         await dispatch(isLogoutReducers())
         navigate('/')
+    }
 
-    }
-    if(auth.currentUser != null){
-        dispatch(isLogoutReducers(auth.currentUser.uid))
-    }
+
+    const navigate = useNavigate()
     const {data, error, isLoggedIn, loading, newUser} = useSelector(
         state => state.userReducer
     )
-
-
     return (
         <>
             <header>
+                {data.length == 0
+                &&
+                    <h3>
+                        Please fill registraion form to accless all the response
+                        <span  onClick={
+                            ()=>
+                                navigate("/userDetails")
+                        }>
+                             Click here
+                        </span>
+                    </h3>
+                }
                 <nav>
                     <div className="logo">
                         <Link to="/">
@@ -64,23 +71,39 @@ const Navbar = () => {
                                     </li>)
                                     : (
                                         <>
-                                            <div className="dropdown1">
-                                                <li className="p-2">
-                                                    <Link>Admin <FontAwesomeIcon icon={faCaretDown}/></Link>
-                                                </li>
-                                                <div className="dropdown-options1">
-                                                    <Link to="/Dashboard">Dashboard </Link>
-                                                    <Link onClick={handleLogout}>Logout </Link>
-                                                </div>
-                                            </div>
+                                            {data.isAdmin &&
+                                                (
+                                                    <div className="dropdown1">
+                                                        <li className="p-2">
+                                                            <Link>Admin <FontAwesomeIcon icon={faCaretDown}/></Link>
+                                                        </li>
+                                                        <div className="dropdown-options1">
+                                                            <Link to="/Dashboard">Dashboard </Link>
+                                                            <Link onClick={handleLogout}>Logout </Link>
+                                                        </div>
+                                                    </div>
+                                                )
+                                            }
                                             <div className="dropdown2">
                                                 <li className="p-2">
-                                                    <Link>User <FontAwesomeIcon icon={faCaretDown}/></Link>
+                                                    <Link>
+                                                        Doctor
+                                                        <FontAwesomeIcon icon={faCaretDown}/></Link>
                                                 </li>
-                                                <div className="dropdown-options2">
-                                                    <Link to="{Projects}">Projects</Link>
-                                                    <Link onClick={handleLogout}>Logout </Link>
-                                                </div>
+                                                        <div className="dropdown-options2">
+                                                            {
+                                                                data.isDocAuthorized &&
+                                                                (
+                                                                    <>
+                                                                        <Link to="{Projects}">Projects</Link>
+                                                                    </>
+                                                                )
+                                                            }
+                                                            <Link onClick={handleLogout}>Logout </Link>
+                                                        </div>
+
+
+
                                             </div>
                                         </>
                                     )

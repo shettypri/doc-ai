@@ -6,9 +6,9 @@ import "../../Styles/Alert/Error.css";
         <>
             <div>
                 <div className="alert-error " role="alert">
-                   <h2>
+                   <h3>
                        {props.error}
-                   </h2>
+                   </h3>
                 </div>
             </div>
         </>

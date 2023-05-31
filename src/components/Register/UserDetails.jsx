@@ -25,7 +25,6 @@ const UserDetails = () => {
         "pincode": "",
         "Specialization": "",
         "doctorId": "",
-        // "imageUrl": "",
         isFormFilled: true,
         isAdmin: false,
         isDocAuthorized: false,
@@ -74,9 +73,9 @@ const UserDetails = () => {
                         <div className="input-boxus">
                             <span className="detailsus">First Name</span>
                             <input type="text"
-                                   name='firstName'
-                                   onChange={doctorValue}
-                                   placeholder="Enter First Name" required/>
+                                name='firstName'
+                                onChange={doctorValue}
+                                placeholder="Enter First Name" required/>
                         </div>
 
                         <div className="input-boxus">
