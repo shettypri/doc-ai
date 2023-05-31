@@ -92,32 +92,6 @@ const PendingReq = () => {
                         </table>
                     </Card>
 
-                    {/* <div className="pendreq">
-                    <table cols={3}>
-                        <thead>
-                            <tr style={{justifyContent:'center'}}>
-                                <th>Requests</th>
-                                <th></th>
-                                <th>Accept</th>
-                                <th></th>
-                                <th>Reject</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <Card className='card'>
-                                        <Card.Body className='cardbody'>This is some text within a card body.</Card.Body>
-                                    </Card>
-                                </td>
-                                <td></td>
-                                <td><FontAwesomeIcon icon={faCheck} style={{ color: "#ffffff", }} /></td>
-                                <td></td>
-                                <td><FontAwesomeIcon icon={faXmark} style={{ color: "#ffffff", }} /></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div> */}
                 </center>
             </div>
         </>

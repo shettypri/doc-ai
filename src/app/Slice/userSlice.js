@@ -30,7 +30,7 @@ const userSlice = createSlice({
         newUser: false,
         error: false,
         id: "",
-        data: [],
+        data: "",
     }, reducers: {
         registerUser(state, action) {
             state.isLoggedIn = true;
@@ -51,7 +51,10 @@ const userSlice = createSlice({
                 if (action.payload == null) {
                     state.newUser = true;
                 } else {
-                    state.data.push(action.payload)
+                    if(state.data.length != 0){
+                        state.data =""
+                    }
+                    state.data = (action.payload)
                 }
             })
             .addCase(isUserLogInReducers.rejected, (state, action) => {
@@ -67,7 +70,7 @@ const userSlice = createSlice({
                 state.isLoggedIn = false;
                 state.loading = false;
                 state.newUser = false;
-                state.data = [];
+                state.data ="";
             })
             .addCase(isLogoutReducers.rejected, (state, action) => {
                 state.isLoggedIn = false;

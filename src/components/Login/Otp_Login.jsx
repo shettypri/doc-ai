@@ -8,6 +8,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {isUserLogInReducers, uniqueUserReducer} from "../../App/Slice/userSlice.js";
 import {useNavigate} from "react-router-dom";
 import Loading from "../Alert/Loading.jsx";
+import LoginLoading from "../Alert/LoginLoading.jsx";
 
 const Otp_Login = () => {
     // console.log(auth.currentUser);
@@ -36,6 +37,7 @@ const Otp_Login = () => {
 
         setOtpSection(false)
         const numberMobile = "+" + mobileNumber
+        sessionStorage.setItem("mobileNumber",numberMobile)
         try {
             const captchaResult = await new RecaptchaVerifier('recaptcha-container', {}, auth);
             const captchVeryfied = await signInWithPhoneNumber(auth, numberMobile, captchaResult)
@@ -79,7 +81,7 @@ const Otp_Login = () => {
         <div className="otp-login-main">
             {loading &&
 
-                <Loading />
+                <LoginLoading />
             }
             {otpSection ? (<div className="otp-number">
                     <div className="otp-lable">

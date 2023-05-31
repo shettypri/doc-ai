@@ -19,7 +19,7 @@ const UserDetails = () => {
         "lastName": "",
         "dateOfBirth": "",
         "email": "",
-        "phoneNumber": "",
+        "phoneNumber": sessionStorage.getItem("mobileNumber"),
         "address": "",
         "city": "",
         "pincode": "",
@@ -112,6 +112,8 @@ const UserDetails = () => {
                                    onChange={doctorValue}
                                    placeholder="Enter Phone number"
                                    maxLength={10}
+                                   value={doctorDetails.phoneNumber}
+                                   disabled={true}
                                    required/>
                         </div>
                         <div className="input-boxus">
