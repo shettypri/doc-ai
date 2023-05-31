@@ -75,6 +75,9 @@ img{
     font-family: Arial, Helvetica, sans-serif;
     text-align: justify;
 }
+.downpdf{
+    padding-top: 50px;
+}
 .downpdf button{
     border: 2px solid whitesmoke;
     font-size: 1.5rem;
@@ -87,6 +90,7 @@ img{
     cursor: pointer;
     width: 15vw;
     font-weight: 900;
+    position: relative;
 }
 
 .downpdf button:hover{

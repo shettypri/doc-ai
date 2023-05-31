@@ -39,6 +39,11 @@ const Pubview = () => {
                                 {/* <p style={{ color: '#fff' }}>Horyun Choi et al. - AACR (2023)</p> */}
                             </div>
                         </Card>
+                        <div className="downpdf">
+                            <button >
+                                Download PDF
+                            </button>
+                        </div>
 
                     </Col>
                     <Col sm={8}>
@@ -58,15 +63,7 @@ const Pubview = () => {
                             </div>
                         </Card>  </Col>
                 </Row>
-                <Row>
-                    {/* <Col sm={1}> */}
-                        <div className="downpdf">
-                            <button>
-                                Download PDF
-                            </button>
-                        </div>
-                    {/* </Col> */}
-                </Row>
+
             </Container>
 
 
