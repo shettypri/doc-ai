@@ -60,7 +60,7 @@ const Navbar = () => {
               )
 
                 }
-                <nav>
+                <nav className={"navbar-tag"}>
                     <div className="logo">
                         <Link to="/">
                             <img src={navbarImage} alt="Logo"/>

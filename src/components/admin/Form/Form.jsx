@@ -34,11 +34,7 @@ const FormPage = () => {
     
   },3000);
 
-  // const handleClose =()=>{
-    
-    
 
-  // }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -46,10 +42,12 @@ const FormPage = () => {
       title.length == 0 ||
       description.length == 0 ||
       authorsList.length == 0 ||
-      key_benefits.length == 0
+      keyBenefitsList.length == 0
     ) {
       setError(true);
+      console.log("clicked eror");
     } else {
+      console.log("else part");
       const fileName = imageRef.current.files[0].name;
       const isImageUploaded = await ImageUpload(
         uploadImage,
@@ -70,7 +68,7 @@ const FormPage = () => {
           authors: authorsList,
           keyBenefits: keyBenefitsList,
         };
-        storeInDataBase(finalData, "publication");
+        storeInDataBase(finalData, "Publications");
       }
     }
   };
