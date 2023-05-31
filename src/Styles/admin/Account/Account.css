@@ -53,10 +53,11 @@
     margin: 40px 35px 5px 15px;
     flex-direction: row;
     align-items: center;
+    opacity: 90%;
     width: 22vw;
     height: 58vh;
     border-radius: 25px;
-    background-color: white;
+    background-color: lightgrey;
 }
 
 
@@ -112,6 +113,7 @@
     text-transform: capitalize;
     margin: 2px;
     color: black;
+    font-weight: bolder;
 }
 
 .doctor-details p:nth-child(1) {

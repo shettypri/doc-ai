@@ -47,7 +47,7 @@ const Navbar = () => {
                       {
                           ! data.isAdmin &&
                           ( <>
-                                  {data.length == 0 &&
+                                  {data.length === 0 &&
                               (<Banner/>)}
                               {!data.isDocAuthorized &&
                                   <AdminConfimBanner/>
@@ -73,7 +73,8 @@ const Navbar = () => {
                                 navbarList.map((listValue, index) => {
                                     return (
                                         <li className="p-2" key={index}>
-                                            <Link to={listValue}>{listValue}</Link>
+                                            {/*<Link to={listValue}>{listValue}</Link>*/}
+                                            <Link to={"/"}>{listValue}</Link>
                                         </li>
                                     )
                                 })
