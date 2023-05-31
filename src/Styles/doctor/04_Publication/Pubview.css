@@ -4,6 +4,7 @@
     position: relative;
     justify-content: center;
     align-items: center;
+    float: left;
 }
 .imgcontainer{
     width: 100%;                     ;
@@ -18,7 +19,7 @@ img{
     font-weight: bolder;
     margin-bottom: 5px;
     color: #333;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: Arial, Helvetica, sans-serif;
     text-align: justify;
 }
 .pubtitle{
@@ -27,7 +28,7 @@ img{
     font-size: 55px;
     text-align: center;
     margin-top: 35px;
-    font-family: 'Courier New', Courier, monospace;
+    font-family:Arial, Helvetica, sans-serif;
 
 }
 .pubv-content p{
@@ -35,7 +36,7 @@ img{
     font-weight: lighter;
     line-height: 1.5;
     margin-bottom: 30px;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: Arial, Helvetica, sans-serif;
     text-align: justify;
     color: #666;
 }
@@ -44,7 +45,7 @@ img{
     font-weight: bolder;
     margin-bottom: 5px;
     color: #333;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: Arial, Helvetica, sans-serif;
     text-align: justify;
 }
 .pubauthor {
@@ -54,7 +55,7 @@ img{
     text-align: left;
     margin-top: 35px;
     width: 400px;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: Arial, Helvetica, sans-serif;
 
 }
 .pubabstract{
@@ -64,7 +65,7 @@ img{
     text-align: center;
     margin-top: 35px;
     width: 800px;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: Arial, Helvetica, sans-serif;
 
 }
 .pubauthor-content h3{
@@ -72,6 +73,6 @@ img{
     font-weight: bolder;
     margin-bottom: 5px;
     color: #333;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: Arial, Helvetica, sans-serif;
     text-align: justify;
 }

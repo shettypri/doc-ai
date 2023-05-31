@@ -1,25 +1,26 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Container, Row, Col, Card , Breadcrumb} from 'react-bootstrap'
+import { Container, Row, Col, Card } from 'react-bootstrap'
 import "../../../Styles/doctor/04_Publication/Pubview.css"
 import image1 from "../../../assets/Doctor/Images/rch1.png"
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faArrowLeft} from '@fortawesome/free-solid-svg-icons'
+
 const Pubview = () => {
     return (
         <>
             <Container className='contpubview'>
-                <Row style={{display:"flex",alignItems:"flex-start",marginTop:"40px",width:"50px"}}>
-                    <Breadcrumb className='bg-transparent' style={{border:"none",width:"50px"}}>
-                       <Breadcrumb.Item><Link to={"/"}>Home</Link></Breadcrumb.Item>
-                    </Breadcrumb>
-                </Row>
                 <Row>
+                    <Col sm={1} style={{float:"left"}}>
+                    <Link to={"/"}><FontAwesomeIcon icon={faArrowLeft} size="xl" style={{color: "blanchedalmond",}}/></Link>
+                    </Col>
                     <Col sm={4}>
                         <Card className='imgcontainer bg-transparent'>
                             <img src={image1} alt="..." />
                         </Card>
 
                     </Col>
-                    <Col sm={8}>
+                    <Col sm={7}>
                         <Card className='pubtitle bg-transparent'>
                             <div className="pubv-content">
                                 <h2 style={{ color: '#fff' }}><b>Immune phenotypes classified by deep learning-based H&amp;E tissue analyzer
