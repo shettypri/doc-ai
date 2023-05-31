@@ -1,12 +1,13 @@
 .list-main {
-   display: flex;
-   flex-direction: column;
-    /* border: 3px solid yellow; */
+    display: flex;
+    flex-direction: column;
+    /*border: 3px solid yellow;*/
     margin-top: 90px;
     width: 100%;
 }
+
 .doctor-add-btn {
-   /* border: 2px solid green; */
+     /*border: 2px solid green;*/
     width: 100%;
     margin: 5px;
     text-align: center;
@@ -16,11 +17,8 @@
     display: flex;
     justify-content: end;
     align-items: end;
-    
-    
-    
-
 }
+
 .doctor-add-btn a {
     margin-right: 7%;
     text-decoration: none;
@@ -28,35 +26,36 @@
     background-color: rgb(2, 74, 2);
     font-size: 20px;
     font-weight: 700;
-    border-radius:25px;
+    border-radius: 25px;
     padding: 10px 20px 10px 20px;
     text-transform: capitalize;
     width: 15%;
-  
+
 }
 
-.doctor-add-btn a:hover{
+.doctor-add-btn a:hover {
     background-color: rgb(3, 116, 3);
+    color: antiquewhite;
     border: 1px solid white;
 }
 
 .account-card {
+    /*border: 2px solid gold;*/
+    margin-top: -50px;
     display: flex;
     flex-direction: row;
     width: 100%;
-    /* border: 2px solid white; */
+     /*border: 2px solid white;*/
 }
 
 
 .doctor-list {
-    margin: 120px 10px 5px 15px;
-
+    margin: 40px 35px 5px 15px;
     flex-direction: row;
     align-items: center;
-    width: 25vw;
+    width: 22vw;
+    height: 58vh;
     border-radius: 25px;
-    /* border: 2px solid rgb(73, 70, 70); */
-    /* border: 2px solid red; */
     background-color: white;
 }
 
@@ -73,7 +72,7 @@
     border-bottom: 2px solid rgb(73, 70, 70);
 }
 
-.delete-list section{
+.delete-list section {
     cursor: pointer;
     color: red;
 }
@@ -91,10 +90,12 @@
 }
 
 .image-list img {
-    /* border: 2px solid red; */
+    /*border: 2px solid red;*/
     margin: 20px 3px 10px 3px;
     border-radius: 50%;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    width: 17vw;
+    height: 35vh;
 }
 
 .doctor-details {
@@ -123,10 +124,10 @@
     font-size: 14px;
 }
 
-.loading{
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   margin-top:50px
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px
 
 }
