@@ -23,7 +23,7 @@ import Research from './components/doctor/03_Research/Research'
 import Home from './components/doctor/02_Home/Home'
 import Publication from './components/doctor/04_Publication/Publication'
 import Contact from './components/doctor/07_Contact/Contact'
-
+import Project from './components/doctor/05_Project/Project'
 import {
     RingLoader,
     PropagateLoader,
@@ -86,6 +86,7 @@ function App() {
                     <Route exact path='/otplogin' element={<Otp_Login />} />
                     <Route exact path='/404' element={<NotFound />} />
                     <Route exact path='/Pubview' element={<Pubview />} />
+                    <Route exact path='/Project' element={<Project />} />
                     {/* Testing path ends */}
                     {/* <Route exact path='/form' element={<FormPage />}/> */}
 
