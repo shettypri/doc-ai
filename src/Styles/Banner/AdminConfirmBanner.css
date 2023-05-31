@@ -5,10 +5,11 @@
     color: white;
     background-color:darkgoldenrod;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding-left: 250px;
 }
 
 .Adminbanner-details section{
     margin-left: 445px;
-    margin-right: -40px;
+    margin-right: -80px;
 
 }
