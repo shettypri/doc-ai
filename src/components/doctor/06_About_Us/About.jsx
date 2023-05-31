@@ -39,7 +39,7 @@ const About = () => {
                 <h2 id="next">Basavesh</h2>
                 <h3 id="pos">Business Head</h3>
               </div>
-              <div className="col profile" style={{ color: '#fff' }}>
+              <div className="col profile">
                 <div className="img-box" style={{ width: '400px' }}>
                   <img src="person3.jpg" className="img-responsive" />
                   <ul>
