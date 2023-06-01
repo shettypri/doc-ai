@@ -1,5 +1,7 @@
 // import React from 'react'
 import "../../../Styles/doctor/06_About/About.css"
+import tempImage from "../../../assets/Doctor/Images/pexels-drew-rae-580679.jpg"
+
 const About = () => {
   return (
     <>
@@ -14,7 +16,7 @@ const About = () => {
             {/* <button class="cta-button" style="color: #fff;">Learn More</button> */}
           </div>
           <div className="hero-image">
-            <img style={{ height: '400px', width: '600px' }} src="pic44.jpg" />
+            <img style={{ height: '400px', width: '600px' }} src={tempImage} />
           </div>
         </div>
         <div className="containerteam">

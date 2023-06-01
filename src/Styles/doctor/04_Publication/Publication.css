@@ -1,5 +1,5 @@
 .Publication-main{
-    margin-top: 150px;
+    margin-top: 20vh;
     display: flex;
     flex-direction: column;
     color: white;
@@ -22,10 +22,10 @@
 .publication-card{
     /* border: 2px solid rebeccapurple; */
     padding: 90px;
-    margin: 5px 10px 5px 10px;
+    margin: 5px 1px 5px 10px;
     /* border: 2px solid snow; */
     width: 600px;
-    /* border: 1px solid white; */
+     /*border: 1px solid white;*/
     width: 440px;
     transition: transform 0.7s;
     border-radius: 10px ;

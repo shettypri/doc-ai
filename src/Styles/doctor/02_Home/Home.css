@@ -2,6 +2,11 @@
 @import url("./Media_Home.css");
 @import url("./Home_Buttons.css");
 
+.Home-main{
+
+    height: 100vh;
+    margin-bottom: 0px;
+}
 .contenthm {
     padding-top: 150px;
     position: relative;

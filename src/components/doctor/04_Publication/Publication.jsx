@@ -3,9 +3,10 @@ import "../../../Styles/doctor/04_Publication/Publication.css";
 import getCardData from "../Global/getCardData";
 import { useEffect, useState } from "react";
 import Card_View from "../Global/Card_View";
-import { Link } from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 
 const Publication = () => {
+    const navigate = useNavigate()
     const [getPublication, setgetPublication] = useState([])
     useEffect(() => {
         const getData = async () => {
@@ -19,6 +20,10 @@ const Publication = () => {
         getData()
     }, [])
     console.log(getPublication);
+
+    const navigatePubView = ()=>{
+        navigate("Pubview")
+    }
     return (
         <>
             <div className="Publication-main">
@@ -30,7 +35,7 @@ const Publication = () => {
                     {
                         getPublication.map((contentValue, index) => {
                             return (
-                                    <div className="publication-card" key={index}>
+                                    <div className="publication-card" key={index} onClick={navigatePubView}>
                                         <Card_View content={contentValue} />
                                     </div>
                             )
