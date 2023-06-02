@@ -12,7 +12,7 @@ const About = () => {
         <div className="containerabus">
           <div className="hero-content">
             <h2 style={{ color: '#fff'}}>Welcome to Our Website</h2>
-            <p style={{ color: '#fff' }}>PrognosisAI is a website that provides medical information to patients and healthcare professionals. It was founded in 2015 by Dr. Michael Smith, a physician and computer scientist. PrognosisAI uses artificial intelligence to analyze patient data and provide personalized predictions of disease progression and treatment outcomes.</p>
+            <p style={{ color: '#fff' }}>PrognosisAI is a website that provides medical information to patients and healthcare professionals. PrognosisAI uses artificial intelligence to analyze patient data and provide personalized predictions of disease progression and treatment outcomes.</p>
             {/* <button class="cta-button" style="color: #fff;">Learn More</button> */}
           </div>
           <div className="hero-image">

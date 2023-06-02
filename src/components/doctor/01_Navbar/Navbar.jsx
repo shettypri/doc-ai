@@ -9,7 +9,7 @@ import {isLogoutReducers, isUserLogInReducers} from "../../../App/Slice/userSlic
 import Banner from "../../Banner/Banner.jsx"
 import AdminConfimBanner from "../../Banner/AdminConfimBanner.jsx"
 import { useEffect } from "react"
-// import { Link } from 'react-scroll'
+import { Link as Scroll } from 'react-scroll'
 
 
 const Navbar = () => {
@@ -64,24 +64,24 @@ const Navbar = () => {
                 }
                 <nav className={"navbar-tag"}>
                     <div className="logo">
-                        <Link to="/" spy={true} smooth={true} offset={50} duration={500}>
+                        <Scroll to="/" spy={true} smooth={true} offset={50} duration={500}>
                             <img src={navbarImage} alt="Logo"/>
-                        </Link>
+                        </Scroll>
                     </div>
                     <ul className="nav-links">
                         <input type="checkbox" id="check"/>
                         <div className="nav-box">
                             {
-                                reactscroll.map((hashvalue)=>{
+                                // reactscroll.map((hashvalue)=>{
                                     navbarList.map((listValue, index) => {
                                         return (
                                             <li className="p-2" key={index}>
                                                 {/*<Link to={listValue}>{listValue}</Link>*/}
-                                                <Link to={hashvalue} spy={true} smooth={true} offset={50} duration={500}>{listValue}</Link>
+                                                <Scroll to="first" spy={false} smooth={true} offset={850} duration={400} style={{cursor:'pointer',color:'white'}}>{listValue}</Scroll>
                                             </li>
                                         )
                                     })
-                                })
+                                // })
                                 
 
                             }
