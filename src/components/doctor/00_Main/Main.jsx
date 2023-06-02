@@ -1,5 +1,5 @@
 import React from 'react'
-import Home from '../02_Home/Home'
+import Home from '../02_Home/Home.jsx'
 import Research from '../03_Research/Research'
 import Publication from '../04_Publication/Publication'
 import Contact from '../07_Contact/Contact'
@@ -15,16 +15,16 @@ const Main = () => {
                     <Row className='Vd'>
                         <Col><Home/></Col>
                     </Row>
-                    <Row className='Section1'>
+                    <Row className='Section1' id={"Research"}>
                         <Col><Research/></Col>
                     </Row>
-                    <Row className='Section2'>
+                    <Row className='Section2' id={Publication}>
                         <Col><Publication/></Col>
                     </Row>
-                    <Row className='Section3'>
+                    <Row className='Section3' id={"About"}>
                         <Col><About/></Col>
                     </Row>
-                    <Row className='Section4'>
+                    <Row className='Section4' id={"Contact"}>
                         <Col><Contact/></Col>
                     </Row>
                 </center>

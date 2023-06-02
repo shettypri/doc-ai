@@ -1,13 +1,11 @@
-import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import "../../../Styles/doctor/05_Project/Project.css"
-import {ClockLoader} from "react-spinners";
 import {RingLoader} from "react-spinners/";
 
 const Project = () => {
-    const openInserver = ()=>{
-        console.log("Button CLlicked")
-        window. open("http://172.16.20.115:8501")
+    const openInServer = ()=>{
+        console.log("Button Clicked")
+        window.open("http://172.16.20.115:8501")
     }
     return (
         <>
@@ -22,7 +20,7 @@ const Project = () => {
                 </h1>
 
                 <div>
-                    <button onClick={openInserver}>
+                    <button onClick={openInServer}>
                         Click here
                     </button>
                 </div>

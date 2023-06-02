@@ -6,15 +6,15 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faBars, faCaretDown} from '@fortawesome/free-solid-svg-icons'
 import {useDispatch, useSelector} from "react-redux";
 import {isLogoutReducers, isUserLogInReducers} from "../../../App/Slice/userSlice.js";
-import Banner from "../../Banner/Banner"
-import AdminConfimBanner from "../../Banner/AdminConfimBanner"
+import Banner from "../../Banner/Banner.jsx"
+import AdminConfimBanner from "../../Banner/AdminConfimBanner.jsx"
 import { useEffect } from "react"
 
 
 const Navbar = () => {
 
     const navbarList = [
-        "Research", "Publication", "About-Us", "Contact-Us"
+        "Research", "Publication", "About", "Contact"
         // "login"
     ]
 
@@ -74,7 +74,7 @@ const Navbar = () => {
                                     return (
                                         <li className="p-2" key={index}>
                                             {/*<Link to={listValue}>{listValue}</Link>*/}
-                                            <Link to={"/"}>{listValue}</Link>
+                                            <Link to={`/`}>{listValue}</Link>
                                         </li>
                                     )
                                 })
