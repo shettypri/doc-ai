@@ -2,19 +2,20 @@
 @import url("./Media_Contact.css");
 .contact-main{
     /*border: 2px solid yellow;*/
-    margin-top: 75vh;
+    margin-top: 150px;
+    min-height: 85vh;
 }
 
 
 .contact {
     position: relative;
     min-height: 100vh;
-    padding: 10px 100px;
+    /* padding: 10px 100px; */
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding-top: 40px;
+    /* padding-top: 40px; */
     background-color: #0000;
 }
 

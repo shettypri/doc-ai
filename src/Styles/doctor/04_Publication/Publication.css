@@ -1,5 +1,5 @@
 .Publication-main{
-    margin-top: 20vh;
+    margin-top: 100px;
     display: flex;
     flex-direction: column;
     color: white;
@@ -12,13 +12,16 @@
 }
 
 .publication-content{
-    margin-top: 50px;
+    /* margin-top: 50px; */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     /* justify-content: space-between; */
 }
-
+               
+.pub_viewall{
+    cursor: pointer;
+}
 .publication-card{
     /* border: 2px solid rebeccapurple; */
     padding: 90px;

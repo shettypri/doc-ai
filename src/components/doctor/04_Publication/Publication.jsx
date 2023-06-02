@@ -42,6 +42,8 @@ const Publication = () => {
                         })
                     }
                 </div>
+                <div className="pub_viewall"><h6>View All</h6></div>
+                
             </div>
 
         </>

@@ -48,7 +48,9 @@ header {
 	z-index: 999;
 	background-color: black;
 }
-
+.navbar-tag{
+	z-index: 999;
+}
 nav {
 	display: flex;
 	align-items: center;

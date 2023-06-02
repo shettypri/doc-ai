@@ -20,7 +20,7 @@ const Card_View = (props) => {
                 </div>
             </div> */}
 
-            <Card style={{ width: '18rem', background: 'transparent', cursor: 'pointer',zIndex: '999' }}>
+            <Card style={{ width: '18rem', background: 'transparent', cursor: 'pointer',zIndex: '99' }}>
                 <Card.Img variant="top" src={props.content.imageUrl} />
                 <Card.Body>
                     <Card.Title >{props.content.title}</Card.Title>
