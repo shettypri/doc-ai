@@ -1,10 +1,12 @@
 .alert-success{
+ 
   padding:10px;
   background-color:green;
   color: white;
   text-transform: capitalize;
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  height: 15vh;  
-  width: 50vw;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif !important
+  /* height: 15vh;  
+  width: 50vw; */
+ 
 
 }

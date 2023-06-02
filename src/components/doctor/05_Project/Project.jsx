@@ -5,6 +5,10 @@ import {ClockLoader} from "react-spinners";
 import {RingLoader} from "react-spinners/";
 
 const Project = () => {
+    const openInserver = ()=>{
+        console.log("Button CLlicked")
+        window. open("http://172.16.20.115:8501")
+    }
     return (
         <>
             <div className={"project-main"}>
@@ -16,6 +20,12 @@ const Project = () => {
                 <h1>
                     Coming Soon.........
                 </h1>
+
+                <div>
+                    <button onClick={openInserver}>
+                        Click here
+                    </button>
+                </div>
             </div>
         </>
     )
