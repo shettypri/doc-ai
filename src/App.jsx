@@ -38,6 +38,7 @@ import BadRequest from './components/Global/BadRequest'
 import Pubview from './components/doctor/04_Publication/Pubview'
 import { useDispatch } from "react-redux";
 import { isUserLogInReducers } from "./App/Slice/userSlice.js";
+import Main2 from './components/doctor/00_Main/Main2'
 
 
 
@@ -91,7 +92,8 @@ function App() {
                     {/* <Route exact path='/form' element={<FormPage />}/> */}
 
                     {/*Home Page Sibngle routes*/}
-                    <Route exact path="/" element={<Main />} />
+                    {/* <Route exact path="/" element={<Main />} /> */}
+                    <Route exact path="/" element={<Main2 />} />
                     {/* <Route exact path="/" element={<Home/>}/>
                         <Route exact path="/Research" element={<Research/>}/>
                         <Route exact path='/Publication' element={<Publication/>}/>

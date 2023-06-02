@@ -86,7 +86,7 @@ const Navbar = () => {
                                 !(isLoggedIn) ?
                                     (
                                     <li className="p-2">
-                                        <Link to={"/otplogin"}>Login</Link>
+                                        <Link to={"/otplogin"}>Login/Register</Link>
                                     </li>)
                                     : (
                                         <>

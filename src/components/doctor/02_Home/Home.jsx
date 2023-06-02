@@ -7,11 +7,11 @@ const Home = () => {
         <>
 
             <div className={"Home-main"}>
-                <center>
-                    <section className="video-background">
-                        <video src={backgroundVideo} autoPlay muted />
-                    </section>
-                </center>
+                    <center>
+                        <section className="video-background">
+                            <video src={backgroundVideo}  autoPlay muted />
+                        </section>
+                    </center>
                 <section className="contenthm bg-transparent">
                     <center>
                         <div className="containerhm">
