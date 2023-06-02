@@ -1,5 +1,5 @@
 .Publication-main{
-    margin-top: 100px;
+    margin-top: 300px;
     display: flex;
     flex-direction: column;
     color: white;
@@ -9,6 +9,22 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+}
+.pubviewall Button {
+    bottom: 100px;
+    position: relative;
+    transform: none;
+    left:40vw;
+    background: transparent;
+    border: none;
+    width: 90px;
+    padding: 1px;
+}
+.pubviewall Button:hover{
+    border-bottom: 1px solid red;
+    background: transparent;
+    width: 90px;
+    padding-top: 1px;
 }
 
 .publication-content{

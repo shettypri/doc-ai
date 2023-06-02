@@ -7,31 +7,32 @@ import Research from '../03_Research/Research'
 import Contact from '../07_Contact/Contact'
 import About from '../06_About_Us/About'
 
+
 const Main2 = () => {
     return (
         <>
             <div className='maindiv'>
-                <section className="first">
+                <section className="first" id='first'>
                     <center>
                         <Home />
                     </center>
                 </section>
-                <section className="second">
+                <section className="second" id='second'>
                     <center>
                         <Research />
                     </center>
                 </section>
-                <section className="third">
+                <section className="third" id='third'>
                     <center>
                         <Publication />
                     </center>
                 </section>
-                <section className="four">
+                <section className="four" id='fourth'>
                     <center>
                         <About />
                     </center>
                 </section>
-                <section className="five">
+                <section className="five" id='fifth'>
                     <center>
                         <Contact />
                     </center>

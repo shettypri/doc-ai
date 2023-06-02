@@ -9,6 +9,7 @@ import {isLogoutReducers, isUserLogInReducers} from "../../../App/Slice/userSlic
 import Banner from "../../Banner/Banner.jsx"
 import AdminConfimBanner from "../../Banner/AdminConfimBanner.jsx"
 import { useEffect } from "react"
+// import { Link } from 'react-scroll'
 
 
 const Navbar = () => {
@@ -17,6 +18,7 @@ const Navbar = () => {
         "Research", "Publication", "About", "Contact"
         // "login"
     ]
+    const reactscroll = ["first","second","third","fourth","fifth"]
 
     useEffect(() => {
         if(sessionStorage.getItem("mobileNumber") != null){
@@ -62,7 +64,7 @@ const Navbar = () => {
                 }
                 <nav className={"navbar-tag"}>
                     <div className="logo">
-                        <Link to="/">
+                        <Link to="/" spy={true} smooth={true} offset={50} duration={500}>
                             <img src={navbarImage} alt="Logo"/>
                         </Link>
                     </div>
@@ -70,14 +72,17 @@ const Navbar = () => {
                         <input type="checkbox" id="check"/>
                         <div className="nav-box">
                             {
-                                navbarList.map((listValue, index) => {
-                                    return (
-                                        <li className="p-2" key={index}>
-                                            {/*<Link to={listValue}>{listValue}</Link>*/}
-                                            <Link to={`/`}>{listValue}</Link>
-                                        </li>
-                                    )
+                                reactscroll.map((hashvalue)=>{
+                                    navbarList.map((listValue, index) => {
+                                        return (
+                                            <li className="p-2" key={index}>
+                                                {/*<Link to={listValue}>{listValue}</Link>*/}
+                                                <Link to={hashvalue} spy={true} smooth={true} offset={50} duration={500}>{listValue}</Link>
+                                            </li>
+                                        )
+                                    })
                                 })
+                                
 
                             }
 
