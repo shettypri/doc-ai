@@ -52,21 +52,21 @@ const UpdateForm = () => {
     <form action="#">
         <div className="user-detailsus">
             <div className="input-boxus">
-                <span className="detailsus">First Name</span>
+                <span className="detailsus">Full Name</span>
                 <input type="text"
                     name='firstName' disabled
                     onChange={doctorValue}
                     placeholder="Enter First Name" required />
             </div>
 
-            <div className="input-boxus">
+            {/* <div className="input-boxus">
                 <span className="detailsus">Last Name</span>
                 <input type="text" disabled
                     placeholder="Enter Last Name"
                     name='lastName'
                     onChange={doctorValue}
                     required />
-            </div>
+            </div> */}
 
             <div className="input-boxus">
                 <span className="detailsus">DOB</span>

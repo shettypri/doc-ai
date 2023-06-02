@@ -1,15 +1,15 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import "../../Styles/Register/UserDetails.css"
-import {uploadImgToStore} from './docCRUD'
-import {useDispatch, useSelector} from 'react-redux'
-import {dataUploadFireBaseReducers, imageUploadReducers} from "../../App/Slice/registerSlice.js";
-import {auth} from "../../config/firebase-config.js";
-import {useNavigate} from "react-router-dom";
+import { uploadImgToStore } from './docCRUD'
+import { useDispatch, useSelector } from 'react-redux'
+import { dataUploadFireBaseReducers, imageUploadReducers } from "../../App/Slice/registerSlice.js";
+import { auth } from "../../config/firebase-config.js";
+import { useNavigate } from "react-router-dom";
 
 const UserDetails = () => {
     const dispatch = useDispatch()
 
-    const {id} = useSelector(
+    const { id } = useSelector(
         state => state.userReducer
     )
     const [docImage, setDocImage] = useState("")
@@ -28,7 +28,7 @@ const UserDetails = () => {
         isFormFilled: true,
         isAdmin: false,
         isDocAuthorized: false,
-        isDocShow:true,
+        isDocShow: true,
     })
 
 
@@ -37,7 +37,7 @@ const UserDetails = () => {
             ...doctorDetails, [e.target.name]: e.target.value
         })
     }
-    const {isImageUploaded, imageError, imageUrl, isDataUploaded, resultInsert} = useSelector(
+    const { isImageUploaded, imageError, imageUrl, isDataUploaded, resultInsert } = useSelector(
         state => state.registerReducer
     )
 
@@ -46,14 +46,14 @@ const UserDetails = () => {
         dispatch(imageUploadReducers(docImage))
     }
 
-    const storeDataIntoFireStore = ()=>{
-        doctorDetails['imageUrl'] =imageUrl
+    const storeDataIntoFireStore = () => {
+        doctorDetails['imageUrl'] = imageUrl
         console.log(doctorDetails)
         dispatch(dataUploadFireBaseReducers(doctorDetails))
     }
-    const navigate =  useNavigate()
-    if(isDataUploaded){
-       navigate("/")
+    const navigate = useNavigate()
+    if (isDataUploaded) {
+        navigate("/")
     }
     if (isImageUploaded) {
         storeDataIntoFireStore()
@@ -65,34 +65,27 @@ const UserDetails = () => {
         <>
             <div className="containerus">
                 <div className="titleus">Register</div>
-                <br/>
+                <br />
                 <form action="#">
                     <div className="user-detailsus">
                         <div className="input-boxus">
-                            <span className="detailsus">First Name</span>
+                            <span className="detailsus">Full Name</span>
                             <input type="text"
-                                name='firstName'
+                                name='FullName'
                                 onChange={doctorValue}
-                                placeholder="Enter First Name" required/>
+                                placeholder="Enter Full Name" required />
                         </div>
 
-                        <div className="input-boxus">
-                            <span className="detailsus">Last Name</span>
-                            <input type="text"
-                                   placeholder="Enter Last Name"
-                                   name='lastName'
-                                   onChange={doctorValue}
-                                   required/>
-                        </div>
 
-                        <div className="input-boxus">
+
+                        {/* <div className="input-boxus">
                             <span className="detailsus">DOB</span>
                             <input type="date"
                                 name='dateOfBirth'
                                 onChange={doctorValue}
                                 placeholder="Enter Date of Birth"
                                 required />
-                        </div>
+                        </div> */}
 
                         <div className="input-boxus">
                             <span className="detailsus">Email</span>
@@ -106,15 +99,23 @@ const UserDetails = () => {
                         <div className="input-boxus">
                             <span className="detailsus">Phone No</span>
                             <input type="text"
-                                   name='phoneNumber'
-                                   onChange={doctorValue}
-                                   placeholder="Enter Phone number"
-                                   maxLength={10}
-                                   value={doctorDetails.phoneNumber}
-                                   disabled={true}
-                                   required/>
+                                name='phoneNumber'
+                                onChange={doctorValue}
+                                placeholder="Enter Phone number"
+                                maxLength={10}
+                                value={doctorDetails.phoneNumber}
+                                disabled={true}
+                                required />
                         </div>
                         <div className="input-boxus">
+                            <span className="detailsus">Hospital</span>
+                            <input type="text"
+                                placeholder="Enter Hospital"
+                                name='hospital'
+                                onChange={doctorValue}
+                                required />
+                        </div>
+                        {/* <div className="input-boxus">
                             <span className="detailsus">Address</span>
                             <textarea type="text"
                                       placeholder="Enter Address"
@@ -122,30 +123,30 @@ const UserDetails = () => {
                                       name={"address"}
                                       onChange={doctorValue}
                             />
-                        </div>
+                        </div> */}
                         <div className="input-boxus">
                             <span className="detailsus">City</span>
                             <input type="text"
-                                   name='city'
-                                   onChange={doctorValue}
-                                   placeholder="Enter City" required/>
+                                name='city'
+                                onChange={doctorValue}
+                                placeholder="Enter City" required />
                         </div>
 
-                        <div className="input-boxus">
+                        {/* <div className="input-boxus">
                             <span className="detailsus">Pincode</span>
                             <input type="text"
                                    name='pincode'
                                    onChange={doctorValue}
                                    placeholder="Enter Pincode" required/>
-                        </div>
+                        </div> */}
 
                         <div className="input-boxus">
                             <span className="detailsus">Specialization</span>
                             {/* <input type="text" placeholder="Enter  Specialization" required /> */}
                             <select className='dropdwn'
-                                    name="Specialization"
-                                    onChange={doctorValue}
-                                    id="specialization"
+                                name="Specialization"
+                                onChange={doctorValue}
+                                id="specialization"
                             >
                                 <option value="" defaultChecked>Select Specialization</option>
                                 <option value="Other">Other</option>
@@ -192,14 +193,14 @@ const UserDetails = () => {
                             </select>
                         </div>
 
-                        <div className="input-boxus">
+                        {/* <div className="input-boxus">
                             <span className="detailsus">Doctor ID</span>
                             <input type="text"
                                    onChange={doctorValue}
                                    name='doctorId'
                                    placeholder="Enter Doctor ID" required/>
-                        </div>
-                        <div className="imagepreviewus">
+                        </div> */}
+                        {/* <div className="imagepreviewus">
                             <input
                                 type="file"
                                 accept="image/*"
@@ -217,11 +218,11 @@ const UserDetails = () => {
                                 &nbsp;&nbsp;
                                     No file chosen
                             </span>
-                        </div>
+                        </div> */}
                         <div className="buttonus">
                             <input type="submit"
-                                   value={"Submit"}
-                                   onClick={handleDetails}/>
+                                value={"Submit"}
+                                onClick={handleDetails} />
                         </div>
                     </div>
                 </form>
