@@ -11,6 +11,7 @@ import Success from "../../Alert/Success";
 import { Form } from "react-router-dom";
 import success from "../../Alert/Success";
 
+
 const FormPage = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -29,11 +30,7 @@ const FormPage = () => {
   const folderImage = "Publications/image";
   const folderPdf = "Publications/pdf";
 
-  setTimeout(() => {
-
-    
-  },3000);
-
+ 
 
 
   const handleSubmit = async (e) => {
@@ -111,7 +108,8 @@ const FormPage = () => {
         <div className="alert-messages">
           {/* {Error && <Error error={"form not subbmitted try again!!!"}/>} */}
           {/* {<Loading/>} */}
-          {Success && <Success success={"Details uploaded successfully"} />}
+          {/* {Success && <Success success={"Details uploaded successfully"} />} */}
+         
         </div>
 
         <div className="font-content">
