@@ -7,7 +7,7 @@ import {RingLoader} from "react-spinners/";
 const Project = () => {
     const openInserver = ()=>{
         console.log("Button CLlicked")
-        window. open("http://localhost:8501/")
+        window. open("http://172.16.20.115:8501")
     }
     return (
         <>
