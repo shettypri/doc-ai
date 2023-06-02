@@ -23,7 +23,7 @@
     margin-right: 7%;
     text-decoration: none;
     color: white;
-    background-color: rgb(2, 74, 2);
+    background-color: rgb(173, 4, 4);
     font-size: 20px;
     font-weight: 700;
     border-radius: 25px;
@@ -34,7 +34,7 @@
 }
 
 .doctor-add-btn a:hover {
-    background-color: rgb(3, 116, 3);
+    background-color: rgb(173, 4, 4);
     color: antiquewhite;
     border: 1px solid white;
 }

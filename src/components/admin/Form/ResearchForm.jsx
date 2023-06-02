@@ -2,6 +2,9 @@ import { useRef, useState } from 'react'
 import cancel from "../../../assets/Admin/Dash-board/close.png"
 import ImageUpload from './ImageUpload'
 import storeInDataBase from './storeInDataBase'
+import "../../../Styles/admin/Form/Research.css"
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faCircleXmark} from '@fortawesome/free-solid-svg-icons'
 
 const ResearchForm = () => {
 
@@ -9,38 +12,49 @@ const ResearchForm = () => {
     const [description, setDescription] = useState("")
     const [uploadImage, setUploadImage] = useState("")
     const [authorName, setAuthorName] = useState('')
-    const [key_benefits, setkey_benefits] = useState("")
-    const [uploadPdf, setuploadPdf] = useState("")
 
     const [authorsList, setAuthorsList] = useState([])
-    const [keyBenefitsList, setKeyBenefitsList] = useState([])
-   
+
+    const [error, seterror] = useState(false)
+    
+
+
 
     const folderImage = 'Research/image'
-    const folderPdf ='Research/pdf'
-
-    const handleSubmit = async() => {
-        
-        const fileName = imageRef.current.files[0].name
-        const isImageUploaded = await ImageUpload(uploadImage, fileName,folderImage)
-       
-        const pdfName = pdfRef.current.files[0].name
-        const isPdfUploaded = await ImageUpload(uploadPdf,pdfName,folderPdf) 
 
 
-        if(isImageUploaded && isImageUploaded){
-            console.log("DOne");
-            const finalData = {
-                "title":title,
-                "description":description,
-                "imageUrl" :isImageUploaded,
-                "pdfUrl":isPdfUploaded,
-                "authors" :authorsList,
-                "keyBenefits":keyBenefitsList
-            }
-            storeInDataBase(finalData,'Research')
+
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        if (
+            title.length == 0 || description.length == 0 || authorsList.length == 0 || imageRef.length==0
+        ) {
+            seterror(true);
+
         }
-        
+        else {
+            const fileName = imageRef.current.files[0].name
+            const isImageUploaded = await ImageUpload(uploadImage, fileName, folderImage)
+
+            if (isImageUploaded) {
+                console.log("DONE");
+
+                const finalData = {
+                    "title": title,
+                    "description": description,
+                    "imageUrl": isImageUploaded,
+                    "authors": authorsList,
+
+                }
+                storeInDataBase(finalData, 'Research')
+            }
+
+        }
+
+
+
     }
     const addAuthor = () => {
         if (authorName != "") {
@@ -49,12 +63,6 @@ const ResearchForm = () => {
         }
     }
 
-    const addKeyBenefits = () => {
-        if (key_benefits !== "") {
-            setKeyBenefitsList(oldArray => [...oldArray, key_benefits])
-            setkey_benefits("")
-        }
-    }
 
     const removeAuthor = (index) => {
         setAuthorsList([
@@ -63,14 +71,9 @@ const ResearchForm = () => {
         ])
 
     }
-    const removeKeyBenefits = (index) => {
-        setKeyBenefitsList([
-            ...keyBenefitsList.slice(0, index),
-            ...keyBenefitsList.slice(index + 1, keyBenefitsList.length)
-        ])
-    }
+
     const imageRef = useRef()
-    const pdfRef = useRef()
+
     return (
         <>
             <div className="main-form">
@@ -92,23 +95,59 @@ const ResearchForm = () => {
                                 }
                                 required />
                         </div>
+                        <div className="messages">
+                            {error && title.length <= 0 ?
+                                <label>Title can not be empty</label> : ""}
+                        </div>
+
+                        <div className="list-arrays">
+                            <div className="array-box">
+                                {
+                                    authorsList.map((val, index) => {
+                                        return (
+                                            <>
+                                                <div className="added-array" key={index}>
+                                                    <p>{val}</p>
+                                                    <FontAwesomeIcon icon={faCircleXmark} size="xl"
+                                                                       style={{color: "#ff0000",}}
+                                                        height={"25px"} width="25px"
+                                                        onClick={() => removeAuthor(index)}
+                                                    />
+                                                </div>
+                                            </>
+                                        )
+                                    })
+                                }
+                            </div>
+                        </div>
+
 
                         <div className="form-fields">
                             <label >
-                                Research Description:
+                                Researchers:
                             </label>
 
-                            <textarea
-                                rows={6}
-                                required
-                                value={description}
-                                onChange={
-                                    (e) => {
-                                        setDescription(e.target.value)
+                            <div className="input-container">
+
+                                <input type="text"
+                                    value={authorName}
+                                    onChange={
+                                        (e) => { setAuthorName(e.target.value) }
                                     }
-                                }
-                            />
+                                    required />
+                                <button onClick={addAuthor}>
+                                    Add
+                                </button>
+                            </div>
                         </div>
+                        <div className="messages">
+                            {error && authorsList.length <= 0 ?
+                                <label>Researcher can not be empty</label>
+                                : ""}
+
+                        </div>
+
+
 
                         <div className="form-fields">
                             <label>
@@ -128,106 +167,37 @@ const ResearchForm = () => {
                                 required
                             />
                         </div>
-                        <div className="form-fields">
-                            <label>
-                                Upload pdf:
-                            </label>
-                            <input
-                            ref={pdfRef}
-                                type="file"
-                                accept='pdf/*'
-                                onChange={
-                                    (e) => {
-                                        setuploadPdf(e.target.files[0])
-                                        // setuploadPdf(true);
-                                    }
+                        <div className="messages">
+                            {error && uploadImage<=0?
+                                <label>Please upload images</label> : ""}
+                        </div>
 
-                                } />
-                                
-                            
-                            </div>
-                        
+
 
                     </div>
 
                     <div className="form-right">
-                        <div className="list-arrays">
-                            <div className="array-box">
-                                {
-                                    authorsList.map((val, index) => {
-                                        return (
-                                            <>
-                                                <div className="added-array" key={index}>
-                                                    <p>{val}</p>
-                                                    <img src={cancel} alt="width"
-                                                        height={"25px"} width="25px"
-                                                        onClick={() => removeAuthor(index)}
-                                                    />
-                                                </div>
-                                            </>
-                                        )
-                                    })
-                                }
-                            </div>
-                        </div>
-
-
                         <div className="form-fields">
                             <label >
-                                Author Details:
+                                Research Description:
                             </label>
-                            <div className="input-container">
 
-                                <input type="text"
-                                    value={authorName}
-                                    onChange={
-                                        (e) => { setAuthorName(e.target.value) }
+                            <textarea
+                                rows={6}
+                                required
+                                value={description}
+                                onChange={
+                                    (e) => {
+                                        setDescription(e.target.value)
                                     }
-                                    required />
-                                <button onClick={addAuthor}>
-                                    Add
-                                </button>
-                            </div>
+                                }
+                            />
                         </div>
-                        <div className="form-fields">
-                            <div className="list-arrays">
-                                <div className="array-box">
-                                    {
-                                        keyBenefitsList.map((val, index) => {
-                                            return (
-                                                <>
-                                                    <div className="added-array" key={index}>
-                                                        <p>{val}</p>
-                                                        <img src={cancel} alt="width"
-                                                            height={"25px"} width="25px"
-                                                            onClick={() => removeKeyBenefits(index)}
-                                                        />
-                                                    </div>
-                                                </>
-                                            )
-                                        })
-                                    }
-                                </div>
-                            </div>
-
-                            <label>
-                                Key Benefits
-                            </label>
-                            <div className="input-container">
-
-                                <div>
-                                    <input type="text"
-                                        value={key_benefits}
-                                        onChange={
-                                            (e) => { setkey_benefits(e.target.value) }
-                                        }
-                                        required />
-                                    <button onClick={addKeyBenefits}>
-                                        Add
-                                    </button>
-                                </div>
-                            </div>
+                        <div className="messages">
+                            {error && description.length <= 0 ?
+                                <lable>description can not be empty </lable> : ""}
                         </div>
+
 
                         <div className="form-button">
                             <button className="formSubmit"
