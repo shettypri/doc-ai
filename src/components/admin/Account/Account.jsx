@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import "../../../Styles/admin/Account/Account.css"
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faCircleXmark} from '@fortawesome/free-solid-svg-icons'
+import {faArrowLeft, faCircleXmark} from '@fortawesome/free-solid-svg-icons'
 import {useDispatch, useSelector} from "react-redux";
 import {
     allAcceptedDoctorReducers,
@@ -37,7 +37,7 @@ const Account = () => {
         dispatch(allAcceptedDoctorReducers())
     }
 
-
+    const navigate = useNavigate()
     return (
         <>
             <div className="list-main">   
@@ -46,6 +46,14 @@ const Account = () => {
                     <Link to='/Account/PendingReq'>
                         Requests {pendingRequestState.data.length}
                     </Link>
+                </div>
+
+                <div className={"back-Button-css"}>
+                    <FontAwesomeIcon icon={faArrowLeft} size="xl" style={{color: "#ffffff",}}
+                    onClick={()=>{
+                        navigate("/Dashboard")
+                    }}
+                    />
                 </div>
                 
                 <div className="loading">
