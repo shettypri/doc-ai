@@ -4,7 +4,8 @@ import ImageUpload from './ImageUpload'
 import storeInDataBase from './storeInDataBase'
 import "../../../Styles/admin/Form/Research.css"
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faCircleXmark} from '@fortawesome/free-solid-svg-icons'
+import {faArrowLeft, faCircleXmark} from '@fortawesome/free-solid-svg-icons'
+import {useNavigate} from "react-router-dom";
 
 const ResearchForm = () => {
 
@@ -17,8 +18,6 @@ const ResearchForm = () => {
 
     const [error, seterror] = useState(false)
     
-
-
 
     const folderImage = 'Research/image'
 
@@ -73,11 +72,20 @@ const ResearchForm = () => {
     }
 
     const imageRef = useRef()
-
+    const navigate = useNavigate()
     return (
         <>
             <div className="main-form">
 
+                    <div className={"Form-back-button"}>
+                        <FontAwesomeIcon icon={faArrowLeft}
+                                         size="xl"
+                                         style={{color: "#ffffff",}}
+                        onClick={()=>{
+                            navigate("/Dashboard")
+                        }}
+                        />
+                    </div>
                 <div className="form-heading">
                     <p>Research</p>
                 </div>

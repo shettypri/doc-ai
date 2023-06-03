@@ -30,8 +30,6 @@ const FormPage = () => {
   const folderImage = "Publications/image";
   const folderPdf = "Publications/pdf";
 
- 
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
