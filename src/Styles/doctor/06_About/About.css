@@ -17,6 +17,9 @@
 .containerteam {
     bottom: 20px;
 }
+.containerteam h1{
+    font-size: x-large;
+}
 
 .containerabus {
     display: flex;
@@ -160,7 +163,7 @@ img {
 
 }
 
-#ourteam:after {
+/* #ourteam:after {
     content: '';
     background: #333;
     display: block;
@@ -168,7 +171,7 @@ img {
     width: 270px;
     margin: 10px auto;
 
-}
+} */
 
 .profile {
     margin-top: 25px;
