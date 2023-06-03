@@ -1,11 +1,11 @@
 // import React from 'react'
 import "../../../Styles/doctor/Navbar.css"
 import navbarImage from "../../../assets/Doctor/Images/pexels-drew-rae-580679.jpg"
-import {Link, useLocation, useNavigate, useParams} from 'react-router-dom'
+import {Link, useLocation, useNavigate} from 'react-router-dom'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faBars, faCaretDown} from '@fortawesome/free-solid-svg-icons'
 import {useDispatch, useSelector} from "react-redux";
-import {isLogoutReducers, isUserLogInReducers} from "../../../App/Slice/userSlice.js";
+import {isLogoutReducers} from "../../../App/Slice/userSlice.js";
 import Banner from "../../Banner/Banner.jsx"
 import AdminConfimBanner from "../../Banner/AdminConfimBanner.jsx"
 import { useEffect } from "react"
