@@ -64,7 +64,7 @@ const Navbar = () => {
                 }
                 <nav className={"navbar-tag"}>
                     <div className="logo">
-                        <Scroll to="/" spy={true} smooth={true} offset={50} duration={500}>
+                        <Scroll to="first" spy={true} smooth={true} offset={-500} duration={500}>
                             <img src={navbarImage} alt="Logo"/>
                         </Scroll>
                     </div>
@@ -77,7 +77,7 @@ const Navbar = () => {
                                         return (
                                             <li className="p-2" key={index}>
                                                 {/*<Link to={listValue}>{listValue}</Link>*/}
-                                                <Scroll to="first" spy={false} smooth={true} offset={850} duration={400} style={{cursor:'pointer',color:'white'}}>{listValue}</Scroll>
+                                                <Scroll to="second" spy={false} smooth={true} offset={-150} duration={400} style={{cursor:'pointer',color:'white'}}>{listValue}</Scroll>
                                             </li>
                                         )
                                     })

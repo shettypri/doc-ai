@@ -1,175 +1,213 @@
-
-.hero{
+.hero {
     background-color: rgb(0, 0, 0);
     overflow: hidden;
     margin-top: 100px;
 }
-.heading h1{
+
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
+.heading h1 {
     color: white;
-    font-size: 55px;
+    /* font-size: 55px; */
     text-align: center;
     margin-top: 35px;
+    font-weight: bolder;
+    font-family: 'Bruno Ace SC', cursive;
 }
 
-.containerteam{
+.containerteam {
     bottom: 20px;
 }
-.containerabus{
-    display:flex;
+
+.containerabus {
+    display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     width: 90%;
     margin: 65px auto;
 }
-.img-responsive{
+
+.img-responsive {
     width: 400px;
     height: 200px;
 }
-.hero-content{
-   flex: 1;
-   width: 600px;
-   margin: 0px 25px;
-   animation: fadeInUp 2s ease; 
-}
-.hero-image{
+
+.hero-content {
     flex: 1;
     width: 600px;
-    margin:auto; 
-    animation: fadeInRight 2s ease; 
- }
-.hero-content h2{
+    margin: 0px 25px;
+    animation: fadeInUp 2s ease;
+}
+
+.hero-image {
+    flex: 1;
+    width: 600px;
+    margin: auto;
+    animation: fadeInRight 2s ease;
+}
+
+.hero-content h2 {
     font-size: 38px;
     font-weight: bolder;
     margin-bottom: 10px;
     color: #333;
-    font-family: "arial",sans-serif;
+    font-family: "arial", sans-serif;
 }
-.hero-content p{
-    font-size: 25px;
+
+.hero-content p {
+    font-size: 20px;
     line-height: 1.5;
     margin-bottom: 40px;
     text-align: justify;
-    color: #666;
+    /* color: #666; */
 }
 
-img{
+.hero-content h2 span {
+    background: linear-gradient(to right, rgba(255, 215, 255, 0) 0%, rgba(225, 255, 255, 0.5) 20%, rgba(255, 255, 255, 0) 61%), linear-gradient(rgb(97, 183, 217) 52%, rgb(224, 246, 255) 60%, rgb(78, 99, 132) 61%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+img {
     width: 100%;
     height: auto;
     border-radius: 10px;
 }
+
 @media screen and (max-width:768px) {
-    .heading h1{
+    .heading h1 {
         font-size: 45px;
         margin-top: 30px;
         color: #fff;
     }
-    .hero{
+
+    .hero {
         margin: 0px;
 
     }
-    .containerabus{
+
+    .containerabus {
         width: 100%;
         flex-direction: column;
         margin: 0px;
         padding: 0px 40px;
     }
-    .hero-content{
+
+    .hero-content {
         width: 100%;
         margin: 35px 0px;
         /* text-align: justify; */
     }
-    .hero-content h2{
+
+    .hero-content h2 {
         font-size: 30px;
         /* text-align: justify; */
     }
-    .hero-content p{
+
+    .hero-content p {
         font-size: 18px;
         margin-bottom: 20px;
         /* text-align: justify; */
     }
-    .hero-content button{
-      font-size: 16px;
-      padding: 8px 16px;
+
+    .hero-content button {
+        font-size: 16px;
+        padding: 8px 16px;
     }
-    .hero-image{
+
+    .hero-image {
         width: 100%;
     }
-@keyframes fadeInUp{
-    0%{
-        opacity: 0;
-        transform: translateY(50px);
+
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0px);
+        }
     }
-    100%{
-        opacity: 1;
-        transform: translateY(0px);
+
+    @keyframes fadeInRight {
+        0% {
+            opacity: 0;
+            transform: translatex(-50px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translatex(0px);
+        }
+
     }
-} 
-@keyframes fadeInRight{
-    0%{
-        opacity: 0;
-        transform: translatex(-50px);
-    }
-    100%{
-        opacity: 1;
-        transform: translatex(0px);
-    }
-    
-}   
-} 
-.team{
+}
+
+.team {
     margin: 75px 0;
 }
-#ourteam{
-    text-align:center;
+
+#ourteam {
+    text-align: center;
     font-weight: bold;
     letter-spacing: 2px;
     color: #333;
     padding-bottom: 10px;
 
 }
-#ourteam:after{
-   content: '';
-   background: #333;
-   display: block;
-   height: 3px;
-   width: 270px;
-   margin: 10px auto;
-   
+
+#ourteam:after {
+    content: '';
+    background: #333;
+    display: block;
+    height: 3px;
+    width: 270px;
+    margin: 10px auto;
+
 }
-.profile{
+
+.profile {
     margin-top: 25px;
     width: 200px;
     height: 200px;
 }
-.profile .img-box{
+
+.profile .img-box {
     opacity: 1;
     display: block;
     position: relative;
 }
-.profile #next{
+
+.profile #next {
     font-size: 22px;
     font-weight: bold;
     margin-top: 15px;
-    
+
 }
-.profile #pos{
+
+.profile #pos {
     font-size: 15px;
     font-weight: bold;
     margin-top: 15px;
-    
+
 }
-.img-box:after{
-  content: '';
-  opacity: 0;
-  background-color: rgba(0, 0, 0, 0.6);
-  position: absolute;
-  right: 0;
-  left: 0;
-  top: 0;
-  bottom: 0;
+
+.img-box:after {
+    content: '';
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
 }
-.img-box ul{
+
+.img-box ul {
     margin: 0;
     /* padding: 20px 0; */
     position: absolute;
@@ -180,7 +218,8 @@ img{
     transform: translateX(-50%);
     opacity: 0;
 }
-.img-box ul li{
+
+.img-box ul li {
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -190,22 +229,27 @@ img{
     display: inline-block;
 
 }
-.img-box a{
+
+.img-box a {
     color: #fff;
 }
-.img-box:hover:after{
-   opacity: 1;
+
+.img-box:hover:after {
+    opacity: 1;
 
 }
-.img-box:hover ul{
+
+.img-box:hover ul {
     opacity: 1;
 }
-.img-box a:hover li{
+
+.img-box a:hover li {
     color: #007bff;
     border: 1px solid #007bff;
 }
-.img-box:after, .img-box ul, .img-box ul li{
+
+.img-box:after,
+.img-box ul,
+.img-box ul li {
     transition: all 0.5s ease-in-out 0s;
 }
-
-  

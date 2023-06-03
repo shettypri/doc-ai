@@ -1,5 +1,7 @@
 // import React from 'react'
 import '../../../Styles/doctor/07_Contact/Contact.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLocationDot, faPhoneVolume, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
 const Contact = () => {
     return (
@@ -11,7 +13,7 @@ const Contact = () => {
                 <div className="contactInfo">
                     <div className="box">
                         <div className="icon">
-                            <i className="fa fa-map-marker" aria-hidden="false" />
+                            <FontAwesomeIcon icon={faLocationDot} size='lg'/>
                         </div>
                         <div className="text contact-details" >
                             <p>Address</p>
@@ -20,7 +22,7 @@ const Contact = () => {
                     </div>
                     <div className="box">
                         <div className="icon">
-                            <i className="fa-solid fa-phone" aria-hidden="true" />
+                            <FontAwesomeIcon icon={faPhoneVolume} size='lg'/>
                         </div>
                         <div className="text contact-details" >
                             <p>Phone No</p>
@@ -29,7 +31,7 @@ const Contact = () => {
                     </div>
                     <div className="box">
                         <div className="icon">
-                            <i className="fa fa-envelope" aria-hidden="true" />
+                            <FontAwesomeIcon icon={faEnvelope} size='lg' />
                         </div>
                         <div className="text contact-details" >
                             <p>Email</p>

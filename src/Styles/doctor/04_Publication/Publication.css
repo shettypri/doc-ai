@@ -50,9 +50,11 @@
     border-radius: 10px ;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
 .publication-heading p{
     text-transform: capitalize;
     font-size: 2rem;
     font-weight: bolder;
     text-align: center;
+    font-family: 'Bruno Ace SC', cursive;
 }

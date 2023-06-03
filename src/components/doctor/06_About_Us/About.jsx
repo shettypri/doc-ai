@@ -11,12 +11,12 @@ const About = () => {
         </div>
         <div className="containerabus">
           <div className="hero-content">
-            <h2 style={{ color: '#fff'}}>Welcome to Our Website</h2>
+            <h2 style={{ color: '#fff'}}>Welcome to <span>PrognosisAI</span></h2>
             <p style={{ color: '#fff' }}>PrognosisAI is a website that provides medical information to patients and healthcare professionals. PrognosisAI uses artificial intelligence to analyze patient data and provide personalized predictions of disease progression and treatment outcomes.</p>
             {/* <button class="cta-button" style="color: #fff;">Learn More</button> */}
           </div>
           <div className="hero-image">
-            <img style={{ height: '400px', width: '600px' }} src={tempImage} />
+            <img style={{ height: '250px', width: '400px' }} src={tempImage} />
           </div>
         </div>
         <div className="containerteam">
@@ -24,7 +24,7 @@ const About = () => {
           <center>
             <div className="row" style={{ color: '#fff' }}>
               <div className="col profile">
-                <div className="img-box" style={{ width: '500px', height: '200px' }}>
+                <div className="img-box" style={{ width: '400px', height: '100px' }}>
                   <img src="person3.jpg" className="img-responsive" />
                   <ul>
                     <a href="#">
@@ -38,11 +38,11 @@ const About = () => {
                     </a>
                   </ul>
                 </div>
-                <h2 id="next">Basavesh</h2>
+                <h2 id="next">Member 1</h2>
                 <h3 id="pos">Business Head</h3>
               </div>
               <div className="col profile">
-                <div className="img-box" style={{ width: '400px' }}>
+                <div className="img-box" style={{ width: '400px', height: '100px' }}>
                   <img src="person3.jpg" className="img-responsive" />
                   <ul>
                     <a href="#">
@@ -56,11 +56,11 @@ const About = () => {
                     </a>
                   </ul>
                 </div>
-                <h2 id="next">Satish</h2>
+                <h2 id="next">Member 2</h2>
                 <h3 id="pos">Business Head</h3>
               </div>
               <div className="col profile">
-                <div className="img-box" style={{ width: '400px' }}>
+                <div className="img-box" style={{ width: '400px', height: '100px' }}>
                   <img src="person3.jpg" className="img-responsive" />
                   <ul>
                     <a href="#">
@@ -74,7 +74,7 @@ const About = () => {
                     </a>
                   </ul>
                 </div>
-                <h2 id="next">Ramesh</h2>
+                <h2 id="next">Memeber 3</h2>
                 <h3 id="pos">Business Head</h3>
               </div>
             </div>
