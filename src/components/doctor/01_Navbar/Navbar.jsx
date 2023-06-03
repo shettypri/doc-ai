@@ -1,7 +1,7 @@
 // import React from 'react'
 import "../../../Styles/doctor/Navbar.css"
 import navbarImage from "../../../assets/Doctor/Images/pexels-drew-rae-580679.jpg"
-import {Link, useNavigate} from 'react-router-dom'
+import {Link, useLocation, useNavigate, useParams} from 'react-router-dom'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faBars, faCaretDown} from '@fortawesome/free-solid-svg-icons'
 import {useDispatch, useSelector} from "react-redux";
@@ -40,6 +40,9 @@ const Navbar = () => {
         state => state.userReducer
     )
     console.log(data)
+    const loc = useLocation()
+    console.log(loc.pathname)
+
     return (
         <>
             <header>
@@ -76,8 +79,18 @@ const Navbar = () => {
                                     navbarList.map((listValue, index) => {
                                         return (
                                             <li className="p-2" key={index}>
-                                                {/*<Link to={listValue}>{listValue}</Link>*/}
-                                                <Scroll to="second" spy={false} smooth={true} offset={-150} duration={400} style={{cursor:'pointer',color:'white'}}>{listValue}</Scroll>
+                                                {
+                                                    loc.pathname !== "/" ?(
+                                                        <Link to={"/"}>{listValue}</Link>
+                                                    ):(
+                                                        <Scroll to={reactscroll[index + 1]}
+                                                                spy={false} smooth={true} offset={-150}
+                                                                duration={400}
+                                                                style={{cursor:'pointer',color:'white'}}>
+                                                            {listValue}
+                                                        </Scroll>
+                                                    )
+                                                }
                                             </li>
                                         )
                                     })
