@@ -4,6 +4,7 @@
     /*border: 3px solid yellow;*/
     margin-top: 90px;
     width: 100%;
+    margin-left: 50px;
 }
 
 .doctor-add-btn {
@@ -18,7 +19,9 @@
     justify-content: end;
     align-items: end;
 }
-
+.back-Button-css{
+    cursor: pointer;
+}
 .doctor-add-btn a {
     margin-right: 7%;
     text-decoration: none;
@@ -65,6 +68,7 @@
     /* border: 1px solid red; */
 }
 
+
 .delete-list {
     display: flex;
     justify-content: right;
@@ -76,11 +80,10 @@
 .delete-list section {
     cursor: pointer;
     color: red;
-}
+    display: flex;
+    justify-content: end;
+    align-items: flex-end;
 
-.delete-list img {
-    height: 33px;
-    width: 33px;
 }
 
 .image-list {
