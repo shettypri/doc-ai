@@ -7,7 +7,7 @@ const About = () => {
     <>
       <section className="hero">
         <div className="heading">
-          <h1 style={{ background: 'black' }}>About Us</h1>
+          <p style={{ background: 'black' }}>About Us</p>
         </div>
         <div className="containerabus">
           <div className="hero-content">

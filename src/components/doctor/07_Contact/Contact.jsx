@@ -7,7 +7,7 @@ const Contact = () => {
     return (
         <section className="contact-main">
             <div className="content">
-                <h2>Contact Us</h2>
+                <p>Contact Us</p>
             </div>
             <div className="containercon">
                 <div className="contactInfo">
@@ -44,7 +44,7 @@ const Contact = () => {
                     <form />
                     <h2>Send Message</h2>
                     <div className="inputbox">
-                        <input type="text" name required="required" className='inputbox-field' />
+                        <input type="text" name required="required" className='inputbox-field' maxLength={50} />
                         <span >Full Name</span>
                     </div>
                     <div className="inputbox">
@@ -55,7 +55,7 @@ const Contact = () => {
                     </div>
                     <div className="inputbox">
                         <textarea required="required" className='inputbox-field'
-                            rows={4} />
+                            rows={4} maxLength={250}/>
                         <span >Type your Message...</span>
                     </div>
 
