@@ -18,10 +18,10 @@ const Navbar = () => {
         "Research", "Publication", "About", "Contact"
         // "login"
     ]
-    const reactscroll = ["first","second","third","fourth","fifth"]
+    const reactscroll = ["first", "second", "third", "fourth", "fifth"]
 
     useEffect(() => {
-        if(sessionStorage.getItem("mobileNumber") != null){
+        if (sessionStorage.getItem("mobileNumber") != null) {
             sessionStorage.removeItem("mobileNumber")
         }
     }, []);
@@ -36,7 +36,7 @@ const Navbar = () => {
     }
 
     const navigate = useNavigate()
-    const {data, error, isLoggedIn, loading, newUser} = useSelector(
+    const { data, error, isLoggedIn, loading, newUser } = useSelector(
         state => state.userReducer
     )
     console.log(data)
@@ -47,32 +47,32 @@ const Navbar = () => {
         <>
             <header>
                 {data.length !== 0
-                &&
-              (  <>
-                      {
-                          ! data.isAdmin &&
-                          ( <>
-                                  {data.length === 0 &&
-                              (<Banner/>)}
-                              {!data.isDocAuthorized &&
-                                  <AdminConfimBanner/>
-                              }
+                    &&
+                    (<>
+                        {
+                            !data.isAdmin &&
+                            (<>
+                                {data.length === 0 &&
+                                    (<Banner />)}
+                                {!data.isDocAuthorized &&
+                                    <AdminConfimBanner />
+                                }
 
-                                  </>)
-                      }
+                            </>)
+                        }
 
-              </>
-              )
+                    </>
+                    )
 
                 }
                 <nav className={"navbar-tag"}>
                     <div className="logo">
                         <Scroll to="first" spy={true} smooth={true} offset={-500} duration={500}>
-                            <img src={navbarImage} alt="Logo"/>
+                            <img src={navbarImage} alt="Logo" style={{ cursor: "pointer" }} />
                         </Scroll>
                     </div>
                     <ul className="nav-links">
-                        <input type="checkbox" id="check"/>
+                        <input type="checkbox" id="check" />
                         <div className="nav-box">
                             {
                                 // reactscroll.map((hashvalue)=>{
@@ -95,36 +95,45 @@ const Navbar = () => {
                                         )
                                     })
                                 // })
-                                
 
+
+                            }
+                            {/* navbar for home screen */}
+                            {
+                                // <div>
+                                //     <li className="p-2">Research</li>
+                                //     <li className="p-2">Publications</li>
+                                //     <li className="p-2">About</li>
+                                //     <li className="p-2">Contact</li>
+                                // </div>
                             }
 
                             {/* Drop Down List for Admin and User*/}
                             {
                                 !(isLoggedIn) ?
                                     (
-                                    <li className="p-2">
-                                        <Link to={"/otplogin"}>Login/Register</Link>
-                                    </li>)
+                                        <li className="p-2">
+                                            <Link to={"/otplogin"}>Login/Register</Link>
+                                        </li>)
                                     : (
                                         <>
                                             {data.isAdmin ?
                                                 (
                                                     <div className="dropdown1">
                                                         <li className="p-2">
-                                                            <Link>Admin <FontAwesomeIcon icon={faCaretDown}/></Link>
+                                                            <Link>Admin <FontAwesomeIcon icon={faCaretDown} /></Link>
                                                         </li>
                                                         <div className="dropdown-options1">
                                                             <Link to="/Dashboard">Dashboard </Link>
                                                             <Link onClick={handleLogout}>Logout </Link>
                                                         </div>
                                                     </div>
-                                                ):(
+                                                ) : (
                                                     <div className="dropdown2">
                                                         <li className="p-2">
                                                             <Link>
                                                                 Doctor
-                                                                <FontAwesomeIcon icon={faCaretDown}/></Link>
+                                                                <FontAwesomeIcon icon={faCaretDown} /></Link>
                                                         </li>
                                                         <div className="dropdown-options2">
                                                             {
@@ -154,7 +163,7 @@ const Navbar = () => {
                         </div>
 
                         <label htmlFor="check" className="open-menu"><FontAwesomeIcon icon={faBars}
-                                                                                      style={{color: "#ffffff",}}/></label>
+                            style={{ color: "#ffffff", }} /></label>
                     </ul>
                 </nav>
             </header>

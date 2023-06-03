@@ -20,7 +20,7 @@ const About = () => {
           </div>
         </div>
         <div className="containerteam">
-          <h1 id="ourteam" style={{ color: '#fff' }}><b>OUR TEAM</b></h1><br />
+          <h1 id="ourteam" style={{ color: '#fff' }}><b>TEAM</b></h1><br />
           <center>
             <div className="row" style={{ color: '#fff' }}>
               <div className="col profile">
