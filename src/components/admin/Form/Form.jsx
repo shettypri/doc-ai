@@ -8,8 +8,10 @@ import Error from "../../Alert/Error";
 import Alert from 'react-bootstrap/Alert';
 import Loading from "../../Alert/Loading";
 import Success from "../../Alert/Success";
-import { Form } from "react-router-dom";
+import {Form, useNavigate} from "react-router-dom";
 import success from "../../Alert/Success";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
 
 
 const FormPage = () => {
@@ -97,9 +99,19 @@ const FormPage = () => {
 
   const imageRef = useRef();
   const pdfRef = useRef();
+  const navigate = useNavigate()
   return (
     <>
       <div className="main-form">
+        <div className={"Form-back-button"}>
+          <FontAwesomeIcon icon={faArrowLeft}
+                           size="xl"
+                           style={{color: "#ffffff",}}
+                           onClick={()=>{
+                             navigate("/Dashboard")
+                           }}
+          />
+        </div>
         <div className="form-heading">
           <p>Publication</p>
         </div>
