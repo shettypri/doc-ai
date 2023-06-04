@@ -83,7 +83,7 @@ const Navbar = () => {
                         <input type="checkbox" id="check" />
                         <div className="nav-box">
                             {
-                                
+
                                     navbarList.map((listValue, index) => {
                                         return (
                                             <li className="p-2" key={index}>

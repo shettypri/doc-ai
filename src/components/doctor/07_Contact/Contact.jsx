@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLocationDot, faPhoneVolume, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
 const Contact = () => {
+    // const [state, setState] = useState(initState);
     return (
         <section className="contact-main">
             <div className="content">
