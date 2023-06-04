@@ -1,4 +1,4 @@
-import React from 'react'
+import {React, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import { Container, Row, Col, Card } from 'react-bootstrap'
 import "../../../Styles/doctor/04_Publication/Pubview.css"
@@ -7,6 +7,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft , faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
 const Pubview = () => {
+    useEffect(() => {
+        // 👇️ scroll to top on page load
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+      }, []);
     return (
         <>
             <Container className='contpubview'>
@@ -14,14 +18,14 @@ const Pubview = () => {
                     <Col sm={1} style={{ float: "left" }}>
                         <Link to={"/"}><FontAwesomeIcon icon={faArrowLeft} size="xl" style={{ color: "white", }} /></Link>
                     </Col>
-                    <Col sm={4}>
+                    <Col sm={1} lg={4}>
                         {/* <Card className='imgcontainer bg-transparent' style={{justifyContent:"center"}}> */}
                         <img src={image1} alt="..." />
                         {/* </Card> */}
 
                     </Col>
-                    <Col sm={7}>
-                        <Card className='pubtitle bg-transparent' autoFocus>
+                    <Col sm={1} xs={1} lg={1}>
+                        <Card className='pubtitle bg-transparent'>
                             <h2><b>Immune phenotypes classified by deep learning-based H&amp;E tissue analyzer
                                 demonstrate distinct immune landscape and transcriptomic features in ovarian cancer</b></h2>
                             <p>Horyun Choi et al. - AACR (2023)</p>
@@ -29,7 +33,7 @@ const Pubview = () => {
                     </Col>
                 </Row>
                 <Row>
-                    <Col sm={4}>
+                    <Col sm={1} lg={4}>
                         <Card className='pubauthor bg-transparent'>
                             <h1>Author Details</h1>
                             <div className="pubauthor-content">
@@ -45,7 +49,7 @@ const Pubview = () => {
                         </div>
 
                     </Col>
-                    <Col sm={8}>
+                    <Col sm={1}>
                         <Card className='pubabstract bg-transparent'>
                             <h1>Abstract</h1>
                             <div className="pubabstract-content">

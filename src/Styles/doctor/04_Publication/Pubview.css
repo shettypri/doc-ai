@@ -88,6 +88,7 @@ img{
     background: transparent;
     cursor: unset;
     border: none;
+    left: 90px;
 }
 .downpdf button span{
     cursor: pointer;
