@@ -92,7 +92,7 @@ const Navbar = () => {
                                                         <Link to={"/"}>{listValue}</Link>
                                                     ):(
                                                         <Scroll to={reactscroll[index + 1]}
-                                                                spy={false} smooth={true} offset={-150}
+                                                                spy={false} smooth={true} offset={-160}
                                                                 duration={400}
                                                                 style={{cursor:'pointer',color:'white'}}>
                                                             {listValue}

@@ -1,4 +1,4 @@
-// import React from 'react'
+import {React, useEffect} from 'react'
 import "../../../Styles/doctor/06_About/About.css"
 import tempImage from "../../../assets/Doctor/Images/pexels-drew-rae-580679.jpg"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -24,10 +24,10 @@ const About = () => {
           </div>
         </div>
         <div className="containerteam">
-          <h1 id="ourteam" style={{ color: '#fff' }}><b>TEAM</b></h1><br />
+          <h1 id="ourteam" style={{ color: '#fff' }} ><b>TEAM</b></h1><br />
           <center>
             <Row >
-              <Col md={4} sm={1}>
+              <Col md={4} sm={1} className="abtimgcont">
                 <div class="our-team">
                   <img src={image1} alt=""/>
                     <div class="team-content">

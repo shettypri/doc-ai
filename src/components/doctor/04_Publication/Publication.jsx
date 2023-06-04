@@ -22,6 +22,9 @@ const Publication = () => {
     const navigatePubView = () => {
         navigate("Pubview")
     }
+    const navigatePubViewAll = () => {
+        navigate("PubviewAll")
+    }
     return (
         <>
             <div className="Publication-main">
@@ -42,7 +45,7 @@ const Publication = () => {
                     }
                 </div>
                 <div className="pubviewall">
-                    <Button>View All &nbsp;<FontAwesomeIcon icon={faArrowRight} size="sm" style={{color: "#ffffff",}}/></Button>
+                    <Button onClick={navigatePubViewAll}>View All &nbsp;<FontAwesomeIcon icon={faArrowRight} size="sm" style={{color: "#ffffff",}}/></Button>
                 </div>
             </div>
 

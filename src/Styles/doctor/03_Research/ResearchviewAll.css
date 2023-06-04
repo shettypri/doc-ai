@@ -1,49 +1,30 @@
-.Publication-main{
-    margin-top: 300px;
+.researchAll-main{
+    margin-top: 100px;
     display: flex;
     flex-direction: column;
     color: white;
-    margin-bottom: 100px;
 }
-.publication-heading{
+.researchAll-heading{
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
 }
-.pubviewall Button {
-    bottom: 70px;
-    position: relative;
-    transform: none;
-    left:40vw;
-    background: transparent;
-    border: none;
-    width: 90px;
-    padding: 1px;
-}
-.pubviewall Button:hover{
-    border-bottom: 1px solid red;
-    background: transparent;
-    width: 90px;
-    padding-top: 1px;
-}
 
-.publication-content{
+
+.researchAll-content{
     /* margin-top: 50px; */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    
     /* justify-content: space-between; */
 }
                
-.pub_viewall{
-    cursor: pointer;
-}
-.publication-card{
+
+.researchAll-card{
     /* border: 2px solid rebeccapurple; */
-    padding: 50px;
-    margin: 5px 10px 5px 10px;
+    padding: 90px;
+    margin: 5px 1px 5px 10px;
     /* border: 2px solid snow; */
     width: 600px;
      /*border: 1px solid white;*/
@@ -53,7 +34,7 @@
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
-.publication-heading p{
+.researchAll-heading p{
     text-transform: capitalize;
     font-size: 2rem;
     font-weight: bolder;

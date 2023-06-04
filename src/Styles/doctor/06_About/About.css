@@ -1,7 +1,7 @@
 .hero {
     background-color: rgb(0, 0, 0);
     overflow: hidden;
-    margin-top: 80px;
+    bottom: 100px;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
@@ -174,31 +174,8 @@ img {
     margin: 10px auto;
 
 } */
-
-.profile {
-    margin-top: 25px;
+.abtimgcont{
     width: 200px;
-    height: 200px;
-}
-
-.profile .img-box {
-    opacity: 1;
-    display: block;
-    position: relative;
-}
-
-.profile #next {
-    font-size: 22px;
-    font-weight: bold;
-    margin-top: 15px;
-
-}
-
-.profile #pos {
-    font-size: 15px;
-    font-weight: bold;
-    margin-top: 15px;
-
 }
 .our-team{
     text-align: center;

@@ -1,0 +1,82 @@
+
+.contrchview{
+    margin-top: 100px;
+    top: 50%;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    float: left;
+}
+.imgcontainer{
+    width: 100%;                     ;
+}
+
+img{
+    width: 100%;
+    height: 300px;
+}
+.rchtitle h2{
+    margin-bottom: 5px;
+    color: white;
+    font-family: 'Roboto Serif', serif;
+    text-align: justify;
+}
+.rchtitle{
+    color: white;
+    font-size: 55px;
+    /* text-align: center; */
+    font-family:Arial, Helvetica, sans-serif;
+
+}
+.rchtitle p{
+    font-size: 14px;
+    font-weight: lighter;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: justify;
+    color: white;
+}
+.rchauthor-content p{
+    font-weight: bolder;
+    margin-bottom: 5px;
+    color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+    text-align: justify;
+}
+.rchauthor {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    text-align: left;
+    margin-top: 35px;
+    width: 400px;
+    font-family: 'Roboto Serif', serif;
+
+}
+.rchabstract{
+    text-align: center;
+    margin-top: 35px;
+    width: 800px;
+}
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,500&display=swap');
+.rchabstract h1{
+    font-family: 'Roboto Serif', serif;
+    color: white;
+}
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+.rchabstract-content p{
+    text-align: justify;
+    color:white;
+    font-size: 15px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.rchauthor-content h3{
+    font-size: 25px;
+    font-weight: bolder;
+    margin-bottom: 5px;
+    color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: justify;
+}
+
+

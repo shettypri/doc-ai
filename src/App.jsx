@@ -23,9 +23,12 @@ import {
 } from "react-spinners/";
 import NotFound from './components/Global/NotFound'
 import Pubview from './components/doctor/04_Publication/Pubview'
+import PubviewAll from './components/doctor/04_Publication/PubviewAll'
 import { useDispatch } from "react-redux";
 import { isUserLogInReducers } from "./App/Slice/userSlice.js";
 import Main2 from './components/doctor/00_Main/Main2'
+import Researchview from './components/doctor/03_Research/Researchview'
+import ResearchviewAll from './components/doctor/03_Research/ResearchviewAll'
 
 
 
@@ -76,6 +79,9 @@ function App() {
                     <Route exact path='/otplogin' element={<Otp_Login />} />
                     <Route exact path='/404' element={<NotFound />} />
                     <Route exact path='/Pubview' element={<Pubview />} />
+                    <Route exact path='/PubviewAll' element={<PubviewAll />} />
+                    <Route exact path='/Researchview' element={<Researchview />} />
+                    <Route exact path='/ResearchviewAll' element={<ResearchviewAll />} />
                     <Route exact path='/Project' element={<Project />} />
                     {/* Testing path ends */}
                     {/* <Route exact path='/form' element={<FormPage />}/> */}

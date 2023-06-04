@@ -1,0 +1,56 @@
+// import React from 'react'
+import "../../../Styles/doctor/04_Publication/PubviewAll.css"
+import { useEffect } from "react";
+import Card_View from "../Global/Card_View";
+import { Link, useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from "react-redux";
+import { getPublicationFormData } from "../../../App/Slice/formSlice.js";
+import { Row, Col } from 'react-bootstrap/';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+
+const PubviewAll = () => {
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(getPublicationFormData("Publications"))
+    }, [])
+
+    const { publication } = useSelector(state =>
+        state.formReducer)
+    const navigatePubView = () => {
+        navigate("Pubview")
+    }
+    return (
+        <>
+            <div className="PublicationAll-main">
+                <Col sm={1} style={{ float: "left"}}>
+                    <Link to={"/"}><FontAwesomeIcon icon={faArrowLeft} size="xl" style={{ color: "white", }} /></Link>
+                </Col>
+                <div className="publicationAll-heading">
+                    <p> Publications </p>
+                </div>
+
+
+                <div className="publicationAll-content">
+                    {
+                        (publication.isResult) &&
+                        (publication.data.map((contentValue, index) => {
+                            return (
+                                <div className="publicationAll-card" key={index} onClick={navigatePubView}>
+                                    <Row lg={4} sm={2} md={4}>
+                                        <Col md={4} sm={2} lg={4}>
+                                            <Card_View content={contentValue} />
+                                        </Col>
+                                    </Row>
+                                </div>
+                            )
+                        }))
+                    }
+                </div>
+            </div>
+        </>
+    );
+};
+
+export default PubviewAll;
