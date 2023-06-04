@@ -1,10 +1,12 @@
-// import React from 'react'
+import React from 'react'
 import '../../../Styles/doctor/07_Contact/Contact.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLocationDot, faPhoneVolume, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
+
 const Contact = () => {
     // const [state, setState] = useState(initState);
+    const [count, setCount] = React.useState(0);
     return (
         <section className="contact-main">
             <div className="content">
@@ -55,9 +57,10 @@ const Contact = () => {
                         <span >Email</span>
                     </div>
                     <div className="inputbox">
-                        <textarea required="required" className='inputbox-field'
-                            rows={4} maxLength={250}/>
-                        <span >Type your Message...</span>
+                    
+                        <textarea id='messagefield' required="required" className='inputbox-field'
+                            rows={4} maxLength={250} onChange={e => setCount(e.target.value.length)}/>
+                        <span >Type your Message...</span> <span id="count_message">{count}/250</span>
                     </div>
 
                     <div className="inputbox">

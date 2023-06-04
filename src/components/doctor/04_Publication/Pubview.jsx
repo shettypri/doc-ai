@@ -12,7 +12,7 @@ const Pubview = () => {
             <Container className='contpubview'>
                 <Row>
                     <Col sm={1} style={{ float: "left" }}>
-                        <Link to={"/"}><FontAwesomeIcon icon={faArrowLeft} size="xl" style={{ color: "blanchedalmond", }} /></Link>
+                        <Link to={"/"}><FontAwesomeIcon icon={faArrowLeft} size="xl" style={{ color: "white", }} /></Link>
                     </Col>
                     <Col sm={4}>
                         {/* <Card className='imgcontainer bg-transparent' style={{justifyContent:"center"}}> */}
@@ -21,7 +21,7 @@ const Pubview = () => {
 
                     </Col>
                     <Col sm={7}>
-                        <Card className='pubtitle bg-transparent'>
+                        <Card className='pubtitle bg-transparent' autoFocus>
                             <h2><b>Immune phenotypes classified by deep learning-based H&amp;E tissue analyzer
                                 demonstrate distinct immune landscape and transcriptomic features in ovarian cancer</b></h2>
                             <p>Horyun Choi et al. - AACR (2023)</p>

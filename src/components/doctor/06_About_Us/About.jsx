@@ -1,6 +1,10 @@
 // import React from 'react'
 import "../../../Styles/doctor/06_About/About.css"
 import tempImage from "../../../assets/Doctor/Images/pexels-drew-rae-580679.jpg"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
+import {Row, Col} from 'react-bootstrap/';
+import image1 from "../../../assets/Doctor/Images/contactusbg.jpeg"
 
 const About = () => {
   return (
@@ -11,7 +15,7 @@ const About = () => {
         </div>
         <div className="containerabus">
           <div className="hero-content">
-            <h2 style={{ color: '#fff'}}>Welcome to <span>PrognosisAI</span></h2>
+            <h2 style={{ color: '#fff' }}>Welcome to <span>PrognosisAI</span></h2>
             <p style={{ color: '#fff' }}>PrognosisAI is a website that provides medical information to patients and healthcare professionals. PrognosisAI uses artificial intelligence to analyze patient data and provide personalized predictions of disease progression and treatment outcomes.</p>
             {/* <button class="cta-button" style="color: #fff;">Learn More</button> */}
           </div>
@@ -22,62 +26,44 @@ const About = () => {
         <div className="containerteam">
           <h1 id="ourteam" style={{ color: '#fff' }}><b>TEAM</b></h1><br />
           <center>
-            <div className="row" style={{ color: '#fff' }}>
-              <div className="col profile">
-                <div className="img-box" style={{ width: '400px', height: '100px' }}>
-                  <img src="person3.jpg" className="img-responsive" />
-                  <ul>
-                    <a href="#">
-                      <li> <i className="fa fa-facebook" aria-hidden="true" /></li>
-                    </a>
-                    <a href="#">
-                      <li> <i className="fa fa-twitter" aria-hidden="true" /></li>
-                    </a>
-                    <a href="#">
-                      <li> <i className="fa fa-linkedin" aria-hidden="true" /></li>
-                    </a>
-                  </ul>
+            <Row >
+              <Col md={4} sm={1}>
+                <div class="our-team">
+                  <img src={image1} alt=""/>
+                    <div class="team-content">
+                      <h3 class="title">Williamson</h3>
+                      <span class="post">web developer</span>
+                      <ul class="social-links">
+                        <li><a href="#"><FontAwesomeIcon icon={faLinkedinIn} size='lg'/></a></li>
+                      </ul>
+                    </div>
                 </div>
-                <h2 id="next">Member 1</h2>
-                <h3 id="pos">Business Head</h3>
-              </div>
-              <div className="col profile">
-                <div className="img-box" style={{ width: '400px', height: '100px' }}>
-                  <img src="person3.jpg" className="img-responsive" />
-                  <ul>
-                    <a href="#">
-                      <li> <i className="fa fa-facebook" aria-hidden="true" /></li>
-                    </a>
-                    <a href="#">
-                      <li> <i className="fa fa-twitter" aria-hidden="true" /></li>
-                    </a>
-                    <a href="#">
-                      <li> <i className="fa fa-linkedin" aria-hidden="true" /></li>
-                    </a>
-                  </ul>
+              </Col>
+              <Col md={4} sm={1}>
+                <div class="our-team">
+                  <img src={image1} alt=""/>
+                    <div class="team-content">
+                      <h3 class="title">Williamson</h3>
+                      <span class="post">web developer</span>
+                      <ul class="social-links">
+                        <li><a href="#"><FontAwesomeIcon icon={faLinkedinIn} size='lg'/></a></li>
+                      </ul>
+                    </div>
                 </div>
-                <h2 id="next">Member 2</h2>
-                <h3 id="pos">Business Head</h3>
-              </div>
-              <div className="col profile">
-                <div className="img-box" style={{ width: '400px', height: '100px' }}>
-                  <img src="person3.jpg" className="img-responsive" />
-                  <ul>
-                    <a href="#">
-                      <li> <i className="fa fa-facebook" aria-hidden="true" /></li>
-                    </a>
-                    <a href="#">
-                      <li> <i className="fa fa-twitter" aria-hidden="true" /></li>
-                    </a>
-                    <a href="#">
-                      <li> <i className="fa fa-linkedin" aria-hidden="true" /></li>
-                    </a>
-                  </ul>
+              </Col>
+              <Col md={4} sm={1}>
+                <div class="our-team">
+                  <img src={image1} alt=""/>
+                    <div class="team-content">
+                      <h3 class="title">Williamson</h3>
+                      <span class="post">web developer</span>
+                      <ul class="social-links">
+                        <li><a href="#"><FontAwesomeIcon icon={faLinkedinIn} size='lg'/></a></li>
+                      </ul>
+                    </div>
                 </div>
-                <h2 id="next">Memeber 3</h2>
-                <h3 id="pos">Business Head</h3>
-              </div>
-            </div>
+              </Col>
+            </Row>
           </center>
         </div>
       </section>
