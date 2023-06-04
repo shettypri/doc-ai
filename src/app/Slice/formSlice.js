@@ -26,12 +26,13 @@ const formSlice = createSlice({
     initialState: {
         publication: {
             loading: false,
+            isResult:false,
             data: "",
             error: false,
         },
         research: {
             loading: false,
-            data: "",
+            data: [],
             error: false,
         }
     },
@@ -39,13 +40,14 @@ const formSlice = createSlice({
         builder.addCase(
             getPublicationFormData.pending,(state) =>{
                 state.publication.loading=true,
-                state.publication.data=""
+                state.publication.isResult=true
+
             }
         )
         builder.addCase(
             getPublicationFormData.fulfilled,(state,action) =>{
                 state.publication.loading=false
-                state.publication.data=action.payload
+                state.publication.data =(action.payload)
             }
         )
         builder.addCase(
