@@ -43,7 +43,7 @@ const FormPage = () => {
       
     ) {
       setError(true);
-      console.log("clicked eror");
+      console.log("clicked error");
     } else {
       console.log("else part");
       const fileName = imageRef.current.files[0].name;

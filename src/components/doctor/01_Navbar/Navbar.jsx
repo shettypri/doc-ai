@@ -67,15 +67,23 @@ const Navbar = () => {
                 }
                 <nav className={"navbar-tag"}>
                     <div className="logo">
+                        {
+                            loc.pathname !== "/" ?(
+                                <Link to={"/"}>
+                                    <img src={navbarImage} alt="Logo" style={{ cursor: "pointer" }} />
+                                </Link>
+                            ):(
                         <Scroll to="first" spy={true} smooth={true} offset={-500} duration={500}>
                             <img src={navbarImage} alt="Logo" style={{ cursor: "pointer" }} />
                         </Scroll>
+                                )
+                        }
                     </div>
                     <ul className="nav-links">
                         <input type="checkbox" id="check" />
                         <div className="nav-box">
                             {
-                                // reactscroll.map((hashvalue)=>{
+                                
                                     navbarList.map((listValue, index) => {
                                         return (
                                             <li className="p-2" key={index}>
