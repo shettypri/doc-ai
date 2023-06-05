@@ -1,10 +1,12 @@
-import { useRef, useState } from 'react' 
+import {useEffect, useRef, useState} from 'react'
 import ImageUpload from './ImageUpload'
 import storeInDataBase from './storeInDataBase'
 import "../../../Styles/admin/Form/Research.css"
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faArrowLeft, faCircleXmark} from '@fortawesome/free-solid-svg-icons'
 import {useNavigate} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {reserachImageUpload} from "../../../App/Slice/formSlice.js";
 
 const ResearchForm = () => {
 
@@ -14,16 +16,26 @@ const ResearchForm = () => {
     const [uploadGif, setuploadGif] = useState("")
     const [authorName, setAuthorName] = useState('Dr. ')
     const [urlgif, setUrlgif] = useState("")
+    const [imageUrl, setImageUrl] = useState("");
 
     const [authorsList, setAuthorsList] = useState([])
-
 
     const [error, seterror] = useState(false)
     
     const folderImage = 'Research/image'
     
+    const dispatch = useDispatch()
 
-    const handleSubmit = async (e) => {
+    const {researchUploadState} = useSelector(state =>
+    state.formReducer)
+
+    useEffect(() => {
+        if(researchUploadState.isImageUploaded){
+            setImageUrl(researchUploadState.imageUrl)
+        }
+    }, [researchUploadState.isImageUploaded]);
+
+    const handleSubmit = (e) => {
         e.preventDefault();
 
         if (
@@ -33,26 +45,23 @@ const ResearchForm = () => {
 
         }
         else {
-            const fileName = imageRef.current.files[0].name
-            const gifFileName = gifref.current.files[0].name
-
-            const isImageUploaded = await ImageUpload(uploadImage, fileName, folderImage)
-
-            if (isImageUploaded) {
-                console.log("DONE");
+            // const fileName = imageRef.current.files[0].name
+            // const gifFileName = gifref.current.files[0].name
+            dispatch(reserachImageUpload(uploadImage))
 
                 const finalData = {
                     "title": title,
                     "description": description,
-                    "imageUrl": isImageUploaded,
+                    "imageUrl": imageUrl,
                     "authors": authorsList,
                     "gifUrl":urlgif
 
                 }
-                storeInDataBase(finalData, 'Research')
+            console.log(finalData)
+                // storeInDataBase(finalData, 'Research')
             }
 
-        }
+
 
     }
     const addAuthor = () => {
