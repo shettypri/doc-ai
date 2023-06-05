@@ -260,9 +260,9 @@ const FormPage = () => {
                 </div>
               </div>
 
-              <label>Key Benefits</label>
-              <div className="input-container">
-                <div>
+              {/* <label>Key Benefits</label> */}
+              {/* <div className="input-container"> */}
+                {/* <div>
                   <input
                     type="text"
                     value={key_benefits}
@@ -277,7 +277,7 @@ const FormPage = () => {
             </div>
             <div className="lable-message">
             {error&&keyBenefitsList<=0?
-             <lable>Key benifits can not be empty</lable> : ""}
+             <lable>Key benifits can not be empty</lable> : ""} */}
 
 
             </div>

@@ -154,7 +154,7 @@ const UpdateForm = () => {
             </div> */}
                         <div className="buttonus">
                             <input type="submit"
-                                value={"Submit"}
+                                value={"Submit"} 
                                 onClick={handleDetails} />
                         </div>
                     </div>

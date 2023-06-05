@@ -21,7 +21,7 @@
     background: #fff;
     padding: 25px 30px;
     border-radius: 5px;
-    height: 700px;
+    height: 420px;
 
 }
 .containerus .titleus{
@@ -109,7 +109,7 @@ form .image{
 form .buttonus{
     height: 45px;
     /* margin: 45px 0; */
-    left: 500px;
+    left: 485px;
     position: relative;
     
 }
