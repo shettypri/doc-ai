@@ -4,7 +4,7 @@ import tempImage from "../../../assets/Doctor/Images/pexels-drew-rae-580679.jpg"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 import {Row, Col} from 'react-bootstrap/';
-import image1 from "../../../assets/Doctor/Images/contactusbg.jpeg"
+import image1 from "../../../assets/Doctor/Images/Team/aimit-mr-s-ruban.png"
 
 const About = () => {
   return (
@@ -29,7 +29,7 @@ const About = () => {
             <Row >
               <Col md={4} sm={1} className="abtimgcont">
                 <div class="our-team">
-                  <img src={image1} alt=""/>
+                  <img src={image1} alt="" />
                     <div class="team-content">
                       <h3 class="title">Williamson</h3>
                       <span class="post">web developer</span>

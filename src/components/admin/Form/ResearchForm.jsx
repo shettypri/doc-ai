@@ -65,7 +65,7 @@ const ResearchForm = () => {
 
     }
     const addAuthor = () => {
-        if (authorName != "") {
+        if (authorName != "Dr. ") {
             setAuthorsList(oldArray => [...oldArray, authorName])
             setAuthorName("Dr. ")
         }
@@ -152,7 +152,7 @@ const ResearchForm = () => {
                             </label>
                             <input
                                 type="file"
-                                accept="video/*"
+                                accept=".gif"
                                 ref={gifref}
                             
                                 onChange={
@@ -180,7 +180,7 @@ const ResearchForm = () => {
                                 rows={6}
                                 required
                                 value={description}
-                                onChange={
+                                onChange={  
                                     (e) => {
                                         setDescription(e.target.value)
                                     }
@@ -189,7 +189,7 @@ const ResearchForm = () => {
                         </div>
                         <div className="messages">
                             {error && description.length <= 0 ?
-                                <lable>description can not be empty </lable> : ""}
+                                <lable>Description can not be empty </lable> : ""}
                         </div>
 
                         <div className="list-arrays">
@@ -201,7 +201,7 @@ const ResearchForm = () => {
                                                 <div className="added-array" key={index}>
                                                     <p>{val}</p>
                                                     <FontAwesomeIcon icon={faCircleXmark} size="xl"
-                                                                       style={{color: "#ff0000",}}
+                                                                       style={{color: "#ff0000", cursor:"pointer"}}
                                                         height={"25px"} width="25px"
                                                         onClick={() => removeAuthor(index)}
                                                     />
@@ -225,7 +225,7 @@ const ResearchForm = () => {
                                         (e) => { setAuthorName(e.target.value) }
                                     }
                                     required />
-                                <button onClick={addAuthor}>
+                                <button onClick={addAuthor} style={{borderRadius:"5px"}}>
                                     Add
                                 </button>
                             </div>
@@ -237,7 +237,22 @@ const ResearchForm = () => {
 
                         </div>
 
-                        
+                        <div className="form-fields">
+                            <label >
+                                Research Paper Link:
+                            </label>
+                            <input type="text"
+                                value={title}
+                                onChange={
+                                    (e) => { setTitle(e.target.value) }
+                                }
+                                required />
+                        </div>
+                        <div className="messages">
+                            {error && title.length <= 0 ?
+                                <label>Paper Link cannot be empty</label> : ""}
+                        </div>
+
 
 
                         <div className="form-button">
