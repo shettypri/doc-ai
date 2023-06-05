@@ -14,8 +14,11 @@ const Publication = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(getPublicationFormData("Publications"))
-    },[])
+        // 👇️ scroll to top on page load
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+    }, []);
+
+
 
     const {publication} = useSelector(state =>
         state.formReducer)

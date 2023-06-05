@@ -1,5 +1,5 @@
 import {React, useEffect} from 'react'
-import { Link } from 'react-router-dom'
+import {Link, useLocation, useNavigate} from 'react-router-dom'
 import { Container, Row, Col, Card } from 'react-bootstrap'
 import "../../../Styles/doctor/04_Publication/Pubview.css"
 import image1 from "../../../assets/Doctor/Images/rch1.png"
@@ -11,12 +11,15 @@ const Pubview = () => {
         // 👇️ scroll to top on page load
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
       }, []);
+    const navigateBack = ()=>{
+        window.history.back()
+    }
     return (
         <>
             <Container className='contpubview'>
                 <Row>
                     <Col sm={1} style={{ float: "left" }}>
-                        <Link to={"/"}><FontAwesomeIcon icon={faArrowLeft} size="xl" style={{ color: "white", }} /></Link>
+                        <FontAwesomeIcon icon={faArrowLeft} size="xl" style={{ color: "white", }} onClick={navigateBack} />
                     </Col>
                     <Col sm={1} lg={4}>
                         {/* <Card className='imgcontainer bg-transparent' style={{justifyContent:"center"}}> */}

@@ -7,6 +7,10 @@
     align-items: center;
     float: left;
 }
+
+.contpubview svg{
+    cursor: pointer;
+}
 .imgcontainer{
     width: 100%;                     ;
 }
