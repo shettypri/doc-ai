@@ -12,17 +12,13 @@ const ResearchForm = () => {
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
     const [uploadImage, setUploadImage] = useState("")
-    const [authorName, setAuthorName] = useState('')
+    const [authorName, setAuthorName] = useState('Dr. ')
 
     const [authorsList, setAuthorsList] = useState([])
 
     const [error, seterror] = useState(false)
-    
 
     const folderImage = 'Research/image'
-
-
-
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -52,13 +48,11 @@ const ResearchForm = () => {
 
         }
 
-
-
     }
     const addAuthor = () => {
         if (authorName != "") {
             setAuthorsList(oldArray => [...oldArray, authorName])
-            setAuthorName("")
+            setAuthorName("Dr. ")
         }
     }
 
@@ -117,7 +111,7 @@ const ResearchForm = () => {
                                                 <div className="added-array" key={index}>
                                                     <p>{val}</p>
                                                     <FontAwesomeIcon icon={faCircleXmark} size="xl"
-                                                                       style={{color: "#ff0000",}}
+                                                                       style={{color: "#ff0000",cursor:'pointer'}}
                                                         height={"25px"} width="25px"
                                                         onClick={() => removeAuthor(index)}
                                                     />
@@ -152,10 +146,7 @@ const ResearchForm = () => {
                             {error && authorsList.length <= 0 ?
                                 <label>Researcher can not be empty</label>
                                 : ""}
-
                         </div>
-
-
 
                         <div className="form-fields">
                             <label>
@@ -179,9 +170,6 @@ const ResearchForm = () => {
                             {error && uploadImage<=0?
                                 <label>Please upload images</label> : ""}
                         </div>
-
-
-
                     </div>
 
                     <div className="form-right">
