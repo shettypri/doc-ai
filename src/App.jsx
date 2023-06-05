@@ -29,6 +29,7 @@ import { isUserLogInReducers } from "./App/Slice/userSlice.js";
 import Main2 from './components/doctor/00_Main/Main2'
 import Researchview from './components/doctor/03_Research/Researchview'
 import ResearchviewAll from './components/doctor/03_Research/ResearchviewAll'
+import UpdateForm from './components/admin/Account/Form/UpdateForm'
 
 
 
@@ -82,6 +83,7 @@ function App() {
                     <Route exact path='/PubviewAll' element={<PubviewAll />} />
                     <Route exact path='/Researchview' element={<Researchview />} />
                     <Route exact path='/ResearchviewAll' element={<ResearchviewAll />} />
+                    <Route exact path='/UpdateForm' element={<UpdateForm />} />
                     <Route exact path='/Project' element={<Project />} />
                     {/* Testing path ends */}
                     {/* <Route exact path='/form' element={<FormPage />}/> */}
