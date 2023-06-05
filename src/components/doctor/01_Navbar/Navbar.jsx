@@ -10,6 +10,7 @@ import Banner from "../../Banner/Banner.jsx"
 import AdminConfimBanner from "../../Banner/AdminConfimBanner.jsx"
 import { useEffect } from "react"
 import { Link as Scroll } from 'react-scroll'
+import {getPublicationFormData} from "../../../App/Slice/formSlice.js";
 
 
 const Navbar = () => {
@@ -27,6 +28,10 @@ const Navbar = () => {
     }, []);
 
     const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(getPublicationFormData("Publications"))
+
+    },[])
 
     const handleLogout = async () => {
         sessionStorage.removeItem("key")

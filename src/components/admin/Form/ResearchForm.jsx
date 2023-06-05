@@ -1,64 +1,73 @@
-import { useRef, useState } from 'react'
-import cancel from "../../../assets/Admin/Dash-board/close.png"
+import {useEffect, useRef, useState} from 'react'
 import ImageUpload from './ImageUpload'
 import storeInDataBase from './storeInDataBase'
 import "../../../Styles/admin/Form/Research.css"
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faArrowLeft, faCircleXmark} from '@fortawesome/free-solid-svg-icons'
 import {useNavigate} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {reserachImageUpload} from "../../../App/Slice/formSlice.js";
 
 const ResearchForm = () => {
 
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
     const [uploadImage, setUploadImage] = useState("")
-    const [authorName, setAuthorName] = useState('')
+    const [uploadGif, setuploadGif] = useState("")
+    const [authorName, setAuthorName] = useState('Dr. ')
+    const [urlgif, setUrlgif] = useState("")
+    const [imageUrl, setImageUrl] = useState("");
 
     const [authorsList, setAuthorsList] = useState([])
 
     const [error, seterror] = useState(false)
     
-
     const folderImage = 'Research/image'
+    
+    const dispatch = useDispatch()
 
+    const {researchUploadState} = useSelector(state =>
+    state.formReducer)
 
+    useEffect(() => {
+        if(researchUploadState.isImageUploaded){
+            setImageUrl(researchUploadState.imageUrl)
+        }
+    }, [researchUploadState.isImageUploaded]);
 
-
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
 
         if (
-            title.length == 0 || description.length == 0 || authorsList.length == 0 || imageRef.length==0
+            title.length == 0 || description.length == 0 || authorsList.length == 0 || imageRef.length==0 || gifref.length==0
         ) {
             seterror(true);
 
         }
         else {
-            const fileName = imageRef.current.files[0].name
-            const isImageUploaded = await ImageUpload(uploadImage, fileName, folderImage)
-
-            if (isImageUploaded) {
-                console.log("DONE");
+            // const fileName = imageRef.current.files[0].name
+            // const gifFileName = gifref.current.files[0].name
+            dispatch(reserachImageUpload(uploadImage))
 
                 const finalData = {
                     "title": title,
                     "description": description,
-                    "imageUrl": isImageUploaded,
+                    "imageUrl": imageUrl,
                     "authors": authorsList,
+                    "gifUrl":urlgif
 
                 }
-                storeInDataBase(finalData, 'Research')
+            console.log(finalData)
+                // storeInDataBase(finalData, 'Research')
             }
-
-        }
 
 
 
     }
     const addAuthor = () => {
-        if (authorName != "") {
+        if (authorName != "Dr. ") {
             setAuthorsList(oldArray => [...oldArray, authorName])
-            setAuthorName("")
+            setAuthorName("Dr. ")
         }
     }
 
@@ -72,6 +81,8 @@ const ResearchForm = () => {
     }
 
     const imageRef = useRef()
+    const gifref= useRef()
+
     const navigate = useNavigate()
     return (
         <>
@@ -80,7 +91,7 @@ const ResearchForm = () => {
                     <div className={"Form-back-button"}>
                         <FontAwesomeIcon icon={faArrowLeft}
                                          size="xl"
-                                         style={{color: "#ffffff",}}
+                                         style={{color: "#ffffff",cursor:'pointer'}}
                         onClick={()=>{
                             navigate("/Dashboard")
                         }}
@@ -108,54 +119,7 @@ const ResearchForm = () => {
                                 <label>Title can not be empty</label> : ""}
                         </div>
 
-                        <div className="list-arrays">
-                            <div className="array-box">
-                                {
-                                    authorsList.map((val, index) => {
-                                        return (
-                                            <>
-                                                <div className="added-array" key={index}>
-                                                    <p>{val}</p>
-                                                    <FontAwesomeIcon icon={faCircleXmark} size="xl"
-                                                                       style={{color: "#ff0000",}}
-                                                        height={"25px"} width="25px"
-                                                        onClick={() => removeAuthor(index)}
-                                                    />
-                                                </div>
-                                            </>
-                                        )
-                                    })
-                                }
-                            </div>
-                        </div>
-
-
-                        <div className="form-fields">
-                            <label >
-                                Researchers:
-                            </label>
-
-                            <div className="input-container">
-
-                                <input type="text"
-                                    value={authorName}
-                                    onChange={
-                                        (e) => { setAuthorName(e.target.value) }
-                                    }
-                                    required />
-                                <button onClick={addAuthor}>
-                                    Add
-                                </button>
-                            </div>
-                        </div>
-                        <div className="messages">
-                            {error && authorsList.length <= 0 ?
-                                <label>Researcher can not be empty</label>
-                                : ""}
-
-                        </div>
-
-
+                        
 
                         <div className="form-fields">
                             <label>
@@ -182,7 +146,29 @@ const ResearchForm = () => {
 
 
 
-                    </div>
+                        <div className="form-fields">
+                            <label>
+                                Upload Gif:
+                            </label>
+                            <input
+                                type="file"
+                                accept=".gif"
+                                ref={gifref}
+                            
+                                onChange={
+                                    (e) => {
+                                    setuploadGif(e.target.files[0])
+
+                                    }
+                                }
+                                required
+                            />
+                        </div>
+                        <div className="messages">
+                            {error && uploadGif<=0?
+                                <label>Please upload gif </label> : ""}
+                        </div>
+                     </div>
 
                     <div className="form-right">
                         <div className="form-fields">
@@ -194,7 +180,7 @@ const ResearchForm = () => {
                                 rows={6}
                                 required
                                 value={description}
-                                onChange={
+                                onChange={  
                                     (e) => {
                                         setDescription(e.target.value)
                                     }
@@ -203,8 +189,70 @@ const ResearchForm = () => {
                         </div>
                         <div className="messages">
                             {error && description.length <= 0 ?
-                                <lable>description can not be empty </lable> : ""}
+                                <lable>Description can not be empty </lable> : ""}
                         </div>
+
+                        <div className="list-arrays">
+                            <div className="array-box">
+                                {
+                                    authorsList.map((val, index) => {
+                                        return (
+                                            <>
+                                                <div className="added-array" key={index}>
+                                                    <p>{val}</p>
+                                                    <FontAwesomeIcon icon={faCircleXmark} size="xl"
+                                                                       style={{color: "#ff0000", cursor:"pointer"}}
+                                                        height={"25px"} width="25px"
+                                                        onClick={() => removeAuthor(index)}
+                                                    />
+                                                </div>
+                                            </>
+                                        )
+                                    })
+                                }
+                            </div>
+                        </div>
+                        <div className="form-fields">
+                            <label >
+                                Researchers:
+                            </label>
+
+                            <div className="input-container">
+
+                                <input type="text"
+                                    value={authorName}
+                                    onChange={
+                                        (e) => { setAuthorName(e.target.value) }
+                                    }
+                                    required />
+                                <button onClick={addAuthor} style={{borderRadius:"5px"}}>
+                                    Add
+                                </button>
+                            </div>
+                        </div>
+                        <div className="messages">
+                            {error && authorsList.length <= 0 ?
+                                <label>Researcher can not be empty</label>
+                                : ""}
+
+                        </div>
+
+                        <div className="form-fields">
+                            <label >
+                                Research Paper Link:
+                            </label>
+                            <input type="text"
+                                value={title}
+                                onChange={
+                                    (e) => { setTitle(e.target.value) }
+                                }
+                                required />
+                        </div>
+                        <div className="messages">
+                            {error && title.length <= 0 ?
+                                <label>Paper Link cannot be empty</label> : ""}
+                        </div>
+
 
 
                         <div className="form-button">
