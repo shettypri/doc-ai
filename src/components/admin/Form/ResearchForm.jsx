@@ -65,7 +65,7 @@ const ResearchForm = () => {
 
     }
     const addAuthor = () => {
-        if (authorName != "") {
+        if (authorName != "Dr. ") {
             setAuthorsList(oldArray => [...oldArray, authorName])
             setAuthorName("Dr. ")
         }
@@ -152,7 +152,7 @@ const ResearchForm = () => {
                             </label>
                             <input
                                 type="file"
-                                accept="video/*"
+                                accept=".gif"
                                 ref={gifref}
                             
                                 onChange={
@@ -201,7 +201,7 @@ const ResearchForm = () => {
                                                 <div className="added-array" key={index}>
                                                     <p>{val}</p>
                                                     <FontAwesomeIcon icon={faCircleXmark} size="xl"
-                                                                       style={{color: "#ff0000",}}
+                                                                       style={{color: "#ff0000", cursor:"pointer"}}
                                                         height={"25px"} width="25px"
                                                         onClick={() => removeAuthor(index)}
                                                     />
@@ -225,7 +225,7 @@ const ResearchForm = () => {
                                         (e) => { setAuthorName(e.target.value) }
                                     }
                                     required />
-                                <button onClick={addAuthor}>
+                                <button onClick={addAuthor} style={{borderRadius:"5px"}}>
                                     Add
                                 </button>
                             </div>
