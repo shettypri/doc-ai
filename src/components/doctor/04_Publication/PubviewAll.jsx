@@ -19,13 +19,15 @@ const PubviewAll = () => {
     const { publication } = useSelector(state =>
         state.formReducer)
     const navigatePubView = () => {
-        navigate("Pubview")
+        navigate("/Pubview")
     }
     return (
         <>
             <div className="PublicationAll-main">
                 <Col sm={1} style={{ float: "left"}}>
-                    <Link to={"/"}><FontAwesomeIcon icon={faArrowLeft} size="xl" style={{ color: "white", }} /></Link>
+                    <Link to={"/"}>
+                        <FontAwesomeIcon icon={faArrowLeft} size="xl" style={{ color: "white", }} />
+                    </Link>
                 </Col>
                 <div className="publicationAll-heading">
                     <p> Publications </p>
