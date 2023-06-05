@@ -180,7 +180,7 @@ const ResearchForm = () => {
                                 rows={6}
                                 required
                                 value={description}
-                                onChange={
+                                onChange={  
                                     (e) => {
                                         setDescription(e.target.value)
                                     }
@@ -189,7 +189,7 @@ const ResearchForm = () => {
                         </div>
                         <div className="messages">
                             {error && description.length <= 0 ?
-                                <lable>description can not be empty </lable> : ""}
+                                <lable>Description can not be empty </lable> : ""}
                         </div>
 
                         <div className="list-arrays">
@@ -237,7 +237,22 @@ const ResearchForm = () => {
 
                         </div>
 
-                        
+                        <div className="form-fields">
+                            <label >
+                                Research Paper Link:
+                            </label>
+                            <input type="text"
+                                value={title}
+                                onChange={
+                                    (e) => { setTitle(e.target.value) }
+                                }
+                                required />
+                        </div>
+                        <div className="messages">
+                            {error && title.length <= 0 ?
+                                <label>Paper Link cannot be empty</label> : ""}
+                        </div>
+
 
 
                         <div className="form-button">
