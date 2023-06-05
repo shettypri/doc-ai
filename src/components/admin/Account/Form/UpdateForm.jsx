@@ -48,7 +48,7 @@ const UpdateForm = () => {
     return (
         <>
             <div className="containerus">
-                <div className="titleus">update details</div><br />
+                <div className="titleus">Update Details</div><br />
                 <form action="#">
                     <div className="user-detailsus">
                         <div className="input-boxus">
@@ -154,7 +154,7 @@ const UpdateForm = () => {
             </div> */}
                         <div className="buttonus">
                             <input type="submit"
-                                value={"submit"}
+                                value={"Submit"} 
                                 onClick={handleDetails} />
                         </div>
                     </div>

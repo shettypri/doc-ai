@@ -4,6 +4,7 @@ import {db, storage} from "../../config/firebase-config.js";
 import {v4} from "uuid";
 import {ref} from "@firebase/storage";
 import {getDownloadURL, uploadBytes} from "firebase/storage";
+import { async } from "@firebase/util";
 
 export const getPublicationFormData = createAsyncThunk(
     "getPublicationFormData",
@@ -38,6 +39,23 @@ export const reserachImageUpload =createAsyncThunk(
             return e
         }
     }
+)
+export const researchGifUpload=createAsyncThunk(
+    "researchGifUpload",
+    async(gifFile)=>{
+        const textV4= v4()
+        const folderRef=ref(storage,`Research/Gif/${gifFile.name+textV4}`)
+
+        try{
+
+        }
+        catch(e){
+
+        }
+
+
+    }
+    
 )
 
 
@@ -108,6 +126,34 @@ const formSlice = createSlice({
                     state.researchUploadState.imageError = action.payload;
                 }
             )
-    }
+            .addCase(
+                researchGifUpload.pending,(state)=>{
+                state.researchUploadState.gifLoading=true;
+              }
+            )
+            .addCase(
+                researchGifUpload.fulfilled,(state,action)=>{
+                    state.researchUploadState.gifLoading=false;
+                    state.researchUploadState.gifUrl=action.payload;
+                    state.researchUploadState.gifIsUploaded=true;
+
+                }
+
+            )
+            .addCase(
+                researchGifUpload.rejected,(state,action)=>{
+                    state.researchUploadState.gifLoading=false;
+                    state.researchUploadState.gifError=action.payload;
+
+                }
+
+            )
+
+}
+            
+                
+
+            
+    
 })
 export default formSlice.reducer
