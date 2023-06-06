@@ -1,5 +1,5 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {collection, getDocs} from "firebase/firestore";
+import {addDoc, collection, getDocs} from "firebase/firestore";
 import {db, storage} from "../../config/firebase-config.js";
 import {v4} from "uuid";
 import {ref} from "@firebase/storage";
@@ -47,9 +47,13 @@ export const researchGifUpload=createAsyncThunk(
         const folderRef=ref(storage,`Research/Gif/${gifFile.name+textV4}`)
 
         try{
+            await uploadBytes(folderRef,gifFile)
+            const geturlGif=await getDownloadURL(ref(storage,`Research/Gif/${gifFile.name+textV4}`))
+            return geturlGif
 
         }
         catch(e){
+            return e
 
         }
 
@@ -57,6 +61,22 @@ export const researchGifUpload=createAsyncThunk(
     }
     
 )
+export const researchLoading=createAsyncThunk(finalData,researchLoading) =>{
+    console.log("result");
+    const collectionList=collection(db,researchLoading)
+    try{
+        const dataStored=await addDoc(collectionList,finalData);
+        console.log(dataStored);
+    }
+    catch(e){
+        console.log(error);
+    }
+}
+
+
+
+
+
 
 
 const formSlice = createSlice({
@@ -148,6 +168,24 @@ const formSlice = createSlice({
                 }
 
             )
+            .addCase(
+                researchUpload.pending,(state)=>{
+                state.researchUploadState.loading=true;
+
+                }
+
+            )
+            .addCase(
+                researchUpload.fulfilled,(state)=>{
+                    state.researchUploadState.loading=false;
+                    state.researchUploadState.isUploaded=true;
+                }
+            )
+            .addCase(researchUpload.rejected,(state,action)=>{
+                state.researchUploadState.loading=false;
+                state.researchUploadState.error=action.payload;
+
+            })
 
 }
             
