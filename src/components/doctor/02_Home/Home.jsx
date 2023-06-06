@@ -15,7 +15,7 @@ const Home = () => {
                 <section className="contenthm bg-transparent">
                     <center>
                         <div className="containerhm">
-                            <Link to="/upload" className="button">
+                            <Link to="/project" className="button">
                                 <div className="button__line" />
                                 <div className="button__line" />
                                 <span className="button__text">Get Report</span>
