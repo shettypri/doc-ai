@@ -4,8 +4,8 @@ import tempImage from "../../../assets/Doctor/Images/pexels-drew-rae-580679.jpg"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 import {Row, Col} from 'react-bootstrap/';
-import image1 from "../../../assets/Doctor/Images/Team/aimit-mr-s-ruban.png"
-
+// import image1 from "../../../assets/Doctor/Images/Team/aimit-mr-s-ruban.png"
+import image1 from "../../../assets/Doctor/Images/Team/team test.jpg";
 const About = () => {
   return (
     <>
