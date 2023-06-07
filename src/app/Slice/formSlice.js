@@ -4,7 +4,6 @@ import {db, storage} from "../../config/firebase-config.js";
 import {v4} from "uuid";
 import {ref} from "@firebase/storage";
 import {getDownloadURL, uploadBytes} from "firebase/storage";
-import { async } from "@firebase/util";
 
 export const getPublicationFormData = createAsyncThunk(
     "getPublicationFormData",

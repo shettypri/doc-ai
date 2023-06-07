@@ -9,51 +9,79 @@ import React, { useState } from "react";
 // import { useRouter } from "next/router";
 
 const UserLogin = () => {
-        const [phone, setPhone] = useState("");
-        const [otp, setOtp] = useState("");
-        const router = useRouteError();
+    const [phone, setPhone] = useState("");
+    const [otp, setOtp] = useState("");
+    const router = useRouteError();
 
-        const handleSubmit = () => {
-            if (phone === "" || otp === "") {
-                return;
-            }
+    const handleSubmit = () => {
+        if (phone === "" || otp === "") {
+            return;
+        }
 
-            // TODO: Send the phone number and otp to your backend server
+        // TODO: Send the phone number and otp to your backend server
 
-            router.push("/home");
-        };
-
-        return (
-            <div>
-                <section>
-                    <h1>Login</h1>
-
-                    <input
-                        type="text"
-                        placeholder="Phone Number"
-                        value={phone}
-                        onChange={(e) => setPhone(e.target.value)}
-                    />
-
-                    <button onClick={handleSubmit}>Get OTP</button>
-                </section>
-
-                <section style={{ display: phone ? "block" : "none" }}>
-                    <h1>Verify OTP</h1>
-
-                    <input
-                        type="text"
-                        placeholder="OTP"
-                        value={otp}
-                        onChange={(e) => setOtp(e.target.value)}
-                    />
-
-                    <button onClick={handleSubmit}>Verify</button>
-                </section>
-            </div>
-        );
+        router.push("/home");
     };
 
+    //     return (
+    //         <div>
+    //             <section>
+    //                 <h1>Login</h1>
+    //
+    //                 <input
+    //                     type="text"
+    //                     placeholder="Phone Number"
+    //                     value={phone}
+    //                     onChange={(e) => setPhone(e.target.value)}
+    //                 />
+    //
+    //                 <button onClick={handleSubmit}>Get OTP</button>
+    //             </section>
+    //
+    //             <section style={{ display: phone ? "block" : "none" }}>
+    //                 <h1>Verify OTP</h1>
+    //
+    //                 <input
+    //                     type="text"
+    //                     placeholder="OTP"
+    //                     value={otp}
+    //                     onChange={(e) => setOtp(e.target.value)}
+    //                 />
+    //
+    //                 <button onClick={handleSubmit}>Verify</button>
+    //             </section>
+    //         </div>
+    //     );
+    // };
+    return (
+        <>
+            <Card className='card'>
+                {/*<Formik initialValues={initialvalues} validationSchema={validation} onSubmit={onsubmit}>*/}
+                    {
+                        formik => {
+                            return <Form>
+                                <FormikControl
+                                    control='input'
+                                    type='tel'
+                                    label='Phone No.'
+                                    name='Phoneno'
+                                />
+                                <FormikControl
+                                    control='input'
+                                    type='password'
+                                    label='Password'
+                                    name='Password'
+                                />
+
+                                <button type='submit' disabled={formik.isValid}></button>
+                            </Form>
+                        }
+                    }
+                {/*</Formik>*/}
+            </Card>
+        </>
+    )
+}
 export default UserLogin;
 
 
@@ -79,31 +107,4 @@ export default UserLogin;
     // const onsubmit = values => {
     //     console.log('Form Data', values)
     // }
-    // return (
-    //     <>
-    //         <Card className='card'>
-    //             <Formik initialValues={initialvalues} validationSchema={validation} onSubmit={onsubmit}>
-    //                 {
-    //                     formik => {
-    //                         return <Form>
-    //                             <FormikControl 
-    //                             control='input'
-    //                             type='tel'
-    //                             label='Phone No.'
-    //                             name='Phoneno'
-    //                             />
-    //                             <FormikControl 
-    //                             control='input'
-    //                             type='password'
-    //                             label='Password'
-    //                             name='Password'
-    //                             />
 
-    //                             <button type='submit' disabled={formik.isValid}></button>
-    //                         </Form>
-    //                     }
-    //                 }
-    //             </Formik>
-    //         </Card>
-    //     </>
-    // )
