@@ -33,6 +33,7 @@ const Navbar = () => {
 
     },[])
 
+
     const handleLogout = async () => {
         sessionStorage.removeItem("key")
         console.log("logout clicked");

@@ -21,8 +21,8 @@ const FormPage = () => {
     const [description, setDescription] = useState("");
     const [uploadImage, setUploadImage] = useState("");
     const [authorName, setAuthorName] = useState("");
-    const [key_benefits, setkey_benefits] = useState("");
-    const [uploadPdf, setuploadPdf] = useState("");
+    // const [key_benefits, setkey_benefits] = useState("");
+    // const [uploadPdf, setuploadPdf] = useState("");
 
     const [authorsList, setAuthorsList] = useState([]);
     const [publicationUrl, setPublicationUrl] = useState([]);
@@ -31,15 +31,13 @@ const FormPage = () => {
     const [count, setCount] = React.useState(0);
 
     const folderImage = "Publications/image";
-    const folderPdf = "Publications/pdf";
+    // const folderPdf = "Publications/pdf";
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (
-            title.length == 0 ||
-            description.length == 0 ||
-            authorsList.length == 0 || publicationUrl.length == 0
+            title.length == 0 ||description.length == 0 ||authorsList.length == 0 || publicationUrl.length == 0 
 
         ) {
             setError(true);
