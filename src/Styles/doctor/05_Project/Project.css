@@ -1,4 +1,4 @@
-.projcont{
+.projcont {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,17 +6,69 @@
     padding-top: 200px;
 }
 
-.gridcard{
+.gridcard {
     width: 200px;
 }
 
-.project-main{
+.project-main {
     margin-top: 150px;
     /*border: 2px solid red;*/
 }
 
-.project-main h1{
-    color:  #FFFFFF !important;
+.project-main h1 {
+    color: #FFFFFF !important;
     font-weight: bolder;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+.Demo-project {
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+.Demo-project div{
+    /*border: 25px solid red;*/
+    display: flex;
+    flex-direction: column;
+    margin: 25px;
+
+}
+
+
+.demo-input {
+    border: 2px solid white;
+    padding: 20px;
+    margin: 25px 0px 30px 0px;
+}
+
+.demo-input input {
+    color: white;
+    width: 100%;
+
+}
+
+.demo-button {
+    position: absolute;
+    /*margin-top: 30px;*/
+    /*border: 2px solid red;*/
+    height: 75px;
+    width: 30%;
+}
+
+.demo-button button{
+    margin: 55px 0px 30px 0px;
+    width: 100%;
+    height: 100%;
+    background-color: greenyellow;
+    color: red;
+    font-family: "Arial Rounded MT Bold";
+    font-weight: bolder;
+    font-size: 35px;
+}
+
+.demo-answer h1{
+    margin-top: 135px !important;
+    color: white;
 }
