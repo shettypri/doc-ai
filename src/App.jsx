@@ -30,6 +30,7 @@ import Main2 from './components/doctor/00_Main/Main2'
 import Researchview from './components/doctor/03_Research/Researchview'
 import ResearchviewAll from './components/doctor/03_Research/ResearchviewAll'
 import UpdateForm from './components/admin/Account/Form/UpdateForm'
+import Contact from "./components/admin/Contact_request/Contact.jsx";
 
 
 
@@ -109,6 +110,7 @@ function App() {
                     <Route exact path='/Account' element={<Account />} />
                     <Route exact path='/Dashboard/Form' element={<FormPage />} />
                     <Route exact path='/Dashboard/researchForm' element={<ResearchForm />} />
+                    <Route exact path='/Dashboard/contact_request' element={<Contact />}/>
 
                     <Route exact path='/login' element={<Login />} />
                     <Route exact path='/register' element={<Register />} />

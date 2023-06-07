@@ -98,6 +98,7 @@ const formSlice = createSlice({
             gifError:false,
             gifIsUploaded:false,
             gifUrl:"",
+            isBothFileUploaded:false,
 
         },
         publicationUploadState :{
@@ -108,10 +109,6 @@ const formSlice = createSlice({
             isImageUploaded:false,
             imageUrl:"",
             imageError:false,
-           
-
-
-
         }
 
     },
@@ -163,6 +160,8 @@ const formSlice = createSlice({
                     state.researchUploadState.gifLoading=false;
                     state.researchUploadState.gifUrl=action.payload;
                     state.researchUploadState.gifIsUploaded=true;
+                    state.researchUploadState.isBothFileUploaded=true;
+
 
                 }
 
