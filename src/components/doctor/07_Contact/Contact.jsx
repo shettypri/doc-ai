@@ -23,15 +23,15 @@ const Contact = () => {
                             <p>abcd...</p>
                         </div>
                     </div>
-                    <div className="box">
+                    {/* <div className="box">
                         <div className="icon">
                             <FontAwesomeIcon icon={faPhoneVolume} size='lg'/>
                         </div>
                         <div className="text contact-details" >
                             <p>Phone No</p>
                             <p>507-475-6094</p>
-                        </div>
-                    </div>
+                        </div> */}
+                    {/* </div> */}
                     <div className="box">
                         <div className="icon">
                             <FontAwesomeIcon icon={faEnvelope} size='lg' />
