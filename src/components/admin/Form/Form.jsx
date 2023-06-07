@@ -1,5 +1,5 @@
-// import React from "react";
-import {useRef, useState} from "react";
+import React from "react";
+import { useRef, useState } from "react";
 import "../../../Styles/admin/Form/Form.css";
 import cancel from "../../../assets/Admin/Dash-board/close.png";
 import ImageUpload from "./ImageUpload";
@@ -8,10 +8,10 @@ import Error from "../../Alert/Error";
 import Alert from 'react-bootstrap/Alert';
 import Loading from "../../Alert/Loading";
 import Success from "../../Alert/Success";
-import {Form, useNavigate} from "react-router-dom";
+import { Form, useNavigate } from "react-router-dom";
 import success from "../../Alert/Success";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 
 const FormPage = () => {
@@ -26,7 +26,7 @@ const FormPage = () => {
     const [publicationUrl, setPublicationUrl] = useState([]);
 
     const [error, setError] = useState(false);
-
+    const [count, setCount] = React.useState(0);
 
     const folderImage = "Publications/image";
     const folderPdf = "Publications/pdf";
@@ -54,7 +54,7 @@ const FormPage = () => {
             // const pdfname = imageRef.current.files[0].name;
             // const isPdfUploaded = await ImageUpload(uploadPdf, pdfname, folderPdf);
 
-            if (isImageUploaded){// && isPdfUploaded) {
+            if (isImageUploaded) {// && isPdfUploaded) {
                 console.log("DOne");
 
                 const finalData = {
@@ -62,7 +62,7 @@ const FormPage = () => {
                     description: description,
                     imageUrl: isImageUploaded,
                     authors: authorsList,
-                    publicationUrl:publicationUrl
+                    publicationUrl: publicationUrl
                 };
                 console.log(finalData)
                 storeInDataBase(finalData, "Publications");
@@ -97,11 +97,11 @@ const FormPage = () => {
             <div className="main-form">
                 <div className={"Form-back-button"}>
                     <FontAwesomeIcon icon={faArrowLeft}
-                                     size="xl"
-                                     style={{color: "#ffffff",}}
-                                     onClick={() => {
-                                         navigate("/Dashboard")
-                                     }}
+                        size="xl"
+                        style={{ color: "#ffffff", }}
+                        onClick={() => {
+                            navigate("/Dashboard")
+                        }}
                     />
                 </div>
                 <div className="form-heading">
@@ -129,7 +129,7 @@ const FormPage = () => {
                         </div>
                         <div className="lable-message">
                             {error &&
-                            title.length <= 0 ?
+                                title.length <= 0 ?
                                 <label>Title can not be empty</label> : ""}
                         </div>
 
@@ -141,15 +141,16 @@ const FormPage = () => {
                                 required
                                 value={description}
                                 onChange={(e) => {
-                                    setDescription(e.target.value);
+                                    setDescription(e.target.value),setCount(e.target.value.length);
                                 }}
                             />
                         </div>
                         <div className="lable-message">
                             {error && description <= 0 ?
                                 <label>Description can not be empty</label> : ""}
-
+                        <span id="count_message">{count}/5000</span>
                         </div>
+                        
 
 
                         <div className="form-fields">
@@ -165,10 +166,17 @@ const FormPage = () => {
                                 required
                             />
                         </div>
+                        <div className="lable-message">
+                            {error && uploadImage.length <= 0 ?
+                                <lable>
+                                    Image cannot be empty
+                                </lable> : ""}
 
-
+                        </div>
+                    </div>
+                    <div className="form-right">
                         <div className="form-fields">
-                            <label>Enter the publication link</label>
+                            <label>Enter the publication link:</label>
                             <input
                                 type="text"
                                 value={publicationUrl}
@@ -177,9 +185,15 @@ const FormPage = () => {
                                 }}
                                 required
                             />
-                    </div>
+                        </div>
+                        <div className="lable-message">
+                            {error && publicationUrl.length <= 0 ?
+                                <lable>
+                                    Publication Link cannot be empty
+                                </lable> : ""}
 
-                    <div className="form-right">
+                        </div>
+
                         <div className="list-arrays">
                             <div className="array-box">
                                 {authorsList.map((val, index) => {
@@ -235,7 +249,6 @@ const FormPage = () => {
                         </div>
                     </div>
                 </div>
-            </div>
             </div>
         </>
     );

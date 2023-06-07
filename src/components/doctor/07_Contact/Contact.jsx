@@ -38,7 +38,7 @@ const Contact = () => {
                         </div>
                         <div className="text contact-details" >
                             <p>Email</p>
-                            <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=kavithapoojary48@gmail.com" target="_blank" style={{color:"white"}}>kavithapoojary48@gmail.com</a>
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=kavithapoojary48@gmail.com" target="_blank" style={{color:"white",textDecoration:"none"}}>kavithapoojary48@gmail.com</a>
                         </div>
                     </div>
                 </div>
