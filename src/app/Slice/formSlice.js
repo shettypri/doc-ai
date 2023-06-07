@@ -4,7 +4,6 @@ import {db, storage} from "../../config/firebase-config.js";
 import {v4} from "uuid";
 import {ref} from "@firebase/storage";
 import {getDownloadURL, uploadBytes} from "firebase/storage";
-import { async } from "@firebase/util";
 
 export const getPublicationFormData = createAsyncThunk(
     "getPublicationFormData",
@@ -59,23 +58,19 @@ export const researchGifUpload=createAsyncThunk(
     }
     
 )
-// export const researchLoading=createAsyncThunk(finalData,researchLoading) =>{
-//     console.log("result");
-//     const collectionList=collection(db,researchLoading)
-//     try{
-//         const dataStored=await addDoc(collectionList,finalData);
-//         console.log(dataStored);
-//     }
-//     catch(e){
-//         console.log(error);
-//     }
-// }
-
-
-
-
-
-
+export const researchDataIntoFirestore=createAsyncThunk(
+    "researchLoading",
+    async(finalData)=>{
+        const collectionList=collection(db,'Research11')
+        try{
+            const dataStored=await addDoc(collectionList,finalData);
+            return dataStored
+        }
+        catch(e){
+           return e
+        }
+    }
+)
 
 const formSlice = createSlice({
     name: "formSlice",
@@ -94,7 +89,7 @@ const formSlice = createSlice({
         researchUploadState :{
             loading:false,
             error:false,
-            isUploadezd:false,
+            isUploaded:false,
             imageLoading:false,
             isImageUploaded:false,
             imageUrl :"",
@@ -180,24 +175,24 @@ const formSlice = createSlice({
                 }
 
             )
-            // .addCase(
-            //     researchUpload.pending,(state)=>{
-            //     state.researchUploadState.loading=true;
+            .addCase(
+                researchDataIntoFirestore.pending,(state)=>{
+                state.researchUploadState.loading=true;
 
-            //     }
+                }
 
-            // )
-            // .addCase(
-            //     researchUpload.fulfilled,(state)=>{
-            //         state.researchUploadState.loading=false;
-            //         state.researchUploadState.isUploaded=true;
-            //     }
-            // )
-            // .addCase(researchUpload.rejected,(state,action)=>{
-            //     state.researchUploadState.loading=false;
-            //     state.researchUploadState.error=action.payload;
+            )
+            .addCase(
+                researchDataIntoFirestore.fulfilled,(state)=>{
+                    state.researchUploadState.loading=false;
+                    state.researchUploadState.isUploaded=true;
+                }
+            )
+            .addCase(researchDataIntoFirestore.rejected,(state,action)=>{
+                state.researchUploadState.loading=false;
+                state.researchUploadState.error=action.payload;
 
-            // })
+            })
 
 }
             

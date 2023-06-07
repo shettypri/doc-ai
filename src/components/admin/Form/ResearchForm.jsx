@@ -6,7 +6,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faArrowLeft, faCircleXmark} from '@fortawesome/free-solid-svg-icons'
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {researchGifUpload, reserachImageUpload} from "../../../App/Slice/formSlice.js";
+import {researchDataIntoFirestore, researchGifUpload, reserachImageUpload} from "../../../App/Slice/formSlice.js";
 import Loading from '../../Alert/Loading'
 
 const ResearchForm = () => {
@@ -18,6 +18,7 @@ const ResearchForm = () => {
     const [authorName, setAuthorName] = useState('Dr. ')
     const [urlgif, setUrlgif] = useState("")
     const [imageUrl, setImageUrl] = useState("");
+    const [researchPaperLink, setResearchPaperLink] = useState("")
     
     // const [Loading, setLoading] = useState("");
 
@@ -38,6 +39,8 @@ const ResearchForm = () => {
         if(researchUploadState.isImageUploaded){
             setImageUrl(researchUploadState.imageUrl)
         }
+
+        console.log("image uploaded");
     }, [researchUploadState.isImageUploaded]);
 
 
@@ -45,21 +48,25 @@ const ResearchForm = () => {
         if(researchUploadState.gifIsUploaded){
             setUrlgif(researchUploadState.gifUrl)
         }
+        console.log("gif uploaded");
     },[researchUploadState.gifIsUploaded]);
 
-
-    if(researchUploadState.gifIsUploaded && researchUploadState.isImageUploaded){
-        const finalData = {
-            "title": title,
-            "description": description,
-            "imageUrl": imageUrl,
-            "authors": authorsList,
-            "gifUrl":urlgif
-
+    // useEffect(() => {
+        if(researchUploadState.gifIsUploaded && researchUploadState.isImageUploaded){
+            const finalData = {
+                "title": title,
+                "description": description,
+                "imageUrl": imageUrl,
+                "authors": authorsList,
+                "gifUrl":urlgif,
+                "link":researchPaperLink
+            }
+            console.log("data before upload");
+            dispatch(researchDataIntoFirestore(finalData))
         }
-       
-   
-    }
+    // }, [researchUploadState.isImageUploaded,researchUploadState.gifIsUploaded])
+    
+    
   
 
     const handleSubmit = (e) => {
@@ -262,9 +269,9 @@ const ResearchForm = () => {
                                 Research Paper Link:
                             </label>
                             <input type="text"
-                                value={title}
+                                value={researchPaperLink}
                                 onChange={
-                                    (e) => { setTitle(e.target.value) }
+                                    (e) => { setResearchPaperLink(e.target.value) }
                                 }
                                 required />
                         </div>
