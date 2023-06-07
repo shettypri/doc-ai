@@ -76,7 +76,7 @@ const formSlice = createSlice({
         researchUploadState :{
             loading:false,
             error:false,
-            isUploaded:false,
+            isUploadezd:false,
             imageLoading:false,
             isImageUploaded:false,
             imageUrl :"",
