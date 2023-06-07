@@ -6,7 +6,8 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faArrowLeft, faCircleXmark} from '@fortawesome/free-solid-svg-icons'
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {reserachImageUpload} from "../../../App/Slice/formSlice.js";
+import {researchGifUpload, reserachImageUpload} from "../../../App/Slice/formSlice.js";
+import Loading from '../../Alert/Loading'
 
 const ResearchForm = () => {
 
@@ -17,12 +18,16 @@ const ResearchForm = () => {
     const [authorName, setAuthorName] = useState('Dr. ')
     const [urlgif, setUrlgif] = useState("")
     const [imageUrl, setImageUrl] = useState("");
+    
+    // const [Loading, setLoading] = useState("");
+
+    
 
     const [authorsList, setAuthorsList] = useState([])
 
     const [error, seterror] = useState(false)
     
-    const folderImage = 'Research/image'
+    // const folderImage = 'Research/image'
     
     const dispatch = useDispatch()
 
@@ -34,6 +39,28 @@ const ResearchForm = () => {
             setImageUrl(researchUploadState.imageUrl)
         }
     }, [researchUploadState.isImageUploaded]);
+
+
+    useEffect(()=>{
+        if(researchUploadState.gifIsUploaded){
+            setUrlgif(researchUploadState.gifUrl)
+        }
+    },[researchUploadState.gifIsUploaded]);
+
+
+    if(researchUploadState.gifIsUploaded && researchUploadState.isImageUploaded){
+        const finalData = {
+            "title": title,
+            "description": description,
+            "imageUrl": imageUrl,
+            "authors": authorsList,
+            "gifUrl":urlgif
+
+        }
+       
+   
+    }
+  
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -48,16 +75,11 @@ const ResearchForm = () => {
             // const fileName = imageRef.current.files[0].name
             // const gifFileName = gifref.current.files[0].name
             dispatch(reserachImageUpload(uploadImage))
-
-                const finalData = {
-                    "title": title,
-                    "description": description,
-                    "imageUrl": imageUrl,
-                    "authors": authorsList,
-                    "gifUrl":urlgif
-
-                }
-            console.log(finalData)
+            dispatch(researchGifUpload(uploadGif))
+            
+          
+        
+                
                 // storeInDataBase(finalData, 'Research')
             }
 

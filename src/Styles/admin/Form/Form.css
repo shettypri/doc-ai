@@ -9,6 +9,13 @@
 }
 .lable-message{
 	color: red;
+	position: relative;
+	left: 30px;
+}
+#count_message{
+	color: white;
+    float:right;
+	padding-right: 60px;
 }
 
 /* .lable-message label{
@@ -36,8 +43,8 @@
 
 .form-left{
 	/* border: 2px solid royalblue; */
-	padding: 5px;
-	margin: 10px;
+	/* padding: 5px; */
+	/* margin: 10px; */
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;

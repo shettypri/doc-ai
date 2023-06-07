@@ -23,22 +23,22 @@ const Contact = () => {
                             <p>abcd...</p>
                         </div>
                     </div>
-                    <div className="box">
+                    {/* <div className="box">
                         <div className="icon">
                             <FontAwesomeIcon icon={faPhoneVolume} size='lg'/>
                         </div>
                         <div className="text contact-details" >
                             <p>Phone No</p>
                             <p>507-475-6094</p>
-                        </div>
-                    </div>
+                        </div> */}
+                    {/* </div> */}
                     <div className="box">
                         <div className="icon">
                             <FontAwesomeIcon icon={faEnvelope} size='lg' />
                         </div>
                         <div className="text contact-details" >
                             <p>Email</p>
-                            <p>kavithapoojary48@gmail.com</p>
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=kavithapoojary48@gmail.com" target="_blank" style={{color:"white",textDecoration:"none"}}>kavithapoojary48@gmail.com</a>
                         </div>
                     </div>
                 </div>

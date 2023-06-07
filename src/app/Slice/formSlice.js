@@ -1,5 +1,5 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {collection, getDocs} from "firebase/firestore";
+import {addDoc, collection, getDocs} from "firebase/firestore";
 import {db, storage} from "../../config/firebase-config.js";
 import {v4} from "uuid";
 import {ref} from "@firebase/storage";
@@ -28,8 +28,6 @@ export const reserachImageUpload =createAsyncThunk(
     async(imageFile)=>{
         const textV4 = v4()
         const folderRef = ref(storage,`Research/Image/${imageFile.name + textV4}`)
-
-
         try {
             await uploadBytes(folderRef, imageFile)
             const getUrlImage = await getDownloadURL(ref(storage,`Research/Image/${imageFile.name + textV4}`))
@@ -46,9 +44,13 @@ export const researchGifUpload=createAsyncThunk(
         const folderRef=ref(storage,`Research/Gif/${gifFile.name+textV4}`)
 
         try{
+            await uploadBytes(folderRef,gifFile)
+            const geturlGif=await getDownloadURL(ref(storage,`Research/Gif/${gifFile.name+textV4}`))
+            return geturlGif
 
         }
         catch(e){
+            return e
 
         }
 
@@ -56,6 +58,22 @@ export const researchGifUpload=createAsyncThunk(
     }
     
 )
+// export const researchLoading=createAsyncThunk(finalData,researchLoading) =>{
+//     console.log("result");
+//     const collectionList=collection(db,researchLoading)
+//     try{
+//         const dataStored=await addDoc(collectionList,finalData);
+//         console.log(dataStored);
+//     }
+//     catch(e){
+//         console.log(error);
+//     }
+// }
+
+
+
+
+
 
 
 const formSlice = createSlice({
@@ -85,19 +103,33 @@ const formSlice = createSlice({
             gifIsUploaded:false,
             gifUrl:"",
 
+        },
+        publicationUploadState :{
+            loading:false,
+            error:false,
+            isUploaded:false,
+            imageLoading:false,
+            isImageUploaded:false,
+            imageUrl:"",
+            imageError:false,
+           
+
+
+
         }
+
     },
     extraReducers :(builder)=>{
         builder.addCase(
             getPublicationFormData.pending,(state) =>{
-                state.publication.loading=true,
-                state.publication.isResult=true
-
+                state.publication.loading=true;
+                
             }
         )
         .addCase(
             getPublicationFormData.fulfilled,(state,action) =>{
                 state.publication.loading=false
+                state.publication.isResult=true
                 state.publication.data =(action.payload)
             }
         )
@@ -147,6 +179,24 @@ const formSlice = createSlice({
                 }
 
             )
+            // .addCase(
+            //     researchUpload.pending,(state)=>{
+            //     state.researchUploadState.loading=true;
+
+            //     }
+
+            // )
+            // .addCase(
+            //     researchUpload.fulfilled,(state)=>{
+            //         state.researchUploadState.loading=false;
+            //         state.researchUploadState.isUploaded=true;
+            //     }
+            // )
+            // .addCase(researchUpload.rejected,(state,action)=>{
+            //     state.researchUploadState.loading=false;
+            //     state.researchUploadState.error=action.payload;
+
+            // })
 
 }
             
