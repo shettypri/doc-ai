@@ -85,12 +85,7 @@ const FormPage = () => {
             ...authorsList.slice(index + 1, authorsList.length),
         ]);
     };
-    const removeKeyBenefits = (index) => {
-        setKeyBenefitsList([
-            ...keyBenefitsList.slice(0, index),
-            ...keyBenefitsList.slice(index + 1, keyBenefitsList.length),
-        ]);
-    };
+
 
     const imageRef = useRef();
     const navigate = useNavigate()
