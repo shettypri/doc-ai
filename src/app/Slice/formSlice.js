@@ -29,8 +29,6 @@ export const reserachImageUpload =createAsyncThunk(
     async(imageFile)=>{
         const textV4 = v4()
         const folderRef = ref(storage,`Research/Image/${imageFile.name + textV4}`)
-
-
         try {
             await uploadBytes(folderRef, imageFile)
             const getUrlImage = await getDownloadURL(ref(storage,`Research/Image/${imageFile.name + textV4}`))
@@ -125,14 +123,14 @@ const formSlice = createSlice({
     extraReducers :(builder)=>{
         builder.addCase(
             getPublicationFormData.pending,(state) =>{
-                state.publication.loading=true,
-                state.publication.isResult=true
-
+                state.publication.loading=true;
+                
             }
         )
         .addCase(
             getPublicationFormData.fulfilled,(state,action) =>{
                 state.publication.loading=false
+                state.publication.isResult=true
                 state.publication.data =(action.payload)
             }
         )
