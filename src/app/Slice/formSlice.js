@@ -61,17 +61,17 @@ export const researchGifUpload=createAsyncThunk(
     }
     
 )
-export const researchLoading=createAsyncThunk(finalData,researchLoading) =>{
-    console.log("result");
-    const collectionList=collection(db,researchLoading)
-    try{
-        const dataStored=await addDoc(collectionList,finalData);
-        console.log(dataStored);
-    }
-    catch(e){
-        console.log(error);
-    }
-}
+// export const researchLoading=createAsyncThunk(finalData,researchLoading) =>{
+//     console.log("result");
+//     const collectionList=collection(db,researchLoading)
+//     try{
+//         const dataStored=await addDoc(collectionList,finalData);
+//         console.log(dataStored);
+//     }
+//     catch(e){
+//         console.log(error);
+//     }
+// }
 
 
 
@@ -106,7 +106,21 @@ const formSlice = createSlice({
             gifIsUploaded:false,
             gifUrl:"",
 
+        },
+        publicationUploadState :{
+            loading:false,
+            error:false,
+            isUploaded:false,
+            imageLoading:false,
+            isImageUploaded:false,
+            imageUrl:"",
+            imageError:false,
+           
+
+
+
         }
+
     },
     extraReducers :(builder)=>{
         builder.addCase(
@@ -168,24 +182,24 @@ const formSlice = createSlice({
                 }
 
             )
-            .addCase(
-                researchUpload.pending,(state)=>{
-                state.researchUploadState.loading=true;
+            // .addCase(
+            //     researchUpload.pending,(state)=>{
+            //     state.researchUploadState.loading=true;
 
-                }
+            //     }
 
-            )
-            .addCase(
-                researchUpload.fulfilled,(state)=>{
-                    state.researchUploadState.loading=false;
-                    state.researchUploadState.isUploaded=true;
-                }
-            )
-            .addCase(researchUpload.rejected,(state,action)=>{
-                state.researchUploadState.loading=false;
-                state.researchUploadState.error=action.payload;
+            // )
+            // .addCase(
+            //     researchUpload.fulfilled,(state)=>{
+            //         state.researchUploadState.loading=false;
+            //         state.researchUploadState.isUploaded=true;
+            //     }
+            // )
+            // .addCase(researchUpload.rejected,(state,action)=>{
+            //     state.researchUploadState.loading=false;
+            //     state.researchUploadState.error=action.payload;
 
-            })
+            // })
 
 }
             
