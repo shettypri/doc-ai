@@ -43,8 +43,8 @@
 
 .form-left{
 	/* border: 2px solid royalblue; */
-	/* padding: 5px; */
-	/* margin: 10px; */
+	padding: 0px;
+	margin: 0px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;

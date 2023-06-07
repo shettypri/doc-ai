@@ -12,6 +12,8 @@ import { Form, useNavigate } from "react-router-dom";
 import success from "../../Alert/Success";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
 
 const FormPage = () => {
@@ -139,6 +141,7 @@ const FormPage = () => {
                             <textarea
                                 rows={6}
                                 required
+                                maxLength={5000}
                                 value={description}
                                 onChange={(e) => {
                                     setDescription(e.target.value),setCount(e.target.value.length);
