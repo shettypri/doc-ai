@@ -83,8 +83,6 @@ const ResearchForm = () => {
                 // storeInDataBase(finalData, 'Research')
             }
 
-
-
     }
     const addAuthor = () => {
         if (authorName != "Dr. ") {

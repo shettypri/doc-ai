@@ -41,7 +41,7 @@ function App() {
         setLoading(true)
         setTimeout(() => {
             setLoading(false)
-        }, 5000)
+        }, 0)
     }, [])
     const navbarList = ["Research", "Publication", "Projects", "About-Us", "Contact-Us"]
     const dispatch = useDispatch()
