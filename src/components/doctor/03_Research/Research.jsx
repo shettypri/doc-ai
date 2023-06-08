@@ -2,17 +2,19 @@ import image1 from "../../../assets/Doctor/Images/rch1.png"
 import image2 from "../../../assets/Doctor/Images/pexels-drew-rae-580679.jpg"
 import "../../../Styles/doctor/03_Research/Research.css"
 import getCardData from "../Global/getCardData"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleArrowRight, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import Button from 'react-bootstrap/Button';
+import React from "react"
 
 const Research = () => {
+    const navigate = useNavigate()
     const navigateRchView = () => {
-        navigate("Researchview")
+        navigate("/Researchview")
     }
     const navigateRchViewAll = () => {
-        navigate("ResearchviewAll")
+        navigate("/ResearchviewAll")
     }
     const screenArray = [
         [
@@ -57,7 +59,10 @@ const Research = () => {
                                                 }
                                                 <div className="btncont bg-transparent">
                                                     <div className="p-2 bg-transparent">
-                                                        <Link onClick={navigateRchView} className="container-button">
+                                                        <Link  className="container-button" 
+                                                        onClick={()=>{
+                                                            navigate("/Researchview")
+                                                        }}>
                                                             <FontAwesomeIcon icon={faCircleArrowRight} size="2xl" style={{ color: "#ffffff", }} />
                                                         </Link>
                                                     </div>

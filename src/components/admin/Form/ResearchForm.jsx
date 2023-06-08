@@ -6,7 +6,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faArrowLeft, faCircleXmark} from '@fortawesome/free-solid-svg-icons'
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {researchGifUpload, reserachImageUpload} from "../../../App/Slice/formSlice.js";
+import {researchDataIntoFirestore, researchGifUpload, reserachImageUpload} from "../../../App/Slice/formSlice.js";
 import Loading from '../../Alert/Loading'
 
 const ResearchForm = () => {
@@ -18,70 +18,71 @@ const ResearchForm = () => {
     const [authorName, setAuthorName] = useState('Dr. ')
     const [urlgif, setUrlgif] = useState("")
     const [imageUrl, setImageUrl] = useState("");
-    
-    // const [Loading, setLoading] = useState("");
-
-    
+    const [researchPaperLink, setResearchPaperLink] = useState("")
+    const [finalPublicationData, setFinalPublicationData] = useState({
+        title: "",
+        description: "",
+        imageUrl: "",
+        gifUrl: "",
+        researcherList: "",
+        researchPaperLink: "",
+    });
 
     const [authorsList, setAuthorsList] = useState([])
 
     const [error, seterror] = useState(false)
-    
+
     // const folderImage = 'Research/image'
-    
+
     const dispatch = useDispatch()
 
     const {researchUploadState} = useSelector(state =>
-    state.formReducer)
+        state.formReducer)
 
     useEffect(() => {
-        if(researchUploadState.isImageUploaded){
+        if (researchUploadState.isImageUploaded) {
             setImageUrl(researchUploadState.imageUrl)
         }
+        console.log("image uploaded");
     }, [researchUploadState.isImageUploaded]);
 
 
-    useEffect(()=>{
-        if(researchUploadState.gifIsUploaded){
+    useEffect(() => {
+        if (researchUploadState.gifIsUploaded) {
             setUrlgif(researchUploadState.gifUrl)
         }
-    },[researchUploadState.gifIsUploaded]);
+        console.log("gif uploaded");
+    }, [researchUploadState.gifIsUploaded]);
 
+    useEffect(() => {
+        if (researchUploadState.isBothFileUploaded) {
 
-    if(researchUploadState.gifIsUploaded && researchUploadState.isImageUploaded){
-        const finalData = {
+            console.log("trigerrr............... ")
+            dispatch(researchDataIntoFirestore(publicationData))
+        }
+    }, [researchUploadState.isBothFileUploaded]);
+
+    if(researchUploadState.gifIsUploaded && researchUploadState.isImageUploaded) {
+        var publicationData  = {
             "title": title,
             "description": description,
             "imageUrl": imageUrl,
             "authors": authorsList,
-            "gifUrl":urlgif
-
+            "gifUrl": urlgif,
+            "link": researchPaperLink
         }
-       
-   
     }
-  
-
     const handleSubmit = (e) => {
         e.preventDefault();
 
         if (
-            title.length == 0 || description.length == 0 || authorsList.length == 0 || imageRef.length==0 || gifref.length==0
+            title.length == 0 || description.length == 0 || authorsList.length == 0 || imageRef.length == 0 || gifref.length == 0
         ) {
             seterror(true);
-
-        }
-        else {
-            // const fileName = imageRef.current.files[0].name
-            // const gifFileName = gifref.current.files[0].name
+        } else {
             dispatch(reserachImageUpload(uploadImage))
             dispatch(researchGifUpload(uploadGif))
-            
-          
-        
-                
-                // storeInDataBase(finalData, 'Research')
-            }
+        }
 
     }
     const addAuthor = () => {
@@ -101,22 +102,22 @@ const ResearchForm = () => {
     }
 
     const imageRef = useRef()
-    const gifref= useRef()
+    const gifref = useRef()
 
     const navigate = useNavigate()
     return (
         <>
             <div className="main-form">
 
-                    <div className={"Form-back-button"}>
-                        <FontAwesomeIcon icon={faArrowLeft}
-                                         size="xl"
-                                         style={{color: "#ffffff",cursor:'pointer'}}
-                        onClick={()=>{
-                            navigate("/Dashboard")
-                        }}
-                        />
-                    </div>
+                <div className={"Form-back-button"}>
+                    <FontAwesomeIcon icon={faArrowLeft}
+                                     size="xl"
+                                     style={{color: "#ffffff", cursor: 'pointer'}}
+                                     onClick={() => {
+                                         navigate("/Dashboard")
+                                     }}
+                    />
+                </div>
                 <div className="form-heading">
                     <p>Research</p>
                 </div>
@@ -124,22 +125,23 @@ const ResearchForm = () => {
                 <div className="font-content">
                     <div className="form-left">
                         <div className="form-fields">
-                            <label >
+                            <label>
                                 Research Title:
                             </label>
                             <input type="text"
-                                value={title}
-                                onChange={
-                                    (e) => { setTitle(e.target.value) }
-                                }
-                                required />
+                                   value={title}
+                                   onChange={
+                                       (e) => {
+                                           setTitle(e.target.value)
+                                       }
+                                   }
+                                   required/>
                         </div>
                         <div className="messages">
                             {error && title.length <= 0 ?
                                 <label>Title can not be empty</label> : ""}
                         </div>
 
-                        
 
                         <div className="form-fields">
                             <label>
@@ -160,10 +162,9 @@ const ResearchForm = () => {
                             />
                         </div>
                         <div className="messages">
-                            {error && uploadImage<=0?
+                            {error && uploadImage <= 0 ?
                                 <label>Please upload images</label> : ""}
                         </div>
-
 
 
                         <div className="form-fields">
@@ -174,10 +175,10 @@ const ResearchForm = () => {
                                 type="file"
                                 accept=".gif"
                                 ref={gifref}
-                            
+
                                 onChange={
                                     (e) => {
-                                    setuploadGif(e.target.files[0])
+                                        setuploadGif(e.target.files[0])
 
                                     }
                                 }
@@ -185,14 +186,14 @@ const ResearchForm = () => {
                             />
                         </div>
                         <div className="messages">
-                            {error && uploadGif<=0?
+                            {error && uploadGif <= 0 ?
                                 <label>Please upload gif </label> : ""}
                         </div>
-                     </div>
+                    </div>
 
                     <div className="form-right">
                         <div className="form-fields">
-                            <label >
+                            <label>
                                 Research Description:
                             </label>
 
@@ -200,7 +201,7 @@ const ResearchForm = () => {
                                 rows={6}
                                 required
                                 value={description}
-                                onChange={  
+                                onChange={
                                     (e) => {
                                         setDescription(e.target.value)
                                     }
@@ -221,9 +222,9 @@ const ResearchForm = () => {
                                                 <div className="added-array" key={index}>
                                                     <p>{val}</p>
                                                     <FontAwesomeIcon icon={faCircleXmark} size="xl"
-                                                                       style={{color: "#ff0000", cursor:"pointer"}}
-                                                        height={"25px"} width="25px"
-                                                        onClick={() => removeAuthor(index)}
+                                                                     style={{color: "#ff0000", cursor: "pointer"}}
+                                                                     height={"25px"} width="25px"
+                                                                     onClick={() => removeAuthor(index)}
                                                     />
                                                 </div>
                                             </>
@@ -233,19 +234,21 @@ const ResearchForm = () => {
                             </div>
                         </div>
                         <div className="form-fields">
-                            <label >
+                            <label>
                                 Researchers:
                             </label>
 
                             <div className="input-container">
 
                                 <input type="text"
-                                    value={authorName}
-                                    onChange={
-                                        (e) => { setAuthorName(e.target.value) }
-                                    }
-                                    required />
-                                <button onClick={addAuthor} style={{borderRadius:"5px"}}>
+                                       value={authorName}
+                                       onChange={
+                                           (e) => {
+                                               setAuthorName(e.target.value)
+                                           }
+                                       }
+                                       required/>
+                                <button onClick={addAuthor} style={{borderRadius: "5px"}}>
                                     Add
                                 </button>
                             </div>
@@ -258,15 +261,17 @@ const ResearchForm = () => {
                         </div>
 
                         <div className="form-fields">
-                            <label >
+                            <label>
                                 Research Paper Link:
                             </label>
                             <input type="text"
-                                value={title}
-                                onChange={
-                                    (e) => { setTitle(e.target.value) }
-                                }
-                                required />
+                                   value={researchPaperLink}
+                                   onChange={
+                                       (e) => {
+                                           setResearchPaperLink(e.target.value)
+                                       }
+                                   }
+                                   required/>
                         </div>
                         <div className="messages">
                             {error && title.length <= 0 ?
@@ -274,10 +279,9 @@ const ResearchForm = () => {
                         </div>
 
 
-
                         <div className="form-button">
                             <button className="formSubmit"
-                                onClick={handleSubmit}
+                                    onClick={handleSubmit}
                             >
                                 Submit
                             </button>
