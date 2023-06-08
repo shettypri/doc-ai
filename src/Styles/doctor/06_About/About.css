@@ -334,4 +334,11 @@ img {
     .our-team .title:after{
         top: -83px;
     }
+    .hero-image {
+        width: fit-content;
+        right: 70px;
+        position: relative;
+    }
+
+
 }
