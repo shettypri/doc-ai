@@ -5,29 +5,24 @@ import {useState} from "react";
 import axios from "axios";
 
 const Project = () => {
-    // const openInServer = ()=>{
-    //     console.log("Button Clicked")
-    //     // window.open("http://172.16.20.115:8501")
-    //     window.open("http://172.16.4.31:8501")
-    // }
-    const [demoImage, setDemoImage] = useState(null);
 
-    const [demoAnswer, setDemoAnswer] = useState("Demo answer");
+    const [demoImage, setDemoImage] = useState(null);
+    const [demoAnswer, setDemoAnswer] = useState("");
 
     const handleImage = async ()=>{
-        console.log(demoImage)
-
-        const data = {
-            name: 'John Doe',
-            age: 30,
-            email: 'johndoe@example.com'
-        };
+        const formData = new FormData();
+        formData.append('image', demoImage);
 
         try {
-            const response = await axios.post('http://localhost:8888/notebooks/example.ipynb', data);
-            console.log(response.data); // Handle the response from the notebook if needed
+            const response = await axios.post('http://127.0.0.1:8500/members',   formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            })
+            console.log(response)
+            setDemoAnswer(response.data); // Handle the response from the notebook if needed
         } catch (error) {
-            console.error(error);
+            console.log("error")
         }
 
 

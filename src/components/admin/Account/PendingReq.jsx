@@ -60,7 +60,7 @@ const PendingReq = () => {
                             <tbody>
                                 {pendingRequestState.data.map((doctor,index) =>{
                                     return(
-                                        <tr key={index}>
+                                        <tr key={index} >
                                             <td>{i++}</td>
                                             <td>
                                                 Dr {`${doctor.firstName} ${doctor.lastName}`}
