@@ -1,5 +1,4 @@
-
-.contpubview{
+.contpubview {
     margin-top: 100px;
     top: 50%;
     position: relative;
@@ -8,31 +7,36 @@
     float: left;
 }
 
-.contpubview svg{
+.contpubview svg {
     cursor: pointer;
 }
-.imgcontainer{
-    width: 100%;                     ;
+
+.imgcontainer {
+    width: 100%;
+    ;
 }
 
-img{
+img {
     width: 100%;
     height: 300px;
 }
-.pubtitle h2{
+
+.pubtitle h2 {
     margin-bottom: 5px;
     color: white;
     font-family: 'Roboto Serif', serif;
     text-align: justify;
 }
-.pubtitle{
+
+.pubtitle {
     color: white;
     font-size: 55px;
     /* text-align: center; */
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 
 }
-.pubtitle p{
+
+.pubtitle p {
     font-size: 14px;
     font-weight: lighter;
     line-height: 1.5;
@@ -41,13 +45,15 @@ img{
     text-align: justify;
     color: white;
 }
-.pubauthor-content p{
+
+.pubauthor-content p {
     font-weight: bolder;
     margin-bottom: 5px;
     color: white;
     font-family: 'Roboto Condensed', sans-serif;
     text-align: justify;
 }
+
 .pubauthor {
     text-align: center;
     color: rgb(255, 255, 255);
@@ -57,24 +63,30 @@ img{
     font-family: 'Roboto Serif', serif;
 
 }
-.pubabstract{
+
+.pubabstract {
     text-align: center;
     margin-top: 35px;
     width: 800px;
 }
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,500&display=swap');
-.pubabstract h1{
+
+.pubabstract h1 {
     font-family: 'Roboto Serif', serif;
     color: white;
 }
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
-.pubabstract-content p{
+
+.pubabstract-content p {
     text-align: justify;
-    color:white;
+    color: white;
     font-size: 15px;
     font-family: 'Roboto Condensed', sans-serif;
 }
-.pubauthor-content h3{
+
+.pubauthor-content h3 {
     font-size: 25px;
     font-weight: bolder;
     margin-bottom: 5px;
@@ -82,22 +94,82 @@ img{
     font-family: Arial, Helvetica, sans-serif;
     text-align: justify;
 }
-.downpdf{
+
+.downpdf {
     padding-top: 50px;
     left: 0px;
     position: relative;
 }
-.downpdf button{
+
+.downpdf button {
     width: 200px;
     background: transparent;
     cursor: unset;
     border: none;
     left: 90px;
 }
-.downpdf button span{
+
+.downpdf button span {
     cursor: pointer;
     color: tomato;
-    border-bottom: 1px solid #ffffff;
+    /* border-bottom: 1px solid #ffffff; */
     padding-bottom: 3px
 }
 
+.downpdf button span:hover {
+    border-bottom: 1px solid #ffffff;
+    transform: scaleX(1);
+    transform-origin: right;
+    transition: transform 0.25s ease-out;
+}
+
+/* Mobile view */
+@media only screen and (min-device-width: 320px) and (max-width: 480px) {
+    .pubtitle{
+        width: 100vw;
+    }
+    .pubimg{
+        position: relative;
+        width: fit-content;
+    }
+    .pubauthor{
+        height: auto;
+        /* width: fit-content; */
+    }
+    .downpdf button{
+        height: 100%;
+        width: 100%;
+    }
+    .pubabstract{
+       height: fit-content;
+       width: fit-content;
+    }
+}
+
+/* Tablet view */
+@media only screen and (max-device-width: 768px){
+    .pubtitle{
+        width: fit-content;
+    }
+    .pubimg{
+        position: relative;
+        width: fit-content;
+    }
+    .pubauthor{
+        width: fit-content;
+    }
+    .downpdf button{
+       height: max-content;
+       left: 15px;
+    }
+    .pubabstract{
+       height: fit-content;
+       width: fit-content;
+    }
+}
+
+@media only screen and (max-device-width: 1024px){
+    .pubauthor{
+        width: fit-content;
+    }
+}

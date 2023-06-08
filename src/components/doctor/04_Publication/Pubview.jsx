@@ -21,13 +21,13 @@ const Pubview = () => {
                     <Col sm={1} style={{ float: "left" }}>
                         <FontAwesomeIcon icon={faArrowLeft} size="xl" style={{ color: "white", }} onClick={navigateBack} />
                     </Col>
-                    <Col sm={1} lg={4}>
+                    <Col sm={6} xs={9} md={2} lg={4} className='pubimg'>
                         {/* <Card className='imgcontainer bg-transparent' style={{justifyContent:"center"}}> */}
                         <img src={image1} alt="..." />
                         {/* </Card> */}
 
                     </Col>
-                    <Col sm={1} xs={1} lg={1}>
+                    <Col sm={1} xs={1} md={12} lg={1}>
                         <Card className='pubtitle bg-transparent'>
                             <h2><b>Immune phenotypes classified by deep learning-based H&amp;E tissue analyzer
                                 demonstrate distinct immune landscape and transcriptomic features in ovarian cancer</b></h2>
@@ -36,7 +36,7 @@ const Pubview = () => {
                     </Col>
                 </Row>
                 <Row>
-                    <Col sm={1} lg={4}>
+                    <Col sm={12} xs={4} md={4} lg={4}>
                         <Card className='pubauthor bg-transparent'>
                             <h1>Author Details</h1>
                             <div className="pubauthor-content">
@@ -52,7 +52,7 @@ const Pubview = () => {
                         </div>
 
                     </Col>
-                    <Col sm={1}>
+                    <Col sm={1} md={8}>
                         <Card className='pubabstract bg-transparent'>
                             <h1>Abstract</h1>
                             <div className="pubabstract-content">
