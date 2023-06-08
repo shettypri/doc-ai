@@ -41,3 +41,35 @@
     text-align: center;
     font-family: 'Bruno Ace SC', cursive;
 }
+@media only screen and (min-device-width: 320px) and (max-width: 480px) {
+    .pubbackarrow{
+        position: relative;
+        left: 100px;
+    }
+    .publicationAll-heading{
+        margin-top: 100px;
+    }
+}
+
+@media only screen and (max-device-width: 768px){
+    .pubbackarrow{
+        position: relative;
+        left: 100px;
+    }
+    .publicationAll-heading{
+        margin-top: 100px;
+    }
+}
+@media only screen and (max-device-width: 1024px){
+    .pubbackarrow{
+        position: relative;
+        left: 100px;
+    }
+    .publicationAll-heading{
+        margin-top: 100px;
+    }
+    .publicationAll-card{
+        width:fit-content;
+        
+    }
+}
