@@ -33,8 +33,8 @@ const ResearchviewAll = () => {
 
                 <div className="researchAll-content">
                     {
-                        (rchlication.isResult) &&
-                        (rchlication.data.map((contentValue, index) => {
+                        (research.isResult) &&
+                        (research.data.map((contentValue, index) => {
                             return (
                                 <div className="researchAll-card" key={index} onClick={navigateResearchView}>
                                     <Row lg={4} sm={2} md={4}>

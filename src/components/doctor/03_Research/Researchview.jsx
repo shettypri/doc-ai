@@ -18,10 +18,10 @@ const Researchview = () => {
                     <Col sm={1} style={{ float: "left" }}>
                         <Link to={"/"}><FontAwesomeIcon icon={faArrowLeft} size="xl" style={{ color: "white", }} /></Link>
                     </Col>
-                    <Col sm={1} lg={4}>
+                    <Col sm={4} xs={6} md={1} lg={2} className='rchimg'>
                         <img src={image1} alt="..." />
                     </Col>
-                    <Col sm={1} xs={1} lg={1}>
+                    <Col sm={1} xs={1} md={1} lg={7}>
                         <Card className='rchtitle bg-transparent'>
                             <h2><b>Immune phenotypes classified by deep learning-based H&amp;E tissue analyzer
                                 demonstrate distinct immune landscape and transcriptomic features in ovarian cancer</b></h2>
@@ -30,7 +30,7 @@ const Researchview = () => {
                     </Col>
                 </Row>
                 <Row>
-                    <Col sm={1} lg={4}>
+                    <Col sm={1} md={7} lg={4}>
                         <Card className='rchauthor bg-transparent'>
                             <h1>Author Details</h1>
                             <div className="rchauthor-content">
@@ -41,7 +41,7 @@ const Researchview = () => {
                         </Card>
 
                     </Col>
-                    <Col sm={1}>
+                    <Col sm={1} md={4}>
                         <Card className='rchabstract bg-transparent'>
                             <h1>Abstract</h1>
                             <div className="rchabstract-content">
