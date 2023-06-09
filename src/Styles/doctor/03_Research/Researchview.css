@@ -78,5 +78,88 @@ img{
     font-family: Arial, Helvetica, sans-serif;
     text-align: justify;
 }
+@media only screen and (min-device-width: 320px) and (max-width: 480px) {
+    .rchtitle{
+       
+        width:100vw;
+    }
+    
+    .rchimg{
+        
+        position: relative;
+        width: fit-content;
+    }
+    .rchauthor-content p{
+    width: fit-content;
+   
+   }
+   .rchauthor{
+    height: auto;
+    width: fit-content;
+   }
+   .rchabstract{
+    height: fit-content;
+    width: fit-content;
+   }
+}
+
+@media only screen and (max-device-width: 768px){
+    .rchtitle{
+       
+        width:90vw;
+    }
+    
+    .rchimg{
+        
+        position: relative;
+        width: fit-content;
+    }
+    .rchauthor-content p{
+    width: fit-content;
+   
+   }
+   .rchauthor{
+    height: auto;
+    width: fit-content;
+   }
+   .rchabstract{
+    height: fit-content;
+    /* width: fit-content; */
+   }
+}
+@media only screen and (max-device-width: 1024px){
+    .rchtitle{
+       
+        width:100vw;
+    }
+    
+    .rchimg{
+        
+        position: relative;
+        width: fit-content;
+    }
+    .rchauthor-content p{
+    width: fit-content;
+   
+   }
+   .rchauthor{
+    height: auto;
+    width: fit-content;
+   }
+   .rchabstract{
+    height: fit-content;
+    /* width: fit-content; */
+   }   
+
+
+
+
+
+
+
+}
+
+    
+
 
 

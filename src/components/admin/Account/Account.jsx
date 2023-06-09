@@ -61,7 +61,7 @@ const Account = () => {
                      <Loading/>
                 }
                 </div>
-                ,
+
                 {
                     (acceptedAllDoctorList.error || deleteListDoctorById.error) &&
                     <h1>

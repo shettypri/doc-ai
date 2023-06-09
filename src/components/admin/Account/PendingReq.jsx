@@ -48,7 +48,7 @@ const PendingReq = () => {
                     <Card className='card'>
                         <table>
                             <thead>
-                            <tr>
+                            <tr style={{textAlign:"center"}}>
                                 <th>Sl.no</th>
                                 <th>Name</th>
                                 <th>Phone No</th>
@@ -60,7 +60,7 @@ const PendingReq = () => {
                             <tbody>
                                 {pendingRequestState.data.map((doctor,index) =>{
                                     return(
-                                        <tr key={index}>
+                                        <tr key={index} >
                                             <td>{i++}</td>
                                             <td>
                                                 Dr {`${doctor.firstName} ${doctor.lastName}`}
