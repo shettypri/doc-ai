@@ -1,13 +1,11 @@
 import {useEffect, useRef, useState} from 'react'
-import ImageUpload from './ImageUpload'
-import storeInDataBase from './storeInDataBase'
 import "../../../Styles/admin/Form/Research.css"
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faArrowLeft, faCircleXmark} from '@fortawesome/free-solid-svg-icons'
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {researchDataIntoFirestore, researchGifUpload, reserachImageUpload} from "../../../App/Slice/formSlice.js";
-import Loading from '../../Alert/Loading'
+
 
 const ResearchForm = () => {
 

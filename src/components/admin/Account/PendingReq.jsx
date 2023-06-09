@@ -48,7 +48,7 @@ const PendingReq = () => {
                     <Card className='card'>
                         <table>
                             <thead>
-                            <tr>
+                            <tr style={{textAlign:"center"}}>
                                 <th>Sl.no</th>
                                 <th>Name</th>
                                 <th>Phone No</th>
