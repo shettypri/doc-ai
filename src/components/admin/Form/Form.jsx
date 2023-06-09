@@ -12,15 +12,19 @@ import { Form, useNavigate } from "react-router-dom";
 import success from "../../Alert/Success";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
+import { Modal, Button } from 'react-bootstrap/';
 
 
 const FormPage = () => {
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [uploadImage, setUploadImage] = useState("");
     const [authorName, setAuthorName] = useState("");
+    const [authorDesignation, setAuthorDesignation] = useState("");
+    const [authorLink, setAuthorLink] = useState("");
     const [key_benefits, setkey_benefits] = useState("");
     const [uploadPdf, setuploadPdf] = useState("");
 
@@ -57,7 +61,7 @@ const FormPage = () => {
             // const isPdfUploaded = await ImageUpload(uploadPdf, pdfname, folderPdf);
 
             if (isImageUploaded) {// && isPdfUploaded) {
-                console.log("DOne");
+                console.log("Done");
 
                 const finalData = {
                     title: title,
@@ -72,9 +76,12 @@ const FormPage = () => {
         }
     };
     const addAuthor = () => {
-        if (authorName != "") {
-            setAuthorsList((oldArray) => [...oldArray, authorName]);
+        if (authorName != "" && authorDesignation != "") {
+            setAuthorsList((oldArray) => [...oldArray, authorName, authorDesignation, authorLink]);
             setAuthorName("");
+            setAuthorDesignation("");
+            setAuthorLink("");
+            setShow(false);
         }
     };
 
@@ -91,6 +98,73 @@ const FormPage = () => {
     const navigate = useNavigate()
     return (
         <>
+            <Modal
+                show={show}
+                onHide={handleClose}
+                backdrop="static"
+                keyboard={false}
+            >
+                <Modal.Header >
+                    <Modal.Title>Enter Doctor Details </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <div className="form-fields">
+                        <label style={{ color: "black" }}>Enter Doctor Name : </label>
+                        <input
+                            style={{ border: "2px solid black" }}
+                            type="text"
+                            value={authorName}
+                            // onClick={inputLength}
+                            onChange={(e) => {
+                                setAuthorName(e.target.value);
+                            }}
+                            required
+                        />
+                    </div>
+                    <div className="lable-message">
+                        {error &&
+                            title.length <= 0 ?
+                            <label>Title cannot be empty</label> : ""}
+                    </div>
+                    <div className="form-fields">
+                        <label style={{ color: "black" }}>Enter Designation : </label>
+                        <input
+                            style={{ border: "2px solid black" }}
+                            type="text"
+                            value={authorDesignation}
+                            // onClick={inputLength}
+                            onChange={(e) => {
+                                setAuthorDesignation(e.target.value);
+                            }}
+                            required
+                        />
+                    </div>
+                    <div className="lable-message">
+                        {error &&
+                            title.length <= 0 ?
+                            <label>Title can not be empty</label> : ""}
+                    </div>
+                    <div className="form-fields">
+                        <label style={{ color: "black" }}>Enter Link to Contact : </label>
+                        <input
+                            style={{ border: "2px solid black" }}
+                            type="text"
+                            value={authorLink}
+                            // onClick={inputLength}
+                            onChange={(e) => {
+                                setAuthorLink(e.target.value);
+                            }}
+                            required
+                        />
+                    </div>
+                </Modal.Body>
+                <Modal.Footer>
+                    <a style={{ backgroundColor: "brown", padding: "5px 5px", cursor: "pointer", borderRadius: "5px" }} onClick={handleClose}>
+                        Close
+                    </a>
+                    <a style={{ backgroundColor: "green", padding: "5px 5px", cursor: "pointer", borderRadius: "5px" }} onClick={addAuthor}>Add Doctor</a>
+                </Modal.Footer>
+            </Modal>
             <div className="main-form">
                 <div className={"Form-back-button"}>
                     <FontAwesomeIcon icon={faArrowLeft}
@@ -139,16 +213,16 @@ const FormPage = () => {
                                 maxLength={5000}
                                 value={description}
                                 onChange={(e) => {
-                                    setDescription(e.target.value),setCount(e.target.value.length);
+                                    setDescription(e.target.value), setCount(e.target.value.length);
                                 }}
                             />
                         </div>
                         <div className="lable-message">
                             {error && description <= 0 ?
                                 <label>Description can not be empty</label> : ""}
-                        <span id="count_message">{count}/5000</span>
+                            <span id="count_message">{count}/5000</span>
                         </div>
-                        
+
 
 
                         <div className="form-fields">
@@ -216,7 +290,7 @@ const FormPage = () => {
                         <div className="form-fields">
                             <label>Author Details:</label>
                             <div className="input-container">
-                                <input
+                                {/* <input
                                     type="text"
                                     value={authorName}
                                     // onClick={inputLength}
@@ -224,8 +298,8 @@ const FormPage = () => {
                                         setAuthorName(e.target.value);
                                     }}
                                     required
-                                />
-                                <button onClick={addAuthor}>Add</button>
+                                /> */}
+                                <button onClick={handleShow}>Add</button>
                             </div>
                         </div>
                         <div className="lable-message">
