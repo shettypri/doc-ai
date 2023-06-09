@@ -146,7 +146,7 @@ img {
     }
 }
 
-/* Tablet view */
+            /* Tablet view */
 @media only screen and (max-device-width: 768px){
     .pubtitle{
         width: fit-content;

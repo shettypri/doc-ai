@@ -5,7 +5,7 @@ import getCardData from "../Global/getCardData"
 import { Link, useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleArrowRight, faArrowRight } from '@fortawesome/free-solid-svg-icons'
-import Button from 'react-bootstrap/Button';
+import { Button, Card} from 'react-bootstrap/';
 import React from "react"
 
 const Research = () => {
@@ -43,7 +43,7 @@ const Research = () => {
                             return (
                                 <>
                                     <div className="col-sm-6 mb-3 mb-sm-0" key={index} >
-                                        <div className="card bg-transparent container-ai" id="carocard">
+                                        <Card className="bg-transparent" id="carocard">
                                             <img src={image1} height="350px" className="d-block w-100 rounded-4" alt="..." />
                                             <div className="card-img-overlay bg-transparent container-text">
                                                 {
@@ -68,7 +68,7 @@ const Research = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </Card>
                                     </div>
                                 </>
 

@@ -212,10 +212,11 @@ textarea {
         margin-top: 100px;
     } */
     .contactForm{
-        width:fit-content;
+        width:320px;
     }
     .inputbox button{
-        width: fit-content;
+        width: 10px;
+        height: fit-content;      
     }
 }
 @media only screen and (max-device-width: 768px){
@@ -227,5 +228,9 @@ textarea {
     .inputbox button{
         width: fit-content;
     }
+    .containercon{
+        margin-bottom: 100px;
+    }
+    
 }
     
