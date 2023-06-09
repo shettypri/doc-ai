@@ -23,6 +23,8 @@ const FormPage = () => {
     const [description, setDescription] = useState("");
     const [uploadImage, setUploadImage] = useState("");
     const [authorName, setAuthorName] = useState("");
+    const [authorDesignation, setAuthorDesignation] = useState("");
+    const [authorLink, setAuthorLink] = useState("");
     const [key_benefits, setkey_benefits] = useState("");
     const [uploadPdf, setuploadPdf] = useState("");
 
