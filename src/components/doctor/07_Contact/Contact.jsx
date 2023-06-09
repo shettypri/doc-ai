@@ -64,7 +64,7 @@ const Contact = () => {
                     </div>
 
                     <div className="inputbox">
-                        <button>
+                        <button className='consubmit'>
                             Submit
                         </button>
                     </div>
