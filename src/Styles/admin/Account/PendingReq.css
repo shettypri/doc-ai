@@ -17,7 +17,7 @@
 
 .penreq{
     margin-top: 100px;
-    width: 50vw;
+    width: fit-content;
 }
 .back{
     /* float:'left'; */
@@ -69,4 +69,11 @@ i {
 }
 .doc-result-btn{
     cursor: pointer;
+}
+@media only screen and (min-device-width: 320px) and (max-width: 480px) {
+    .card{
+        width: fit-content;
+
+}
+   
 }
