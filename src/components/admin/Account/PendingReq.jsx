@@ -56,7 +56,7 @@ const PendingReq = () => {
                                 <th>Reject</th>
                             </tr>
                             </thead>
-                            {pendingRequestState.isDataFetched &&
+                            { pendingRequestState.isDataFetched &&
                             <tbody>
                                 {pendingRequestState.data.map((doctor,index) =>{
                                     return(

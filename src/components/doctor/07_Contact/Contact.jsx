@@ -11,9 +11,8 @@ const Contact = () => {
     const [contactInformation, setContactInformation] = useState({
         fullname:"",
         email:"",
-        message:""
-
-
+        message:"",
+        isResponde:false
     })
     const handeleChange =(e)=>{
         setContactInformation({
@@ -25,6 +24,7 @@ const Contact = () => {
     }
     const dispatch=useDispatch()
     const submitConatch =()=>{
+
         console.log(contactInformation);
         dispatch(contactDetails(contactInformation))
     }

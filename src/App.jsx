@@ -30,7 +30,7 @@ import Main2 from './components/doctor/00_Main/Main2'
 import Researchview from './components/doctor/03_Research/Researchview'
 import ResearchviewAll from './components/doctor/03_Research/ResearchviewAll'
 import UpdateForm from './components/admin/Account/Form/UpdateForm'
-import Contact from "./components/admin/Contact_request/Contact.jsx";
+import Contact from "./components/admin/Contact_request/ContactReq.jsx";
 
 
 

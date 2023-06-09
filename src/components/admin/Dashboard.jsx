@@ -5,7 +5,7 @@ import publication from "../../assets/Admin/Dash-board/publication.jpg"
 import research from "../../assets/Admin/Dash-board/research.jpg"
 import account from "../../assets/Admin/Dash-board/settings.jpg"
 import {useDispatch} from "react-redux";
-import {getPendingRequestReducers} from "../../App/Slice/adminSlice.js";
+
 
 const Dashboard = () => {
     const navigate = useNavigate()
@@ -13,7 +13,7 @@ const Dashboard = () => {
         <>
             <div className={"contact-btn"}>
                 <button onClick={()=>{
-                    navigate('/Dashboard/contact_request')
+                    navigate('/Dashboard/Contact_request')
                 }}>
                     request
                 </button>
