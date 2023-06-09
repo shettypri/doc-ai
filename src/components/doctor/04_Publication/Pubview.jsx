@@ -21,6 +21,7 @@ const Pubview = () => {
                     <Col sm={1} style={{ float: "left" }}>
                         <FontAwesomeIcon icon={faArrowLeft} size="xl" style={{ color: "white", }} onClick={navigateBack} />
                     </Col>
+
                     <Col sm={6} xs={9} md={2} lg={4} className='pubimg'>
                         {/* <Card className='imgcontainer bg-transparent' style={{justifyContent:"center"}}> */}
                         <img src={image1} alt="..." />
@@ -29,6 +30,7 @@ const Pubview = () => {
                     </Col>
                     <Col sm={1} xs={1} md={12} lg={1}>
                         <Card className='pubtitle bg-transparent'>
+                            {/*title*/}
                             <h2><b>Immune phenotypes classified by deep learning-based H&amp;E tissue analyzer
                                 demonstrate distinct immune landscape and transcriptomic features in ovarian cancer</b></h2>
                             <p>Horyun Choi et al. - AACR (2023)</p>
@@ -38,6 +40,7 @@ const Pubview = () => {
                 <Row>
                     <Col sm={12} xs={4} md={4} lg={4}>
                         <Card className='pubauthor bg-transparent'>
+                            {/*Author*/}
                             <h1>Author Details</h1>
                             <div className="pubauthor-content">
                                 <p>1University of Hawaii John A. Burns School of Medicine, Honolulu, HI,2Northwestern
@@ -47,6 +50,7 @@ const Pubview = () => {
                         </Card>
                         <div className="downpdf">
                             <button >
+                            {/*    Pdf link*/}
                             To Read the full paper <span className='clickme'>Click here <FontAwesomeIcon icon={faArrowRight} style={{color: "#ffffff"}} /></span> 
                             </button>
                         </div>
@@ -56,6 +60,7 @@ const Pubview = () => {
                         <Card className='pubabstract bg-transparent'>
                             <h1>Abstract</h1>
                             <div className="pubabstract-content">
+                                {/*Content*/}
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus malesuada ante mauris, vitae aliquam turpis finibus eu. Nam scelerisque libero vel enim pellentesque porttitor. Nullam orci turpis, mattis non sollicitudin ut, congue vitae risus. Integer pretium dapibus lacus non eleifend. Suspendisse at suscipit elit. Aliquam sed lacus efficitur, auctor erat et, gravida velit. Mauris sed volutpat odio, id fermentum quam. Vestibulum ac nulla vel enim consectetur semper in quis quam. Cras id nulla lacus. In sapien elit, pellentesque ut euismod vel, gravida id enim. Praesent quis magna sed ligula sollicitudin varius.
 
                                     Interdum et malesuada fames ac ante ipsum primis in faucibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed finibus quis massa eget facilisis. Quisque facilisis eros nulla, ut accumsan nisl tincidunt posuere. Nulla lacinia suscipit eleifend. Proin sollicitudin suscipit ex feugiat gravida. Donec porta leo vitae facilisis aliquam. Ut laoreet est euismod turpis pellentesque faucibus. Donec viverra malesuada lectus a tincidunt. Sed iaculis bibendum quam in facilisis.
