@@ -20,12 +20,9 @@ const FormPage = () => {
     const navigate = useNavigate()
         const [show, setShow] = useState(false);
         const handleClose = () => setShow(false);
-        const handleShow = () => {
-            setShow(true);
-        }
+        const handleShow = () => { setShow(true);}
         const [uploadImage, setUploadImage] = useState("");
         const [authorsList, setAuthorsList] = useState([]);
-
         const [error, setError] = useState(false);
         const [count, setCount] = React.useState(0);
 
@@ -79,9 +76,16 @@ const FormPage = () => {
                 publicationFormData['authors'] = authorsList
                 console.log(publicationFormData)
                 storeInDataBase(publicationFormData, "Publications")
-                navigate(
-                    "/Dashboard/Form"
-                )
+                setPublicationFormData({
+                    ...publicationFormData,
+                    ["title"]: "",
+                    ["description"]: "",
+                    ["refernceLink"]:"",
+                })
+                delete publicationFormData.imageUrl;
+                delete publicationFormData.authors;
+                setUploadImage("")
+                setAuthorsList([])
             }
         };
         const addAuthor = () => {

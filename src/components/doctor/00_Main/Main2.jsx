@@ -1,8 +1,7 @@
-import {React, useEffect} from 'react'
+import { useEffect} from 'react'
 import Home from '../02_Home/Home'
 import Publication from '../04_Publication/Publication'
 import "../../../Styles/doctor/00_Main/Main2.css"
-import { Container } from 'react-bootstrap'
 import Research from '../03_Research/Research'
 import Contact from '../07_Contact/Contact'
 import About from '../06_About_Us/About'

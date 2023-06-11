@@ -1,7 +1,7 @@
 import React from 'react'
 import '../../../Styles/doctor/07_Contact/Contact.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLocationDot, faPhoneVolume, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faLocationDot, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
 
 const Contact = () => {
