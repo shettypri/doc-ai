@@ -1,14 +1,25 @@
-import { React , useEffect, useRef, useState } from 'react'
+import { React, useEffect, useRef, useState } from 'react'
 import "../../../Styles/admin/Form/Research.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft, faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { researchDataIntoFirestore, researchGifUpload, reserachImageUpload } from "../../../App/Slice/formSlice.js";
+import validator from 'validator'
 
 
 const ResearchForm = () => {
 
+    const [urlerr, setErrorMessage] = useState('')
+
+    const validate = (value) => {
+
+        if (validator.isURL(value)) {
+            setErrorMessage('')
+        } else {
+            setErrorMessage('Is Not Valid URL')
+        }
+    }
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
     const [uploadImage, setUploadImage] = useState("")
@@ -202,14 +213,14 @@ const ResearchForm = () => {
                                 maxLength={5000}
                                 value={description}
                                 onChange={(e) => {
-                                        setDescription(e.target.value), setCount(e.target.value.length);
-                                    }}
+                                    setDescription(e.target.value), setCount(e.target.value.length);
+                                }}
                             />
                         </div>
                         <div className="messages">
                             {error && description.length <= 0 ?
                                 <lable>Description can not be empty </lable> : ""}
-                        <span id="count_message">{count}/5000</span>
+                            <span id="count_message">{count}/5000</span>
                         </div>
 
                         <div className="list-arrays">
@@ -267,7 +278,7 @@ const ResearchForm = () => {
                                 value={researchPaperLink}
                                 onChange={
                                     (e) => {
-                                        setResearchPaperLink(e.target.value)
+                                        setResearchPaperLink(e.target.value), validate(e.target.value)
                                     }
                                 }
                                 required />
@@ -276,6 +287,7 @@ const ResearchForm = () => {
                             {error && title.length <= 0 ?
                                 <label>Paper Link cannot be empty</label> : ""}
                         </div>
+                        <label className="messages">{urlerr}</label>
 
 
                         <div className="form-button">
