@@ -57,12 +57,13 @@
 
 .doctor-list {
     margin: 40px 35px 5px 15px;
-    /*display: flex;*/
-    /*flex-direction: column !important;*/
+    /* display: flex; */
+    /* flex-direction: column !important; */
     align-items: center;
     opacity: 90%;
     width: 25vw;
-    height: 58vh;
+    /* height: 58vh; */
+    height: fit-content;
     border-radius: 25px;
     border: 2px solid white;
     background-color: transparent;

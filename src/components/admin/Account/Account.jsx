@@ -44,7 +44,7 @@ const Account = () => {
                 
                 <div className="doctor-add-btn">
                     <Link to='/Account/PendingReq'>
-                        Requests {pendingRequestState.data.length}
+                        Requests : {pendingRequestState.data.length}
                     </Link>
                 </div>
 
