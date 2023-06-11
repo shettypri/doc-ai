@@ -16,7 +16,7 @@ const ResearchForm = () => {
     const [authorName, setAuthorName] = useState('Dr. ')
     const [urlgif, setUrlgif] = useState("")
     const [imageUrl, setImageUrl] = useState("");
-    const [count, setCount] = React.useState(0);
+    const [count, setCount] = useState(0);
     const [researchPaperLink, setResearchPaperLink] = useState("")
     const [finalPublicationData, setFinalPublicationData] = useState({
         title: "",
