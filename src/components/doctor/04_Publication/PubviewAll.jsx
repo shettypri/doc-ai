@@ -28,7 +28,7 @@ const PubviewAll = () => {
     return (
         <>
             <div className="PublicationAll-main">
-                <Col sm={1} xs={1} style={{ float: "left"}} className="pubbackarrow" >
+                <Col sm={1} xs={1} style={{paddingLeft:'100px'}} className="pubbackarrow" >
                     <Link to={"/"}>
                         <FontAwesomeIcon icon={faArrowLeft} size="xl" style={{ color: "white", }} />
                     </Link>
