@@ -57,7 +57,7 @@ const Pubview = () => {
                                 {
                                     publicationById.data.authors.map((author,index)=>{
                                         return(
-                                            <p>
+                                            <p key={index}>
                                                 <span style={{cursor:'pointer',color:'blue'}}
                                                 onClick={()=>
                                                 {
