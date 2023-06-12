@@ -19,12 +19,14 @@ const Publication = () => {
     }, []);
     const {publication} = useSelector(state =>
         state.formReducer)
-    const navigatePubView = () => {
-        navigate("Pubview")
+    const navigatePubView = (id) => {
+
+        navigate(`/publication/${id}`)
     }
     const navigatePubViewAll = () => {
-        navigate("PubviewAll")
+        navigate('/PubviewAll')
     }
+    const limitedPublication = publication.data.slice(0,3)
     return (
         <>
             <div className="Publication-main">
@@ -35,11 +37,17 @@ const Publication = () => {
                 <div className="publication-content">
                     {
                         (publication.isResult) &&
-                        (publication.data.map((contentValue, index) => {
+
+                        (limitedPublication.map((contentValue, index) => {
                             return (
-                                <div className="publication-card" key={index} onClick={navigatePubView}>
-                                    <Card_View content={contentValue}/>
-                                </div>
+
+                                  <div className="publication-card" key={index} onClick={
+                                      () =>navigatePubView(contentValue.id)
+                                  }>
+                                      <Card_View content={contentValue}/>
+                                  </div>
+
+
                             )
                         }))
                     }

@@ -10,6 +10,7 @@
 }
 .messages {
 	color: red !important;
+	padding-left: 25px;
 }
 
 /* .lable-message label{

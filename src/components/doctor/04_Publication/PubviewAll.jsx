@@ -22,13 +22,13 @@ const PubviewAll = () => {
 
     const { publication } = useSelector(state =>
         state.formReducer)
-    const navigatePubView = () => {
-        navigate("/Pubview")
+    const navigatePubView = (id) => {
+        navigate(`/publication/${id}`)
     }
     return (
         <>
             <div className="PublicationAll-main">
-                <Col sm={1} xs={1} style={{ float: "left"}} className="pubbackarrow" >
+                <Col sm={1} xs={1} style={{paddingLeft:'100px'}} className="pubbackarrow" >
                     <Link to={"/"}>
                         <FontAwesomeIcon icon={faArrowLeft} size="xl" style={{ color: "white", }} />
                     </Link>
@@ -43,7 +43,8 @@ const PubviewAll = () => {
                         (publication.isResult) &&
                         (publication.data.map((contentValue, index) => {
                             return (
-                                <div className="publicationAll-card" key={index} onClick={navigatePubView}>
+                                <div className="publicationAll-card" key={index} onClick={
+                                    ()=>navigatePubView(contentValue.id)}>
                                     <Row lg={4} sm={2} md={4}>
                                         <Col md={4} sm={2} lg={4}>
                                             <Card_View content={contentValue} />

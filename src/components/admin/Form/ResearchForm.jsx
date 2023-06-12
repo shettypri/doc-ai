@@ -1,14 +1,25 @@
-import {useEffect, useRef, useState} from 'react'
+import { React, useEffect, useRef, useState } from 'react'
 import "../../../Styles/admin/Form/Research.css"
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faArrowLeft, faCircleXmark} from '@fortawesome/free-solid-svg-icons'
-import {useNavigate} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
-import {researchDataIntoFirestore, researchGifUpload, reserachImageUpload} from "../../../App/Slice/formSlice.js";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeft, faCircleXmark } from '@fortawesome/free-solid-svg-icons'
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { researchDataIntoFirestore, researchGifUpload, reserachImageUpload } from "../../../App/Slice/formSlice.js";
+import validator from 'validator'
 
 
 const ResearchForm = () => {
 
+    const [urlerr, setErrorMessage] = useState('')
+
+    const validate = (value) => {
+
+        if (validator.isURL(value)) {
+            setErrorMessage('')
+        } else {
+            setErrorMessage('Is Not Valid URL')
+        }
+    }
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
     const [uploadImage, setUploadImage] = useState("")
@@ -16,6 +27,7 @@ const ResearchForm = () => {
     const [authorName, setAuthorName] = useState('Dr. ')
     const [urlgif, setUrlgif] = useState("")
     const [imageUrl, setImageUrl] = useState("");
+    const [count, setCount] = useState(0);
     const [researchPaperLink, setResearchPaperLink] = useState("")
     const [finalPublicationData, setFinalPublicationData] = useState({
         title: "",
@@ -34,7 +46,7 @@ const ResearchForm = () => {
 
     const dispatch = useDispatch()
 
-    const {researchUploadState} = useSelector(state =>
+    const { researchUploadState } = useSelector(state =>
         state.formReducer)
 
     useEffect(() => {
@@ -60,8 +72,8 @@ const ResearchForm = () => {
         }
     }, [researchUploadState.isBothFileUploaded]);
 
-    if(researchUploadState.gifIsUploaded && researchUploadState.isImageUploaded) {
-        var publicationData  = {
+    if (researchUploadState.gifIsUploaded && researchUploadState.isImageUploaded) {
+        var publicationData = {
             "title": title,
             "description": description,
             "imageUrl": imageUrl,
@@ -109,11 +121,11 @@ const ResearchForm = () => {
 
                 <div className={"Form-back-button"}>
                     <FontAwesomeIcon icon={faArrowLeft}
-                                     size="xl"
-                                     style={{color: "#ffffff", cursor: 'pointer'}}
-                                     onClick={() => {
-                                         navigate("/Dashboard")
-                                     }}
+                        size="xl"
+                        style={{ color: "#ffffff", cursor: 'pointer' }}
+                        onClick={() => {
+                            navigate("/Dashboard")
+                        }}
                     />
                 </div>
                 <div className="form-heading">
@@ -127,13 +139,13 @@ const ResearchForm = () => {
                                 Research Title:
                             </label>
                             <input type="text"
-                                   value={title}
-                                   onChange={
-                                       (e) => {
-                                           setTitle(e.target.value)
-                                       }
-                                   }
-                                   required/>
+                                value={title}
+                                onChange={
+                                    (e) => {
+                                        setTitle(e.target.value)
+                                    }
+                                }
+                                required />
                         </div>
                         <div className="messages">
                             {error && title.length <= 0 ?
@@ -198,17 +210,17 @@ const ResearchForm = () => {
                             <textarea
                                 rows={6}
                                 required
+                                maxLength={5000}
                                 value={description}
-                                onChange={
-                                    (e) => {
-                                        setDescription(e.target.value)
-                                    }
-                                }
+                                onChange={(e) => {
+                                    setDescription(e.target.value), setCount(e.target.value.length);
+                                }}
                             />
                         </div>
                         <div className="messages">
                             {error && description.length <= 0 ?
                                 <lable>Description can not be empty </lable> : ""}
+                            <span id="count_message">{count}/5000</span>
                         </div>
 
                         <div className="list-arrays">
@@ -220,9 +232,9 @@ const ResearchForm = () => {
                                                 <div className="added-array" key={index}>
                                                     <p>{val}</p>
                                                     <FontAwesomeIcon icon={faCircleXmark} size="xl"
-                                                                     style={{color: "#ff0000", cursor: "pointer"}}
-                                                                     height={"25px"} width="25px"
-                                                                     onClick={() => removeAuthor(index)}
+                                                        style={{ color: "#ff0000", cursor: "pointer" }}
+                                                        height={"25px"} width="25px"
+                                                        onClick={() => removeAuthor(index)}
                                                     />
                                                 </div>
                                             </>
@@ -239,14 +251,14 @@ const ResearchForm = () => {
                             <div className="input-container">
 
                                 <input type="text"
-                                       value={authorName}
-                                       onChange={
-                                           (e) => {
-                                               setAuthorName(e.target.value)
-                                           }
-                                       }
-                                       required/>
-                                <button onClick={addAuthor} style={{borderRadius: "5px"}}>
+                                    value={authorName}
+                                    onChange={
+                                        (e) => {
+                                            setAuthorName(e.target.value)
+                                        }
+                                    }
+                                    required />
+                                <button onClick={addAuthor} style={{ borderRadius: "5px" }}>
                                     Add
                                 </button>
                             </div>
@@ -263,23 +275,24 @@ const ResearchForm = () => {
                                 Research Paper Link:
                             </label>
                             <input type="text"
-                                   value={researchPaperLink}
-                                   onChange={
-                                       (e) => {
-                                           setResearchPaperLink(e.target.value)
-                                       }
-                                   }
-                                   required/>
+                                value={researchPaperLink}
+                                onChange={
+                                    (e) => {
+                                        setResearchPaperLink(e.target.value), validate(e.target.value)
+                                    }
+                                }
+                                required />
                         </div>
                         <div className="messages">
                             {error && title.length <= 0 ?
                                 <label>Paper Link cannot be empty</label> : ""}
                         </div>
+                        <label className="messages">{urlerr}</label>
 
 
                         <div className="form-button">
                             <button className="formSubmit"
-                                    onClick={handleSubmit}
+                                onClick={handleSubmit}
                             >
                                 Submit
                             </button>

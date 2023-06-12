@@ -18,9 +18,7 @@ import { useState, useEffect } from 'react'
 import Main from './components/doctor/00_Main/Main'
 
 import Project from './components/doctor/05_Project/Project'
-import {
-    RiseLoader,
-} from "react-spinners/";
+import {RiseLoader} from "react-spinners/";
 import NotFound from './components/Global/NotFound'
 import Pubview from './components/doctor/04_Publication/Pubview'
 import PubviewAll from './components/doctor/04_Publication/PubviewAll'
@@ -80,7 +78,7 @@ function App() {
                     <Route exact path='/UserDetails' element={<UserDetails />} />
                     <Route exact path='/otplogin' element={<Otp_Login />} />
                     <Route exact path='/404' element={<NotFound />} />
-                    <Route exact path='/Pubview' element={<Pubview />} />
+                    <Route exact path='/publication/:id' element={<Pubview />} />
                     <Route exact path='/PubviewAll' element={<PubviewAll />} />
                     <Route exact path='/Researchview' element={<Researchview />} />
                     <Route exact path='/ResearchviewAll' element={<ResearchviewAll />} />
