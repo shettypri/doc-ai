@@ -55,6 +55,7 @@ const Pubview = () => {
 
                             <div className="pubauthor-content">
                                 {
+                                    publicationById.isExisted &&
                                     publicationById.data.authors.map((author,index)=>{
                                         return(
                                             <p key={index}> {index+1 }
