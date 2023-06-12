@@ -58,7 +58,7 @@ const Pubview = () => {
                                     publicationById.isExisted &&
                                     publicationById.data.authors.map((author,index)=>{
                                         return(
-                                            <p key={index}> {index+1 }
+                                            <p key={index} style={{fontSize:'13px'}}> {index+1 }){" "}
                                                 <span style={{cursor:'pointer',color:'blue'}}
                                                 onClick={()=>
                                                 {
@@ -66,7 +66,7 @@ const Pubview = () => {
                                                 }
                                                 }
                                                 >
-                                     {" "+author.name}
+                                     {author.name}
                                         </span> - {author.designation}
                                             </p>
                                         )
