@@ -1,0 +1,33 @@
+.contact-req-main{
+    /*margin: 250px 50px 30px 40px;*/
+    margin: 90px;
+    width: 50vw;
+    /*border: 2px solid red;*/
+    margin-right: 250px;
+}
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 30px;
+    /*border: 2px solid red;*/
+
+}
+.req-card {
+    width: 700px;
+     margin: 100px auto;
+    border-radius: 10px;
+    background-color:lightgray;
+    padding: 10px;
+    border-radius: 20px;
+    /*border: 2px solid red;*/
+}
+
+th,
+td{
+    text-align: center;
+    color:black;
+
+}
+.font-contact-req {
+    font-weight: bolder;
+}
