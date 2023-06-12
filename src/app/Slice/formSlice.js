@@ -4,6 +4,7 @@ import {db, storage} from "../../config/firebase-config.js";
 import {v4} from "uuid";
 import {ref} from "@firebase/storage";
 import {getDownloadURL, uploadBytes} from "firebase/storage";
+import {doc, getDoc} from "@firebase/firestore";
 
 export const getPublicationFormData = createAsyncThunk(
     "getPublicationFormData",
@@ -19,6 +20,19 @@ export const getPublicationFormData = createAsyncThunk(
             return filterData
         } catch (e) {
             return e
+        }
+    }
+)
+export const getPublicationDataById = createAsyncThunk(
+    "getPublicationDataById",
+    async(id)=>{
+        try {
+            const docRef = await doc(db, "Publications", id)
+            const publicationData = await getDoc(docRef)
+            return await publicationData.data()
+        } catch (error) {
+            console.log(`Error is ${error}`);
+            return error
         }
     }
 )
@@ -80,6 +94,13 @@ const formSlice = createSlice({
             isResult:false,
             data: "",
             error: false,
+        },
+        publicationById:{
+            loading:false,
+            data:"",
+            error:false,
+            isError:false,
+            isExisted:false,
         },
         research: {
             loading: false,
@@ -192,6 +213,26 @@ const formSlice = createSlice({
                 state.researchUploadState.error=action.payload;
 
             })
+            .addCase(
+                getPublicationDataById.pending,(state)=>{
+                    state.publicationById.loading=true;
+                }
+            )
+            .addCase(
+                getPublicationDataById.fulfilled,(state,action)=>{
+                    state.publicationById.loading=false;
+                    state.publicationById.isExisted=true;
+                    state.publicationById.data=action.payload;
+                }
+            )
+            .addCase(
+                getPublicationDataById.rejected, (state,action) => {
+                    state.publicationById.loading=false;
+                    state.publicationById.error=action.payload;
+                    state.publicationById.isError=true;
+
+                }
+            )
 
 }
             

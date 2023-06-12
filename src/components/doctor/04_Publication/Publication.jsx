@@ -26,6 +26,7 @@ const Publication = () => {
     const navigatePubViewAll = () => {
         navigate('/PubviewAll')
     }
+    const limitedPublication = publication.data.slice(0,3)
     return (
         <>
             <div className="Publication-main">
@@ -36,14 +37,17 @@ const Publication = () => {
                 <div className="publication-content">
                     {
                         (publication.isResult) &&
-                        (publication.data.map((contentValue, index) => {
-                            console.log(contentValue.id)
+
+                        (limitedPublication.map((contentValue, index) => {
                             return (
-                                <div className="publication-card" key={index} onClick={
-                                    () =>navigatePubView(contentValue.id)
-                                }>
-                                    <Card_View content={contentValue}/>
-                                </div>
+
+                                  <div className="publication-card" key={index} onClick={
+                                      () =>navigatePubView(contentValue.id)
+                                  }>
+                                      <Card_View content={contentValue}/>
+                                  </div>
+
+
                             )
                         }))
                     }
