@@ -13,7 +13,7 @@ const Banner = () => {
                 banerShow &&
                 <div className="banner-details" id="banner">
                     <h4>
-                        Please fill registraion form to access all the response
+                        Please fill registration form to access all the response
                         <span onClick={() => navigate("/userDetails")}>    <u>Click here</u>&nbsp;&nbsp;&nbsp; </span>
                     </h4>
                     

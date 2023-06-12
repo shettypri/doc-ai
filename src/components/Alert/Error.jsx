@@ -16,12 +16,12 @@ import {faXmark} from '@fortawesome/free-solid-svg-icons'
                    <h3>
                        {props.error}
                    </h3>
-                   <section>
+                   {/*<section>*/}
                    <FontAwesomeIcon className="xmark" id="closemark" icon={faXmark} size="xl" style={{color: "#ffffff",}}
                     onClick={()=>
                         seterrorShow(false)}
                     />
-                    </section>
+                    {/*</section>*/}
                    
                 </div>
                 

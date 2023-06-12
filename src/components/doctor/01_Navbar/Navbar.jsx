@@ -11,6 +11,7 @@ import AdminConfimBanner from "../../Banner/AdminConfimBanner.jsx"
 import { useEffect } from "react"
 import { Link as Scroll } from 'react-scroll'
 import {getPublicationFormData} from "../../../App/Slice/formSlice.js";
+import {GetContactFormData} from "../../../app/Slice/contactSlice.js";
 
 
 const Navbar = () => {
@@ -32,6 +33,10 @@ const Navbar = () => {
         dispatch(getPublicationFormData("Publications"))
 
     },[])
+    useEffect(()=>{
+        dispatch(GetContactFormData("contacts"))
+    },[])
+
 
     const handleLogout = async () => {
         sessionStorage.removeItem("key")
