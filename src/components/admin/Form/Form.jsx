@@ -196,9 +196,7 @@ const FormPage = () => {
                         <p>Publication</p>
                     </div>
                     <div className="alert-messages">
-                        {/* {Error && <Error error={"form not subbmitted try again!!!"}/>} */}
-                        {/* {<Loading/>} */}
-                        {/* {Success && <Success success={"Details uploaded successfully"} />} */}
+
 
                     </div>
 
