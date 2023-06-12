@@ -57,7 +57,7 @@ const Pubview = () => {
                                 {
                                     publicationById.data.authors.map((author,index)=>{
                                         return(
-                                            <p key={index}>
+                                            <p key={index}> {index+1 }
                                                 <span style={{cursor:'pointer',color:'blue'}}
                                                 onClick={()=>
                                                 {
@@ -65,17 +65,13 @@ const Pubview = () => {
                                                 }
                                                 }
                                                 >
-                                     {author.name}
+                                     {" "+author.name}
                                         </span> - {author.designation}
                                             </p>
                                         )
                                     })
                                 }
-                                1)
-
-                                <p>2) <span style={{cursor:'pointer',color:'blue'}}>Banru R</span> - St. Aloysius College, Aimit</p>
-                                {/* <p style={{ color: '#fff' }}>Horyun Choi et al. - AACR (2023)</p> */}
-                            </div>
+                                </div>
                         </Card>
                         <div className="downpdf">
                             <button
