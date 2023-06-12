@@ -23,7 +23,7 @@ const Pubview = () => {
         window.history.back()
     }
     const {publicationById} = useSelector(state => state.formReducer)
-    console.log(publicationById)
+    console.log(publicationById.data)
     return (
         <>
             <Container className='contpubview'>
@@ -52,8 +52,27 @@ const Pubview = () => {
                         <Card className='pubauthor bg-transparent'>
                             {/*Author*/}
                             <h1>Author Details</h1>
+
                             <div className="pubauthor-content">
-                                <p>1) <span style={{cursor:'pointer',color:'blue'}}>Ruban S</span> - St. Aloysius College, Aimit</p>
+                                {
+                                    publicationById.data.authors.map((author,index)=>{
+                                        return(
+                                            <p>
+                                                <span style={{cursor:'pointer',color:'blue'}}
+                                                onClick={()=>
+                                                {
+                                                    window.open(author.profileLink,"_blank")
+                                                }
+                                                }
+                                                >
+                                     {author.name}
+                                        </span> - {author.designation}
+                                            </p>
+                                        )
+                                    })
+                                }
+                                1)
+
                                 <p>2) <span style={{cursor:'pointer',color:'blue'}}>Banru R</span> - St. Aloysius College, Aimit</p>
                                 {/* <p style={{ color: '#fff' }}>Horyun Choi et al. - AACR (2023)</p> */}
                             </div>
