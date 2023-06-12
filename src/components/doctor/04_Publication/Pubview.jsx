@@ -53,8 +53,8 @@ const Pubview = () => {
                             {/*Author*/}
                             <h1>Author Details</h1>
                             <div className="pubauthor-content">
-                                <p>1) Ruban S - St. Aloysius College, Aimit</p>
-                                <p>2) Banru R - St. Aloysius College, Aimit</p>
+                                <p>1) <span style={{cursor:'pointer',color:'blue'}}>Ruban S</span> - St. Aloysius College, Aimit</p>
+                                <p>2) <span style={{cursor:'pointer',color:'blue'}}>Banru R</span> - St. Aloysius College, Aimit</p>
                                 {/* <p style={{ color: '#fff' }}>Horyun Choi et al. - AACR (2023)</p> */}
                             </div>
                         </Card>
