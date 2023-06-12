@@ -11,7 +11,7 @@ function success(props) {
     <>
       {successShow && (
         <div>
-          <div className="alert-success" role="alert">
+          <div className="alert_success" role="alert">
             <h2>{props.success}</h2>
             <FontAwesomeIcon
               className="xmark"

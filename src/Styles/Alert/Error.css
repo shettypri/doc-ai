@@ -1,12 +1,13 @@
 .alert-error{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   padding:10px;
-  background-color:red;
+  background-color:darkred;
   color: white;
   text-transform: capitalize;
   font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  height: 13vh;  
-  width: 50vw;
-}
-.alert-error section{
- 
+  height: 13vh;
+  width:40vw
+
 }

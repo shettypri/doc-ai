@@ -4,10 +4,23 @@ import {Link, useNavigate} from 'react-router-dom'
 import publication from "../../assets/Admin/Dash-board/publication.jpg"
 import research from "../../assets/Admin/Dash-board/research.jpg"
 import account from "../../assets/Admin/Dash-board/settings.jpg"
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {contactDetailsByIdReducer} from "../../app/Slice/contactSlice.js";
+import {isRejected} from "@reduxjs/toolkit";
 import {getPendingRequestReducers} from "../../App/Slice/adminSlice.js";
 
 const Dashboard = () => {
+
+    const {contactstate}=useSelector(
+        state => state.contactReducer
+
+    )
+    const {contactDetailsByIdReducer}=useSelector(
+        state => state.contactReducer
+
+    )
+
+
 
     const navigate = useNavigate()
     return (
@@ -16,7 +29,8 @@ const Dashboard = () => {
                 <button onClick={()=>{
                     navigate('/Dashboard/contact_request')
                 }}>
-                    request
+                    request {contactstate.data.length}
+
                 </button>
             </div>
 

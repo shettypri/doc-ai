@@ -1,4 +1,28 @@
-.confirm-message{
+.confirm-message {
+    background-color: greenyellow;
     color: white;
-    background-color: crimson;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 10px;
+    text-transform: capitalize;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    height: 20vh;
+    width: 40vw;
+}
+.confirm-message h2{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+.confirm-message button {
+ background-color: whitesmoke;
+    border: 2px solid black;
+    color: black;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+ }
+.confirm-btn{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }

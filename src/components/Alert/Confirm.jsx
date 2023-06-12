@@ -2,26 +2,39 @@ import React from 'react'
 import { useState } from 'react'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faXmark} from '@fortawesome/free-solid-svg-icons'
+import "../../Styles/Alert/Confirm.css"
 
-const Confirm = (props) => {
-const [confirm, setconfirm] = useState(true)
+function Confirm(props) {
+const [confirm, setConfirm] = useState(true)
 
 
   return (
     <>
-    {
-        confirm&&
+    {confirm &&(
         <div className="confirm-message" role='alert'>
-            <h4> {props.Confirm}</h4>
+            <h2> {props.confirm}</h2>
+          <section>
+            <div className={"confirm-btn"}>
+              <button>
+                ok
+              </button>
+              <button>
+                cancel
+              </button>
+            </div>
+          </section>
 
-            <section>
-                   <FontAwesomeIcon className="xmark" id="closemark" icon={faXmark} size="xl" style={{color: "#ffffff",}}
-                    onClick={()=>
-                        setconfirm(false)}
-                    />
-                    </section>
+
+
+
+          {/*<section>*/}
+          {/*         <FontAwesomeIcon className="xmark" id="closemark" icon={faXmark} size="xl" style={{color: "#ffffff"}}*/}
+          {/*          onClick={()=>*/}
+          {/*              setConfirm(false)}*/}
+          {/*          />*/}
+            {/*</section>*/}
         </div>
-    }
+        )}
     
     
     </>
@@ -29,4 +42,4 @@ const [confirm, setconfirm] = useState(true)
   )
 }
 
-export default Confirm
+export default Confirm;

@@ -1,12 +1,15 @@
-.alert-success{
- 
-  padding:10px;
-  background-color:green;
+.alert_success h2{
+  background-color:limegreen;
   color: white;
   text-transform: capitalize;
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif !important
-  /* height: 15vh;  
-  width: 50vw; */
- 
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 
+.alert_success{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding:10px;
+  height: 15vh;
+  width:40vw
 }
