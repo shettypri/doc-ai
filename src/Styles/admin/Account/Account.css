@@ -1,3 +1,5 @@
+@import "mediaAccount.css";
+
 .list-main {
     display: flex;
     flex-direction: column;
@@ -128,6 +130,9 @@
 .doctor-details p:nth-child(1) {
     font-weight: 600;
     font-size: 23px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .doctor-details p:nth-child(2) {

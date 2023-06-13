@@ -1,0 +1,35 @@
+@media only screen and (max-width: 500px) {
+    .list-main {
+        /*border: 2px solid red;*/
+        margin: 5rem 5px 0 5px !important;
+    }
+
+    .doctor-add-btn{
+        height: 1px !important;
+        margin: 5rem 0rem 5rem 0rem !important;
+    }
+    .doctor-add-btn a{
+        height: 2.6rem !important;
+        width: 10rem !important;
+    }
+    .back-Button-css{
+        /*border: 3px solid yellow;*/
+        margin-top: -75px !important;
+
+    }
+    .doctor-list{
+        margin-left: 25px !important;
+        width:17rem !important;
+    }
+
+    .image-list img{
+        height: 105px !important;
+        width: 105px !important;
+    }
+    .doctor-details p:nth-child(1) {
+        font-size: 18px !important;
+    }
+    .doctor-details p:nth-child(2){
+        font-size: 12px !important;
+    }
+}
