@@ -1,11 +1,7 @@
-
-
 @media only screen and (max-width: 500px){
     .dash-board{
         margin-top: 6rem !important;
-        /*border: 3px solid greenyellow;*/
         margin-bottom: 0px !important;
-
     }
     .contact-btn{
         margin: -27rem -14rem 0 0 !important;
