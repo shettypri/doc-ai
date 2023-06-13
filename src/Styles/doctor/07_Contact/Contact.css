@@ -207,38 +207,4 @@ textarea {
     float: right;
 }
 
-@media only screen and (min-device-width: 320px) and (max-width: 480px) {
-    /* .pubbackarrow{
-        position: relative;
-        left: 100px;
-    }
-    .publicationAll-heading{
-        margin-top: 100px;
-    } */
-    .contactForm {
-        width: 320px;
-    }
 
-    .inputbox button {
-        width: 10px;
-        height: fit-content;
-    }
-}
-
-@media only screen and (max-device-width: 768px) {
-    .inputbox button {
-        width: fit-content;
-    }
-}
-
-@media only screen and (max-device-width: 1024px) {
-    .inputbox button {
-        width: fit-content;
-    }
-
-    .containercon {
-        margin-bottom: 100px;
-    }
-
-}
-    

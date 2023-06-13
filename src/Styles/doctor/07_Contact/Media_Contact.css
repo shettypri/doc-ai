@@ -4,12 +4,38 @@
     }
     .containercon{
         flex-direction: column;
+        /*border: 2px solid red !important;*/
+        height: 0px !important;
+        margin-top: 350px !important;
     }
-    .containercon.contactInfo{
-        margin-bottom: 40px;
+
+}
+
+@media only screen and (min-device-width: 320px) and (max-width: 480px) {
+
+    .contactForm {
+        width: 320px !important;
     }
-    .containercon.contactInfo
-    {
-        width: 100%;
+
+    .inputbox button {
+        width: 10px !important;
+        /*height: fit-content !important;*/
     }
+}
+
+@media only screen and (max-device-width: 768px) {
+    .inputbox button {
+        width: fit-content !important;
+    }
+}
+
+@media only screen and (max-device-width: 1024px) {
+    .inputbox button {
+        width: fit-content !important;
+    }
+
+    .containercon {
+        margin-bottom: 100px !important;
+    }
+
 }
