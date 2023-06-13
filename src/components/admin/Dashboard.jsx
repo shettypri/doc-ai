@@ -8,28 +8,34 @@ import {useDispatch, useSelector} from "react-redux";
 import {contactDetailsByIdReducer} from "../../app/Slice/contactSlice.js";
 import {isRejected} from "@reduxjs/toolkit";
 import {getPendingRequestReducers} from "../../App/Slice/adminSlice.js";
+import data from "bootstrap/js/src/dom/data.js";
 
 const Dashboard = () => {
 
-    const {contactstate}=useSelector(
+    const {contactstate} = useSelector(
         state => state.contactReducer
-
     )
-    const {contactDetailsByIdReducer}=useSelector(
+    const {contactDetailsByIdReducer} = useSelector(
         state => state.contactReducer
-
     )
 
+    let count = 0;
+
+    for (let i = 0; i < contactstate.data.length; i++) {
+        if (contactstate.data[i].isResponde !== true) {
+            count++;
+        }
+    }
 
 
     const navigate = useNavigate()
     return (
         <>
             <div className={"contact-btn"}>
-                <button onClick={()=>{
+                <button onClick={() => {
                     navigate('/Dashboard/contact_request')
                 }}>
-                    request {contactstate.data.length}
+                    request {count}
 
                 </button>
             </div>
@@ -59,7 +65,7 @@ const Dashboard = () => {
                         <div className="heading">
                             Account
                         </div>
-                            <img src={account} alt="" height={"200px"} width={"295"}/>
+                        <img src={account} alt="" height={"200px"} width={"295"}/>
                     </Link>
 
 
