@@ -12,7 +12,7 @@ const ResearchviewAll = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(getResearchFormData("Research"))
+        // dispatch(getResearchFormData("Research"))
     }, [])
 
     const { research } = useSelector(state =>
@@ -31,22 +31,22 @@ const ResearchviewAll = () => {
                 </div>
 
 
-                <div className="researchAll-content">
-                    {
-                        (research.isResult) &&
-                        (research.data.map((contentValue, index) => {
-                            return (
-                                <div className="researchAll-card" key={index} onClick={navigateResearchView}>
-                                    <Row lg={4} sm={2} md={4}>
-                                        <Col md={4} sm={2} lg={4}>
-                                            <Card_View content={contentValue} />
-                                        </Col>
-                                    </Row>
-                                </div>
-                            )
-                        }))
-                    }
-                </div>
+                {/*<div className="researchAll-content">*/}
+                {/*    {*/}
+                {/*        (research.isResult) &&*/}
+                {/*        (research.data.map((contentValue, index) => {*/}
+                {/*            return (*/}
+                {/*                <div className="researchAll-card" key={index} onClick={navigateResearchView}>*/}
+                {/*                    <Row lg={4} sm={2} md={4}>*/}
+                {/*                        <Col md={4} sm={2} lg={4}>*/}
+                {/*                            <Card_View content={contentValue} />*/}
+                {/*                        </Col>*/}
+                {/*                    </Row>*/}
+                {/*                </div>*/}
+                {/*            )*/}
+                {/*        }))*/}
+                {/*    }*/}
+                {/*</div>*/}
             </div>
         </>
     );

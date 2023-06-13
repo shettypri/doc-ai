@@ -1,0 +1,35 @@
+
+
+@media only screen and (max-width: 500px){
+    .dash-board{
+        margin-top: 6rem !important;
+        /*border: 3px solid greenyellow;*/
+        margin-bottom: 0px !important;
+
+    }
+    .contact-btn{
+        margin: -27rem -14rem 0 0 !important;
+        width: 100px !important;
+        height: 30px !important;
+    }
+
+    .contact-btn button{
+        font-size: 10px !important;
+    }
+    .heading{
+        font-size: 12px !important;
+    }
+
+    .card-dash {
+        width: 200px !important;
+        height: 150px !important;
+        margin: 0rem 0rem 1rem 0rem !important;
+    }
+
+    .card-dash img {
+        height: 110px !important;
+        width: 197px !important;
+    }
+
+
+}
