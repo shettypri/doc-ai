@@ -1,0 +1,104 @@
+@media only screen  and (max-width: 500px) {
+    .main-form {
+        border: 2px solid red;
+        display: flex !important;
+        margin-top: 15vh !important;
+        justify-content: center !important;
+        align-items: center !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        margin-bottom: 30vh !important;
+        /*flex-wrap: wrap !important;*/
+
+    }
+
+    .form-left {
+        /*border: 2px solid royalblue;*/
+        padding: 2px !important;
+        margin: 20px !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+
+    }
+
+    .form-right {
+        /*border: 2px solid red !important;*/
+        padding: 2px !important;
+        margin: 20px !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+    }
+
+    .font-content {
+        display: flex;
+        flex-direction: column !important;
+        width: 90% !important;
+
+    }
+
+    .form-fields input {
+
+        height: 30px !important;
+        width: 250px !important;
+
+    }
+
+    .form-fields input[type="text"], textarea {
+
+        width: 250px !important;
+    }
+
+    .main-form p {
+
+        font-size: 20px !important;
+        font-weight: 800 !important;
+    }
+
+    .form-fields label {
+
+        font-size: 15px !important;
+    }
+
+    .array-box {
+        border: 2px solid yellow !important;
+        /*border: 2px solid red;*/
+        width: 280px !important;
+    }
+
+    button {
+
+        margin-right: 5px !important;
+        margin-left: 1px !important;
+    }
+
+    .form-button {
+        /*display: block;*/
+        width: 10px !important;
+
+    }
+
+
+    .formSubmit {
+        position: relative !important;
+        font-size: 20px !important;
+        font-weight: 800 !important;
+        width: 130px !important;
+        height: 40px !important;
+    }
+
+    .form-button button {
+        /*border: 2px solid red !important;*/
+        margin-left: -127px !important;
+
+    }
+
+
+    .input-container button {
+        border-radius: 2px !important;
+        right: 20px !important;
+        height: 40px !important;
+        width: 70px !important;
+    }
+
+
+}
