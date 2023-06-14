@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Poppins:wght@500&display=swap');
+@import "mediaForm.css";
+
+
 .main-form {
 	display: flex;
 	margin-top: 15vh;
@@ -51,7 +55,7 @@
 }
 
 .form-fields{
-	/* border: 2px solid yellow; */
+	 /*border: 2px solid yellow;*/
 	margin: 10px;
 	padding: 15px;
 	display: flex;
@@ -67,7 +71,7 @@
 }
 .form-fields input{
 	height: 50px;
-	
+
 }
 .form-fields input[type="text"],textarea{
 	width: 420px;
@@ -120,7 +124,7 @@
 	flex-direction: row;
 	flex-wrap:wrap ;
 	justify-content: space-between;
-	/* border: 2px solid red; */
+	 /*border: 2px solid red;*/
 	width: 400px;
 }
 
