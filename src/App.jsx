@@ -29,6 +29,7 @@ import Researchview from './components/doctor/03_Research/Researchview'
 import ResearchviewAll from './components/doctor/03_Research/ResearchviewAll'
 import UpdateForm from './components/admin/Account/Form/UpdateForm'
 import Contact from "./components/admin/Contact_request/ContactReq.jsx";
+import GridProject from './components/doctor/05_Project/GridProject'
 
 
 
@@ -84,6 +85,7 @@ function App() {
                     <Route exact path='/ResearchviewAll' element={<ResearchviewAll />} />
                     <Route exact path='/UpdateForm' element={<UpdateForm />} />
                     <Route exact path='/Project' element={<Project />} />
+                    <Route exact path='/GProject' element={<GridProject />} />
                     {/* Testing path ends */}
                     {/* <Route exact path='/form' element={<FormPage />}/> */}
 

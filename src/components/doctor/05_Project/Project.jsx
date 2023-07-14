@@ -1,20 +1,21 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import "../../../Styles/doctor/05_Project/Project.css"
-import {RingLoader} from "react-spinners/";
-import {useState} from "react";
+import { RingLoader } from "react-spinners/";
+import { useState } from "react";
 import axios from "axios";
+
 
 const Project = () => {
 
     const [demoImage, setDemoImage] = useState(null);
     const [demoAnswer, setDemoAnswer] = useState("");
 
-    const handleImage = async ()=>{
+    const handleImage = async () => {
         const formData = new FormData();
         formData.append('image', demoImage);
 
         try {
-            const response = await axios.post('http://127.0.0.1:8500/members',   formData, {
+            const response = await axios.post('http://127.0.0.1:8500/members', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
@@ -28,7 +29,7 @@ const Project = () => {
 
     }
     return (
-    <>
+        <>
 
             {/* <div className={"project-main"}>
                 <RingLoader
@@ -50,13 +51,13 @@ const Project = () => {
             <div className={"Demo-project"}>
                 <div className={"demo-input"}>
                     <input type={"file"}
-                           placeholder={"Enter the image"}
-                           // value={demoImage}
-                           onChange={
-                        (e)=>{
-                            setDemoImage(e.target.files[0])
+                        placeholder={"Enter the image"}
+                        // value={demoImage}
+                        onChange={
+                            (e) => {
+                                setDemoImage(e.target.files[0])
+                            }
                         }
-                    }
                     />
                 </div>
 
@@ -71,7 +72,7 @@ const Project = () => {
                         {demoAnswer}
                     </h1>
                 </div>
-            </div>
+            </div>            
         </>
     )
 }
